@@ -1287,7 +1287,7 @@ var ComponentContainer = function (_Component) {
             // Remove from main component item list, since this component is a child component
             window.UX.Page.removeItem(item.getId());
 
-            return this;
+            return item;
         }
     }]);
 
