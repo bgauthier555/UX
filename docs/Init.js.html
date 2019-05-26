@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: Init.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: Init.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import {Page} from "./Page";
+
+/**
+ * Init UX object
+ *
+ * @copyright Benoit Gauthier &lt;bgauthier555@gmail.com>
+ * @author Benoit Gauthier &lt;bgauthier555@gmail.com>
+ * @licence MIT
+ * @param options
+ */
+export function initialize(options) {
+
+
+    /**
+     * Create default page object
+     */
+    if (window.UX == undefined) {
+        window.UX = {};
+    }
+
+    window.UX.version = '1.0.0';
+    window.UX.components = {};
+    window.UX.debug = (options.debug == undefined ? false : options.debug);
+    window.UX.log = function(message) {
+        if (this.debug) {
+            console.log(message);
+        }
+    };
+
+    window.UX.log('UX initialize version ' + window.UX.version);
+
+    window.UX.log('--> loading libraries');
+    window.UX.activeLibrary = (options.activeLibrary == undefined ? 'Html5' : options.activeLibrary);
+    window.UX.libraries = {
+        Html5 : {},
+        Bootstrap_4 : {},
+        Semantic_2_4 : {},
+    };
+
+    window.UX.getLibrary = function() {
+        return this.activeLibrary;
+    }
+
+    window.UX.setLibrary = function(library) {
+        this.activeLibrary = library;
+    }
+
+    window.UX.Page = new Page();
+    window.UX.log('--> active library is ' + window.UX.activeLibrary);
+
+    // Load library decorators
+
+    window.UX.log('--> loading components');
+    let keys = Object.keys(window.UX);
+    for(let x in keys) {
+
+        window.UX.log('  + Analyzing component ' + keys[x]);
+
+        if (window.UX[keys[x]].getMetaData != undefined) {
+
+            if (['component','layout','content'].indexOf(window.UX[keys[x]].getMetaData().category) != -1) {
+                window.UX.log('    * Found Component class');
+                window.UX.components[keys[x]] = window.UX[keys[x]];
+            } else if (['decorator'].indexOf(window.UX[keys[x]].getMetaData().category) != -1) {
+                window.UX.log('    * Found Decorator class');
+                window.UX.libraries[window.UX[keys[x]].getMetaData().library][window.UX[keys[x]].getMetaData().name] =  window.UX[keys[x]];
+            }
+
+        } else {
+            window.UX.log('    ! Not an object');
+        }
+
+
+    }
+
+
+}</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Alert.html">Alert</a></li><li><a href="Anchor.html">Anchor</a></li><li><a href="Bootstrap4_AlertDecorator.html">Bootstrap4_AlertDecorator</a></li><li><a href="Bootstrap4_ColumnDecorator.html">Bootstrap4_ColumnDecorator</a></li><li><a href="Bootstrap4_InputDecorator.html">Bootstrap4_InputDecorator</a></li><li><a href="Bootstrap4_RowDecorator.html">Bootstrap4_RowDecorator</a></li><li><a href="Bootstrap4_TextAreaDecorator.html">Bootstrap4_TextAreaDecorator</a></li><li><a href="Button.html">Button</a></li><li><a href="Checkbox.html">Checkbox</a></li><li><a href="Column.html">Column</a></li><li><a href="Component.html">Component</a></li><li><a href="ComponentContainer.html">ComponentContainer</a></li><li><a href="Container.html">Container</a></li><li><a href="Decorator.html">Decorator</a></li><li><a href="Div.html">Div</a></li><li><a href="Heading.html">Heading</a></li><li><a href="Input.html">Input</a></li><li><a href="Li.html">Li</a></li><li><a href="Ol.html">Ol</a></li><li><a href="Page.html">Page</a></li><li><a href="Paragraph.html">Paragraph</a></li><li><a href="Password.html">Password</a></li><li><a href="Pre.html">Pre</a></li><li><a href="Row.html">Row</a></li><li><a href="Select.html">Select</a></li><li><a href="Semantic24_AlertDecorator.html">Semantic24_AlertDecorator</a></li><li><a href="Semantic24_InputDecorator.html">Semantic24_InputDecorator</a></li><li><a href="Semantic24_TextAreaDecorator.html">Semantic24_TextAreaDecorator</a></li><li><a href="Store.html">Store</a></li><li><a href="TextArea.html">TextArea</a></li><li><a href="Ul.html">Ul</a></li></ul><h3>Global</h3><ul><li><a href="global.html#ALERT_DANGER">ALERT_DANGER</a></li><li><a href="global.html#ALERT_DARK">ALERT_DARK</a></li><li><a href="global.html#ALERT_INFO">ALERT_INFO</a></li><li><a href="global.html#ALERT_LIGHT">ALERT_LIGHT</a></li><li><a href="global.html#ALERT_PRIMARY">ALERT_PRIMARY</a></li><li><a href="global.html#ALERT_SECONDARY">ALERT_SECONDARY</a></li><li><a href="global.html#ALERT_SUCCESS">ALERT_SUCCESS</a></li><li><a href="global.html#ALERT_WARNING">ALERT_WARNING</a></li><li><a href="global.html#initialize">initialize</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.2</a> on Sun May 26 2019 04:55:06 GMT-0400 (GMT-04:00)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
