@@ -51,7 +51,15 @@ class Ol extends ComponentContainer {
                     comments : '',
                 }
             },
-            example : 'let container = new UX.Ol(\'name\');',
+            example : '',
+            codepen : [
+                {
+                    user : 'bgauthier555',
+                    slug : 'YbvyVj',
+                    title : 'Heading example',
+                    height : 400,
+                }
+            ],
         };
 
 

@@ -39,7 +39,7 @@ class Anchor extends ComponentContainer {
          */
         return {
             name : 'Anchor',
-            description : '',
+            description : 'HTML anchor element',
             category : 'content',
             libraries : {
                 Bootstrap_4: {
@@ -51,10 +51,38 @@ class Anchor extends ComponentContainer {
                     comments : '',
                 }
             },
-            example : 'let container = new UX.Anchor(\'name\');',
+            example : '',
+            codepen : [
+                {
+                    user : 'bgauthier555',
+                    slug : 'mYKJNK',
+                    title : 'Alert example',
+                    height : 400,
+                }
+            ],
         };
 
 
+    }
+
+    /**
+     * Sets anchor href
+     * @param href
+     * @returns {Anchor}
+     */
+    setHref(href) {
+        this.setAttribute('href', href);
+        return this;
+    }
+
+    /**
+     * Sets anchor target
+     * @param target _blank|_self|_parent|_top|framename
+     * @returns {Anchor}
+     */
+    setTarget(target) {
+        this.setAttribute('target', target);
+        return this;
     }
 
 

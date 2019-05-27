@@ -72,11 +72,15 @@ class Container extends ComponentContainer {
                     comments : '',
                 }
             },
-            example : 'let container = new UX.Container(\'name\');\n' +
-                      'container.setIsFluid(true);\n\n' +
-                      'let mainRow = container.addRow(\'mainRow\');\n\n' +
-                      'mainRow.addColumn(\'colLeft\',6);\n' +
-                      'mainRow.addColumn(\'colRight\',6);\n'
+            example : '',
+            codepen : [
+                {
+                    user : 'bgauthier555',
+                    slug : 'oRdJZr',
+                    title : 'Container, Row and Column example',
+                    height : 400,
+                }
+            ],
         };
 
 

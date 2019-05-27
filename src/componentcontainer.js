@@ -1,5 +1,6 @@
 import { Component } from './component.js';
 
+
 /**
  * Component container, allows to add multiple child components
  *
@@ -61,6 +62,143 @@ class ComponentContainer extends Component {
 
         return item;
     }
+
+
+    /**
+     * Adds Li item to component
+     * @param id
+     * @returns {UX.Container}
+     */
+    addLi(id) {
+        return this.addItem(new Li(id));
+    }
+
+    /**
+     * Adds Ol item to component
+     * @param id
+     * @returns {UX.Container}
+     */
+    addOl(id) {
+        return this.addItem(new Ol(id));
+    }
+
+    /**
+     * Add Ul item to component
+     * @param id
+     * @returns {UX.Container}
+     */
+    addUl(id) {
+        return this.addItem(new Ul(id));
+    }
+
+    /**
+     * Adds div item to component
+     * @param id
+     * @returns {UX.Container}
+     */
+    addDiv(id) {
+        return this.addItem(new Div(id));
+    }
+
+    /**
+     * Adds anchor item to component
+     * @param id
+     * @returns {UX.Container}
+     */
+    addAnchor(id) {
+        return this.addItem(new Anchor(id));
+    }
+
+    /**
+     * Adds alert item to component
+     * @param id
+     * @returns {UX.Alert}
+     */
+    addAlert(id) {
+        return this.addItem(new Alert(id));
+    }
+
+    /**
+     * Adds button item to component
+     * @param id
+     * @returns {UX.Button}
+     */
+    addButton(id) {
+        return this.addItem(new Button(id));
+    }
+
+    /**
+     * Adds checkbox item to component
+     * @param id
+     * @returns {UX.Checkbox}
+     */
+    addCheckbox(id) {
+        return this.addItem(new Checkbox(id));
+    }
+
+    /**
+     * Adds heading item to component
+     * @param id
+     * @returns {UX.Heading}
+     */
+    addHeading(id) {
+        return this.addItem(new Heading(id));
+    }
+
+    /**
+     * Adds input item to component
+     * @param id
+     * @returns {UX.Input}
+     */
+    addInput(id) {
+        return this.addItem(new Input(id));
+    }
+
+    /**
+     * Adds paragraph item to component
+     * @param id
+     * @returns {UX.Paragraph}
+     */
+    addParagraph(id) {
+        return this.addItem(new Paragraph(id));
+    }
+
+    /**
+     * Adds password item to component
+     * @param id
+     * @returns {UX.Password}
+     */
+    addPassword(id) {
+        return this.addItem(new Password(id));
+    }
+
+    /**
+     * Adds pre item to component
+     * @param id
+     * @returns {UX.Pre}
+     */
+    addPre(id) {
+        return this.addItem(new Pre(id));
+    }
+
+    /**
+     * Adds select item to component
+     * @param id
+     * @returns {UX.Select}
+     */
+    addSelect(id) {
+        return this.addItem(new Select(id));
+    }
+
+    /**
+     * Adds textarea item to component
+     * @param id
+     * @returns {UX.TextArea}
+     */
+    addTextArea(id) {
+        return this.addItem(new TextArea(id));
+    }
+
 
 
 

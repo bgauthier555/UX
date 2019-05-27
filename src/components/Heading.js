@@ -53,7 +53,15 @@ class Heading extends ComponentContainer {
                     comments : '',
                 }
             },
-            example : 'let container = new UX.Heading(\'name\');',
+            example : '',
+            codepen : [
+                {
+                    user : 'bgauthier555',
+                    slug : 'arKvpy',
+                    title : 'Heading example',
+                    height : 400,
+                }
+            ],
         };
 
 

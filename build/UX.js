@@ -769,6 +769,17 @@ var Component = function () {
         }
 
         /**
+         * Alias for addStyle
+         * @param sStyle
+         */
+
+    }, {
+        key: 'setStyle',
+        value: function setStyle(sStyle) {
+            return this.addStyle(sStyle);
+        }
+
+        /**
          * Returns style list
          * @returns {string|string}
          */
@@ -1289,6 +1300,186 @@ var ComponentContainer = function (_Component) {
 
             return item;
         }
+
+        /**
+         * Adds Li item to component
+         * @param id
+         * @returns {UX.Container}
+         */
+
+    }, {
+        key: 'addLi',
+        value: function addLi(id) {
+            return this.addItem(new Li(id));
+        }
+
+        /**
+         * Adds Ol item to component
+         * @param id
+         * @returns {UX.Container}
+         */
+
+    }, {
+        key: 'addOl',
+        value: function addOl(id) {
+            return this.addItem(new Ol(id));
+        }
+
+        /**
+         * Add Ul item to component
+         * @param id
+         * @returns {UX.Container}
+         */
+
+    }, {
+        key: 'addUl',
+        value: function addUl(id) {
+            return this.addItem(new Ul(id));
+        }
+
+        /**
+         * Adds div item to component
+         * @param id
+         * @returns {UX.Container}
+         */
+
+    }, {
+        key: 'addDiv',
+        value: function addDiv(id) {
+            return this.addItem(new Div(id));
+        }
+
+        /**
+         * Adds anchor item to component
+         * @param id
+         * @returns {UX.Container}
+         */
+
+    }, {
+        key: 'addAnchor',
+        value: function addAnchor(id) {
+            return this.addItem(new Anchor(id));
+        }
+
+        /**
+         * Adds alert item to component
+         * @param id
+         * @returns {UX.Alert}
+         */
+
+    }, {
+        key: 'addAlert',
+        value: function addAlert(id) {
+            return this.addItem(new Alert(id));
+        }
+
+        /**
+         * Adds button item to component
+         * @param id
+         * @returns {UX.Button}
+         */
+
+    }, {
+        key: 'addButton',
+        value: function addButton(id) {
+            return this.addItem(new Button(id));
+        }
+
+        /**
+         * Adds checkbox item to component
+         * @param id
+         * @returns {UX.Checkbox}
+         */
+
+    }, {
+        key: 'addCheckbox',
+        value: function addCheckbox(id) {
+            return this.addItem(new Checkbox(id));
+        }
+
+        /**
+         * Adds heading item to component
+         * @param id
+         * @returns {UX.Heading}
+         */
+
+    }, {
+        key: 'addHeading',
+        value: function addHeading(id) {
+            return this.addItem(new Heading(id));
+        }
+
+        /**
+         * Adds input item to component
+         * @param id
+         * @returns {UX.Input}
+         */
+
+    }, {
+        key: 'addInput',
+        value: function addInput(id) {
+            return this.addItem(new Input(id));
+        }
+
+        /**
+         * Adds paragraph item to component
+         * @param id
+         * @returns {UX.Paragraph}
+         */
+
+    }, {
+        key: 'addParagraph',
+        value: function addParagraph(id) {
+            return this.addItem(new Paragraph(id));
+        }
+
+        /**
+         * Adds password item to component
+         * @param id
+         * @returns {UX.Password}
+         */
+
+    }, {
+        key: 'addPassword',
+        value: function addPassword(id) {
+            return this.addItem(new Password(id));
+        }
+
+        /**
+         * Adds pre item to component
+         * @param id
+         * @returns {UX.Pre}
+         */
+
+    }, {
+        key: 'addPre',
+        value: function addPre(id) {
+            return this.addItem(new Pre(id));
+        }
+
+        /**
+         * Adds select item to component
+         * @param id
+         * @returns {UX.Select}
+         */
+
+    }, {
+        key: 'addSelect',
+        value: function addSelect(id) {
+            return this.addItem(new Select(id));
+        }
+
+        /**
+         * Adds textarea item to component
+         * @param id
+         * @returns {UX.TextArea}
+         */
+
+    }, {
+        key: 'addTextArea',
+        value: function addTextArea(id) {
+            return this.addItem(new TextArea(id));
+        }
     }]);
 
     return ComponentContainer;
@@ -1586,7 +1777,33 @@ var Anchor = function (_ComponentContainer) {
      */
 
 
-    _createClass(Anchor, null, [{
+    _createClass(Anchor, [{
+        key: 'setHref',
+
+
+        /**
+         * Sets anchor href
+         * @param href
+         * @returns {Anchor}
+         */
+        value: function setHref(href) {
+            this.setAttribute('href', href);
+            return this;
+        }
+
+        /**
+         * Sets anchor target
+         * @param target _blank|_self|_parent|_top|framename
+         * @returns {Anchor}
+         */
+
+    }, {
+        key: 'setTarget',
+        value: function setTarget(target) {
+            this.setAttribute('target', target);
+            return this;
+        }
+    }], [{
         key: 'getMetaData',
         value: function getMetaData() {
 
@@ -1598,7 +1815,7 @@ var Anchor = function (_ComponentContainer) {
              */
             return {
                 name: 'Anchor',
-                description: '',
+                description: 'HTML anchor element',
                 category: 'content',
                 libraries: {
                     Bootstrap_4: {
@@ -1610,7 +1827,13 @@ var Anchor = function (_ComponentContainer) {
                         comments: ''
                     }
                 },
-                example: 'let container = new UX.Anchor(\'name\');'
+                example: '',
+                codepen: [{
+                    user: 'bgauthier555',
+                    slug: 'mYKJNK',
+                    title: 'Alert example',
+                    height: 400
+                }]
             };
         }
     }]);
@@ -2056,7 +2279,13 @@ var Container = function (_ComponentContainer) {
                         comments: ''
                     }
                 },
-                example: 'let container = new UX.Container(\'name\');\n' + 'container.setIsFluid(true);\n\n' + 'let mainRow = container.addRow(\'mainRow\');\n\n' + 'mainRow.addColumn(\'colLeft\',6);\n' + 'mainRow.addColumn(\'colRight\',6);\n'
+                example: '',
+                codepen: [{
+                    user: 'bgauthier555',
+                    slug: 'oRdJZr',
+                    title: 'Container, Row and Column example',
+                    height: 400
+                }]
             };
         }
     }]);
@@ -2139,7 +2368,7 @@ var Div = function (_ComponentContainer) {
              */
             return {
                 name: 'Div',
-                description: '',
+                description: 'HTML Div element',
                 category: 'content',
                 libraries: {
                     Bootstrap_4: {
@@ -2151,7 +2380,13 @@ var Div = function (_ComponentContainer) {
                         comments: ''
                     }
                 },
-                example: 'let container = new UX.Div(\'name\');'
+                example: '',
+                codepen: [{
+                    user: 'bgauthier555',
+                    slug: 'NVzGRQ',
+                    title: 'Div example',
+                    height: 400
+                }]
             };
         }
     }]);
@@ -2272,7 +2507,13 @@ var Heading = function (_ComponentContainer) {
                         comments: ''
                     }
                 },
-                example: 'let container = new UX.Heading(\'name\');'
+                example: '',
+                codepen: [{
+                    user: 'bgauthier555',
+                    slug: 'arKvpy',
+                    title: 'Heading example',
+                    height: 400
+                }]
             };
         }
     }]);
@@ -2505,7 +2746,7 @@ var Li = function (_ComponentContainer) {
                         comments: ''
                     }
                 },
-                example: 'let container = new UX.Li(\'name\');'
+                example: '@see Ol example'
             };
         }
     }]);
@@ -2600,7 +2841,13 @@ var Ol = function (_ComponentContainer) {
                         comments: ''
                     }
                 },
-                example: 'let container = new UX.Ol(\'name\');'
+                example: '',
+                codepen: [{
+                    user: 'bgauthier555',
+                    slug: 'YbvyVj',
+                    title: 'Heading example',
+                    height: 400
+                }]
             };
         }
     }]);
@@ -3373,7 +3620,7 @@ var Ul = function (_ComponentContainer) {
                         comments: ''
                     }
                 },
-                example: 'let container = new UX.Ul(\'name\');'
+                example: '@see Ol example'
             };
         }
     }]);

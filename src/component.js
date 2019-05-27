@@ -418,6 +418,14 @@ class Component {
     }
 
     /**
+     * Alias for addStyle
+     * @param sStyle
+     */
+    setStyle(sStyle) {
+        return this.addStyle(sStyle);
+    }
+
+    /**
      * Returns style list
      * @returns {string|string}
      */

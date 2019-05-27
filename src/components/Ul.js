@@ -51,7 +51,7 @@ class Ul extends ComponentContainer {
                     comments : '',
                 }
             },
-            example : 'let container = new UX.Ul(\'name\');',
+            example : '@see Ol example',
         };
 
 

@@ -1,13 +1,13 @@
 {
   "name": "ux-common-interface",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "UI abstraction layer for common libraries (Bootstrap, ...)",
   "main": "src/index.js",
   "directories": {
     "doc": "docs"
   },
   "scripts": {
-    "doc": "jsdoc -r ./src README.md -d docs",
+    "doc": "jsdoc -r ./src README.md -d jsdocs",
     "test": "jest",
     "build": "webpack"
   },

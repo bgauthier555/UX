@@ -50,7 +50,7 @@ class Li extends ComponentContainer {
                     comments : '',
                 }
             },
-            example : 'let container = new UX.Li(\'name\');',
+            example : '@see Ol example',
         };
 
 

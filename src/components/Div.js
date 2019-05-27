@@ -39,7 +39,7 @@ class Div extends ComponentContainer {
          */
         return {
             name : 'Div',
-            description : '',
+            description : 'HTML Div element',
             category : 'content',
             libraries : {
                 Bootstrap_4: {
@@ -51,7 +51,15 @@ class Div extends ComponentContainer {
                     comments : '',
                 }
             },
-            example : 'let container = new UX.Div(\'name\');',
+            example : '',
+            codepen : [
+                {
+                    user : 'bgauthier555',
+                    slug : 'NVzGRQ',
+                    title : 'Div example',
+                    height : 400,
+                }
+            ],
         };
 
 
