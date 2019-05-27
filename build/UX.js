@@ -161,7 +161,7 @@ function initialize(options) {
         window.UX = {};
     }
 
-    window.UX.version = '1.0.0';
+    window.UX.version = '1.0.3';
     window.UX.components = {};
     window.UX.debug = options.debug == undefined ? false : options.debug;
     window.UX.log = function (message) {
@@ -1220,6 +1220,8 @@ var _get = function get(object, property, receiver) { if (object === null) objec
 
 var _component = __webpack_require__(/*! ./component.js */ "./src/component.js");
 
+var _index = __webpack_require__(/*! ./index */ "./src/index.js");
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -1310,7 +1312,7 @@ var ComponentContainer = function (_Component) {
     }, {
         key: 'addLi',
         value: function addLi(id) {
-            return this.addItem(new Li(id));
+            return this.addItem(new _index.Li(id));
         }
 
         /**
@@ -1322,7 +1324,7 @@ var ComponentContainer = function (_Component) {
     }, {
         key: 'addOl',
         value: function addOl(id) {
-            return this.addItem(new Ol(id));
+            return this.addItem(new _index.Ol(id));
         }
 
         /**
@@ -1334,7 +1336,7 @@ var ComponentContainer = function (_Component) {
     }, {
         key: 'addUl',
         value: function addUl(id) {
-            return this.addItem(new Ul(id));
+            return this.addItem(new _index.Ul(id));
         }
 
         /**
@@ -1346,7 +1348,7 @@ var ComponentContainer = function (_Component) {
     }, {
         key: 'addDiv',
         value: function addDiv(id) {
-            return this.addItem(new Div(id));
+            return this.addItem(new _index.Div(id));
         }
 
         /**
@@ -1358,127 +1360,127 @@ var ComponentContainer = function (_Component) {
     }, {
         key: 'addAnchor',
         value: function addAnchor(id) {
-            return this.addItem(new Anchor(id));
+            return this.addItem(new _index.Anchor(id));
         }
 
         /**
          * Adds alert item to component
          * @param id
-         * @returns {UX.Alert}
+         * @returns {UX.Container}
          */
 
     }, {
         key: 'addAlert',
         value: function addAlert(id) {
-            return this.addItem(new Alert(id));
+            return this.addItem(new _index.Alert(id));
         }
 
         /**
          * Adds button item to component
          * @param id
-         * @returns {UX.Button}
+         * @returns {UX.Container}
          */
 
     }, {
         key: 'addButton',
         value: function addButton(id) {
-            return this.addItem(new Button(id));
+            return this.addItem(new _index.Button(id));
         }
 
         /**
          * Adds checkbox item to component
          * @param id
-         * @returns {UX.Checkbox}
+         * @returns {UX.Container}
          */
 
     }, {
         key: 'addCheckbox',
         value: function addCheckbox(id) {
-            return this.addItem(new Checkbox(id));
+            return this.addItem(new _index.Checkbox(id));
         }
 
         /**
          * Adds heading item to component
          * @param id
-         * @returns {UX.Heading}
+         * @returns {UX.Container}
          */
 
     }, {
         key: 'addHeading',
         value: function addHeading(id) {
-            return this.addItem(new Heading(id));
+            return this.addItem(new _index.Heading(id));
         }
 
         /**
          * Adds input item to component
          * @param id
-         * @returns {UX.Input}
+         * @returns {UX.Container}
          */
 
     }, {
         key: 'addInput',
         value: function addInput(id) {
-            return this.addItem(new Input(id));
+            return this.addItem(new _index.Input(id));
         }
 
         /**
          * Adds paragraph item to component
          * @param id
-         * @returns {UX.Paragraph}
+         * @returns {UX.Container}
          */
 
     }, {
         key: 'addParagraph',
         value: function addParagraph(id) {
-            return this.addItem(new Paragraph(id));
+            return this.addItem(new _index.Paragraph(id));
         }
 
         /**
          * Adds password item to component
          * @param id
-         * @returns {UX.Password}
+         * @returns {UX.Container}
          */
 
     }, {
         key: 'addPassword',
         value: function addPassword(id) {
-            return this.addItem(new Password(id));
+            return this.addItem(new _index.Password(id));
         }
 
         /**
          * Adds pre item to component
          * @param id
-         * @returns {UX.Pre}
+         * @returns {UX.Container}
          */
 
     }, {
         key: 'addPre',
         value: function addPre(id) {
-            return this.addItem(new Pre(id));
+            return this.addItem(new _index.Pre(id));
         }
 
         /**
          * Adds select item to component
          * @param id
-         * @returns {UX.Select}
+         * @returns {UX.Container}
          */
 
     }, {
         key: 'addSelect',
         value: function addSelect(id) {
-            return this.addItem(new Select(id));
+            return this.addItem(new _index.Select(id));
         }
 
         /**
          * Adds textarea item to component
          * @param id
-         * @returns {UX.TextArea}
+         * @returns {UX.Container}
          */
 
     }, {
         key: 'addTextArea',
         value: function addTextArea(id) {
-            return this.addItem(new TextArea(id));
+            return this.addItem(new _index.TextArea(id));
         }
     }]);
 

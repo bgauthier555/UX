@@ -1,5 +1,20 @@
 import { Component } from './component.js';
-
+import {
+    Alert,
+    Anchor,
+    Button, Checkbox,
+    Div,
+    Heading,
+    Input,
+    Li,
+    Ol,
+    Paragraph,
+    Password,
+    Pre,
+    Select,
+    TextArea,
+    Ul
+} from "./index";
 
 /**
  * Component container, allows to add multiple child components
@@ -112,7 +127,7 @@ class ComponentContainer extends Component {
     /**
      * Adds alert item to component
      * @param id
-     * @returns {UX.Alert}
+     * @returns {UX.Container}
      */
     addAlert(id) {
         return this.addItem(new Alert(id));
@@ -121,7 +136,7 @@ class ComponentContainer extends Component {
     /**
      * Adds button item to component
      * @param id
-     * @returns {UX.Button}
+     * @returns {UX.Container}
      */
     addButton(id) {
         return this.addItem(new Button(id));
@@ -130,7 +145,7 @@ class ComponentContainer extends Component {
     /**
      * Adds checkbox item to component
      * @param id
-     * @returns {UX.Checkbox}
+     * @returns {UX.Container}
      */
     addCheckbox(id) {
         return this.addItem(new Checkbox(id));
@@ -139,7 +154,7 @@ class ComponentContainer extends Component {
     /**
      * Adds heading item to component
      * @param id
-     * @returns {UX.Heading}
+     * @returns {UX.Container}
      */
     addHeading(id) {
         return this.addItem(new Heading(id));
@@ -148,7 +163,7 @@ class ComponentContainer extends Component {
     /**
      * Adds input item to component
      * @param id
-     * @returns {UX.Input}
+     * @returns {UX.Container}
      */
     addInput(id) {
         return this.addItem(new Input(id));
@@ -157,7 +172,7 @@ class ComponentContainer extends Component {
     /**
      * Adds paragraph item to component
      * @param id
-     * @returns {UX.Paragraph}
+     * @returns {UX.Container}
      */
     addParagraph(id) {
         return this.addItem(new Paragraph(id));
@@ -166,7 +181,7 @@ class ComponentContainer extends Component {
     /**
      * Adds password item to component
      * @param id
-     * @returns {UX.Password}
+     * @returns {UX.Container}
      */
     addPassword(id) {
         return this.addItem(new Password(id));
@@ -175,7 +190,7 @@ class ComponentContainer extends Component {
     /**
      * Adds pre item to component
      * @param id
-     * @returns {UX.Pre}
+     * @returns {UX.Container}
      */
     addPre(id) {
         return this.addItem(new Pre(id));
@@ -184,7 +199,7 @@ class ComponentContainer extends Component {
     /**
      * Adds select item to component
      * @param id
-     * @returns {UX.Select}
+     * @returns {UX.Container}
      */
     addSelect(id) {
         return this.addItem(new Select(id));
@@ -193,7 +208,7 @@ class ComponentContainer extends Component {
     /**
      * Adds textarea item to component
      * @param id
-     * @returns {UX.TextArea}
+     * @returns {UX.Container}
      */
     addTextArea(id) {
         return this.addItem(new TextArea(id));
