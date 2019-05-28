@@ -55,9 +55,12 @@
     $(document).ready(function() {
 
         UX.initialize({
-            activeLibrary : 'Bootstrap_4',
+            activeLibrary : 'Html5',
+            missingFeature: UX.MISSING_FEATURE_PATCH,
             debug: true,
         });
+
+        let ctn = new UX.Container('testError');
 
 
         let btn = new UX.Button('zone');

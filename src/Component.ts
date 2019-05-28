@@ -5,7 +5,7 @@
  * @author Benoit Gauthier <bgauthier555@gmail.com>
  * @licence MIT
  */
-import {Store} from "./index";
+import {MISSING_FEATURE_ERROR, MISSING_FEATURE_PATCH, MISSING_FEATURE_WARNING, Store} from "./index";
 
 class Component {
 
@@ -76,10 +76,6 @@ class Component {
      */
     protected label: string = null;
 
-    /**
-     * Required library/ies for this component
-     */
-    protected requiresLibrary: any = {};
 
     /**
      * Icon, used to display in some components
@@ -260,9 +256,37 @@ class Component {
     }
 
     /**
+     *
+     * @param metaData
+     */
+    public checkIfFeatureIsSupported(metaData: any) : boolean {
+
+        // @ts-ignore
+        if (metaData.libraries[window.UX.activeLibrary].supported) {
+            return true;
+        } else {
+
+            // @ts-ignore
+            if (window.UX.missingFeature == MISSING_FEATURE_ERROR) {
+                // @ts-ignore
+                throw 'Unsupported feature ' + metaData.name + ' when using library ' + window.UX.activeLibrary;
+                // @ts-ignore
+            } else if (window.UX.missingFeature == MISSING_FEATURE_WARNING) {
+                // @ts-ignore
+                window.UX.warn( 'Unsupported feature ' + metaData.name + ' when using library ' + window.UX.activeLibrary );
+                // @ts-ignore
+            } else if (window.UX.missingFeature == MISSING_FEATURE_PATCH) {
+
+            }
+
+            return false;
+        }
+    }
+
+    /**
      * Component init
      */
-    init()
+    public init() : void
     {
 
         if (this.isInitialized) {
@@ -788,14 +812,6 @@ class Component {
     {
 
         /**
-         * Checks if component requires a specific library
-         */
-        // @ts-ignore
-        if (this.requiresLibrary != null && this.requiresLibrary != window.UX.activeLibrary) {
-            console.warn('Component ' + this.getId() + ' requires library ' + this.requiresLibrary);
-        }
-
-        /**
          * Check if we have a decorator for this component
          */
         // @ts-ignore
@@ -855,6 +871,15 @@ class Component {
 
 
         return sComponentHTML;
+    }
+
+    /**
+     * Add CSS and JS code required to patch this component
+     */
+    public static patchComponent(metaData: any) : void
+    {
+        // @ts-ignore
+        window.UX.log('    * No patch for component ' + metaData.name)
     }
 
 }

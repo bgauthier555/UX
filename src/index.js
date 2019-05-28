@@ -10,11 +10,15 @@ export { Decorator };
 import { Page } from './Page';
 export { Page };
 
+import { Patch } from "./Patch";
+export { Patch };
+
 import { Component } from './Component';
 export { Component };
 
 import { ComponentContainer } from './ComponentContainer';
 export { ComponentContainer };
+
 
 import { Input } from './components/Input';
 export { Input };
@@ -185,5 +189,6 @@ export { Semantic24_InputDecorator };
 import { Semantic24_TextAreaDecorator } from "./libraries/semantic2.4/components/TextAreaDecorator";
 export { Semantic24_TextAreaDecorator };
 
-import { initialize } from "./Init";
-export { initialize };
+
+import { MISSING_FEATURE_ERROR, MISSING_FEATURE_PATCH, MISSING_FEATURE_WARNING, initialize } from "./Init";
+export { MISSING_FEATURE_ERROR, MISSING_FEATURE_PATCH, MISSING_FEATURE_WARNING, initialize };

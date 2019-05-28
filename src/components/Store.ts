@@ -31,7 +31,7 @@ class Store {
          */
         return {
             name : 'Store',
-            description : '',
+            description : 'Data store',
             category : 'component',
             libraries : {
                 Bootstrap_4: {
@@ -48,6 +48,14 @@ class Store {
 
 
     }
+
+    /**
+     * Nothing to do for now.
+     * @param metaData
+     */
+    public static patchComponent(metaData: any) : void
+    {}
+
 }
 
 export { Store };

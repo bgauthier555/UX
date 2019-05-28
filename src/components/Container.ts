@@ -1,6 +1,7 @@
 import { ComponentContainer } from '../ComponentContainer';
 import {Row} from "./Row";
 import {Component} from "../Component";
+import {LIBRARY_HTML5} from "../Init";
 
 /**
  * container component
@@ -25,33 +26,14 @@ class Container extends ComponentContainer {
      */
     constructor(id: string)
     {
-
         super(id);
+
+        super.checkIfFeatureIsSupported(Container.getMetaData());
 
         // noinspection HtmlUnknownAttribute
         this.template = '<div {attributes}>{child_items}</div>';
         this.componentClassName = 'Container';
 
-    }
-
-    /**
-     * Returns if container is fluid dor not
-     * @returns {boolean}
-     */
-    public getIsFluid() : boolean
-    {
-        return this.isFluid;
-    }
-
-    /**
-     * Sets if container is fluid or not
-     * @param isFluid
-     * @returns {Container}
-     */
-    public setIsFluid(isFluid: boolean) : Container
-    {
-        this.isFluid = isFluid;
-        return this;
     }
 
     /**
@@ -96,6 +78,28 @@ class Container extends ComponentContainer {
     }
 
     /**
+     * Returns if container is fluid dor not
+     * @returns {boolean}
+     */
+    public getIsFluid() : boolean
+    {
+        return this.isFluid;
+    }
+
+    /**
+     * Sets if container is fluid or not
+     * @param isFluid
+     * @returns {Container}
+     */
+    public setIsFluid(isFluid: boolean) : Container
+    {
+        this.isFluid = isFluid;
+        return this;
+    }
+
+
+
+    /**
      * Add a row to the container
      * @param id
      * @returns {Component}
@@ -104,6 +108,7 @@ class Container extends ComponentContainer {
     {
         return this.addItem(new Row(id));
     }
+
 
 
 }

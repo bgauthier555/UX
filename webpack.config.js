@@ -1,18 +1,21 @@
 var path = require('path');
 var webpack = require('webpack');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
-    entry: './src/index.js',
+    entry: {
+        UX: './src/index.js',
+    },
     mode : 'development',
     output: {
         path: path.resolve(__dirname, 'build'),
-        filename: 'UX.js',
+        filename: '[name].js',
         library: 'UX',
         libraryTarget: "umd",
         umdNamedDefine: true
     },
     plugins :[
-
+        new CleanWebpackPlugin(),
     ],
     resolve: {
         extensions: ['.ts', '.js', '.json']
@@ -22,6 +25,7 @@ module.exports = {
             {
                 test: /\.js$/,
                 loader: 'babel-loader',
+                exclude: /patch/,
                 query: {
                     presets: ['es2015']
                 }
@@ -30,6 +34,13 @@ module.exports = {
                 test: /\.tsx?$/,
                 use: 'ts-loader',
                 exclude: /node_modules/
+            },
+            {
+                test: /\.css$/,
+                use: [
+                    'style-loader',
+                    'css-loader'
+                ],
             }
         ]
     },
