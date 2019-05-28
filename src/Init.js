@@ -18,7 +18,7 @@ export function initialize(options) {
         window.UX = {};
     }
 
-    window.UX.version = '1.0.3';
+    window.UX.version = '1.0.4';
     window.UX.components = {};
     window.UX.debug = (options.debug == undefined ? false : options.debug);
     window.UX.log = function(message) {

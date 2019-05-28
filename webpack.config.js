@@ -11,6 +11,12 @@ module.exports = {
         libraryTarget: "umd",
         umdNamedDefine: true
     },
+    plugins :[
+
+    ],
+    resolve: {
+        extensions: ['.ts', '.js', '.json']
+    },
     module: {
         rules: [
             {
@@ -19,6 +25,11 @@ module.exports = {
                 query: {
                     presets: ['es2015']
                 }
+            },
+            {
+                test: /\.tsx?$/,
+                use: 'ts-loader',
+                exclude: /node_modules/
             }
         ]
     },

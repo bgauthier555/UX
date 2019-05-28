@@ -61,8 +61,10 @@ function renderClassDocumentation(category, container) {
         if (UX.components[x].getMetaData().category == category) {
             s = s + '<h3>' + UX.components[x].getMetaData().name + '</h3>';
             s = s + '<p>' + UX.components[x].getMetaData().description + '</p>';
-            //s = s + '<h5>Example code</h5>';
-            //s = s + '<pre><code>' + UX.components[x].getMetaData().example + '</code></pre>';
+            if (UX.components[x].getMetaData().example) {
+                s = s + '<h5>Example</h5>';
+                s = s + '<pre><code>' + UX.components[x].getMetaData().example + '</code></pre>';
+            }
 
             if (metaData.codepen != undefined) {
                 if (metaData.codepen.length > 0) {

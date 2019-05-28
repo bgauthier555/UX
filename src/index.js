@@ -4,73 +4,152 @@
  * @author Benoit Gauthier <bgauthier555@gmail.com>
  * @licence MIT
  */
-import { Decorator } from './Decorator.js';
+import { Decorator } from './Decorator';
 export { Decorator };
 
-import { Page } from './Page.js';
+import { Page } from './Page';
 export { Page };
 
-import { Component } from './component.js';
+import { Component } from './Component';
 export { Component };
 
-import { ComponentContainer } from './componentcontainer.js';
+import { ComponentContainer } from './ComponentContainer';
 export { ComponentContainer };
 
-import { Input } from './components/Input.js';
+import { Input } from './components/Input';
 export { Input };
 
-import { Alert, ALERT_PRIMARY, ALERT_SECONDARY, ALERT_DANGER, ALERT_DARK, ALERT_INFO, ALERT_LIGHT, ALERT_SUCCESS, ALERT_WARNING } from './components/Alert.js';
+import { Alert, ALERT_PRIMARY, ALERT_SECONDARY, ALERT_DANGER, ALERT_DARK, ALERT_INFO, ALERT_LIGHT, ALERT_SUCCESS, ALERT_WARNING } from './components/Alert';
 export { Alert, ALERT_PRIMARY, ALERT_SECONDARY, ALERT_DANGER, ALERT_DARK, ALERT_INFO, ALERT_LIGHT, ALERT_SUCCESS, ALERT_WARNING };
 
-import { Anchor } from './components/Anchor.js';
+import { Anchor } from './components/Anchor';
 export { Anchor };
 
-import { Button } from './components/Button.js';
-export { Button };
+import { Button,
+        BUTTON_DANGER,
+        BUTTON_BLOCK,
+        BUTTON_DARK,
+        BUTTON_INFO,
+        BUTTON_LARGE,
+        BUTTON_LIGHT,
+        BUTTON_LINK,
+        BUTTON_OUTLINE_DANGER,
+        BUTTON_OUTLINE_DARK,
+        BUTTON_OUTLINE_INFO,
+        BUTTON_OUTLINE_LIGHT,
+        BUTTON_OUTLINE_PRIMARY,
+        BUTTON_OUTLINE_SECONDARY,
+        BUTTON_OUTLINE_SUCCESS,
+        BUTTON_OUTLINE_WARNING,
+        BUTTON_PRIMARY,
+        BUTTON_SECONDARY,
+        BUTTON_SMALL,
+        BUTTON_SUCCESS,
+        BUTTON_WARNING,
+        BUTTONTYPE_BUTTON,
+        BUTTONTYPE_RESET,
+        BUTTONTYPE_SUBMIT} from './components/Button';
+export { Button,BUTTON_DANGER,
+        BUTTON_BLOCK,
+        BUTTON_DARK,
+        BUTTON_INFO,
+        BUTTON_LARGE,
+        BUTTON_LIGHT,
+        BUTTON_LINK,
+        BUTTON_OUTLINE_DANGER,
+        BUTTON_OUTLINE_DARK,
+        BUTTON_OUTLINE_INFO,
+        BUTTON_OUTLINE_LIGHT,
+        BUTTON_OUTLINE_PRIMARY,
+        BUTTON_OUTLINE_SECONDARY,
+        BUTTON_OUTLINE_SUCCESS,
+        BUTTON_OUTLINE_WARNING,
+        BUTTON_PRIMARY,
+        BUTTON_SECONDARY,
+        BUTTON_SMALL,
+        BUTTON_SUCCESS,
+        BUTTON_WARNING,
+        BUTTONTYPE_BUTTON,
+        BUTTONTYPE_RESET,
+        BUTTONTYPE_SUBMIT};
 
-import { Container } from './components/Container.js';
+import { Container } from './components/Container';
 export { Container };
 
-import { Checkbox } from './components/Checkbox.js';
+import { Checkbox } from './components/Checkbox';
 export { Checkbox };
 
-import { Column } from './components/Column.js';
+import { Column } from './components/Column';
 export { Column };
 
-import { Div } from './components/Div.js';
+import { DateInput } from './components/DateInput';
+export { DateInput };
+
+import { Dialog } from './components/Dialog';
+export { Dialog };
+
+import { Div } from './components/Div';
 export { Div };
 
-import { Heading } from './components/Heading.js';
+import { Form,
+         ENCODING_MULTIPART_FORM_DATA,
+         ENCODING_TEXT_PLAIN,
+         ENCODING_URLENCODING,
+         FORM_METHOD_GET,
+         FORM_METHOD_POST} from "./components/Form";
+export { Form,
+         ENCODING_TEXT_PLAIN,
+         ENCODING_URLENCODING,
+         ENCODING_MULTIPART_FORM_DATA,
+         FORM_METHOD_GET,
+         FORM_METHOD_POST};
+
+import { Heading } from './components/Heading';
 export { Heading };
 
-import { Ol } from './components/Ol.js';
+import { Icon } from "./components/Icon";
+export { Icon };
+
+import { Image } from "./components/Image";
+export { Image };
+
+import { Label } from "./components/Label";
+export { Label };
+
+import { Option } from "./components/Option";
+export { Option };
+
+import { Ol } from './components/Ol';
 export { Ol };
 
-import { Ul } from './components/Ul.js';
+import { Ul } from './components/Ul';
 export { Ul };
 
-import { Li } from './components/Li.js';
+import { Li } from './components/Li';
 export { Li };
 
-import { Paragraph } from './components/Paragraph.js';
+import { Paragraph } from './components/Paragraph';
 export { Paragraph };
 
-import { Password } from './components/Password.js';
+import { Password } from './components/Password';
 export { Password };
 
-import { Pre } from './components/Pre.js';
+import { Pre } from './components/Pre';
 export { Pre };
 
-import { Row } from './components/Row.js';
+import { Radio } from "./components/Radio";
+export { Radio };
+
+import { Row } from './components/Row';
 export { Row };
 
-import { Select } from './components/Select.js';
+import { Select } from './components/Select';
 export { Select };
 
-import { Store } from './components/Store.js';
+import { Store } from './components/Store';
 export { Store };
 
-import { TextArea } from './components/TextArea.js';
+import { TextArea } from './components/TextArea';
 export { TextArea };
 
 /**
