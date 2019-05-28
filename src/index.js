@@ -4,6 +4,9 @@
  * @author Benoit Gauthier <bgauthier555@gmail.com>
  * @licence MIT
  */
+import { FontAwesome} from "./FontAwesome";
+export { FontAwesome };
+
 import { Decorator } from './Decorator';
 export { Decorator };
 
@@ -110,6 +113,9 @@ export { Form,
 
 import { Heading } from './components/Heading';
 export { Heading };
+
+import { Hr } from "./components/Hr";
+export { Hr };
 
 import { Icon } from "./components/Icon";
 export { Icon };
