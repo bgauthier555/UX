@@ -1,35 +1,8 @@
 import {Page} from "./Page";
 import {Patch} from "./Patch";
+import { enumMissingFeature } from "./UX";
 
 
-/**
- * Indicates an error will be thrown if the requested feature is not possible
- * @type {string}
- */
-export const MISSING_FEATURE_ERROR = "missing-feature-error";
-/**
- * Indicates a warning message will be logged in console if requested feature is not possible
- * @type {string}
- */
-export const MISSING_FEATURE_WARNING = "missing-feature-warning";
-/**
- * Indicates patch css and js files will be loaded in order to try and offer a similar user experience
- * If the is not possible, an error will be thrown
- * @type {string}
- */
-export const MISSING_FEATURE_PATCH = "missing-feature-patch";
-
-
-/**
- * Standard Html
- * @type {string}
- */
-export const LIBRARY_HTML5 = 'Html5';
-/**
- * Twitter Bootstrap version 4.X
- * @type {string}
- */
-export const LIBRARY_BOOTSTRAP_4 = 'Bootstrap_4';
 
 
 /**
@@ -52,7 +25,7 @@ export function initialize(options) {
 
     window.UX.version = '1.0.4';
     window.UX.components = {};
-    window.UX.missingFeature = (options.missingFeature == undefined ? MISSING_FEATURE_ERROR : options.missingFeature);
+    window.UX.missingFeature = (options.missingFeature == undefined ? enumMissingFeature.ERROR : options.missingFeature);
     window.UX.debug = (options.debug == undefined ? false : options.debug);
     window.UX.log = function(message) {
         if (this.debug) {

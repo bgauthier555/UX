@@ -93,6 +93,25 @@ class Bootstrap4_AlertDecorator extends Decorator {
             $('#' + this.getId()).alert('close');
         };
 
+        /**
+         * This event fires immediately when the close instance method is called.
+         * @param callback
+         */
+        component.onAlertClose = function(callback: any) {
+
+            $('#' + this.getId()).on('close.bs.alert', callback);
+            return this;
+        };
+
+        /**
+         * This event is fired when the alert has been closed (will wait for CSS transitions to complete).
+         * @param callback
+         */
+        component.onAlertClosed = function(callback: any) {
+            $('#' + this.getId()).on('closed.bs.alert', callback);
+            return this;
+        };
+
         return component;
     }
 

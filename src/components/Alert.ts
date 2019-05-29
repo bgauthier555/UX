@@ -1,45 +1,52 @@
-/**
- * Primary alert type, bootstrap 4
- * @type {string}
- */
-export const ALERT_PRIMARY = "alert-primary";
-/**
- * Secondary alert type, bootstrap 4
- * @type {string}
- */
-export const ALERT_SECONDARY = "alert-secondary";
-/**
- * Success alert type, bootstrap 4
- * @type {string}
- */
-export const ALERT_SUCCESS = "alert-success";
-/**
- * Danger alert type, bootstrap 4
- * @type {string}
- */
-export const ALERT_DANGER = "alert-danger";
-/**
- * Warning alert type, bootstrap 4
- * @type {string}
- */
-export const ALERT_WARNING = "alert-warning";
-/**
- * Info alert type, bootstrap 4
- * @type {string}
- */
-export const ALERT_INFO = "alert-info";
-/**
- * Light alert type, bootstrap 4
- * @type {string}
- */
-export const ALERT_LIGHT = "alert-light";
-/**
- * Dark alert type, bootstrap 4
- * @type {string}
- */
-export const ALERT_DARK = "alert-dark";
-
 import { Component } from '../Component';
+
+export enum enumAlertType {
+
+    /**
+     * Primary alert type, bootstrap 4
+     * @type {string}
+     */
+    ALERT_PRIMARY = "alert-primary",
+    /**
+     * Secondary alert type, bootstrap 4
+     * @type {string}
+     */
+    ALERT_SECONDARY = "alert-secondary",
+    /**
+     * Success alert type, bootstrap 4
+     * @type {string}
+     */
+    ALERT_SUCCESS = "alert-success",
+    /**
+     * Danger alert type, bootstrap 4
+     * @type {string}
+     */
+    ALERT_DANGER = "alert-danger",
+    /**
+     * Warning alert type, bootstrap 4
+     * @type {string}
+     */
+    ALERT_WARNING = "alert-warning",
+    /**
+     * Info alert type, bootstrap 4
+     * @type {string}
+     */
+    ALERT_INFO = "alert-info",
+    /**
+     * Light alert type, bootstrap 4
+     * @type {string}
+     */
+    ALERT_LIGHT = "alert-light",
+    /**
+     * Dark alert type, bootstrap 4
+     * @type {string}
+     */
+    ALERT_DARK = "alert-dark"
+
+
+}
+
+
 
 /**
  * Alert component
@@ -56,19 +63,19 @@ import { Component } from '../Component';
 class Alert extends Component {
 
     /**
-     *
+     * Title of the alert
      */
     protected title: string = null;
 
     /**
-     *
+     * If we can dismiss the alert message
      */
     protected isDismissible: boolean = false;
 
     /**
-     *
+     * Type of alert
      */
-    protected alertType: string = ALERT_PRIMARY;
+    protected alertType: enumAlertType = enumAlertType.ALERT_PRIMARY;
 
     /**
      * Alert component constructor
@@ -169,7 +176,7 @@ class Alert extends Component {
      * Returns alert type (warning, success, ...) for alert component
      * @returns {string}
      */
-    public getAlertType() : string
+    public getAlertType() : enumAlertType
     {
         return this.alertType;
     }
@@ -179,7 +186,7 @@ class Alert extends Component {
      * @param alertType
      * @returns {Alert}
      */
-    public setAlertType(alertType: string)
+    public setAlertType(alertType: enumAlertType)
     {
         this.alertType = alertType;
         return this;
@@ -193,8 +200,23 @@ class Alert extends Component {
         $('#' + this.getId()).hide();
     }
 
+    /**
+     * This event fires immediately when the close instance method is called.
+     * @param callback
+     */
+    public onAlertClose(callback: any) {
+        // Unsupported in HTML
+        return this;
+    }
 
-
+    /**
+     * This event is fired when the alert has been closed (will wait for CSS transitions to complete).
+     * @param callback
+     */
+    public onAlertClosed(callback: any) {
+        // Unsupported in HTML
+        return this;
+    }
 
 }
 

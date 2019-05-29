@@ -4,6 +4,9 @@
  * @author Benoit Gauthier <bgauthier555@gmail.com>
  * @licence MIT
  */
+import { enumMissingFeature, enumLibrary} from "./UX";
+export { enumMissingFeature, enumLibrary};
+
 import { FontAwesome} from "./FontAwesome";
 export { FontAwesome };
 
@@ -16,69 +19,26 @@ export { Page };
 import { Patch } from "./Patch";
 export { Patch };
 
-import { Component } from './Component';
-export { Component };
+import { Component, enumDir, enumAutoCapitalize } from './Component';
+export { Component, enumDir, enumAutoCapitalize };
 
 import { ComponentContainer } from './ComponentContainer';
 export { ComponentContainer };
 
+import { Input, enumInputType } from './components/Input';
+export { Input, enumInputType };
 
-import { Input } from './components/Input';
-export { Input };
+import { Hidden } from "./components/Hidden";
+export { Hidden };
 
-import { Alert, ALERT_PRIMARY, ALERT_SECONDARY, ALERT_DANGER, ALERT_DARK, ALERT_INFO, ALERT_LIGHT, ALERT_SUCCESS, ALERT_WARNING } from './components/Alert';
-export { Alert, ALERT_PRIMARY, ALERT_SECONDARY, ALERT_DANGER, ALERT_DARK, ALERT_INFO, ALERT_LIGHT, ALERT_SUCCESS, ALERT_WARNING };
+import { Alert, enumAlertType } from './components/Alert';
+export { Alert, enumAlertType };
 
 import { Anchor } from './components/Anchor';
 export { Anchor };
 
-import { Button,
-        BUTTON_DANGER,
-        BUTTON_BLOCK,
-        BUTTON_DARK,
-        BUTTON_INFO,
-        BUTTON_LARGE,
-        BUTTON_LIGHT,
-        BUTTON_LINK,
-        BUTTON_OUTLINE_DANGER,
-        BUTTON_OUTLINE_DARK,
-        BUTTON_OUTLINE_INFO,
-        BUTTON_OUTLINE_LIGHT,
-        BUTTON_OUTLINE_PRIMARY,
-        BUTTON_OUTLINE_SECONDARY,
-        BUTTON_OUTLINE_SUCCESS,
-        BUTTON_OUTLINE_WARNING,
-        BUTTON_PRIMARY,
-        BUTTON_SECONDARY,
-        BUTTON_SMALL,
-        BUTTON_SUCCESS,
-        BUTTON_WARNING,
-        BUTTONTYPE_BUTTON,
-        BUTTONTYPE_RESET,
-        BUTTONTYPE_SUBMIT} from './components/Button';
-export { Button,BUTTON_DANGER,
-        BUTTON_BLOCK,
-        BUTTON_DARK,
-        BUTTON_INFO,
-        BUTTON_LARGE,
-        BUTTON_LIGHT,
-        BUTTON_LINK,
-        BUTTON_OUTLINE_DANGER,
-        BUTTON_OUTLINE_DARK,
-        BUTTON_OUTLINE_INFO,
-        BUTTON_OUTLINE_LIGHT,
-        BUTTON_OUTLINE_PRIMARY,
-        BUTTON_OUTLINE_SECONDARY,
-        BUTTON_OUTLINE_SUCCESS,
-        BUTTON_OUTLINE_WARNING,
-        BUTTON_PRIMARY,
-        BUTTON_SECONDARY,
-        BUTTON_SMALL,
-        BUTTON_SUCCESS,
-        BUTTON_WARNING,
-        BUTTONTYPE_BUTTON,
-        BUTTONTYPE_RESET,
-        BUTTONTYPE_SUBMIT};
+import { Button, enumButtonSize, enumButtonStyle, enumButtonType} from './components/Button';
+export { Button, enumButtonStyle, enumButtonType, enumButtonSize};
 
 import { Container } from './components/Container';
 export { Container };
@@ -99,17 +59,11 @@ import { Div } from './components/Div';
 export { Div };
 
 import { Form,
-         ENCODING_MULTIPART_FORM_DATA,
-         ENCODING_TEXT_PLAIN,
-         ENCODING_URLENCODING,
-         FORM_METHOD_GET,
-         FORM_METHOD_POST} from "./components/Form";
+         enumFormEncoding,
+         enumFormMethod} from "./components/Form";
 export { Form,
-         ENCODING_TEXT_PLAIN,
-         ENCODING_URLENCODING,
-         ENCODING_MULTIPART_FORM_DATA,
-         FORM_METHOD_GET,
-         FORM_METHOD_POST};
+         enumFormEncoding,
+         enumFormMethod};
 
 import { Heading } from './components/Heading';
 export { Heading };
@@ -196,5 +150,5 @@ import { Semantic24_TextAreaDecorator } from "./libraries/semantic2.4/components
 export { Semantic24_TextAreaDecorator };
 
 
-import { MISSING_FEATURE_ERROR, MISSING_FEATURE_PATCH, MISSING_FEATURE_WARNING, initialize } from "./Init";
-export { MISSING_FEATURE_ERROR, MISSING_FEATURE_PATCH, MISSING_FEATURE_WARNING, initialize };
+import { initialize } from "./Init";
+export { initialize };

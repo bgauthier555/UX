@@ -1,30 +1,41 @@
 /**
- * application/x-www-form-urlencoded encoding
- * @type {string}
+ * Form encoding
  */
-export const ENCODING_URLENCODING = 'application/x-www-form-urlencoded';
-/**
- * multipart/form-data encoding
- * @type {string}
- */
-export const ENCODING_MULTIPART_FORM_DATA = 'multipart/form-data';
-/**
- * text/plain encoding
- * @type {string}
- */
-export const ENCODING_TEXT_PLAIN = 'text/plain';
+export enum enumFormEncoding {
+
+    /**
+     * application/x-www-form-urlencoded encoding
+     * @type {string}
+     */
+    URLENCODING = 'application/x-www-form-urlencoded',
+    /**
+     * multipart/form-data encoding
+     * @type {string}
+     */
+    MULTIPART_FORM_DATA = 'multipart/form-data',
+    /**
+     * text/plain encoding
+     * @type {string}
+     */
+    TEXT_PLAIN = 'text/plain'
+
+}
 
 /**
- * Form method get
- * @type {string}
+ * Form methods
  */
-export const FORM_METHOD_GET = 'get';
-/**
- * Form method post
- * @type {string}
- */
-export const FORM_METHOD_POST = 'post';
-
+export enum enumFormMethod {
+    /**
+     * Form method get
+     * @type {string}
+     */
+    GET = 'get',
+    /**
+     * Form method post
+     * @type {string}
+     */
+    POST = 'post'
+}
 
 import { ComponentContainer } from '../ComponentContainer';
 

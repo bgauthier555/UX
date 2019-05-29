@@ -60,18 +60,9 @@
             debug: true,
         });
 
-        let ctn = new UX.Container('testError');
-
-
-        let btn = new UX.Button('zone');
-        btn.setLabel('Test button');
-        btn.setButtonStyle(UX.BUTTON_DANGER);
-        btn.on('click', function() {
-            alert('It works on');
-        });
-        btn.setForm('frmName');
-        btn.setType(UX.BUTTONTYPE_SUBMIT);
-        btn.setFormEncodingType(UX.ENCODING_MULTIPART_FORM_DATA);
+        let a = new window.UX.Div('zone');
+        a.setContentEditable(true);
+        a.addStyle('height:300px;');
 
         UX.Page.init();
 

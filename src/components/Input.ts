@@ -1,4 +1,10 @@
 import { Component } from '../Component';
+
+export enum enumInputType {
+    text = 'text',
+    hidden = 'hidden'
+}
+
 /**
  * Input control
  *

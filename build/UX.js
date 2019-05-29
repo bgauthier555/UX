@@ -100,11 +100,13 @@ return /******/ (function(modules) { // webpackBootstrap
 /*!**************************!*\
   !*** ./src/Component.ts ***!
   \**************************/
-/*! exports provided: Component */
+/*! exports provided: enumAutoCapitalize, enumDir, Component */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "enumAutoCapitalize", function() { return enumAutoCapitalize; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "enumDir", function() { return enumDir; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Component", function() { return Component; });
 /* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index */ "./src/index.js");
 /* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_index__WEBPACK_IMPORTED_MODULE_0__);
@@ -116,6 +118,21 @@ __webpack_require__.r(__webpack_exports__);
  * @licence MIT
  */
 
+var enumAutoCapitalize;
+(function (enumAutoCapitalize) {
+    enumAutoCapitalize["off"] = "off";
+    enumAutoCapitalize["none"] = "none";
+    enumAutoCapitalize["on"] = "on";
+    enumAutoCapitalize["sentences"] = "sentences";
+    enumAutoCapitalize["words"] = "words";
+    enumAutoCapitalize["characters"] = "characters";
+})(enumAutoCapitalize || (enumAutoCapitalize = {}));
+var enumDir;
+(function (enumDir) {
+    enumDir["ltr"] = "ltr";
+    enumDir["rtl"] = "rtl";
+    enumDir["auto"] = "auto";
+})(enumDir || (enumDir = {}));
 var Component = /** @class */ (function () {
     /**
      * Component constructor
@@ -191,6 +208,30 @@ var Component = /** @class */ (function () {
          * Data store used by component
          */
         this.store = null;
+        /**
+         * Provides a hint for generating a keyboard shortcut for the current element.
+         */
+        this.accessKey = null;
+        /**
+         * Controls whether and how text input is automatically capitalized as it is entered/edited by the user.
+         */
+        this.autoCapitalize = null;
+        /**
+         * Forms a class of attributes, called custom data attributes, that allow proprietary information
+         * to be exchanged between the HTML and its DOM representation that may be used by scripts
+         */
+        this.dataAttributes = {};
+        /**
+         * An enumerated attribute indicating if the element should be editable by the user
+         */
+        this.contentEditable = false;
+        /**
+         * An enumerated attribute indicating the directionality of the element's text.
+         */
+        this.dir = null;
+        //
+        //  E V E N T S
+        //
         /**
          * Component on blur event
          */
@@ -326,17 +367,17 @@ var Component = /** @class */ (function () {
         }
         else {
             // @ts-ignore
-            if (window.UX.missingFeature == _index__WEBPACK_IMPORTED_MODULE_0__["MISSING_FEATURE_ERROR"]) {
+            if (window.UX.missingFeature == _index__WEBPACK_IMPORTED_MODULE_0__["enumMissingFeature"].ERROR) {
                 // @ts-ignore
                 throw 'Unsupported feature ' + metaData.name + ' when using library ' + window.UX.activeLibrary;
                 // @ts-ignore
             }
-            else if (window.UX.missingFeature == _index__WEBPACK_IMPORTED_MODULE_0__["MISSING_FEATURE_WARNING"]) {
+            else if (window.UX.missingFeature == _index__WEBPACK_IMPORTED_MODULE_0__["enumMissingFeature"].WARNING) {
                 // @ts-ignore
                 window.UX.warn('Unsupported feature ' + metaData.name + ' when using library ' + window.UX.activeLibrary);
                 // @ts-ignore
             }
-            else if (window.UX.missingFeature == _index__WEBPACK_IMPORTED_MODULE_0__["MISSING_FEATURE_PATCH"]) {
+            else if (window.UX.missingFeature == _index__WEBPACK_IMPORTED_MODULE_0__["enumMissingFeature"].PATCH) {
             }
             return false;
         }
@@ -775,16 +816,43 @@ var Component = /** @class */ (function () {
          * Load template, set attributes, replace
          */
         var sComponentHTML = this.template;
+        // ID
         this.setAttribute('id', this.id);
+        // Name
         this.setAttribute('name', this.name);
+        // Class
         if (this.getClassList() != '') {
             this.setAttribute('class', this.getClassList());
         }
+        // Style
         if (this.getStyleList() != '') {
             this.setAttribute('style', this.getStyleList());
         }
+        // Placeholder
         if (this.placeholder != null && this.placeholder != '') {
             this.setAttribute('placeholder', this.placeholder);
+        }
+        // Access key attribute
+        if (this.getAccessKey()) {
+            this.setAttribute('accesskey', this.getAccessKey());
+        }
+        // Autocapitalize
+        if (this.getAutoCapitalize()) {
+            this.setAttribute('autocapitalize', this.getAutoCapitalize());
+        }
+        // data-* attributes
+        for (var x in this.dataAttributes) {
+            if (this.dataAttributes.hasOwnProperty(x)) {
+                this.setAttribute('data-' + x, this.dataAttributes[x]);
+            }
+        }
+        // Content editable
+        if (this.getContentEditable()) {
+            this.setAttribute('contenteditable', 'true');
+        }
+        // Dir
+        if (this.getDir()) {
+            this.setAttribute('dir', this.getDir());
         }
         /**
          * Build attribute code
@@ -813,6 +881,83 @@ var Component = /** @class */ (function () {
     Component.patchComponent = function (metaData) {
         // @ts-ignore
         window.UX.log('    * No patch for component ' + metaData.name);
+    };
+    /**
+     * Returns access key
+     */
+    Component.prototype.getAccessKey = function () {
+        return this.accessKey;
+    };
+    /**
+     * Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters.
+     * @param accessKey
+     */
+    Component.prototype.setAccessKey = function (accessKey) {
+        this.accessKey = accessKey;
+        return this;
+    };
+    /**
+     * Returns autocapitalize
+     */
+    Component.prototype.getAutoCapitalize = function () {
+        return this.autoCapitalize;
+    };
+    /**
+     * Controls whether and how text input is automatically capitalized as it is entered/edited by the user.
+     * @param autoCapitalize
+     */
+    Component.prototype.setAutoCapitalize = function (autoCapitalize) {
+        this.autoCapitalize = autoCapitalize;
+        return this;
+    };
+    /**
+     * Returns a data-* attribute
+     * @param name
+     */
+    Component.prototype.getDataAttribute = function (name) {
+        return this.dataAttributes[name];
+    };
+    /**
+     * Sets a data-* attribute
+     * @param name
+     * @param value
+     */
+    Component.prototype.setDataAttribute = function (name, value) {
+        // Check if name starts with data-
+        if (name.toLowerCase().startsWith('data-')) {
+            // remove data- if supplied
+            name = name.substr(5);
+        }
+        this.dataAttributes[name] = value;
+        return this;
+    };
+    /**
+     * Returns if component is editable
+     */
+    Component.prototype.getContentEditable = function () {
+        return this.contentEditable;
+    };
+    /**
+     * An enumerated attribute indicating if the element should be editable by the user
+     * @param contentEditable
+     */
+    Component.prototype.setContentEditable = function (contentEditable) {
+        this.contentEditable = contentEditable;
+        return this;
+    };
+    /**
+     *
+     */
+    Component.prototype.getDir = function () {
+        return this.dir;
+    };
+    /**
+     *
+     * @param dir
+     */
+    Component.prototype.setDir = function (dir) {
+        this.dir = dir;
+        return this;
     };
     return Component;
 }());
@@ -1075,6 +1220,721 @@ var Decorator = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/FontAwesome.ts":
+/*!****************************!*\
+  !*** ./src/FontAwesome.ts ***!
+  \****************************/
+/*! exports provided: FontAwesome */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FontAwesome", function() { return FontAwesome; });
+/**
+ * FontAwesome 5 icon classes
+ */
+var FontAwesome;
+(function (FontAwesome) {
+    FontAwesome["FA_FILE_EXCLAMATION"] = "fa-file-exclamation";
+    FontAwesome["FA_CONCIERGE_BELL"] = "fa-concierge-bell";
+    FontAwesome["FA_FILE_IMPORT"] = "fa-file-import";
+    FontAwesome["FA_SMS"] = "fa-sms";
+    FontAwesome["FA_STORE"] = "fa-store";
+    FontAwesome["FA_FILE_UPLOAD"] = "fa-file-upload";
+    FontAwesome["FA_DOLLAR_SIGN"] = "fa-dollar-sign";
+    FontAwesome["FA_FILE_CERTIFICATE"] = "fa-file-certificate";
+    FontAwesome["FA_FOLDERS"] = "fa-folders";
+    FontAwesome["FA_LIGHTBULB_EXCLAMATION"] = "fa-lightbulb-exclamation";
+    FontAwesome["FA_500PX"] = "fa-500px";
+    FontAwesome["FA_TOOLBOX"] = "fa-toolbox";
+    FontAwesome["FA_ADJUST"] = "fa-adjust";
+    FontAwesome["FA_ADN"] = "fa-adn";
+    FontAwesome["FA_ALIGN_CENTER"] = "fa-align-center";
+    FontAwesome["FA_ALIGN_JUSTIFY"] = "fa-align-justify";
+    FontAwesome["FA_ALIGN_LEFT"] = "fa-align-left";
+    FontAwesome["FA_ALIGN_RIGHT"] = "fa-align-right";
+    FontAwesome["FA_AMAZON"] = "fa-amazon";
+    FontAwesome["FA_AMBULANCE"] = "fa-ambulance";
+    FontAwesome["FA_ANCHOR"] = "fa-anchor";
+    FontAwesome["FA_ANDROID"] = "fa-android";
+    FontAwesome["FA_ANGELLIST"] = "fa-angellist";
+    FontAwesome["FA_ANGLE_DOUBLE_DOWN"] = "fa-angle-double-down";
+    FontAwesome["FA_ANGLE_DOUBLE_LEFT"] = "fa-angle-double-left";
+    FontAwesome["FA_ANGLE_DOUBLE_RIGHT"] = "fa-angle-double-right";
+    FontAwesome["FA_ANGLE_DOUBLE_UP"] = "fa-angle-double-up";
+    FontAwesome["FA_ANGLE_DOWN"] = "fa-angle-down";
+    FontAwesome["FA_ANGLE_LEFT"] = "fa-angle-left";
+    FontAwesome["FA_ANGLE_RIGHT"] = "fa-angle-right";
+    FontAwesome["FA_ANGLE_UP"] = "fa-angle-up";
+    FontAwesome["FA_APPLE"] = "fa-apple";
+    FontAwesome["FA_ARCHIVE"] = "fa-archive";
+    FontAwesome["FA_AREA_CHART"] = "fa-area-chart";
+    FontAwesome["FA_ARROW_CIRCLE_DOWN"] = "fa-arrow-circle-down";
+    FontAwesome["FA_ARROW_CIRCLE_LEFT"] = "fa-arrow-circle-left";
+    FontAwesome["FA_ARROW_CIRCLE_O_DOWN"] = "fa-arrow-circle-o-down";
+    FontAwesome["FA_ARROW_CIRCLE_O_LEFT"] = "fa-arrow-circle-o-left";
+    FontAwesome["FA_ARROW_CIRCLE_O_RIGHT"] = "fa-arrow-circle-o-right";
+    FontAwesome["FA_ARROW_CIRCLE_O_UP"] = "fa-arrow-circle-o-up";
+    FontAwesome["FA_ARROW_CIRCLE_RIGHT"] = "fa-arrow-circle-right";
+    FontAwesome["FA_ARROW_CIRCLE_UP"] = "fa-arrow-circle-up";
+    FontAwesome["FA_ARROW_DOWN"] = "fa-arrow-down";
+    FontAwesome["FA_ARROW_LEFT"] = "fa-arrow-left";
+    FontAwesome["FA_ARROW_RIGHT"] = "fa-arrow-right";
+    FontAwesome["FA_ARROW_UP"] = "fa-arrow-up";
+    FontAwesome["FA_ARROWS"] = "fa-arrows";
+    FontAwesome["FA_ARROWS_ALT"] = "fa-arrows-alt";
+    FontAwesome["FA_ARROWS_H"] = "fa-arrows-h";
+    FontAwesome["FA_ARROWS_V"] = "fa-arrows-v";
+    FontAwesome["FA_ASTERISK"] = "fa-asterisk";
+    FontAwesome["FA_AT"] = "fa-at";
+    FontAwesome["FA_AUTOMOBILE"] = "fa-automobile";
+    FontAwesome["FA_BACKWARD"] = "fa-backward";
+    FontAwesome["FA_BALANCE_SCALE"] = "fa-balance-scale";
+    FontAwesome["FA_BAN"] = "fa-ban";
+    FontAwesome["FA_BANK"] = "fa-university";
+    FontAwesome["FA_BAR_CHART"] = "fa-chart-bar";
+    FontAwesome["FA_BAR_CHART_O"] = "fa-chart-bar";
+    FontAwesome["FA_BARCODE"] = "fa-barcode";
+    FontAwesome["FA_BARS"] = "fa-bars";
+    FontAwesome["FA_BATTERY_0"] = "fa-battery-0";
+    FontAwesome["FA_BATTERY_1"] = "fa-battery-1";
+    FontAwesome["FA_BATTERY_2"] = "fa-battery-2";
+    FontAwesome["FA_BATTERY_3"] = "fa-battery-3";
+    FontAwesome["FA_BATTERY_4"] = "fa-battery-4";
+    FontAwesome["FA_BATTERY_EMPTY"] = "fa-battery-empty";
+    FontAwesome["FA_BATTERY_FULL"] = "fa-battery-full";
+    FontAwesome["FA_BATTERY_HALF"] = "fa-battery-half";
+    FontAwesome["FA_BATTERY_QUARTER"] = "fa-battery-quarter";
+    FontAwesome["FA_BATTERY_THREE_QUARTERS"] = "fa-battery-three-quarters";
+    FontAwesome["FA_BED"] = "fa-bed";
+    FontAwesome["FA_BEER"] = "fa-beer";
+    FontAwesome["FA_BEHANCE"] = "fa-behance";
+    FontAwesome["FA_BEHANCE_SQUARE"] = "fa-behance-square";
+    FontAwesome["FA_BELL"] = "fa-bell";
+    FontAwesome["FA_BELL_O"] = "fa-bell";
+    FontAwesome["FA_BELL_SLASH"] = "fa-bell-slash";
+    FontAwesome["FA_BELL_SLASH_O"] = "fa-bell-slash";
+    FontAwesome["FA_BICYCLE"] = "fa-bicycle";
+    FontAwesome["FA_BINOCULARS"] = "fa-binoculars";
+    FontAwesome["FA_BIRTHDAY_CAKE"] = "fa-birthday-cake";
+    FontAwesome["FA_BITBUCKET"] = "fa-bitbucket";
+    FontAwesome["FA_BITBUCKET_SQUARE"] = "fa-bitbucket-square";
+    FontAwesome["FA_BITCOIN"] = "fa-bitcoin";
+    FontAwesome["FA_BLACK_TIE"] = "fa-black-tie";
+    FontAwesome["FA_BOLD"] = "fa-bold";
+    FontAwesome["FA_BOLT"] = "fa-bolt";
+    FontAwesome["FA_BOMB"] = "fa-bomb";
+    FontAwesome["FA_BOOK"] = "fa-book";
+    FontAwesome["FA_BOOKMARK"] = "fa-bookmark";
+    FontAwesome["FA_BOOKMARK_O"] = "fa-bookmark";
+    FontAwesome["FA_BRIEFCASE"] = "fa-briefcase";
+    FontAwesome["FA_BTC"] = "fa-btc";
+    FontAwesome["FA_BUG"] = "fa-bug";
+    FontAwesome["FA_BUILDING"] = "fa-building";
+    FontAwesome["FA_BUILDING_O"] = "fa-building";
+    FontAwesome["FA_BULLHORN"] = "fa-bullhorn";
+    FontAwesome["FA_BULLSEYE"] = "fa-bullseye";
+    FontAwesome["FA_BUS"] = "fa-bus";
+    FontAwesome["FA_BUYSELLADS"] = "fa-buysellads";
+    FontAwesome["FA_CAB"] = "fa-cab";
+    FontAwesome["FA_CALCULATOR"] = "fa-calculator";
+    FontAwesome["FA_CALENDAR"] = "fa-calendar";
+    FontAwesome["FA_CALENDAR_CHECK_O"] = "fa-calendar-check";
+    FontAwesome["FA_CALENDAR_MINUS_O"] = "fa-calendar-minus";
+    FontAwesome["FA_CALENDAR_O"] = "fa-calendar";
+    FontAwesome["FA_CALENDAR_PLUS_O"] = "fa-calendar-plus";
+    FontAwesome["FA_CALENDAR_TIMES_O"] = "fa-calendar-times";
+    FontAwesome["FA_CAMERA"] = "fa-camera";
+    FontAwesome["FA_CAMERA_RETRO"] = "fa-camera-retro";
+    FontAwesome["FA_CAR"] = "fa-car";
+    FontAwesome["FA_CARET_DOWN"] = "fa-caret-down";
+    FontAwesome["FA_CARET_LEFT"] = "fa-caret-left";
+    FontAwesome["FA_CARET_RIGHT"] = "fa-caret-right";
+    FontAwesome["FA_CARET_SQUARE_O_DOWN"] = "fa-caret-square-down";
+    FontAwesome["FA_CARET_SQUARE_O_LEFT"] = "fa-caret-square-left";
+    FontAwesome["FA_CARET_SQUARE_O_RIGHT"] = "fa-caret-square-right";
+    FontAwesome["FA_CARET_SQUARE_O_UP"] = "fa-caret-square-up";
+    FontAwesome["FA_CARET_UP"] = "fa-caret-up";
+    FontAwesome["FA_CART_ARROW_DOWN"] = "fa-cart-arrow-down";
+    FontAwesome["FA_CART_PLUS"] = "fa-cart-plus";
+    FontAwesome["FA_CC"] = "fa-cc";
+    FontAwesome["FA_CC_AMEX"] = "fa-cc-amex";
+    FontAwesome["FA_CC_DINERS_CLUB"] = "fa-cc-diners-club";
+    FontAwesome["FA_CC_DISCOVER"] = "fa-cc-discover";
+    FontAwesome["FA_CC_JCB"] = "fa-cc-jcb";
+    FontAwesome["FA_CC_MASTERCARD"] = "fa-cc-mastercard";
+    FontAwesome["FA_CC_PAYPAL"] = "fa-cc-paypal";
+    FontAwesome["FA_CC_STRIPE"] = "fa-cc-stripe";
+    FontAwesome["FA_CC_VISA"] = "fa-cc-visa";
+    FontAwesome["FA_CERTIFICATE"] = "fa-certificate";
+    FontAwesome["FA_CHAIN"] = "fa-chain";
+    FontAwesome["FA_CHAIN_BROKEN"] = "fa-chain-broken";
+    FontAwesome["FA_CHECK"] = "fa-check";
+    FontAwesome["FA_CHECK_CIRCLE"] = "fa-check-circle";
+    FontAwesome["FA_CHECK_CIRCLE_O"] = "fa-check-circle";
+    FontAwesome["FA_CHECK_SQUARE"] = "fa-check-square";
+    FontAwesome["FA_CHECK_SQUARE_O"] = "fa-check-square";
+    FontAwesome["FA_CHEVRON_CIRCLE_DOWN"] = "fa-chevron-circle-down";
+    FontAwesome["FA_CHEVRON_CIRCLE_LEFT"] = "fa-chevron-circle-left";
+    FontAwesome["FA_CHEVRON_CIRCLE_RIGHT"] = "fa-chevron-circle-right";
+    FontAwesome["FA_CHEVRON_CIRCLE_UP"] = "fa-chevron-circle-up";
+    FontAwesome["FA_CHEVRON_DOWN"] = "fa-chevron-down";
+    FontAwesome["FA_CHEVRON_LEFT"] = "fa-chevron-left";
+    FontAwesome["FA_CHEVRON_RIGHT"] = "fa-chevron-right";
+    FontAwesome["FA_CHEVRON_UP"] = "fa-chevron-up";
+    FontAwesome["FA_CHILD"] = "fa-child";
+    FontAwesome["FA_CHROME"] = "fa-chrome";
+    FontAwesome["FA_CIRCLE"] = "fa-circle";
+    FontAwesome["FA_CIRCLE_O"] = "fa-circle";
+    FontAwesome["FA_CIRCLE_O_NOTCH"] = "fa-circle-notch";
+    FontAwesome["FA_CIRCLE_THIN"] = "fa-circle-thin";
+    FontAwesome["FA_CLIPBOARD"] = "fa-clipboard";
+    FontAwesome["FA_CLOCK_O"] = "fa-clock";
+    FontAwesome["FA_CLONE"] = "fa-clone";
+    FontAwesome["FA_CLOSE"] = "fa-close";
+    FontAwesome["FA_CLOUD"] = "fa-cloud";
+    FontAwesome["FA_CLOUD_DOWNLOAD"] = "fa-cloud-download";
+    FontAwesome["FA_CLOUD_UPLOAD"] = "fa-cloud-upload";
+    FontAwesome["FA_CNY"] = "fa-cny";
+    FontAwesome["FA_CODE"] = "fa-code";
+    FontAwesome["FA_CODE_FORK"] = "fa-code-fork";
+    FontAwesome["FA_CODEPEN"] = "fa-codepen";
+    FontAwesome["FA_COFFEE"] = "fa-coffee";
+    FontAwesome["FA_COG"] = "fa-cog";
+    FontAwesome["FA_COGS"] = "fa-cogs";
+    FontAwesome["FA_COLUMNS"] = "fa-columns";
+    FontAwesome["FA_COMMENT"] = "fa-comment";
+    FontAwesome["FA_COMMENT_O"] = "fa-comment";
+    FontAwesome["FA_COMMENTING"] = "fa-commenting";
+    FontAwesome["FA_COMMENTING_O"] = "fa-commenting";
+    FontAwesome["FA_COMMENTS"] = "fa-comments";
+    FontAwesome["FA_COMMENTS_O"] = "fa-comments";
+    FontAwesome["FA_COMPASS"] = "fa-compass";
+    FontAwesome["FA_COMPRESS"] = "fa-compress";
+    FontAwesome["FA_CONNECTDEVELOP"] = "fa-connectdevelop";
+    FontAwesome["FA_CONTAO"] = "fa-contao";
+    FontAwesome["FA_COPY"] = "fa-copy";
+    FontAwesome["FA_COPYRIGHT"] = "fa-copyright";
+    FontAwesome["FA_CREATIVE_COMMONS"] = "fa-creative-commons";
+    FontAwesome["FA_CREDIT_CARD"] = "fa-credit-card";
+    FontAwesome["FA_CROP"] = "fa-crop";
+    FontAwesome["FA_CROSSHAIRS"] = "fa-crosshairs";
+    FontAwesome["FA_CSS3"] = "fa-css3";
+    FontAwesome["FA_CUBE"] = "fa-cube";
+    FontAwesome["FA_CUBES"] = "fa-cubes";
+    FontAwesome["FA_CUT"] = "fa-cut";
+    FontAwesome["FA_CUTLERY"] = "fa-cutlery";
+    FontAwesome["FA_DASHBOARD"] = "fa-dashboard";
+    FontAwesome["FA_DASHCUBE"] = "fa-dashcube";
+    FontAwesome["FA_DATABASE"] = "fa-database";
+    FontAwesome["FA_DEDENT"] = "fa-dedent";
+    FontAwesome["FA_DELICIOUS"] = "fa-delicious";
+    FontAwesome["FA_DESKTOP"] = "fa-desktop";
+    FontAwesome["FA_DEVIANTART"] = "fa-deviantart";
+    FontAwesome["FA_DIAMOND"] = "fa-diamond";
+    FontAwesome["FA_DIGG"] = "fa-digg";
+    FontAwesome["FA_DOLLAR"] = "fa-usd-square";
+    FontAwesome["FA_DOT_CIRCLE_O"] = "fa-dot-circle";
+    FontAwesome["FA_DOWNLOAD"] = "fa-download";
+    FontAwesome["FA_DRIBBBLE"] = "fa-dribbble";
+    FontAwesome["FA_DROPBOX"] = "fa-dropbox";
+    FontAwesome["FA_DRUPAL"] = "fa-drupal";
+    FontAwesome["FA_EDIT"] = "fa-edit";
+    FontAwesome["FA_EJECT"] = "fa-eject";
+    FontAwesome["FA_ELLIPSIS_H"] = "fa-ellipsis-h";
+    FontAwesome["FA_ELLIPSIS_V"] = "fa-ellipsis-v";
+    FontAwesome["FA_EMPIRE"] = "fa-empire";
+    FontAwesome["FA_ENVELOPE"] = "fa-envelope";
+    FontAwesome["FA_ENVELOPE_O"] = "fa-envelope";
+    FontAwesome["FA_ENVELOPE_SQUARE"] = "fa-envelope-square";
+    FontAwesome["FA_ERASER"] = "fal fa-eraser";
+    FontAwesome["FA_EUR"] = "fa-eur";
+    FontAwesome["FA_EURO"] = "fa-euro";
+    FontAwesome["FA_EXCHANGE"] = "fa-exchange";
+    FontAwesome["FA_EXCLAMATION"] = "fa-exclamation";
+    FontAwesome["FA_EXCLAMATION_CIRCLE"] = "fa-exclamation-circle";
+    FontAwesome["FA_EXCLAMATION_TRIANGLE"] = "fa-exclamation-triangle";
+    FontAwesome["FA_EXPAND"] = "fa-expand";
+    FontAwesome["FA_EXPEDITEDSSL"] = "fa-expeditedssl";
+    FontAwesome["FA_EXTERNAL_LINK"] = "fa-external-link";
+    FontAwesome["FA_EXTERNAL_LINK_SQUARE"] = "fa-external-link-square";
+    FontAwesome["FA_EYE"] = "fa-eye";
+    FontAwesome["FA_EYE_SLASH"] = "fa-eye-slash";
+    FontAwesome["FA_EYEDROPPER"] = "fa-eyedropper";
+    FontAwesome["FA_FACEBOOK"] = "fa-facebook";
+    FontAwesome["FA_FACEBOOK_F"] = "fa-facebook-f";
+    FontAwesome["FA_FACEBOOK_OFFICIAL"] = "fa-facebook-official";
+    FontAwesome["FA_FACEBOOK_SQUARE"] = "fa-facebook-square";
+    FontAwesome["FA_FAST_BACKWARD"] = "fa-fast-backward";
+    FontAwesome["FA_FAST_FORWARD"] = "fa-fast-forward";
+    FontAwesome["FA_FAX"] = "fa-fax";
+    FontAwesome["FA_FEED"] = "fa-feed";
+    FontAwesome["FA_FEMALE"] = "fa-female";
+    FontAwesome["FA_FIGHTER_JET"] = "fa-fighter-jet";
+    FontAwesome["FA_FILE"] = "fa-file";
+    FontAwesome["FA_FILE_MINUS"] = "fa-file-minus";
+    FontAwesome["FA_FILE_INVOICE"] = "fa-file-invoice";
+    FontAwesome["FA_FILE_ARCHIVE_O"] = "fa-file-archive";
+    FontAwesome["FA_FILE_AUDIO_O"] = "fa-file-audio";
+    FontAwesome["FA_FILE_CODE_O"] = "fa-file-code";
+    FontAwesome["FA_FILE_EXCEL_O"] = "fa-file-excel";
+    FontAwesome["FA_FILE_IMAGE_O"] = "fa-file-image";
+    FontAwesome["FA_FILE_MOVIE_O"] = "fa-file-movie";
+    FontAwesome["FA_FILE_O"] = "fa-file";
+    FontAwesome["FA_FILE_PDF_O"] = "fa-file-pdf";
+    FontAwesome["FA_FILE_PHOTO_O"] = "fa-file-photo";
+    FontAwesome["FA_FILE_PICTURE_O"] = "fa-file-picture";
+    FontAwesome["FA_FILE_POWERPOINT_O"] = "fa-file-powerpoint";
+    FontAwesome["FA_FILE_SOUND_O"] = "fa-file-sound";
+    FontAwesome["FA_FILE_TEXT"] = "fa-file-alt";
+    FontAwesome["FA_FILE_TEXT_O"] = "fa-file-alt";
+    FontAwesome["FA_FILE_VIDEO_O"] = "fa-file-video";
+    FontAwesome["FA_FILE_WORD_O"] = "fa-file-word";
+    FontAwesome["FA_FILE_ZIP_O"] = "fa-file-zip";
+    FontAwesome["FA_FILES_O"] = "fa-files";
+    FontAwesome["FA_FILM"] = "fa-film";
+    FontAwesome["FA_FILTER"] = "fa-filter";
+    FontAwesome["FA_FIRE"] = "fa-fire";
+    FontAwesome["FA_FIRE_EXTINGUISHER"] = "fa-fire-extinguisher";
+    FontAwesome["FA_FIREFOX"] = "fa-firefox";
+    FontAwesome["FA_FLAG"] = "fa-flag";
+    FontAwesome["FA_FLAG_CHECKERED"] = "fa-flag-checkered";
+    FontAwesome["FA_FLAG_O"] = "fa-flag";
+    FontAwesome["FA_FLASH"] = "fa-flash";
+    FontAwesome["FA_FLASK"] = "fa-flask";
+    FontAwesome["FA_FLICKR"] = "fa-flickr";
+    FontAwesome["FA_FLOPPY_O"] = "fa-save";
+    FontAwesome["FA_FOLDER"] = "fa-folder";
+    FontAwesome["FA_FOLDER_O"] = "fa-folder";
+    FontAwesome["FA_FOLDER_OPEN"] = "fa-folder-open";
+    FontAwesome["FA_FOLDER_OPEN_O"] = "fa-folder-open";
+    FontAwesome["FA_FONT"] = "fa-font";
+    FontAwesome["FA_FONTICONS"] = "fa-fonticons";
+    FontAwesome["FA_FORUMBEE"] = "fa-forumbee";
+    FontAwesome["FA_FORWARD"] = "fa-forward";
+    FontAwesome["FA_FOURSQUARE"] = "fa-foursquare";
+    FontAwesome["FA_FROWN_O"] = "fa-frown";
+    FontAwesome["FA_FUTBOL_O"] = "fa-futbol";
+    FontAwesome["FA_GAMEPAD"] = "fa-gamepad";
+    FontAwesome["FA_GAVEL"] = "fa-gavel";
+    FontAwesome["FA_GBP"] = "fa-gbp";
+    FontAwesome["FA_GE"] = "fa-ge";
+    FontAwesome["FA_GEAR"] = "fa-cogs";
+    FontAwesome["FA_GEARS"] = "fa-cogs";
+    FontAwesome["FA_GENDERLESS"] = "fa-genderless";
+    FontAwesome["FA_GET_POCKET"] = "fa-get-pocket";
+    FontAwesome["FA_GG"] = "fa-gg";
+    FontAwesome["FA_GG_CIRCLE"] = "fa-gg-circle";
+    FontAwesome["FA_GIFT"] = "fa-gift";
+    FontAwesome["FA_GIT"] = "fa-git";
+    FontAwesome["FA_GIT_SQUARE"] = "fa-git-square";
+    FontAwesome["FA_GITHUB"] = "fa-github";
+    FontAwesome["FA_GITHUB_ALT"] = "fa-github-alt";
+    FontAwesome["FA_GITHUB_SQUARE"] = "fa-github-square";
+    FontAwesome["FA_GITTIP"] = "fa-gittip";
+    FontAwesome["FA_GLASS"] = "fa-glass";
+    FontAwesome["FA_GLOBE"] = "fa-globe";
+    FontAwesome["FA_GOOGLE"] = "fa-google";
+    FontAwesome["FA_GOOGLE_PLUS"] = "fa-google-plus";
+    FontAwesome["FA_GOOGLE_PLUS_SQUARE"] = "fa-google-plus-square";
+    FontAwesome["FA_GOOGLE_WALLET"] = "fa-google-wallet";
+    FontAwesome["FA_GRADUATION_CAP"] = "fa-graduation-cap";
+    FontAwesome["FA_GRATIPAY"] = "fa-gratipay";
+    FontAwesome["FA_GROUP"] = "fa-group";
+    FontAwesome["FA_H_SQUARE"] = "fa-h-square";
+    FontAwesome["FA_HACKER_NEWS"] = "fa-hacker-news";
+    FontAwesome["FA_HAND_GRAB_O"] = "fa-hand-grab";
+    FontAwesome["FA_HAND_LIZARD_O"] = "fa-hand-lizard";
+    FontAwesome["FA_HAND_O_DOWN"] = "fa-hand-o-down";
+    FontAwesome["FA_HAND_O_LEFT"] = "fa-hand-o-left";
+    FontAwesome["FA_HAND_O_RIGHT"] = "fa-hand-o-right";
+    FontAwesome["FA_HAND_O_UP"] = "fa-hand-o-up";
+    FontAwesome["FA_HAND_PAPER_O"] = "fa-hand-paper";
+    FontAwesome["FA_HAND_PEACE_O"] = "fa-hand-peace";
+    FontAwesome["FA_HAND_POINTER_O"] = "fa-hand-pointer";
+    FontAwesome["FA_HAND_ROCK_O"] = "fa-hand-rock";
+    FontAwesome["FA_HAND_SCISSORS_O"] = "fa-hand-scissors";
+    FontAwesome["FA_HAND_SPOCK_O"] = "fa-hand-spock";
+    FontAwesome["FA_HAND_STOP_O"] = "fa-hand-stop";
+    FontAwesome["FA_HDD_O"] = "fa-hdd";
+    FontAwesome["FA_H1"] = "fa-h1";
+    FontAwesome["FA_H2"] = "fa-h2";
+    FontAwesome["FA_H3"] = "fa-h3";
+    FontAwesome["FA_HEADING"] = "fa-heading";
+    FontAwesome["FA_HEADER"] = "fa-header";
+    FontAwesome["FA_HEADPHONES"] = "fa-headphones";
+    FontAwesome["FA_HEART"] = "fa-heart";
+    FontAwesome["FA_HEART_O"] = "fa-heart";
+    FontAwesome["FA_HEARTBEAT"] = "fa-heartbeat";
+    FontAwesome["FA_HISTORY"] = "fa-history";
+    FontAwesome["FA_HOME"] = "fa-home";
+    FontAwesome["FA_HOSPITAL_O"] = "fa-hospital";
+    FontAwesome["FA_HOTEL"] = "fa-hotel";
+    FontAwesome["FA_HOURGLASS"] = "fa-hourglass";
+    FontAwesome["FA_HOURGLASS_1"] = "fa-hourglass-1";
+    FontAwesome["FA_HOURGLASS_2"] = "fa-hourglass-2";
+    FontAwesome["FA_HOURGLASS_3"] = "fa-hourglass-3";
+    FontAwesome["FA_HOURGLASS_END"] = "fa-hourglass-end";
+    FontAwesome["FA_HOURGLASS_HALF"] = "fa-hourglass-half";
+    FontAwesome["FA_HOURGLASS_O"] = "fa-hourglass";
+    FontAwesome["FA_HOURGLASS_START"] = "fa-hourglass-start";
+    FontAwesome["FA_HOUZZ"] = "fa-houzz";
+    FontAwesome["FA_HTML5"] = "fa-html5";
+    FontAwesome["FA_I_CURSOR"] = "fa-i-cursor";
+    FontAwesome["FA_ILS"] = "fa-ils";
+    FontAwesome["FA_IMAGE"] = "fa-image";
+    FontAwesome["FA_INBOX"] = "fa-inbox";
+    FontAwesome["FA_INDENT"] = "fa-indent";
+    FontAwesome["FA_INDUSTRY"] = "fa-industry";
+    FontAwesome["FA_INFO"] = "fa-info";
+    FontAwesome["FA_INFO_CIRCLE"] = "fa-info-circle";
+    FontAwesome["FA_INR"] = "fa-inr";
+    FontAwesome["FA_INSTAGRAM"] = "fa-instagram";
+    FontAwesome["FA_INSTITUTION"] = "fa-institution";
+    FontAwesome["FA_INTERNET_EXPLORER"] = "fa-internet-explorer";
+    FontAwesome["FA_INTERSEX"] = "fa-intersex";
+    FontAwesome["FA_IOXHOST"] = "fa-ioxhost";
+    FontAwesome["FA_ITALIC"] = "fa-italic";
+    FontAwesome["FA_JOOMLA"] = "fa-joomla";
+    FontAwesome["FA_JPY"] = "fa-jpy";
+    FontAwesome["FA_JSFIDDLE"] = "fa-jsfiddle";
+    FontAwesome["FA_KEY"] = "fa-key";
+    FontAwesome["FA_KEYBOARD_O"] = "fa-keyboard";
+    FontAwesome["FA_KRW"] = "fa-krw";
+    FontAwesome["FA_LANGUAGE"] = "fa-language";
+    FontAwesome["FA_LAPTOP"] = "fa-laptop";
+    FontAwesome["FA_LASTFM"] = "fa-lastfm";
+    FontAwesome["FA_LASTFM_SQUARE"] = "fa-lastfm-square";
+    FontAwesome["FA_LEAF"] = "fa-leaf";
+    FontAwesome["FA_LEANPUB"] = "fa-leanpub";
+    FontAwesome["FA_LEGAL"] = "fa-legal";
+    FontAwesome["FA_LEMON_O"] = "fa-lemon";
+    FontAwesome["FA_LEVEL_DOWN"] = "fa-level-down";
+    FontAwesome["FA_LEVEL_UP"] = "fa-level-up";
+    FontAwesome["FA_LIFE_BOUY"] = "fa-life-bouy";
+    FontAwesome["FA_LIFE_BUOY"] = "fa-life-buoy";
+    FontAwesome["FA_LIFE_RING"] = "fa-life-ring";
+    FontAwesome["FA_LIFE_SAVER"] = "fa-life-saver";
+    FontAwesome["FA_LIGHTBULB_O"] = "fa-lightbulb";
+    FontAwesome["FA_LINE_CHART"] = "fa-chart-bar";
+    FontAwesome["FA_LINK"] = "fa-link";
+    FontAwesome["FA_LINKEDIN"] = "fab fa-linkedin-in";
+    FontAwesome["FA_LINKEDIN_SQUARE"] = "fa-linkedin-square";
+    FontAwesome["FA_LINUX"] = "fa-linux";
+    FontAwesome["FA_LIST"] = "fa-list";
+    FontAwesome["FA_LIST_ALT"] = "fa-list-alt";
+    FontAwesome["FA_LIST_OL"] = "fa-list-ol";
+    FontAwesome["FA_LIST_UL"] = "fa-list-ul";
+    FontAwesome["FA_LOCATION_ARROW"] = "fa-location-arrow";
+    FontAwesome["FA_LOCK"] = "fa-lock";
+    FontAwesome["FA_LONG_ARROW_DOWN"] = "fa-long-arrow-down";
+    FontAwesome["FA_LONG_ARROW_LEFT"] = "fa-long-arrow-left";
+    FontAwesome["FA_LONG_ARROW_RIGHT"] = "fa-long-arrow-right";
+    FontAwesome["FA_LONG_ARROW_UP"] = "fa-long-arrow-up";
+    FontAwesome["FA_MAGIC"] = "fa-magic";
+    FontAwesome["FA_MAGNET"] = "fa-magnet";
+    FontAwesome["FA_MAIL_FORWARD"] = "fa-mail-forward";
+    FontAwesome["FA_MAIL_REPLY"] = "fa-mail-reply";
+    FontAwesome["FA_MAIL_REPLY_ALL"] = "fa-mail-reply-all";
+    FontAwesome["FA_MALE"] = "fa-male";
+    FontAwesome["FA_MAP"] = "fa-map";
+    FontAwesome["FA_MAP_MARKER"] = "fa-map-marker";
+    FontAwesome["FA_MAP_O"] = "fa-map";
+    FontAwesome["FA_MAP_PIN"] = "fa-map-pin";
+    FontAwesome["FA_MAP_SIGNS"] = "fa-map-signs";
+    FontAwesome["FA_MARS"] = "fa-mars";
+    FontAwesome["FA_MARS_DOUBLE"] = "fa-mars-double";
+    FontAwesome["FA_MARS_STROKE"] = "fa-mars-stroke";
+    FontAwesome["FA_MARS_STROKE_H"] = "fa-mars-stroke-h";
+    FontAwesome["FA_MARS_STROKE_V"] = "fa-mars-stroke-v";
+    FontAwesome["FA_MAXCDN"] = "fa-maxcdn";
+    FontAwesome["FA_MEANPATH"] = "fa-meanpath";
+    FontAwesome["FA_MEDIUM"] = "fa-medium";
+    FontAwesome["FA_MEDKIT"] = "fa-medkit";
+    FontAwesome["FA_MEH_O"] = "fa-meh";
+    FontAwesome["FA_MERCURY"] = "fa-mercury";
+    FontAwesome["FA_MICROPHONE"] = "fa-microphone";
+    FontAwesome["FA_MICROPHONE_SLASH"] = "fa-microphone-slash";
+    FontAwesome["FA_MINUS"] = "fa-minus";
+    FontAwesome["FA_MINUS_CIRCLE"] = "fa-minus-circle";
+    FontAwesome["FA_MINUS_SQUARE"] = "fa-minus-square";
+    FontAwesome["FA_MINUS_SQUARE_O"] = "fa-minus-square";
+    FontAwesome["FA_MOBILE"] = "fa-mobile";
+    FontAwesome["FA_MOBILE_PHONE"] = "fa-mobile-phone";
+    FontAwesome["FA_MONEY"] = "fa-money-bill";
+    FontAwesome["FA_MOON_O"] = "fa-moon";
+    FontAwesome["FA_MORTAR_BOARD"] = "fa-mortar-board";
+    FontAwesome["FA_MOTORCYCLE"] = "fa-motorcycle";
+    FontAwesome["FA_MOUSE_POINTER"] = "fa-mouse-pointer";
+    FontAwesome["FA_MUSIC"] = "fa-music";
+    FontAwesome["FA_NAVICON"] = "fa-navicon";
+    FontAwesome["FA_NEUTER"] = "fa-neuter";
+    FontAwesome["FA_NEWSPAPER_O"] = "fa-newspaper";
+    FontAwesome["FA_OBJECT_GROUP"] = "fa-object-group";
+    FontAwesome["FA_OBJECT_UNGROUP"] = "fa-object-ungroup";
+    FontAwesome["FA_ODNOKLASSNIKI"] = "fa-odnoklassniki";
+    FontAwesome["FA_ODNOKLASSNIKI_SQUARE"] = "fa-odnoklassniki-square";
+    FontAwesome["FA_OPENCART"] = "fa-opencart";
+    FontAwesome["FA_OPENID"] = "fa-openid";
+    FontAwesome["FA_OPERA"] = "fa-opera";
+    FontAwesome["FA_OPTIN_MONSTER"] = "fa-optin-monster";
+    FontAwesome["FA_OUTDENT"] = "fa-outdent";
+    FontAwesome["FA_PAGELINES"] = "fa-pagelines";
+    FontAwesome["FA_PAINT_BRUSH"] = "fa-paint-brush";
+    FontAwesome["FA_PAPER_PLANE"] = "fa-paper-plane";
+    FontAwesome["FA_PAPER_PLANE_O"] = "fa-paper-plane";
+    FontAwesome["FA_PAPERCLIP"] = "fa-paperclip";
+    FontAwesome["FA_PARAGRAPH"] = "fa-paragraph";
+    FontAwesome["FA_PASTE"] = "fa-paste";
+    FontAwesome["FA_PAUSE"] = "fa-pause";
+    FontAwesome["FA_PAW"] = "fa-paw";
+    FontAwesome["FA_PAYPAL"] = "fa-paypal";
+    FontAwesome["FA_PENCIL"] = "fa-pencil";
+    FontAwesome["FA_PENCIL_SQUARE"] = "fa-pencil-square";
+    FontAwesome["FA_PENCIL_SQUARE_O"] = "fa-pencil-square";
+    FontAwesome["FA_PERCENT"] = "fa-percent";
+    FontAwesome["FA_PHONE"] = "fa-phone";
+    FontAwesome["FA_PHONE_SQUARE"] = "fa-phone-square";
+    FontAwesome["FA_PHOTO"] = "fa-photo";
+    FontAwesome["FA_PICTURE_O"] = "fa-image";
+    FontAwesome["FA_PIE_CHART"] = "fa-chart-pie";
+    FontAwesome["FA_PIED_PIPER"] = "fa-pied-piper";
+    FontAwesome["FA_PIED_PIPER_ALT"] = "fa-pied-piper-alt";
+    FontAwesome["FA_PINTEREST"] = "fa-pinterest";
+    FontAwesome["FA_PINTEREST_P"] = "fa-pinterest-p";
+    FontAwesome["FA_PINTEREST_SQUARE"] = "fa-pinterest-square";
+    FontAwesome["FA_PLANE"] = "fa-plane";
+    FontAwesome["FA_PLAY"] = "fa-play";
+    FontAwesome["FA_PLAY_CIRCLE"] = "fa-play-circle";
+    FontAwesome["FA_PLAY_CIRCLE_O"] = "fa-play-circle";
+    FontAwesome["FA_PLUG"] = "fa-plug";
+    FontAwesome["FA_PLUS"] = "fa-plus";
+    FontAwesome["FA_PLUS_CIRCLE"] = "fa-plus-circle";
+    FontAwesome["FA_PLUS_SQUARE"] = "fa-plus-square";
+    FontAwesome["FA_PLUS_SQUARE_O"] = "fa-plus-square";
+    FontAwesome["FA_POWER_OFF"] = "fa-power-off";
+    FontAwesome["FA_PRINT"] = "fa-print";
+    FontAwesome["FA_PUZZLE_PIECE"] = "fa-puzzle-piece";
+    FontAwesome["FA_QQ"] = "fa-qq";
+    FontAwesome["FA_QRCODE"] = "fa-qrcode";
+    FontAwesome["FA_QUESTION"] = "fa-question";
+    FontAwesome["FA_QUESTION_CIRCLE"] = "fa-question-circle";
+    FontAwesome["FA_QUOTE_LEFT"] = "fa-quote-left";
+    FontAwesome["FA_QUOTE_RIGHT"] = "fa-quote-right";
+    FontAwesome["FA_RA"] = "fa-ra";
+    FontAwesome["FA_RANDOM"] = "fa-random";
+    FontAwesome["FA_REBEL"] = "fa-rebel";
+    FontAwesome["FA_RECYCLE"] = "fa-recycle";
+    FontAwesome["FA_REDDIT"] = "fa-reddit";
+    FontAwesome["FA_REDDIT_SQUARE"] = "fa-reddit-square";
+    FontAwesome["FA_REFRESH"] = "fal fa-sync-alt";
+    FontAwesome["FA_REGISTERED"] = "fa-registered";
+    FontAwesome["FA_REMOVE"] = "fa-remove";
+    FontAwesome["FA_RENREN"] = "fa-renren";
+    FontAwesome["FA_REORDER"] = "fa-reorder";
+    FontAwesome["FA_REPEAT"] = "fa-repeat";
+    FontAwesome["FA_REPLY"] = "fa-reply";
+    FontAwesome["FA_REPLY_ALL"] = "fa-reply-all";
+    FontAwesome["FA_RETWEET"] = "fa-retweet";
+    FontAwesome["FA_RMB"] = "fa-rmb";
+    FontAwesome["FA_ROAD"] = "fa-road";
+    FontAwesome["FA_ROCKET"] = "fa-rocket";
+    FontAwesome["FA_ROTATE_LEFT"] = "fa-rotate-left";
+    FontAwesome["FA_ROTATE_RIGHT"] = "fa-rotate-right";
+    FontAwesome["FA_ROUBLE"] = "fa-rouble";
+    FontAwesome["FA_RSS"] = "fa-rss";
+    FontAwesome["FA_RSS_SQUARE"] = "fa-rss-square";
+    FontAwesome["FA_RUB"] = "fa-rub";
+    FontAwesome["FA_RUBLE"] = "fa-ruble";
+    FontAwesome["FA_RUPEE"] = "fa-rupee";
+    FontAwesome["FA_SAFARI"] = "fa-safari";
+    FontAwesome["FA_SAVE"] = "fa-save";
+    FontAwesome["FA_SCISSORS"] = "fa-scissors";
+    FontAwesome["FA_SEARCH"] = "fa-search";
+    FontAwesome["FA_SEARCH_MINUS"] = "fa-search-minus";
+    FontAwesome["FA_SEARCH_PLUS"] = "fa-search-plus";
+    FontAwesome["FA_SELLSY"] = "fa-sellsy";
+    FontAwesome["FA_SEND"] = "fa-send";
+    FontAwesome["FA_SEND_O"] = "fa-send";
+    FontAwesome["FA_SERVER"] = "fa-server";
+    FontAwesome["FA_SHARE"] = "fa-share";
+    FontAwesome["FA_SHARE_ALT"] = "fa-share-alt";
+    FontAwesome["FA_SHARE_ALT_SQUARE"] = "fa-share-alt-square";
+    FontAwesome["FA_SHARE_SQUARE"] = "fa-share-square";
+    FontAwesome["FA_SHARE_SQUARE_O"] = "fa-share-square";
+    FontAwesome["FA_SHEKEL"] = "fa-shekel";
+    FontAwesome["FA_SHEQEL"] = "fa-sheqel";
+    FontAwesome["FA_SHIELD"] = "fa-shield";
+    FontAwesome["FA_SHIP"] = "fa-ship";
+    FontAwesome["FA_SHIRTSINBULK"] = "fa-shirtsinbulk";
+    FontAwesome["FA_SHOPPING_CART"] = "fa-shopping-cart";
+    FontAwesome["FA_SIGN_IN"] = "fa-sign-in";
+    FontAwesome["FA_SIGN_OUT"] = "fa-sign-out";
+    FontAwesome["FA_SIGNAL"] = "fa-signal";
+    FontAwesome["FA_SIMPLYBUILT"] = "fa-simplybuilt";
+    FontAwesome["FA_SITEMAP"] = "fa-sitemap";
+    FontAwesome["FA_SKYATLAS"] = "fa-skyatlas";
+    FontAwesome["FA_SKYPE"] = "fa-skype";
+    FontAwesome["FA_SLACK"] = "fa-slack";
+    FontAwesome["FA_SLIDERS"] = "fa-sliders";
+    FontAwesome["FA_SLIDESHARE"] = "fa-slideshare";
+    FontAwesome["FA_SMILE_O"] = "fa-smile";
+    FontAwesome["FA_SOCCER_BALL_O"] = "fa-soccer-ball";
+    FontAwesome["FA_SORT"] = "fa-sort";
+    FontAwesome["FA_SORT_ALPHA_ASC"] = "fa-sort-alpha-asc";
+    FontAwesome["FA_SORT_ALPHA_DESC"] = "fa-sort-alpha-desc";
+    FontAwesome["FA_SORT_AMOUNT_ASC"] = "fa-sort-amount-asc";
+    FontAwesome["FA_SORT_AMOUNT_DESC"] = "fa-sort-amount-desc";
+    FontAwesome["FA_SORT_ASC"] = "fa-sort-asc";
+    FontAwesome["FA_SORT_DESC"] = "fa-sort-desc";
+    FontAwesome["FA_SORT_DOWN"] = "fa-sort-down";
+    FontAwesome["FA_SORT_NUMERIC_ASC"] = "fa-sort-numeric-asc";
+    FontAwesome["FA_SORT_NUMERIC_DESC"] = "fa-sort-numeric-desc";
+    FontAwesome["FA_SORT_UP"] = "fa-sort-up";
+    FontAwesome["FA_SOUNDCLOUD"] = "fa-soundcloud";
+    FontAwesome["FA_SPACE_SHUTTLE"] = "fa-space-shuttle";
+    FontAwesome["FA_SPINNER"] = "fa-spinner";
+    FontAwesome["FA_SPOON"] = "fa-spoon";
+    FontAwesome["FA_SPOTIFY"] = "fa-spotify";
+    FontAwesome["FA_SQUARE"] = "fa-square";
+    FontAwesome["FA_SQUARE_O"] = "fa-square";
+    FontAwesome["FA_STACK_EXCHANGE"] = "fa-stack-exchange";
+    FontAwesome["FA_STACK_OVERFLOW"] = "fa-stack-overflow";
+    FontAwesome["FA_STAR"] = "fa-star";
+    FontAwesome["FA_STAR_HALF"] = "fa-star-half";
+    FontAwesome["FA_STAR_HALF_EMPTY"] = "fa-star-half-empty";
+    FontAwesome["FA_STAR_HALF_FULL"] = "fa-star-half-full";
+    FontAwesome["FA_STAR_HALF_O"] = "fa-star-half";
+    FontAwesome["FA_STAR_O"] = "fa-star";
+    FontAwesome["FA_STEAM"] = "fa-steam";
+    FontAwesome["FA_STEAM_SQUARE"] = "fa-steam-square";
+    FontAwesome["FA_STEP_BACKWARD"] = "fa-step-backward";
+    FontAwesome["FA_STEP_FORWARD"] = "fa-step-forward";
+    FontAwesome["FA_STETHOSCOPE"] = "fa-stethoscope";
+    FontAwesome["FA_STICKY_NOTE"] = "fa-sticky-note";
+    FontAwesome["FA_STICKY_NOTE_O"] = "fa-sticky-note";
+    FontAwesome["FA_STOP"] = "fa-stop";
+    FontAwesome["FA_STREET_VIEW"] = "fa-street-view";
+    FontAwesome["FA_STRIKETHROUGH"] = "fa-strikethrough";
+    FontAwesome["FA_STUMBLEUPON"] = "fa-stumbleupon";
+    FontAwesome["FA_STUMBLEUPON_CIRCLE"] = "fa-stumbleupon-circle";
+    FontAwesome["FA_SUBSCRIPT"] = "fa-subscript";
+    FontAwesome["FA_SUBWAY"] = "fa-subway";
+    FontAwesome["FA_SUITCASE"] = "fa-suitcase";
+    FontAwesome["FA_SUN_O"] = "fa-sun";
+    FontAwesome["FA_SUPERSCRIPT"] = "fa-superscript";
+    FontAwesome["FA_SUPPORT"] = "fa-support";
+    FontAwesome["FA_TABLE"] = "fa-table";
+    FontAwesome["FA_TABLET"] = "fa-tablet";
+    FontAwesome["FA_TACHOMETER"] = "fa-tachometer";
+    FontAwesome["FA_TAG"] = "fa-tag";
+    FontAwesome["FA_TAGS"] = "fa-tags";
+    FontAwesome["FA_TASKS"] = "fa-tasks";
+    FontAwesome["FA_TAXI"] = "fa-taxi";
+    FontAwesome["FA_TELEVISION"] = "fa-television";
+    FontAwesome["FA_TENCENT_WEIBO"] = "fa-tencent-weibo";
+    FontAwesome["FA_TERMINAL"] = "fa-terminal";
+    FontAwesome["FA_TEXT_HEIGHT"] = "fa-text-height";
+    FontAwesome["FA_TEXT_WIDTH"] = "fa-text-width";
+    FontAwesome["FA_TH"] = "fa-th";
+    FontAwesome["FA_TH_LARGE"] = "fa-th-large";
+    FontAwesome["FA_TH_LIST"] = "fa-th-list";
+    FontAwesome["FA_THUMB_TACK"] = "fa-thumb-tack";
+    FontAwesome["FA_THUMBS_DOWN"] = "fa-thumbs-down";
+    FontAwesome["FA_THUMBS_O_DOWN"] = "fa-thumbs-o-down";
+    FontAwesome["FA_THUMBS_O_UP"] = "fa-thumbs-o-up";
+    FontAwesome["FA_THUMBS_UP"] = "fa-thumbs-up";
+    FontAwesome["FA_TICKET"] = "fa-ticket";
+    FontAwesome["FA_TIMES"] = "fa-times";
+    FontAwesome["FA_TIMES_CIRCLE"] = "fa-times-circle";
+    FontAwesome["FA_TIMES_CIRCLE_O"] = "fa-times-circle";
+    FontAwesome["FA_TINT"] = "fa-tint";
+    FontAwesome["FA_TOGGLE_DOWN"] = "fa-toggle-down";
+    FontAwesome["FA_TOGGLE_LEFT"] = "fa-toggle-left";
+    FontAwesome["FA_TOGGLE_OFF"] = "fa-toggle-off";
+    FontAwesome["FA_TOGGLE_ON"] = "fa-toggle-on";
+    FontAwesome["FA_TOGGLE_RIGHT"] = "fa-toggle-right";
+    FontAwesome["FA_TOGGLE_UP"] = "fa-toggle-up";
+    FontAwesome["FA_TRADEMARK"] = "fa-trademark";
+    FontAwesome["FA_TRAIN"] = "fa-train";
+    FontAwesome["FA_TRANSGENDER"] = "fa-transgender";
+    FontAwesome["FA_TRANSGENDER_ALT"] = "fa-transgender-alt";
+    FontAwesome["FA_TRASH"] = "fa-trash";
+    FontAwesome["FA_TRASH_O"] = "fa-trash";
+    FontAwesome["FA_TREE"] = "fa-tree";
+    FontAwesome["FA_TRELLO"] = "fa-trello";
+    FontAwesome["FA_TRIPADVISOR"] = "fa-tripadvisor";
+    FontAwesome["FA_TROPHY"] = "fa-trophy";
+    FontAwesome["FA_TRUCK"] = "fa-truck";
+    FontAwesome["FA_TRY"] = "fa-try";
+    FontAwesome["FA_TTY"] = "fa-tty";
+    FontAwesome["FA_TUMBLR"] = "fa-tumblr";
+    FontAwesome["FA_TUMBLR_SQUARE"] = "fa-tumblr-square";
+    FontAwesome["FA_TURKISH_LIRA"] = "fa-turkish-lira";
+    FontAwesome["FA_TV"] = "fa-tv";
+    FontAwesome["FA_TWITCH"] = "fa-twitch";
+    FontAwesome["FA_TWITTER"] = "fa-twitter";
+    FontAwesome["FA_TWITTER_SQUARE"] = "fa-twitter-square";
+    FontAwesome["FA_UMBRELLA"] = "fa-umbrella";
+    FontAwesome["FA_UNDERLINE"] = "fa-underline";
+    FontAwesome["FA_UNDO"] = "fa-undo";
+    FontAwesome["FA_REDO"] = "fa-redo";
+    FontAwesome["FA_UNIVERSITY"] = "fa-university";
+    FontAwesome["FA_UNLINK"] = "fa-unlink";
+    FontAwesome["FA_UNLOCK"] = "fa-unlock";
+    FontAwesome["FA_UNLOCK_ALT"] = "fa-unlock-alt";
+    FontAwesome["FA_UNSORTED"] = "fa-unsorted";
+    FontAwesome["FA_UPLOAD"] = "fa-upload";
+    FontAwesome["FA_USD"] = "fa-usd";
+    FontAwesome["FA_USER"] = "fa-user";
+    FontAwesome["FA_USER_MD"] = "fa-user-md";
+    FontAwesome["FA_USER_PLUS"] = "fa-user-plus";
+    FontAwesome["FA_USER_SECRET"] = "fa-user-secret";
+    FontAwesome["FA_USER_TIMES"] = "fa-user-times";
+    FontAwesome["FA_USERS"] = "fa-users";
+    FontAwesome["FA_VENUS"] = "fa-venus";
+    FontAwesome["FA_VENUS_DOUBLE"] = "fa-venus-double";
+    FontAwesome["FA_VENUS_MARS"] = "fa-venus-mars";
+    FontAwesome["FA_VIACOIN"] = "fa-viacoin";
+    FontAwesome["FA_VIDEO_CAMERA"] = "fa-video-camera";
+    FontAwesome["FA_VIMEO"] = "fa-vimeo";
+    FontAwesome["FA_VIMEO_SQUARE"] = "fa-vimeo-square";
+    FontAwesome["FA_VINE"] = "fa-vine";
+    FontAwesome["FA_VK"] = "fa-vk";
+    FontAwesome["FA_VOLUME_DOWN"] = "fa-volume-down";
+    FontAwesome["FA_VOLUME_OFF"] = "fa-volume-off";
+    FontAwesome["FA_VOLUME_UP"] = "fa-volume-up";
+    FontAwesome["FA_WARNING"] = "fa-exclamation-triangle";
+    FontAwesome["FA_WECHAT"] = "fa-wechat";
+    FontAwesome["FA_WEIBO"] = "fa-weibo";
+    FontAwesome["FA_WEIXIN"] = "fa-weixin";
+    FontAwesome["FA_WHATSAPP"] = "fa-whatsapp";
+    FontAwesome["FA_WHEELCHAIR"] = "fa-wheelchair";
+    FontAwesome["FA_WIFI"] = "fa-wifi";
+    FontAwesome["FA_WIKIPEDIA_W"] = "fa-wikipedia-w";
+    FontAwesome["FA_WINDOWS"] = "fa-windows";
+    FontAwesome["FA_WON"] = "fa-won";
+    FontAwesome["FA_WORDPRESS"] = "fa-wordpress";
+    FontAwesome["FA_WRENCH"] = "fa-wrench";
+    FontAwesome["FA_XING"] = "fa-xing";
+    FontAwesome["FA_XING_SQUARE"] = "fa-xing-square";
+    FontAwesome["FA_Y_COMBINATOR"] = "fa-y-combinator";
+    FontAwesome["FA_Y_COMBINATOR_SQUARE"] = "fa-y-combinator-square";
+    FontAwesome["FA_YAHOO"] = "fa-yahoo";
+    FontAwesome["FA_YC"] = "fa-yc";
+    FontAwesome["FA_YC_SQUARE"] = "fa-yc-square";
+    FontAwesome["FA_YELP"] = "fa-yelp";
+    FontAwesome["FA_YEN"] = "fa-yen";
+    FontAwesome["FA_YOUTUBE"] = "fa-youtube";
+    FontAwesome["FA_YOUTUBE_PLAY"] = "fa-youtube-play";
+    FontAwesome["FA_YOUTUBE_SQUARE"] = "fa-youtube-square";
+    FontAwesome["FA_DRIVERS_LICENCE_O"] = "fa-id-card";
+    FontAwesome["FA_ADDRESS_CARD_O"] = "fa-address-card";
+})(FontAwesome || (FontAwesome = {}));
+
+
+/***/ }),
+
 /***/ "./src/Init.js":
 /*!*********************!*\
   !*** ./src/Init.js ***!
@@ -1088,40 +1948,13 @@ var Decorator = /** @class */ (function () {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.LIBRARY_BOOTSTRAP_4 = exports.LIBRARY_HTML5 = exports.MISSING_FEATURE_PATCH = exports.MISSING_FEATURE_WARNING = exports.MISSING_FEATURE_ERROR = undefined;
 exports.initialize = initialize;
 
 var _Page = __webpack_require__(/*! ./Page */ "./src/Page.ts");
 
 var _Patch = __webpack_require__(/*! ./Patch */ "./src/Patch.ts");
 
-/**
- * Indicates an error will be thrown if the requested feature is not possible
- * @type {string}
- */
-var MISSING_FEATURE_ERROR = exports.MISSING_FEATURE_ERROR = "missing-feature-error";
-/**
- * Indicates a warning message will be logged in console if requested feature is not possible
- * @type {string}
- */
-var MISSING_FEATURE_WARNING = exports.MISSING_FEATURE_WARNING = "missing-feature-warning";
-/**
- * Indicates patch css and js files will be loaded in order to try and offer a similar user experience
- * If the is not possible, an error will be thrown
- * @type {string}
- */
-var MISSING_FEATURE_PATCH = exports.MISSING_FEATURE_PATCH = "missing-feature-patch";
-
-/**
- * Standard Html
- * @type {string}
- */
-var LIBRARY_HTML5 = exports.LIBRARY_HTML5 = 'Html5';
-/**
- * Twitter Bootstrap version 4.X
- * @type {string}
- */
-var LIBRARY_BOOTSTRAP_4 = exports.LIBRARY_BOOTSTRAP_4 = 'Bootstrap_4';
+var _UX = __webpack_require__(/*! ./UX */ "./src/UX.ts");
 
 /**
  * Init UX object
@@ -1142,7 +1975,7 @@ function initialize(options) {
 
     window.UX.version = '1.0.4';
     window.UX.components = {};
-    window.UX.missingFeature = options.missingFeature == undefined ? MISSING_FEATURE_ERROR : options.missingFeature;
+    window.UX.missingFeature = options.missingFeature == undefined ? _UX.enumMissingFeature.ERROR : options.missingFeature;
     window.UX.debug = options.debug == undefined ? false : options.debug;
     window.UX.log = function (message) {
         if (this.debug) {
@@ -1293,8 +2126,7 @@ var Page = /** @class */ (function () {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Patch", function() { return Patch; });
-/* harmony import */ var _Init__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Init */ "./src/Init.js");
-/* harmony import */ var _Init__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_Init__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _UX__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./UX */ "./src/UX.ts");
 
 /**
  * Patch
@@ -1340,7 +2172,7 @@ var Patch = /** @class */ (function () {
      */
     Patch.prototype.applyPatch = function () {
         // @ts-ignore
-        if (window.UX.missingFeature == _Init__WEBPACK_IMPORTED_MODULE_0__["MISSING_FEATURE_PATCH"]) {
+        if (window.UX.missingFeature == _UX__WEBPACK_IMPORTED_MODULE_0__["enumMissingFeature"].PATCH) {
             $('head').append('<style>' + this.getCSS() + '</style>');
         }
     };
@@ -1351,23 +2183,69 @@ var Patch = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/components/Alert.ts":
-/*!*********************************!*\
-  !*** ./src/components/Alert.ts ***!
-  \*********************************/
-/*! exports provided: ALERT_PRIMARY, ALERT_SECONDARY, ALERT_SUCCESS, ALERT_DANGER, ALERT_WARNING, ALERT_INFO, ALERT_LIGHT, ALERT_DARK, Alert */
+/***/ "./src/UX.ts":
+/*!*******************!*\
+  !*** ./src/UX.ts ***!
+  \*******************/
+/*! exports provided: enumMissingFeature, enumLibrary */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ALERT_PRIMARY", function() { return ALERT_PRIMARY; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ALERT_SECONDARY", function() { return ALERT_SECONDARY; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ALERT_SUCCESS", function() { return ALERT_SUCCESS; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ALERT_DANGER", function() { return ALERT_DANGER; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ALERT_WARNING", function() { return ALERT_WARNING; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ALERT_INFO", function() { return ALERT_INFO; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ALERT_LIGHT", function() { return ALERT_LIGHT; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ALERT_DARK", function() { return ALERT_DARK; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "enumMissingFeature", function() { return enumMissingFeature; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "enumLibrary", function() { return enumLibrary; });
+/**
+ * Behaviour on missing feature
+ */
+var enumMissingFeature;
+(function (enumMissingFeature) {
+    /**
+     * Indicates an error will be thrown if the requested feature is not possible
+     * @type {string}
+     */
+    enumMissingFeature["ERROR"] = "missing-feature-error";
+    /**
+     * Indicates a warning message will be logged in console if requested feature is not possible
+     * @type {string}
+     */
+    enumMissingFeature["WARNING"] = "missing-feature-warning";
+    /**
+     * Indicates patch css and js files will be loaded in order to try and offer a similar user experience
+     * If the is not possible, an error will be thrown
+     * @type {string}
+     */
+    enumMissingFeature["PATCH"] = "missing-feature-patch";
+})(enumMissingFeature || (enumMissingFeature = {}));
+/**
+ * Supported libraries
+ */
+var enumLibrary;
+(function (enumLibrary) {
+    /**
+     * Standard Html
+     * @type {string}
+     */
+    enumLibrary["HTML5"] = "Html5";
+    /**
+     * Twitter Bootstrap version 4.X
+     * @type {string}
+     */
+    enumLibrary["BOOTSTRAP_4"] = "Bootstrap_4";
+})(enumLibrary || (enumLibrary = {}));
+
+
+/***/ }),
+
+/***/ "./src/components/Alert.ts":
+/*!*********************************!*\
+  !*** ./src/components/Alert.ts ***!
+  \*********************************/
+/*! exports provided: enumAlertType, Alert */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "enumAlertType", function() { return enumAlertType; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Alert", function() { return Alert; });
 /* harmony import */ var _Component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Component */ "./src/Component.ts");
 var __extends = (undefined && undefined.__extends) || (function () {
@@ -1383,47 +2261,50 @@ var __extends = (undefined && undefined.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-/**
- * Primary alert type, bootstrap 4
- * @type {string}
- */
-var ALERT_PRIMARY = "alert-primary";
-/**
- * Secondary alert type, bootstrap 4
- * @type {string}
- */
-var ALERT_SECONDARY = "alert-secondary";
-/**
- * Success alert type, bootstrap 4
- * @type {string}
- */
-var ALERT_SUCCESS = "alert-success";
-/**
- * Danger alert type, bootstrap 4
- * @type {string}
- */
-var ALERT_DANGER = "alert-danger";
-/**
- * Warning alert type, bootstrap 4
- * @type {string}
- */
-var ALERT_WARNING = "alert-warning";
-/**
- * Info alert type, bootstrap 4
- * @type {string}
- */
-var ALERT_INFO = "alert-info";
-/**
- * Light alert type, bootstrap 4
- * @type {string}
- */
-var ALERT_LIGHT = "alert-light";
-/**
- * Dark alert type, bootstrap 4
- * @type {string}
- */
-var ALERT_DARK = "alert-dark";
 
+var enumAlertType;
+(function (enumAlertType) {
+    /**
+     * Primary alert type, bootstrap 4
+     * @type {string}
+     */
+    enumAlertType["ALERT_PRIMARY"] = "alert-primary";
+    /**
+     * Secondary alert type, bootstrap 4
+     * @type {string}
+     */
+    enumAlertType["ALERT_SECONDARY"] = "alert-secondary";
+    /**
+     * Success alert type, bootstrap 4
+     * @type {string}
+     */
+    enumAlertType["ALERT_SUCCESS"] = "alert-success";
+    /**
+     * Danger alert type, bootstrap 4
+     * @type {string}
+     */
+    enumAlertType["ALERT_DANGER"] = "alert-danger";
+    /**
+     * Warning alert type, bootstrap 4
+     * @type {string}
+     */
+    enumAlertType["ALERT_WARNING"] = "alert-warning";
+    /**
+     * Info alert type, bootstrap 4
+     * @type {string}
+     */
+    enumAlertType["ALERT_INFO"] = "alert-info";
+    /**
+     * Light alert type, bootstrap 4
+     * @type {string}
+     */
+    enumAlertType["ALERT_LIGHT"] = "alert-light";
+    /**
+     * Dark alert type, bootstrap 4
+     * @type {string}
+     */
+    enumAlertType["ALERT_DARK"] = "alert-dark";
+})(enumAlertType || (enumAlertType = {}));
 /**
  * Alert component
  * Displays an alert message to user
@@ -1445,17 +2326,17 @@ var Alert = /** @class */ (function (_super) {
     function Alert(id) {
         var _this = _super.call(this, id) || this;
         /**
-         *
+         * Title of the alert
          */
         _this.title = null;
         /**
-         *
+         * If we can dismiss the alert message
          */
         _this.isDismissible = false;
         /**
-         *
+         * Type of alert
          */
-        _this.alertType = ALERT_PRIMARY;
+        _this.alertType = enumAlertType.ALERT_PRIMARY;
         // noinspection HtmlUnknownAttribute
         _this.template = '<div {attributes}>{icon}{title}{label}</div>';
         _this.componentClassName = 'Alert';
@@ -1550,6 +2431,22 @@ var Alert = /** @class */ (function (_super) {
      */
     Alert.prototype.close = function () {
         $('#' + this.getId()).hide();
+    };
+    /**
+     * This event fires immediately when the close instance method is called.
+     * @param callback
+     */
+    Alert.prototype.onAlertClose = function (callback) {
+        // Unsupported in HTML
+        return this;
+    };
+    /**
+     * This event is fired when the alert has been closed (will wait for CSS transitions to complete).
+     * @param callback
+     */
+    Alert.prototype.onAlertClosed = function (callback) {
+        // Unsupported in HTML
+        return this;
     };
     return Alert;
 }(_Component__WEBPACK_IMPORTED_MODULE_0__["Component"]));
@@ -1671,37 +2568,16 @@ var Anchor = /** @class */ (function (_super) {
 /*!**********************************!*\
   !*** ./src/components/Button.ts ***!
   \**********************************/
-/*! exports provided: BUTTON_PRIMARY, BUTTON_SECONDARY, BUTTON_SUCCESS, BUTTON_DANGER, BUTTON_WARNING, BUTTON_INFO, BUTTON_LIGHT, BUTTON_DARK, BUTTON_LINK, BUTTON_OUTLINE_PRIMARY, BUTTON_OUTLINE_SECONDARY, BUTTON_OUTLINE_SUCCESS, BUTTON_OUTLINE_DANGER, BUTTON_OUTLINE_WARNING, BUTTON_OUTLINE_INFO, BUTTON_OUTLINE_LIGHT, BUTTON_OUTLINE_DARK, BUTTON_LARGE, BUTTON_SMALL, BUTTON_BLOCK, BUTTONTYPE_BUTTON, BUTTONTYPE_SUBMIT, BUTTONTYPE_RESET, Button */
+/*! exports provided: enumButtonStyle, enumButtonSize, enumButtonType, Button */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BUTTON_PRIMARY", function() { return BUTTON_PRIMARY; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BUTTON_SECONDARY", function() { return BUTTON_SECONDARY; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BUTTON_SUCCESS", function() { return BUTTON_SUCCESS; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BUTTON_DANGER", function() { return BUTTON_DANGER; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BUTTON_WARNING", function() { return BUTTON_WARNING; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BUTTON_INFO", function() { return BUTTON_INFO; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BUTTON_LIGHT", function() { return BUTTON_LIGHT; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BUTTON_DARK", function() { return BUTTON_DARK; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BUTTON_LINK", function() { return BUTTON_LINK; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BUTTON_OUTLINE_PRIMARY", function() { return BUTTON_OUTLINE_PRIMARY; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BUTTON_OUTLINE_SECONDARY", function() { return BUTTON_OUTLINE_SECONDARY; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BUTTON_OUTLINE_SUCCESS", function() { return BUTTON_OUTLINE_SUCCESS; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BUTTON_OUTLINE_DANGER", function() { return BUTTON_OUTLINE_DANGER; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BUTTON_OUTLINE_WARNING", function() { return BUTTON_OUTLINE_WARNING; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BUTTON_OUTLINE_INFO", function() { return BUTTON_OUTLINE_INFO; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BUTTON_OUTLINE_LIGHT", function() { return BUTTON_OUTLINE_LIGHT; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BUTTON_OUTLINE_DARK", function() { return BUTTON_OUTLINE_DARK; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BUTTON_LARGE", function() { return BUTTON_LARGE; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BUTTON_SMALL", function() { return BUTTON_SMALL; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BUTTON_BLOCK", function() { return BUTTON_BLOCK; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BUTTONTYPE_BUTTON", function() { return BUTTONTYPE_BUTTON; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BUTTONTYPE_SUBMIT", function() { return BUTTONTYPE_SUBMIT; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BUTTONTYPE_RESET", function() { return BUTTONTYPE_RESET; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "enumButtonStyle", function() { return enumButtonStyle; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "enumButtonSize", function() { return enumButtonSize; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "enumButtonType", function() { return enumButtonType; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Button", function() { return Button; });
-/* harmony import */ var _Form__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Form */ "./src/components/Form.ts");
-/* harmony import */ var _ComponentContainer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../ComponentContainer */ "./src/ComponentContainer.ts");
+/* harmony import */ var _ComponentContainer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ComponentContainer */ "./src/ComponentContainer.ts");
 var __extends = (undefined && undefined.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
@@ -1715,122 +2591,130 @@ var __extends = (undefined && undefined.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-
-/**
- * Primary color button
- * @type {string}
- */
-var BUTTON_PRIMARY = 'btn-primary';
-/**
- * Secondary color button
- * @type {string}
- */
-var BUTTON_SECONDARY = 'btn-secondary';
-/**
- * Success color button
- * @type {string}
- */
-var BUTTON_SUCCESS = 'btn-success';
-/**
- * Danger color button
- * @type {string}
- */
-var BUTTON_DANGER = 'btn-danger';
-/**
- * Warning color button
- * @type {string}
- */
-var BUTTON_WARNING = 'btn-warning';
-/**
- * Info color button
- * @type {string}
- */
-var BUTTON_INFO = 'btn-info';
-/**
- * Light color button
- * @type {string}
- */
-var BUTTON_LIGHT = 'btn-light';
-/**
- * Dark color button
- * @type {string}
- */
-var BUTTON_DARK = 'btn-dark';
-/**
- * Link button
- * @type {string}
- */
-var BUTTON_LINK = 'btn-link';
-/**
- * Primary outline color button
- * @type {string}
- */
-var BUTTON_OUTLINE_PRIMARY = 'btn-outline-primary';
-/**
- * Secondary outline color button
- * @type {string}
- */
-var BUTTON_OUTLINE_SECONDARY = 'btn-outline-secondary';
-/**
- * Success outline color button
- * @type {string}
- */
-var BUTTON_OUTLINE_SUCCESS = 'btn-outline-success';
-/**
- * Danger outline color button
- * @type {string}
- */
-var BUTTON_OUTLINE_DANGER = 'btn-outline-danger';
-/**
- * Warning outline color button
- * @type {string}
- */
-var BUTTON_OUTLINE_WARNING = 'btn-outline-warning';
-/**
- * Info outline color button
- * @type {string}
- */
-var BUTTON_OUTLINE_INFO = 'btn-outline-info';
-/**
- * Light outline color button
- * @type {string}
- */
-var BUTTON_OUTLINE_LIGHT = 'btn-outline-light';
-/**
- * Dark outline color button
- * @type {string}
- */
-var BUTTON_OUTLINE_DARK = 'btn-outline-dark';
-/**
- * Large button
- * @type {string}
- */
-var BUTTON_LARGE = 'btn-lg';
-/**
- * Small button
- * @type {string}
- */
-var BUTTON_SMALL = 'btn-sm';
-/**
- * Block button
- * @type {string}
- */
-var BUTTON_BLOCK = 'btn-block';
-/**
- * Button type
- * @type {string}
- */
-var BUTTONTYPE_BUTTON = 'button';
-/**
- * Submit type
- * @type {string}
- */
-var BUTTONTYPE_SUBMIT = 'submit';
-/**
- * Reset type
- * @type {string}
- */
-var BUTTONTYPE_RESET = 'reset';
+var enumButtonStyle;
+(function (enumButtonStyle) {
+    /**
+     * Primary color button
+     * @type {string}
+     */
+    enumButtonStyle["PRIMARY"] = "btn-primary";
+    /**
+     * Secondary color button
+     * @type {string}
+     */
+    enumButtonStyle["SECONDARY"] = "btn-secondary";
+    /**
+     * Success color button
+     * @type {string}
+     */
+    enumButtonStyle["SUCCESS"] = "btn-success";
+    /**
+     * Danger color button
+     * @type {string}
+     */
+    enumButtonStyle["DANGER"] = "btn-danger";
+    /**
+     * Warning color button
+     * @type {string}
+     */
+    enumButtonStyle["WARNING"] = "btn-warning";
+    /**
+     * Info color button
+     * @type {string}
+     */
+    enumButtonStyle["INFO"] = "btn-info";
+    /**
+     * Light color button
+     * @type {string}
+     */
+    enumButtonStyle["LIGHT"] = "btn-light";
+    /**
+     * Dark color button
+     * @type {string}
+     */
+    enumButtonStyle["DARK"] = "btn-dark";
+    /**
+     * Link button
+     * @type {string}
+     */
+    enumButtonStyle["LINK"] = "btn-link";
+    /**
+     * Primary outline color button
+     * @type {string}
+     */
+    enumButtonStyle["OUTLINE_PRIMARY"] = "btn-outline-primary";
+    /**
+     * Secondary outline color button
+     * @type {string}
+     */
+    enumButtonStyle["OUTLINE_SECONDARY"] = "btn-outline-secondary";
+    /**
+     * Success outline color button
+     * @type {string}
+     */
+    enumButtonStyle["OUTLINE_SUCCESS"] = "btn-outline-success";
+    /**
+     * Danger outline color button
+     * @type {string}
+     */
+    enumButtonStyle["OUTLINE_DANGER"] = "btn-outline-danger";
+    /**
+     * Warning outline color button
+     * @type {string}
+     */
+    enumButtonStyle["OUTLINE_WARNING"] = "btn-outline-warning";
+    /**
+     * Info outline color button
+     * @type {string}
+     */
+    enumButtonStyle["OUTLINE_INFO"] = "btn-outline-info";
+    /**
+     * Light outline color button
+     * @type {string}
+     */
+    enumButtonStyle["OUTLINE_LIGHT"] = "btn-outline-light";
+    /**
+     * Dark outline color button
+     * @type {string}
+     */
+    enumButtonStyle["OUTLINE_DARK"] = "btn-outline-dark";
+})(enumButtonStyle || (enumButtonStyle = {}));
+var enumButtonSize;
+(function (enumButtonSize) {
+    /**
+     * Large button
+     * @type {string}
+     */
+    enumButtonSize["LARGE"] = "btn-lg";
+    /**
+     * Small button
+     * @type {string}
+     */
+    enumButtonSize["SMALL"] = "btn-sm";
+    /**
+     * Block button
+     * @type {string}
+     */
+    enumButtonSize["BLOCK"] = "btn-block";
+})(enumButtonSize || (enumButtonSize = {}));
+var enumButtonType;
+(function (enumButtonType) {
+    /**
+     * Button type
+     * @type {string}
+     */
+    enumButtonType["BUTTON"] = "button";
+    /**
+     * Submit type
+     * @type {string}
+     */
+    enumButtonType["SUBMIT"] = "submit";
+    /**
+     * Reset type
+     * @type {string}
+     */
+    enumButtonType["RESET"] = "reset";
+})(enumButtonType || (enumButtonType = {}));
 
 /**
  * Button component
@@ -1874,27 +2758,10 @@ var Button = /** @class */ (function (_super) {
          *
          */
         _this.buttonSize = null;
-        _this.type = BUTTONTYPE_BUTTON;
+        _this.type = enumButtonType.BUTTON;
         // noinspection HtmlUnknownAttribute
         _this.template = '<button {attributes}>{child_items}</button>';
         _this.componentClassName = 'Button';
-        /**
-         * List of allowed button types
-         */
-        _this.allowedButtonTypes = [
-            BUTTONTYPE_BUTTON,
-            BUTTONTYPE_RESET,
-            BUTTONTYPE_SUBMIT
-        ];
-        _this.allowedFormEncodingTypes = [
-            _Form__WEBPACK_IMPORTED_MODULE_0__["ENCODING_MULTIPART_FORM_DATA"],
-            _Form__WEBPACK_IMPORTED_MODULE_0__["ENCODING_TEXT_PLAIN"],
-            _Form__WEBPACK_IMPORTED_MODULE_0__["ENCODING_URLENCODING"]
-        ];
-        _this.allowedFormMethods = [
-            _Form__WEBPACK_IMPORTED_MODULE_0__["FORM_METHOD_GET"],
-            _Form__WEBPACK_IMPORTED_MODULE_0__["FORM_METHOD_POST"]
-        ];
         return _this;
     }
     /**
@@ -1938,7 +2805,6 @@ var Button = /** @class */ (function (_super) {
      * @returns {Button}
      */
     Button.prototype.setFormEncodingType = function (encoding) {
-        encoding = encoding.toLowerCase().trim();
         if (!encoding) {
             throw 'Parameter encoding is required';
         }
@@ -1961,10 +2827,6 @@ var Button = /** @class */ (function (_super) {
      * @returns {Button}
      */
     Button.prototype.setFormMethod = function (method) {
-        method = method.toLowerCase().trim();
-        if (!method) {
-            throw 'Parameter method is required';
-        }
         if (this.allowedFormMethods.indexOf(method) == -1) {
             throw 'Invalid form method ' + method + ' allowed methods are : ' + this.allowedFormMethods.join(', ');
         }
@@ -2080,19 +2942,19 @@ var Button = /** @class */ (function (_super) {
         /**
          * Check if we have a form encoding, only works with submit
          */
-        if (this.getFormEncodingType() && this.getType() == BUTTONTYPE_SUBMIT) {
+        if (this.getFormEncodingType() && this.getType() == enumButtonType.SUBMIT) {
             this.setAttribute('formenctype', this.getFormEncodingType());
         }
         /**
          * Check if we have a form method, only works with submit
          */
-        if (this.getFormMethod() && this.getType() == BUTTONTYPE_SUBMIT) {
+        if (this.getFormMethod() && this.getType() == enumButtonType.SUBMIT) {
             this.setAttribute('formmethod', this.getFormMethod());
         }
         return _super.prototype.render.call(this);
     };
     return Button;
-}(_ComponentContainer__WEBPACK_IMPORTED_MODULE_1__["ComponentContainer"]));
+}(_ComponentContainer__WEBPACK_IMPORTED_MODULE_0__["ComponentContainer"]));
 
 
 
@@ -2682,16 +3544,13 @@ var Div = /** @class */ (function (_super) {
 /*!********************************!*\
   !*** ./src/components/Form.ts ***!
   \********************************/
-/*! exports provided: ENCODING_URLENCODING, ENCODING_MULTIPART_FORM_DATA, ENCODING_TEXT_PLAIN, FORM_METHOD_GET, FORM_METHOD_POST, Form */
+/*! exports provided: enumFormEncoding, enumFormMethod, Form */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ENCODING_URLENCODING", function() { return ENCODING_URLENCODING; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ENCODING_MULTIPART_FORM_DATA", function() { return ENCODING_MULTIPART_FORM_DATA; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ENCODING_TEXT_PLAIN", function() { return ENCODING_TEXT_PLAIN; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FORM_METHOD_GET", function() { return FORM_METHOD_GET; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FORM_METHOD_POST", function() { return FORM_METHOD_POST; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "enumFormEncoding", function() { return enumFormEncoding; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "enumFormMethod", function() { return enumFormMethod; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Form", function() { return Form; });
 /* harmony import */ var _ComponentContainer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ComponentContainer */ "./src/ComponentContainer.ts");
 var __extends = (undefined && undefined.__extends) || (function () {
@@ -2708,30 +3567,42 @@ var __extends = (undefined && undefined.__extends) || (function () {
     };
 })();
 /**
- * application/x-www-form-urlencoded encoding
- * @type {string}
+ * Form encoding
  */
-var ENCODING_URLENCODING = 'application/x-www-form-urlencoded';
+var enumFormEncoding;
+(function (enumFormEncoding) {
+    /**
+     * application/x-www-form-urlencoded encoding
+     * @type {string}
+     */
+    enumFormEncoding["URLENCODING"] = "application/x-www-form-urlencoded";
+    /**
+     * multipart/form-data encoding
+     * @type {string}
+     */
+    enumFormEncoding["MULTIPART_FORM_DATA"] = "multipart/form-data";
+    /**
+     * text/plain encoding
+     * @type {string}
+     */
+    enumFormEncoding["TEXT_PLAIN"] = "text/plain";
+})(enumFormEncoding || (enumFormEncoding = {}));
 /**
- * multipart/form-data encoding
- * @type {string}
+ * Form methods
  */
-var ENCODING_MULTIPART_FORM_DATA = 'multipart/form-data';
-/**
- * text/plain encoding
- * @type {string}
- */
-var ENCODING_TEXT_PLAIN = 'text/plain';
-/**
- * Form method get
- * @type {string}
- */
-var FORM_METHOD_GET = 'get';
-/**
- * Form method post
- * @type {string}
- */
-var FORM_METHOD_POST = 'post';
+var enumFormMethod;
+(function (enumFormMethod) {
+    /**
+     * Form method get
+     * @type {string}
+     */
+    enumFormMethod["GET"] = "get";
+    /**
+     * Form method post
+     * @type {string}
+     */
+    enumFormMethod["POST"] = "post";
+})(enumFormMethod || (enumFormMethod = {}));
 
 /**
  * container component
@@ -2902,6 +3773,168 @@ var Heading = /** @class */ (function (_super) {
     };
     return Heading;
 }(_ComponentContainer__WEBPACK_IMPORTED_MODULE_0__["ComponentContainer"]));
+
+
+
+/***/ }),
+
+/***/ "./src/components/Hidden.ts":
+/*!**********************************!*\
+  !*** ./src/components/Hidden.ts ***!
+  \**********************************/
+/*! exports provided: Hidden */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Hidden", function() { return Hidden; });
+/* harmony import */ var _Input__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Input */ "./src/components/Input.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+/**
+ * Input control
+ *
+ * @copyright Benoit Gauthier <bgauthier555@gmail.com>
+ * @author Benoit Gauthier <bgauthier555@gmail.com>
+ * @licence MIT
+ * @class
+ */
+var Hidden = /** @class */ (function (_super) {
+    __extends(Hidden, _super);
+    /**
+     *
+     * @param id
+     */
+    function Hidden(id) {
+        var _this = _super.call(this, id) || this;
+        // noinspection HtmlUnknownAttribute
+        _this.setType('hidden');
+        _this.componentClassName = 'Hidden';
+        return _this;
+    }
+    /**
+     * Returns component meta data
+     * @returns {object}
+     */
+    Hidden.getMetaData = function () {
+        /**
+         * Static
+         * Component meta data information
+         * category is one of layout | content | component
+         * @type {object}
+         */
+        return {
+            name: 'Hidden',
+            description: 'HTML hidden input type',
+            category: 'content',
+            libraries: {
+                Bootstrap_4: {
+                    supported: true,
+                    comments: '',
+                },
+                Html5: {
+                    supported: true,
+                    comments: '',
+                }
+            },
+            example: '',
+        };
+    };
+    return Hidden;
+}(_Input__WEBPACK_IMPORTED_MODULE_0__["Input"]));
+
+
+
+/***/ }),
+
+/***/ "./src/components/Hr.ts":
+/*!******************************!*\
+  !*** ./src/components/Hr.ts ***!
+  \******************************/
+/*! exports provided: Hr */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Hr", function() { return Hr; });
+/* harmony import */ var _Component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Component */ "./src/Component.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+/**
+ * Input control
+ *
+ * @copyright Benoit Gauthier <bgauthier555@gmail.com>
+ * @author Benoit Gauthier <bgauthier555@gmail.com>
+ * @licence MIT
+ * @class
+ */
+var Hr = /** @class */ (function (_super) {
+    __extends(Hr, _super);
+    /**
+     *
+     * @param id
+     */
+    function Hr(id) {
+        var _this = _super.call(this, id) || this;
+        // noinspection HtmlUnknownAttribute
+        _this.template = '<hr {attributes}/>';
+        _this.componentClassName = 'Hr';
+        return _this;
+    }
+    /**
+     * Returns component meta data
+     * @returns {object}
+     */
+    Hr.getMetaData = function () {
+        /**
+         * Static
+         * Component meta data information
+         * category is one of layout | content | component
+         * @type {object}
+         */
+        return {
+            name: 'Hr',
+            description: 'HTML Horizontal ruler',
+            category: 'content',
+            libraries: {
+                Bootstrap_4: {
+                    supported: true,
+                    comments: '',
+                },
+                Html5: {
+                    supported: true,
+                    comments: '',
+                }
+            },
+            example: '',
+        };
+    };
+    return Hr;
+}(_Component__WEBPACK_IMPORTED_MODULE_0__["Component"]));
 
 
 
@@ -3089,11 +4122,12 @@ var Image = /** @class */ (function (_super) {
 /*!*********************************!*\
   !*** ./src/components/Input.ts ***!
   \*********************************/
-/*! exports provided: Input */
+/*! exports provided: enumInputType, Input */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "enumInputType", function() { return enumInputType; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Input", function() { return Input; });
 /* harmony import */ var _Component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Component */ "./src/Component.ts");
 var __extends = (undefined && undefined.__extends) || (function () {
@@ -3110,6 +4144,11 @@ var __extends = (undefined && undefined.__extends) || (function () {
     };
 })();
 
+var enumInputType;
+(function (enumInputType) {
+    enumInputType["text"] = "text";
+    enumInputType["hidden"] = "hidden";
+})(enumInputType || (enumInputType = {}));
 /**
  * Input control
  *
@@ -4317,7 +5356,11 @@ var Ul = /** @class */ (function (_super) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.initialize = exports.MISSING_FEATURE_WARNING = exports.MISSING_FEATURE_PATCH = exports.MISSING_FEATURE_ERROR = exports.Semantic24_TextAreaDecorator = exports.Semantic24_InputDecorator = exports.Semantic24_AlertDecorator = exports.Bootstrap4_ButtonDecorator = exports.Bootstrap4_TextAreaDecorator = exports.Bootstrap4_RowDecorator = exports.Bootstrap4_InputDecorator = exports.Bootstrap4_ColumnDecorator = exports.Bootstrap4_AlertDecorator = exports.TextArea = exports.Store = exports.Select = exports.Row = exports.Radio = exports.Pre = exports.Password = exports.Paragraph = exports.Li = exports.Ul = exports.Ol = exports.Option = exports.Label = exports.Image = exports.Icon = exports.Heading = exports.FORM_METHOD_POST = exports.FORM_METHOD_GET = exports.ENCODING_MULTIPART_FORM_DATA = exports.ENCODING_URLENCODING = exports.ENCODING_TEXT_PLAIN = exports.Form = exports.Div = exports.Dialog = exports.DateInput = exports.Column = exports.Checkbox = exports.Container = exports.BUTTONTYPE_SUBMIT = exports.BUTTONTYPE_RESET = exports.BUTTONTYPE_BUTTON = exports.BUTTON_WARNING = exports.BUTTON_SUCCESS = exports.BUTTON_SMALL = exports.BUTTON_SECONDARY = exports.BUTTON_PRIMARY = exports.BUTTON_OUTLINE_WARNING = exports.BUTTON_OUTLINE_SUCCESS = exports.BUTTON_OUTLINE_SECONDARY = exports.BUTTON_OUTLINE_PRIMARY = exports.BUTTON_OUTLINE_LIGHT = exports.BUTTON_OUTLINE_INFO = exports.BUTTON_OUTLINE_DARK = exports.BUTTON_OUTLINE_DANGER = exports.BUTTON_LINK = exports.BUTTON_LIGHT = exports.BUTTON_LARGE = exports.BUTTON_INFO = exports.BUTTON_DARK = exports.BUTTON_BLOCK = exports.BUTTON_DANGER = exports.Button = exports.Anchor = exports.ALERT_WARNING = exports.ALERT_SUCCESS = exports.ALERT_LIGHT = exports.ALERT_INFO = exports.ALERT_DARK = exports.ALERT_DANGER = exports.ALERT_SECONDARY = exports.ALERT_PRIMARY = exports.Alert = exports.Input = exports.ComponentContainer = exports.Component = exports.Patch = exports.Page = exports.Decorator = undefined;
+exports.initialize = exports.Semantic24_TextAreaDecorator = exports.Semantic24_InputDecorator = exports.Semantic24_AlertDecorator = exports.Bootstrap4_ButtonDecorator = exports.Bootstrap4_TextAreaDecorator = exports.Bootstrap4_RowDecorator = exports.Bootstrap4_InputDecorator = exports.Bootstrap4_ColumnDecorator = exports.Bootstrap4_AlertDecorator = exports.TextArea = exports.Store = exports.Select = exports.Row = exports.Radio = exports.Pre = exports.Password = exports.Paragraph = exports.Li = exports.Ul = exports.Ol = exports.Option = exports.Label = exports.Image = exports.Icon = exports.Hr = exports.Heading = exports.enumFormMethod = exports.enumFormEncoding = exports.Form = exports.Div = exports.Dialog = exports.DateInput = exports.Column = exports.Checkbox = exports.Container = exports.enumButtonSize = exports.enumButtonType = exports.enumButtonStyle = exports.Button = exports.Anchor = exports.enumAlertType = exports.Alert = exports.Hidden = exports.enumInputType = exports.Input = exports.ComponentContainer = exports.enumAutoCapitalize = exports.enumDir = exports.Component = exports.Patch = exports.Page = exports.Decorator = exports.FontAwesome = exports.enumLibrary = exports.enumMissingFeature = undefined;
+
+var _UX = __webpack_require__(/*! ./UX */ "./src/UX.ts");
+
+var _FontAwesome = __webpack_require__(/*! ./FontAwesome */ "./src/FontAwesome.ts");
 
 var _Decorator = __webpack_require__(/*! ./Decorator */ "./src/Decorator.ts");
 
@@ -4330,6 +5373,8 @@ var _Component = __webpack_require__(/*! ./Component */ "./src/Component.ts");
 var _ComponentContainer = __webpack_require__(/*! ./ComponentContainer */ "./src/ComponentContainer.ts");
 
 var _Input = __webpack_require__(/*! ./components/Input */ "./src/components/Input.ts");
+
+var _Hidden = __webpack_require__(/*! ./components/Hidden */ "./src/components/Hidden.ts");
 
 var _Alert = __webpack_require__(/*! ./components/Alert */ "./src/components/Alert.ts");
 
@@ -4352,6 +5397,8 @@ var _Div = __webpack_require__(/*! ./components/Div */ "./src/components/Div.ts"
 var _Form = __webpack_require__(/*! ./components/Form */ "./src/components/Form.ts");
 
 var _Heading = __webpack_require__(/*! ./components/Heading */ "./src/components/Heading.ts");
+
+var _Hr = __webpack_require__(/*! ./components/Hr */ "./src/components/Hr.ts");
 
 var _Icon = __webpack_require__(/*! ./components/Icon */ "./src/components/Icon.ts");
 
@@ -4403,52 +5450,32 @@ var _TextAreaDecorator2 = __webpack_require__(/*! ./libraries/semantic2.4/compon
 
 var _Init = __webpack_require__(/*! ./Init */ "./src/Init.js");
 
-exports.Decorator = _Decorator.Decorator; /**
-                                           * UX
-                                           * @copyright Benoit Gauthier <bgauthier555@gmail.com>
-                                           * @author Benoit Gauthier <bgauthier555@gmail.com>
-                                           * @licence MIT
-                                           */
+exports.enumMissingFeature = _UX.enumMissingFeature;
+exports.enumLibrary = _UX.enumLibrary; /**
+                                        * UX
+                                        * @copyright Benoit Gauthier <bgauthier555@gmail.com>
+                                        * @author Benoit Gauthier <bgauthier555@gmail.com>
+                                        * @licence MIT
+                                        */
 
+exports.FontAwesome = _FontAwesome.FontAwesome;
+exports.Decorator = _Decorator.Decorator;
 exports.Page = _Page.Page;
 exports.Patch = _Patch.Patch;
 exports.Component = _Component.Component;
+exports.enumDir = _Component.enumDir;
+exports.enumAutoCapitalize = _Component.enumAutoCapitalize;
 exports.ComponentContainer = _ComponentContainer.ComponentContainer;
 exports.Input = _Input.Input;
+exports.enumInputType = _Input.enumInputType;
+exports.Hidden = _Hidden.Hidden;
 exports.Alert = _Alert.Alert;
-exports.ALERT_PRIMARY = _Alert.ALERT_PRIMARY;
-exports.ALERT_SECONDARY = _Alert.ALERT_SECONDARY;
-exports.ALERT_DANGER = _Alert.ALERT_DANGER;
-exports.ALERT_DARK = _Alert.ALERT_DARK;
-exports.ALERT_INFO = _Alert.ALERT_INFO;
-exports.ALERT_LIGHT = _Alert.ALERT_LIGHT;
-exports.ALERT_SUCCESS = _Alert.ALERT_SUCCESS;
-exports.ALERT_WARNING = _Alert.ALERT_WARNING;
+exports.enumAlertType = _Alert.enumAlertType;
 exports.Anchor = _Anchor.Anchor;
 exports.Button = _Button.Button;
-exports.BUTTON_DANGER = _Button.BUTTON_DANGER;
-exports.BUTTON_BLOCK = _Button.BUTTON_BLOCK;
-exports.BUTTON_DARK = _Button.BUTTON_DARK;
-exports.BUTTON_INFO = _Button.BUTTON_INFO;
-exports.BUTTON_LARGE = _Button.BUTTON_LARGE;
-exports.BUTTON_LIGHT = _Button.BUTTON_LIGHT;
-exports.BUTTON_LINK = _Button.BUTTON_LINK;
-exports.BUTTON_OUTLINE_DANGER = _Button.BUTTON_OUTLINE_DANGER;
-exports.BUTTON_OUTLINE_DARK = _Button.BUTTON_OUTLINE_DARK;
-exports.BUTTON_OUTLINE_INFO = _Button.BUTTON_OUTLINE_INFO;
-exports.BUTTON_OUTLINE_LIGHT = _Button.BUTTON_OUTLINE_LIGHT;
-exports.BUTTON_OUTLINE_PRIMARY = _Button.BUTTON_OUTLINE_PRIMARY;
-exports.BUTTON_OUTLINE_SECONDARY = _Button.BUTTON_OUTLINE_SECONDARY;
-exports.BUTTON_OUTLINE_SUCCESS = _Button.BUTTON_OUTLINE_SUCCESS;
-exports.BUTTON_OUTLINE_WARNING = _Button.BUTTON_OUTLINE_WARNING;
-exports.BUTTON_PRIMARY = _Button.BUTTON_PRIMARY;
-exports.BUTTON_SECONDARY = _Button.BUTTON_SECONDARY;
-exports.BUTTON_SMALL = _Button.BUTTON_SMALL;
-exports.BUTTON_SUCCESS = _Button.BUTTON_SUCCESS;
-exports.BUTTON_WARNING = _Button.BUTTON_WARNING;
-exports.BUTTONTYPE_BUTTON = _Button.BUTTONTYPE_BUTTON;
-exports.BUTTONTYPE_RESET = _Button.BUTTONTYPE_RESET;
-exports.BUTTONTYPE_SUBMIT = _Button.BUTTONTYPE_SUBMIT;
+exports.enumButtonStyle = _Button.enumButtonStyle;
+exports.enumButtonType = _Button.enumButtonType;
+exports.enumButtonSize = _Button.enumButtonSize;
 exports.Container = _Container.Container;
 exports.Checkbox = _Checkbox.Checkbox;
 exports.Column = _Column.Column;
@@ -4456,12 +5483,10 @@ exports.DateInput = _DateInput.DateInput;
 exports.Dialog = _Dialog.Dialog;
 exports.Div = _Div.Div;
 exports.Form = _Form.Form;
-exports.ENCODING_TEXT_PLAIN = _Form.ENCODING_TEXT_PLAIN;
-exports.ENCODING_URLENCODING = _Form.ENCODING_URLENCODING;
-exports.ENCODING_MULTIPART_FORM_DATA = _Form.ENCODING_MULTIPART_FORM_DATA;
-exports.FORM_METHOD_GET = _Form.FORM_METHOD_GET;
-exports.FORM_METHOD_POST = _Form.FORM_METHOD_POST;
+exports.enumFormEncoding = _Form.enumFormEncoding;
+exports.enumFormMethod = _Form.enumFormMethod;
 exports.Heading = _Heading.Heading;
+exports.Hr = _Hr.Hr;
 exports.Icon = _Icon.Icon;
 exports.Image = _Image.Image;
 exports.Label = _Label.Label;
@@ -4496,9 +5521,6 @@ exports.Bootstrap4_ButtonDecorator = _ButtonDecorator.Bootstrap4_ButtonDecorator
 exports.Semantic24_AlertDecorator = _AlertDecorator2.Semantic24_AlertDecorator;
 exports.Semantic24_InputDecorator = _InputDecorator2.Semantic24_InputDecorator;
 exports.Semantic24_TextAreaDecorator = _TextAreaDecorator2.Semantic24_TextAreaDecorator;
-exports.MISSING_FEATURE_ERROR = _Init.MISSING_FEATURE_ERROR;
-exports.MISSING_FEATURE_PATCH = _Init.MISSING_FEATURE_PATCH;
-exports.MISSING_FEATURE_WARNING = _Init.MISSING_FEATURE_WARNING;
 exports.initialize = _Init.initialize;
 
 /***/ }),
@@ -4605,6 +5627,22 @@ var Bootstrap4_AlertDecorator = /** @class */ (function (_super) {
         component.close = function () {
             // @ts-ignore
             $('#' + this.getId()).alert('close');
+        };
+        /**
+         * This event fires immediately when the close instance method is called.
+         * @param callback
+         */
+        component.onAlertClose = function (callback) {
+            $('#' + this.getId()).on('close.bs.alert', callback);
+            return this;
+        };
+        /**
+         * This event is fired when the alert has been closed (will wait for CSS transitions to complete).
+         * @param callback
+         */
+        component.onAlertClosed = function (callback) {
+            $('#' + this.getId()).on('closed.bs.alert', callback);
+            return this;
         };
         return component;
     };

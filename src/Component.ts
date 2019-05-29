@@ -5,7 +5,22 @@
  * @author Benoit Gauthier <bgauthier555@gmail.com>
  * @licence MIT
  */
-import {MISSING_FEATURE_ERROR, MISSING_FEATURE_PATCH, MISSING_FEATURE_WARNING, Store} from "./index";
+import {enumMissingFeature, Store} from "./index";
+
+export enum enumAutoCapitalize {
+    off = 'off',
+    none = 'none',
+    on = 'on',
+    sentences = 'sentences',
+    words = 'words',
+    characters = 'characters'
+}
+
+export enum enumDir {
+    ltr = 'ltr',
+    rtl = 'rtl',
+    auto = 'auto'
+}
 
 class Component {
 
@@ -96,6 +111,37 @@ class Component {
      * Data store used by component
      */
     protected store: Store = null;
+
+    /**
+     * Provides a hint for generating a keyboard shortcut for the current element.
+     */
+    protected accessKey: string = null;
+
+    /**
+     * Controls whether and how text input is automatically capitalized as it is entered/edited by the user.
+     */
+    protected autoCapitalize: enumAutoCapitalize = null;
+
+    /**
+     * Forms a class of attributes, called custom data attributes, that allow proprietary information
+     * to be exchanged between the HTML and its DOM representation that may be used by scripts
+     */
+    protected dataAttributes: any = {};
+
+    /**
+     * An enumerated attribute indicating if the element should be editable by the user
+     */
+    protected contentEditable: boolean = false;
+
+    /**
+     * An enumerated attribute indicating the directionality of the element's text.
+     */
+    protected dir: enumDir = null;
+
+    //
+    //  E V E N T S
+    //
+
 
     /**
      * Component on blur event
@@ -259,7 +305,8 @@ class Component {
      *
      * @param metaData
      */
-    public checkIfFeatureIsSupported(metaData: any) : boolean {
+    public checkIfFeatureIsSupported(metaData: any) : boolean
+    {
 
         // @ts-ignore
         if (metaData.libraries[window.UX.activeLibrary].supported) {
@@ -267,15 +314,15 @@ class Component {
         } else {
 
             // @ts-ignore
-            if (window.UX.missingFeature == MISSING_FEATURE_ERROR) {
+            if (window.UX.missingFeature == enumMissingFeature.ERROR) {
                 // @ts-ignore
                 throw 'Unsupported feature ' + metaData.name + ' when using library ' + window.UX.activeLibrary;
                 // @ts-ignore
-            } else if (window.UX.missingFeature == MISSING_FEATURE_WARNING) {
+            } else if (window.UX.missingFeature == enumMissingFeature.WARNING) {
                 // @ts-ignore
                 window.UX.warn( 'Unsupported feature ' + metaData.name + ' when using library ' + window.UX.activeLibrary );
                 // @ts-ignore
-            } else if (window.UX.missingFeature == MISSING_FEATURE_PATCH) {
+            } else if (window.UX.missingFeature == enumMissingFeature.PATCH) {
 
             }
 
@@ -439,7 +486,8 @@ class Component {
      * @param eventName
      * @param callback
      */
-    on (eventName:string, callback:any) {
+    on (eventName:string, callback:any)
+    {
 
         if (!eventName) {
             throw 'eventName is required';
@@ -831,19 +879,52 @@ class Component {
          */
         let sComponentHTML = this.template;
 
+        // ID
         this.setAttribute('id',this.id);
+
+        // Name
         this.setAttribute('name',this.name);
 
+        // Class
         if (this.getClassList() != '') {
             this.setAttribute('class', this.getClassList());
         }
 
+        // Style
         if (this.getStyleList() != '') {
             this.setAttribute('style', this.getStyleList());
         }
 
+        // Placeholder
         if (this.placeholder != null && this.placeholder != '') {
             this.setAttribute('placeholder', this.placeholder);
+        }
+
+        // Access key attribute
+        if (this.getAccessKey()) {
+            this.setAttribute('accesskey', this.getAccessKey());
+        }
+
+        // Autocapitalize
+        if (this.getAutoCapitalize()) {
+            this.setAttribute('autocapitalize', this.getAutoCapitalize());
+        }
+
+        // data-* attributes
+        for(let x in this.dataAttributes) {
+            if (this.dataAttributes.hasOwnProperty(x)) {
+                this.setAttribute('data-' + x, this.dataAttributes[x]);
+            }
+        }
+
+        // Content editable
+        if (this.getContentEditable()) {
+            this.setAttribute('contenteditable', 'true');
+        }
+
+        // Dir
+        if (this.getDir()) {
+            this.setAttribute('dir', this.getDir());
         }
 
         /**
@@ -880,6 +961,104 @@ class Component {
     {
         // @ts-ignore
         window.UX.log('    * No patch for component ' + metaData.name)
+    }
+
+    /**
+     * Returns access key
+     */
+    public getAccessKey() : string
+    {
+        return this.accessKey;
+    }
+
+    /**
+     * Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters.
+     * @param accessKey
+     */
+    public setAccessKey(accessKey: string) : Component
+    {
+        this.accessKey = accessKey;
+        return this;
+    }
+
+    /**
+     * Returns autocapitalize
+     */
+    public getAutoCapitalize() : enumAutoCapitalize
+    {
+        return this.autoCapitalize;
+    }
+
+    /**
+     * Controls whether and how text input is automatically capitalized as it is entered/edited by the user.
+     * @param autoCapitalize
+     */
+    public setAutoCapitalize(autoCapitalize: enumAutoCapitalize) : Component
+    {
+        this.autoCapitalize = autoCapitalize;
+        return this;
+    }
+
+    /**
+     * Returns a data-* attribute
+     * @param name
+     */
+    public getDataAttribute(name: string) : any
+    {
+        return this.dataAttributes[name];
+    }
+
+    /**
+     * Sets a data-* attribute
+     * @param name
+     * @param value
+     */
+    public setDataAttribute(name: string, value: any) : Component
+    {
+        // Check if name starts with data-
+        if (name.toLowerCase().startsWith('data-')) {
+            // remove data- if supplied
+            name = name.substr(5);
+        }
+
+        this.dataAttributes[name] = value;
+        return this;
+    }
+
+    /**
+     * Returns if component is editable
+     */
+    public getContentEditable() : boolean
+    {
+        return this.contentEditable;
+    }
+
+    /**
+     * An enumerated attribute indicating if the element should be editable by the user
+     * @param contentEditable
+     */
+    public setContentEditable(contentEditable: boolean) : Component
+    {
+        this.contentEditable = contentEditable;
+        return this;
+    }
+
+    /**
+     *
+     */
+    public getDir() : enumDir
+    {
+        return this.dir;
+    }
+
+    /**
+     *
+     * @param dir
+     */
+    public setDir(dir: enumDir) : Component
+    {
+        this.dir = dir;
+        return this;
     }
 
 }

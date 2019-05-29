@@ -1,4 +1,4 @@
-import {MISSING_FEATURE_PATCH} from "./Init";
+import {enumMissingFeature} from "./UX";
 
 /**
  * Patch
@@ -51,7 +51,7 @@ class Patch {
     public applyPatch() {
 
         // @ts-ignore
-        if (window.UX.missingFeature == MISSING_FEATURE_PATCH) {
+        if (window.UX.missingFeature == enumMissingFeature.PATCH) {
             $('head').append('<style>' + this.getCSS() + '</style>');
         }
 

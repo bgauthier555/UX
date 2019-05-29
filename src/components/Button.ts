@@ -1,133 +1,136 @@
 import {
-    ENCODING_MULTIPART_FORM_DATA,
-    ENCODING_TEXT_PLAIN,
-    ENCODING_URLENCODING,
-    FORM_METHOD_GET,
-    FORM_METHOD_POST
+    enumFormMethod,
+    enumFormEncoding
 } from "./Form";
 
-/**
- * Primary color button
- * @type {string}
- */
-export const BUTTON_PRIMARY = 'btn-primary';
-/**
- * Secondary color button
- * @type {string}
- */
-export const BUTTON_SECONDARY = 'btn-secondary';
-/**
- * Success color button
- * @type {string}
- */
-export const BUTTON_SUCCESS = 'btn-success';
-/**
- * Danger color button
- * @type {string}
- */
-export const BUTTON_DANGER = 'btn-danger';
-/**
- * Warning color button
- * @type {string}
- */
-export const BUTTON_WARNING = 'btn-warning';
-/**
- * Info color button
- * @type {string}
- */
-export const BUTTON_INFO = 'btn-info';
-/**
- * Light color button
- * @type {string}
- */
-export const BUTTON_LIGHT = 'btn-light';
-/**
- * Dark color button
- * @type {string}
- */
-export const BUTTON_DARK = 'btn-dark';
-/**
- * Link button
- * @type {string}
- */
-export const BUTTON_LINK = 'btn-link';
+export enum enumButtonStyle {
+    /**
+     * Primary color button
+     * @type {string}
+     */
+    PRIMARY = 'btn-primary',
+    /**
+     * Secondary color button
+     * @type {string}
+     */
+    SECONDARY = 'btn-secondary',
+    /**
+     * Success color button
+     * @type {string}
+     */
+    SUCCESS = 'btn-success',
+    /**
+     * Danger color button
+     * @type {string}
+     */
+    DANGER = 'btn-danger',
+    /**
+     * Warning color button
+     * @type {string}
+     */
+    WARNING = 'btn-warning',
+    /**
+     * Info color button
+     * @type {string}
+     */
+    INFO = 'btn-info',
+    /**
+     * Light color button
+     * @type {string}
+     */
+    LIGHT = 'btn-light',
+    /**
+     * Dark color button
+     * @type {string}
+     */
+    DARK = 'btn-dark',
+    /**
+     * Link button
+     * @type {string}
+     */
+    LINK = 'btn-link',
 
 
-/**
- * Primary outline color button
- * @type {string}
- */
-export const BUTTON_OUTLINE_PRIMARY = 'btn-outline-primary';
-/**
- * Secondary outline color button
- * @type {string}
- */
-export const BUTTON_OUTLINE_SECONDARY = 'btn-outline-secondary';
-/**
- * Success outline color button
- * @type {string}
- */
-export const BUTTON_OUTLINE_SUCCESS = 'btn-outline-success';
-/**
- * Danger outline color button
- * @type {string}
- */
-export const BUTTON_OUTLINE_DANGER = 'btn-outline-danger';
-/**
- * Warning outline color button
- * @type {string}
- */
-export const BUTTON_OUTLINE_WARNING = 'btn-outline-warning';
-/**
- * Info outline color button
- * @type {string}
- */
-export const BUTTON_OUTLINE_INFO = 'btn-outline-info';
-/**
- * Light outline color button
- * @type {string}
- */
-export const BUTTON_OUTLINE_LIGHT = 'btn-outline-light';
-/**
- * Dark outline color button
- * @type {string}
- */
-export const BUTTON_OUTLINE_DARK = 'btn-outline-dark';
+    /**
+     * Primary outline color button
+     * @type {string}
+     */
+    OUTLINE_PRIMARY = 'btn-outline-primary',
+    /**
+     * Secondary outline color button
+     * @type {string}
+     */
+    OUTLINE_SECONDARY = 'btn-outline-secondary',
+    /**
+     * Success outline color button
+     * @type {string}
+     */
+    OUTLINE_SUCCESS = 'btn-outline-success',
+    /**
+     * Danger outline color button
+     * @type {string}
+     */
+    OUTLINE_DANGER = 'btn-outline-danger',
+    /**
+     * Warning outline color button
+     * @type {string}
+     */
+    OUTLINE_WARNING = 'btn-outline-warning',
+    /**
+     * Info outline color button
+     * @type {string}
+     */
+    OUTLINE_INFO = 'btn-outline-info',
+    /**
+     * Light outline color button
+     * @type {string}
+     */
+    OUTLINE_LIGHT = 'btn-outline-light',
+    /**
+     * Dark outline color button
+     * @type {string}
+     */
+    OUTLINE_DARK = 'btn-outline-dark',
+}
 
-/**
- * Large button
- * @type {string}
- */
-export const BUTTON_LARGE = 'btn-lg';
+export enum enumButtonSize {
+    /**
+     * Large button
+     * @type {string}
+     */
+    LARGE = 'btn-lg',
 
-/**
- * Small button
- * @type {string}
- */
-export const BUTTON_SMALL = 'btn-sm';
+    /**
+     * Small button
+     * @type {string}
+     */
+    SMALL = 'btn-sm',
 
-/**
- * Block button
- * @type {string}
- */
-export const BUTTON_BLOCK = 'btn-block';
+    /**
+     * Block button
+     * @type {string}
+     */
+    BLOCK = 'btn-block',
 
-/**
- * Button type
- * @type {string}
- */
-export const BUTTONTYPE_BUTTON = 'button';
-/**
- * Submit type
- * @type {string}
- */
-export const BUTTONTYPE_SUBMIT = 'submit';
-/**
- * Reset type
- * @type {string}
- */
-export const BUTTONTYPE_RESET = 'reset';
+}
 
+export enum enumButtonType {
+    /**
+     * Button type
+     * @type {string}
+     */
+    BUTTON = 'button',
+    /**
+     * Submit type
+     * @type {string}
+     */
+    SUBMIT = 'submit',
+    /**
+     * Reset type
+     * @type {string}
+     */
+    RESET = 'reset',
+}
 
 
 import { ComponentContainer } from '../ComponentContainer';
@@ -157,22 +160,22 @@ class Button extends ComponentContainer {
     /**
      *
      */
-    protected formEncodingType: string = null;
+    protected formEncodingType: enumFormEncoding = null;
 
     /**
      *
      */
-    protected formMethod: string = null;
+    protected formMethod: enumFormMethod = null;
 
     /**
      *
      */
-    protected buttonStyle: string = null;
+    protected buttonStyle: enumButtonStyle = null;
 
     /**
      *
      */
-    protected buttonSize: string = null;
+    protected buttonSize: enumButtonSize = null;
 
     /**
      * Component constructor
@@ -183,31 +186,11 @@ class Button extends ComponentContainer {
 
         super(id);
 
-        this.type = BUTTONTYPE_BUTTON;
+        this.type = enumButtonType.BUTTON;
 
         // noinspection HtmlUnknownAttribute
         this.template = '<button {attributes}>{child_items}</button>';
         this.componentClassName = 'Button';
-
-        /**
-         * List of allowed button types
-         */
-        this.allowedButtonTypes = [
-            BUTTONTYPE_BUTTON,
-            BUTTONTYPE_RESET,
-            BUTTONTYPE_SUBMIT
-        ];
-
-        this.allowedFormEncodingTypes = [
-            ENCODING_MULTIPART_FORM_DATA,
-            ENCODING_TEXT_PLAIN,
-            ENCODING_URLENCODING
-        ];
-
-        this.allowedFormMethods = [
-            FORM_METHOD_GET,
-            FORM_METHOD_POST
-        ];
 
     }
 
@@ -248,7 +231,7 @@ class Button extends ComponentContainer {
      * Returns form encoding type
      * @returns {null}
      */
-    public getFormEncodingType() : string
+    public getFormEncodingType() : enumFormEncoding
     {
         return this.formEncodingType;
     }
@@ -258,10 +241,8 @@ class Button extends ComponentContainer {
      * @param encoding
      * @returns {Button}
      */
-    public setFormEncodingType(encoding: string) : Button
+    public setFormEncodingType(encoding: enumFormEncoding) : Button
     {
-
-        encoding = encoding.toLowerCase().trim();
 
         if (!encoding) {
             throw 'Parameter encoding is required';
@@ -279,7 +260,7 @@ class Button extends ComponentContainer {
      * Returns form method
      * @returns {null}
      */
-    public getFormMethod() : string
+    public getFormMethod() : enumFormMethod
     {
         return this.formMethod;
     }
@@ -289,15 +270,8 @@ class Button extends ComponentContainer {
      * @param method
      * @returns {Button}
      */
-    public setFormMethod(method: string) : Button
+    public setFormMethod(method: enumFormMethod) : Button
     {
-
-        method = method.toLowerCase().trim();
-
-        if (!method) {
-            throw 'Parameter method is required';
-        }
-
 
         if (this.allowedFormMethods.indexOf(method) == -1) {
             throw 'Invalid form method ' + method + ' allowed methods are : ' + this.allowedFormMethods.join(', ');
@@ -356,7 +330,7 @@ class Button extends ComponentContainer {
      * @param style
      * @returns {Button}
      */
-    public setButtonStyle(style: string) : Button
+    public setButtonStyle(style: enumButtonStyle) : Button
     {
         this.buttonStyle = style;
         return this;
@@ -375,7 +349,7 @@ class Button extends ComponentContainer {
      * @param size
      * @returns {Button}
      */
-    public setButtonSize(size: string) : Button
+    public setButtonSize(size: enumButtonSize) : Button
     {
         this.buttonSize = size;
         return this;
@@ -443,14 +417,14 @@ class Button extends ComponentContainer {
         /**
          * Check if we have a form encoding, only works with submit
          */
-        if (this.getFormEncodingType() && this.getType() == BUTTONTYPE_SUBMIT) {
+        if (this.getFormEncodingType() && this.getType() == enumButtonType.SUBMIT) {
             this.setAttribute('formenctype', this.getFormEncodingType());
         }
 
         /**
          * Check if we have a form method, only works with submit
          */
-        if (this.getFormMethod() && this.getType() == BUTTONTYPE_SUBMIT) {
+        if (this.getFormMethod() && this.getType() == enumButtonType.SUBMIT) {
             this.setAttribute('formmethod', this.getFormMethod());
         }
 

@@ -1,7 +1,6 @@
 import { ComponentContainer } from '../ComponentContainer';
 import {Row} from "./Row";
 import {Component} from "../Component";
-import {LIBRARY_HTML5} from "../Init";
 
 /**
  * container component

@@ -1,4 +1,4 @@
-import {Alert, Page} from "../src";
+import {Alert} from "../src";
 import { initialize } from "../src";
 
 test('Bootstrap 4 - Test alert component HTML', () => {
