@@ -180,7 +180,7 @@ class Button extends ComponentContainer {
 
     /**
      * Component constructor
-     * @param {string} id Component unique _sId
+     * @param {string} id Component unique id
      */
     constructor(id: string)
     {
@@ -203,7 +203,7 @@ class Button extends ComponentContainer {
         /**
          * Static
          * Component meta data information
-         * category _sIs one of layout | content | component
+         * category is one of layout | content | component
          * @type {object}
          */
         return {
@@ -246,7 +246,7 @@ class Button extends ComponentContainer {
     {
 
         if (!encoding) {
-            throw 'Parameter encoding _sIs required';
+            throw 'Parameter encoding is required';
         }
 
         if (this.allowedFormEncodingTypes.indexOf(encoding) == -1) {
@@ -308,7 +308,7 @@ class Button extends ComponentContainer {
     }
 
     /**
-     * Sets the form this button _sIs associated with
+     * Sets the form this button is associated with
      * @param form
      */
     public setForm(form: string) : Button
@@ -390,7 +390,7 @@ class Button extends ComponentContainer {
     {
 
         /**
-         * Check if component _sIs disabled
+         * Check if component is disabled
          */
         if (!this._bIsEnabled) {
             this.setAttribute('disabled');

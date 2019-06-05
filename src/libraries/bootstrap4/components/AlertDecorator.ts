@@ -27,7 +27,7 @@ class Bootstrap4_AlertDecorator extends Decorator {
         /**
          * Static
          * Component meta data information
-         * category _sIs one of layout | content | component
+         * category is one of layout | content | component
          * @type {object}
          */
         return {
@@ -73,8 +73,8 @@ class Bootstrap4_AlertDecorator extends Decorator {
 
         if (component.getIsDismissible()) {
             component.addClass('alert-dismissible');
-            component.setTemplate('<div {attributes}>{_sIcon}{_sTitle}{_sLabel}' +
-                ' <button type="button" class="close" data-dismiss="alert" aria-_sLabel="Close">\n' +
+            component.setTemplate('<div {attributes}>{icon}{title}{label}' +
+                ' <button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
                 '    <span aria-hidden="true">&times;</span>\n' +
                 ' </button>' +
                 '</div>');
@@ -94,7 +94,7 @@ class Bootstrap4_AlertDecorator extends Decorator {
         };
 
         /**
-         * This event fires immediately when the close instance method _sIs called.
+         * This event fires immediately when the close instance method is called.
          * @param callback
          */
         component.onAlertClose = function(callback: any) {
@@ -104,7 +104,7 @@ class Bootstrap4_AlertDecorator extends Decorator {
         };
 
         /**
-         * This event _sIs fired when the alert has been closed (will wait for CSS transitions to complete).
+         * This event is fired when the alert has been closed (will wait for CSS transitions to complete).
          * @param callback
          */
         component.onAlertClosed = function(callback: any) {

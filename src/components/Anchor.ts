@@ -47,7 +47,7 @@ class Anchor extends ComponentContainer {
 
     /**
      * Component constructor
-     * @param {string} sId Component unique _sId
+     * @param {string} sId Component unique id
      */
     constructor(sId: string)
     {
@@ -69,7 +69,7 @@ class Anchor extends ComponentContainer {
         /**
          * Static
          * Component meta data information
-         * category _sIs one of layout | content | component
+         * category is one of layout | content | component
          * @type {object}
          */
         return {

@@ -16,13 +16,13 @@ import {FontAwesome} from "../FontAwesome";
 class Container extends ComponentContainer {
 
     /**
-     * If container _sIs fluid or not
+     * If container is fluid or not
      */
     protected isFluid: boolean = false;
 
     /**
      * Component constructor
-     * @param {string} id Component unique _sId
+     * @param {string} id Component unique id
      */
     constructor(id: string)
     {
@@ -46,7 +46,7 @@ class Container extends ComponentContainer {
         /**
          * Static
          * Component meta data information
-         * category _sIs one of layout | content | component
+         * category is one of layout | content | component
          * @type {object}
          */
         return {
@@ -80,7 +80,7 @@ class Container extends ComponentContainer {
     }
 
     /**
-     * Returns if container _sIs fluid dor not
+     * Returns if container is fluid dor not
      * @returns {boolean}
      */
     public getIsFluid() : boolean
@@ -89,7 +89,7 @@ class Container extends ComponentContainer {
     }
 
     /**
-     * Sets if container _sIs fluid or not
+     * Sets if container is fluid or not
      * @param isFluid
      * @returns {Container}
      */

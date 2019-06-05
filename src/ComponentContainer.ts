@@ -71,7 +71,7 @@ abstract class ComponentContainer extends Component {
         item._oParent = this;
         this.items[this.items.length] = item;
 
-        // Remove from main component item list, since this component _sIs a child component
+        // Remove from main component item list, since this component is a child component
         // @ts-ignore
         window.UX.Page.removeItem(item.getId());
 

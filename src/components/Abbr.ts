@@ -16,7 +16,7 @@ class Abbr extends ComponentContainer {
 
     /**
      * Component constructor
-     * @param {string} id Component unique _sId
+     * @param {string} id Component unique id
      */
     constructor(id: string)
     {

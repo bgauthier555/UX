@@ -27,7 +27,7 @@ class Radio extends Input {
         /**
          * Static
          * Component meta data information
-         * category _sIs one of layout | content | component
+         * category is one of layout | content | component
          * @type {object}
          */
         return {

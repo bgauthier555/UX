@@ -55,7 +55,7 @@ class Form extends ComponentContainer {
 
     /**
      * Component constructor
-     * @param {string} id Component unique _sId
+     * @param {string} id Component unique id
      */
     constructor(id: string)
     {
@@ -79,7 +79,7 @@ class Form extends ComponentContainer {
         /**
          * Static
          * Component meta data information
-         * category _sIs one of layout | content | component
+         * category is one of layout | content | component
          * @type {object}
          */
         return {

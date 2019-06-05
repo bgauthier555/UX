@@ -36,7 +36,7 @@ class Semantic24_AlertDecorator extends Decorator {
         /**
          * Static
          * Component meta data information
-         * category _sIs one of layout | content | component
+         * category is one of layout | content | component
          * @type {object}
          */
         return {
@@ -76,20 +76,20 @@ class Semantic24_AlertDecorator extends Decorator {
 
         let sTitle = '';
         if (component.getTitle()) {
-            sTitle = '<div class="header">{_sIcon}{_sTitle}</div>';
+            sTitle = '<div class="header">{icon}{title}</div>';
         }
 
         component.template = '<div {attributes}>\n' +
-            '  {_sTitle}\n' +
-            '  <p>{_sLabel}</p>\n' +
+            '  {title}\n' +
+            '  <p>{label}</p>\n' +
             '</div>';
 
         if (component.getIsDismissible()) {
 
             component.template = '<div {attributes}>\n' +
-                '  <i class="close _sIcon"></i>\n' +
-                '  {_sTitle}\n' +
-                '  <p>{_sLabel}</p>\n' +
+                '  <i class="close icon"></i>\n' +
+                '  {title}\n' +
+                '  <p>{label}</p>\n' +
                 '</div>';
 
 

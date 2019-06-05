@@ -133,7 +133,7 @@ class Alert extends ComponentContainer {
         /**
          * Static
          * Component meta data information
-         * category _sIs one of layout | content | component
+         * category is one of layout | content | component
          * @type {object}
          */
         return {
@@ -232,7 +232,7 @@ class Alert extends ComponentContainer {
     }
 
     /**
-     * Sets alert _sTitle, if _sTitle _sIs not _sOnProgress, the _sTitle will b displayed within the alert component
+     * Sets alert _sTitle, if _sTitle is not _sOnProgress, the _sTitle will b displayed within the alert component
      * @param {string} title The _sTitle of the alert component
      * @returns {Alert}
      */

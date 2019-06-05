@@ -27,7 +27,7 @@ class Semantic24_InputDecorator extends Decorator {
         /**
          * Static
          * Component meta data information
-         * category _sIs one of layout | content | component
+         * category is one of layout | content | component
          * @type {object}
          */
         return {
@@ -55,7 +55,7 @@ class Semantic24_InputDecorator extends Decorator {
     {
 
         component.template = '<div class="ui form field">\n' +
-            '  <_sLabel>{_sLabel}</_sLabel>\n' +
+            '  <label>{label}</label>\n' +
             '  <input {attributes}>\n' +
             '</div>';
 

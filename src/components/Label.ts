@@ -15,7 +15,7 @@ class Label extends ComponentContainer {
 
     /**
      * Component constructor
-     * @param {string} id Component unique _sId
+     * @param {string} id Component unique id
      */
     constructor(id: string)
     {
@@ -23,7 +23,7 @@ class Label extends ComponentContainer {
         super(id);
 
         // noinspection HtmlUnknownAttribute
-        this._sTemplate = '<_sLabel {attributes}>{child_items}</_sLabel>';
+        this._sTemplate = '<label {attributes}>{child_items}</label>';
         this._sComponentClassName = 'Label';
 
     }
@@ -38,7 +38,7 @@ class Label extends ComponentContainer {
         /**
          * Static
          * Component meta data information
-         * category _sIs one of layout | content | component
+         * category is one of layout | content | component
          * @type {object}
          */
         return {
