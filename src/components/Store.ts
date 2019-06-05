@@ -1,10 +1,12 @@
 /**
- * Data store
+ * Data _oStore
  *
  * @copyright Benoit Gauthier <bgauthier555@gmail.com>
  * @author Benoit Gauthier <bgauthier555@gmail.com>
  * @licence MIT
  */
+import {enumComponentCategory} from "../UX";
+
 class Store {
 
     protected data: any = [];
@@ -26,13 +28,13 @@ class Store {
         /**
          * Static
          * Component meta data information
-         * category is one of layout | content | component
+         * category _sIs one of layout | content | component
          * @type {object}
          */
         return {
             name : 'Store',
-            description : 'Data store',
-            category : 'component',
+            description : 'Data _oStore',
+            category : enumComponentCategory.utility,
             libraries : {
                 Bootstrap_4: {
                     supported: true,

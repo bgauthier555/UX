@@ -17,13 +17,13 @@ class Select extends Component {
     {
         super(id);
 
-        this.store = new Store();
+        this._oStore = new Store();
 
         // noinspection HtmlUnknownAttribute
-        this.template = '<select {attributes}>\n' +
+        this._sTemplate = '<select {attributes}>\n' +
             '{options}' +
             '</select>';
-        this.componentClassName = 'Select';
+        this._sComponentClassName = 'Select';
 
 
     }
@@ -38,13 +38,14 @@ class Select extends Component {
         /**
          * Static
          * Component meta data information
-         * category is one of layout | content | component
+         * category _sIs one of layout | content | component
          * @type {object}
          */
         return {
             name : 'Select',
             description : '',
             category : 'component',
+            isContainer: false,
             libraries : {
                 Bootstrap_4: {
                     supported: true,

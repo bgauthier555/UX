@@ -1,4 +1,5 @@
 import { ComponentContainer } from '../ComponentContainer';
+import {FontAwesome} from "../FontAwesome";
 
 /**
  * Pre component
@@ -14,7 +15,7 @@ class Pre extends ComponentContainer {
 
     /**
      * Component constructor
-     * @param {string} id Component unique id
+     * @param {string} id Component unique _sId
      */
     constructor(id: string)
     {
@@ -22,8 +23,8 @@ class Pre extends ComponentContainer {
         super(id);
 
         // noinspection HtmlUnknownAttribute
-        this.template = '<pre {attributes}>{child_items}</pre>';
-        this.componentClassName = 'Pre';
+        this._sTemplate = '<pre {attributes}>{child_items}</pre>';
+        this._sComponentClassName = 'Pre';
 
     }
 
@@ -37,13 +38,15 @@ class Pre extends ComponentContainer {
         /**
          * Static
          * Component meta data information
-         * category is one of layout | content | component
+         * category _sIs one of layout | content | component
          * @type {object}
          */
         return {
             name : 'Pre',
             description : '',
             category : 'content',
+            icon : FontAwesome.FA_SQUARE_O,
+            isContainer: true,
             libraries : {
                 Bootstrap_4: {
                     supported: true,

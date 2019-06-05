@@ -27,7 +27,7 @@ class Bootstrap4_RowDecorator extends Decorator {
         /**
          * Static
          * Component meta data information
-         * category is one of layout | content | component
+         * category _sIs one of layout | content | component
          * @type {object}
          */
         return {

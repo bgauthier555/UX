@@ -1,4 +1,5 @@
 import { Component } from '../Component';
+import {FontAwesome} from "../FontAwesome";
 /**
  * Input control
  *
@@ -19,8 +20,8 @@ class Icon extends Component {
         super(id);
 
         // noinspection HtmlUnknownAttribute
-        this.template = '<i {attributes}></i>';
-        this.componentClassName = 'Icon';
+        this._sTemplate = '<i {attributes}></i>';
+        this._sComponentClassName = 'Icon';
 
 
     }
@@ -35,13 +36,15 @@ class Icon extends Component {
         /**
          * Static
          * Component meta data information
-         * category is one of layout | content | component
+         * category _sIs one of layout | content | component
          * @type {object}
          */
         return {
             name : 'Icon',
             description : 'Icon',
             category : 'content',
+            icon : FontAwesome.FA_IMAGE,
+            isContainer: false,
             libraries : {
                 Bootstrap_4: {
                     supported: true,
@@ -64,6 +67,32 @@ class Icon extends Component {
         };
 
 
+    }
+
+    /**
+     * Makes an icon using icon class
+     * @param sIconClass
+     * @param sAppend
+     */
+    static make(sIconClass: string, sAppend: string = '&nbsp;'): string
+    {
+
+        /**
+         * If no icon class return empty
+         */
+        if (!sIconClass) {
+            return '';
+        }
+
+        /**
+         * Find library
+         */
+        let sIconLib: string = '';
+        if (sIconClass.startsWith('fa-')) {
+            sIconLib = 'fa ';
+        }
+
+        return '<i class="' + sIconLib + sIconClass + '"></i>' + (sAppend ? sAppend : '');
     }
 
 

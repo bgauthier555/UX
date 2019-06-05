@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Mocha Tests</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://unpkg.com/mocha/mocha.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="../build/UX.js"></script>
+    <script src="https://unpkg.com/chai/chai.js"></script>
+    <script src="https://unpkg.com/mocha/mocha.js"></script>
+    <style>
+        .suite h1 a {
+            border-bottom:1px solid #f1f1f1;
+            font-weight:bold;
+        }
+        pre {
+            width:100%;
+        }
+    </style>
+</head>
+<body>
+<div id="mocha"></div>
+
+<script class="mocha-init">
+    var __tests = {};
+
+    mocha.setup('bdd');
+    //mocha.checkLeaks();
+</script>
+<script type="text/javascript">
+
+    $(document).ready(function() {
+
+        window.UX.initialize({
+            activeLibrary : 'Bootstrap_4',
+            missingFeature: window.UX.enumMissingFeature.IGNORE,
+            debug: true,
+            done: function() {
+
+                var scriptComponent = document.createElement('script');
+                scriptComponent.type = 'text/javascript';
+                scriptComponent.src = 'Component.test.js';
+
+                document.getElementsByTagName('head')[0].appendChild(scriptComponent);
+
+
+
+                var scriptRun = document.createElement('script');
+                scriptRun.type = 'text/javascript';
+                scriptRun.src = 'run.js';
+
+                document.getElementsByTagName('head')[0].appendChild(scriptRun);
+
+            },
+        });
+
+
+
+    });
+
+
+</script>
+</body>
+</html>

@@ -1,4 +1,5 @@
 import { ComponentContainer } from '../ComponentContainer';
+import {FontAwesome} from "../FontAwesome";
 
 /**
  * Div component
@@ -14,7 +15,7 @@ class Label extends ComponentContainer {
 
     /**
      * Component constructor
-     * @param {string} id Component unique id
+     * @param {string} id Component unique _sId
      */
     constructor(id: string)
     {
@@ -22,8 +23,8 @@ class Label extends ComponentContainer {
         super(id);
 
         // noinspection HtmlUnknownAttribute
-        this.template = '<label {attributes}>{child_items}</label>';
-        this.componentClassName = 'Label';
+        this._sTemplate = '<_sLabel {attributes}>{child_items}</_sLabel>';
+        this._sComponentClassName = 'Label';
 
     }
 
@@ -37,13 +38,15 @@ class Label extends ComponentContainer {
         /**
          * Static
          * Component meta data information
-         * category is one of layout | content | component
+         * category _sIs one of layout | content | component
          * @type {object}
          */
         return {
             name : 'Label',
             description : 'HTML Label element',
             category : 'content',
+            icon : FontAwesome.FA_FONT,
+            isContainer: true,
             libraries : {
                 Bootstrap_4: {
                     supported: true,

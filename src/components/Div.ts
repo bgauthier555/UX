@@ -1,4 +1,5 @@
 import { ComponentContainer } from '../ComponentContainer';
+import {FontAwesome} from "../FontAwesome";
 
 /**
  * Div component
@@ -14,16 +15,18 @@ class Div extends ComponentContainer {
 
     /**
      * Component constructor
-     * @param {string} id Component unique id
+     * @param {string} id Component unique _sId
      */
     constructor(id: string)
     {
 
         super(id);
 
+        this.addClass('ux-div');
+
         // noinspection HtmlUnknownAttribute
-        this.template = '<div {attributes}>{child_items}</div>';
-        this.componentClassName = 'Div';
+        this._sTemplate = '<div {attributes}>{child_items}</div>';
+        this._sComponentClassName = 'Div';
 
     }
 
@@ -37,13 +40,15 @@ class Div extends ComponentContainer {
         /**
          * Static
          * Component meta data information
-         * category is one of layout | content | component
+         * category _sIs one of layout | content | component
          * @type {object}
          */
         return {
             name : 'Div',
             description : 'HTML Div element',
             category : 'content',
+            icon : FontAwesome.FA_SQUARE_O,
+            isContainer: true,
             libraries : {
                 Bootstrap_4: {
                     supported: true,

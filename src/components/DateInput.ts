@@ -1,4 +1,5 @@
 import {Component} from "../Component";
+import {FontAwesome} from "../FontAwesome";
 
 /**
  * Anchor component
@@ -14,7 +15,7 @@ class DateInput extends Component {
 
     /**
      * Component constructor
-     * @param {string} id Component unique id
+     * @param {string} id Component unique _sId
      */
     constructor(id: string)
     {
@@ -22,8 +23,8 @@ class DateInput extends Component {
         super(id);
 
         // noinspection HtmlUnknownAttribute
-        this.template = '<div {attributes}></div>';
-        this.componentClassName = 'DateInput';
+        this._sTemplate = '<div {attributes}></div>';
+        this._sComponentClassName = 'DateInput';
 
     }
 
@@ -37,13 +38,15 @@ class DateInput extends Component {
         /**
          * Static
          * Component meta data information
-         * category is one of layout | content | component
+         * category _sIs one of layout | content | component
          * @type {object}
          */
         return {
             name : 'DateInput',
             description : 'HTML date element',
             category : 'content',
+            icon : FontAwesome.FA_CALENDAR,
+            isContainer: false,
             libraries : {
                 Bootstrap_4: {
                     supported: true,

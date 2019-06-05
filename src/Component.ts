@@ -1,12 +1,9 @@
-/**
- * Base class for javascript UI components
- *
- * @copyright Benoit Gauthier <bgauthier555@gmail.com>
- * @author Benoit Gauthier <bgauthier555@gmail.com>
- * @licence MIT
- */
-import {enumMissingFeature, Store} from "./index";
+import {ComponentProperties, enumMissingFeature, Store} from "./index";
 
+/**
+ *  Auto Capitalize values
+ *  https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/autocapitalize
+ */
 export enum enumAutoCapitalize {
     off = 'off',
     none = 'none',
@@ -16,311 +13,557 @@ export enum enumAutoCapitalize {
     characters = 'characters'
 }
 
+/**
+ *  Dir values
+ *  https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/dir
+ */
 export enum enumDir {
     ltr = 'ltr',
     rtl = 'rtl',
     auto = 'auto'
 }
 
-class Component {
+/**
+ *  Input mode values
+ *  https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode
+ */
+export enum enumInputMode {
+    none = 'none',
+    text = 'text',
+    decimal = 'decimal',
+    numeric = 'numeric',
+    tel = 'tel',
+    search = 'search',
+    email = 'email',
+    url = 'url'
+}
+
+/**
+ *  Translate values
+ *  https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/translate
+ */
+export enum enumTranslate {
+    yes = 'yes',
+    no = 'no'
+}
+
+/**
+ * Base class for UI components
+ *
+ * @copyright Benoit Gauthier <bgauthier555@gmail.com>
+ * @author Benoit Gauthier <bgauthier555@gmail.com>
+ * @licence MIT
+ */
+abstract class Component {
 
     [key: string]: any;
 
     /**
-     * Unique id of component
+     * Unique ID of component, will be used for id and name attributes by default
      */
-    protected id: string = null;
+    protected _sId: string = null;
 
     /**
-     * Indicates if component has been initialized
+     * Indicates if component has been initialized or not
      */
-    protected isInitialized: boolean = false;
+    protected _bIsInitialized: boolean = false;
 
     /**
-     * Container id of component
+     * HTML Container id for component, will use id as default
      */
-    protected containerId: string = null;
+    protected _sContainerId: string = null;
 
     /**
      * Name of component
      */
-    protected name: string = null;
+    protected _sName: string = null;
 
     /**
-     * classes applied to component
+     * CSS Classes applied to component
      */
-    protected classes: any = {};
+    protected _aClasses: any = {};
 
     /**
-     * Component attributes
+     * Component Attributes
      */
-    protected attributes: any = {};
+    protected _aAttributes: any = {};
 
     /**
-     * Component value
+     * Component Value
      */
-    protected value: any = null;
+    protected _mValue: any = null;
 
     /**
      * If component is enabled or not
      */
-    protected isEnabled: boolean = true;
+    protected _bIsEnabled: boolean = true;
 
     /**
      * Is component value is required or not
      */
-    protected isRequired: boolean = false;
+    protected _bIsRequired: boolean = false;
 
     /**
      * Html template used to render component
      */
-    public template: string = null;
+    protected _sTemplate: string = null;
 
     /**
      * Placeholder text
      */
-    protected placeholder: string = null;
+    protected _sPlaceholder: string = null;
 
     /**
-     * The name of the class
+     * The name of the class, parent class for example Div, Paragraph ...
      */
-    protected componentClassName: string = 'Component';
-
-    /**
-     * Label for component
-     */
-    protected label: string = null;
-
-
-    /**
-     * Icon, used to display in some components
-     */
-    protected icon: string = null;
+    protected _sComponentClassName: string = 'Component';
 
     /**
      * List of styles applied to component
      */
-    protected styles: any = {};
+    protected _aStyles: any = {};
 
     /**
      * Parent object of component
      */
-    public parent: any = null;
+    protected _oParent: any = null;
 
     /**
      * Data store used by component
      */
-    protected store: Store = null;
+    protected _oStore: Store = null;
 
     /**
      * Provides a hint for generating a keyboard shortcut for the current element.
      */
-    protected accessKey: string = null;
+    protected _sAccessKey: string = null;
 
     /**
      * Controls whether and how text input is automatically capitalized as it is entered/edited by the user.
      */
-    protected autoCapitalize: enumAutoCapitalize = null;
+    protected _eAutoCapitalize: enumAutoCapitalize = null;
 
     /**
      * Forms a class of attributes, called custom data attributes, that allow proprietary information
      * to be exchanged between the HTML and its DOM representation that may be used by scripts
      */
-    protected dataAttributes: any = {};
+    protected _aDataAttributes: any = {};
 
     /**
      * An enumerated attribute indicating if the element should be editable by the user
      */
-    protected contentEditable: boolean = false;
+    protected _bContentEditable: boolean = false;
 
     /**
      * An enumerated attribute indicating the directionality of the element's text.
      */
-    protected dir: enumDir = null;
+    protected _eDir: enumDir = null;
+
+    /**
+     * The id of a <menu> to use as the contextual menu for this element.
+     */
+    protected _sContextMenu: string = null;
+
+    /**
+     * An enumerated attribute indicating whether the element can be dragged
+     */
+    protected _bDraggable: boolean = null;
+
+    /**
+     * Provides a hint to browsers as to the type of virtual keyboard configuration to use
+     */
+    protected _eInputMode: enumInputMode = null;
+
+    /**
+     * The is global attribute allows you to specify that a standard HTML element
+     * should behave like a defined custom built-in element
+     */
+    protected _sIs: string = null;
+
+    /**
+     * The unique, global identifier of an item.
+     */
+    protected _sItemId: string = null;
+
+    /**
+     * Used to add properties to an item. Every HTML element may have an _sItemProp attribute specified, where an _sItemProp consists of a name and value pair.
+     */
+    protected _sItemProp: string = null;
+
+    /**
+     * Properties that are not descendants of an element with the itemscope attribute can be associated with the item using an itemref
+     */
+    protected _sItemRef: string = null;
+
+    /**
+     * _bItemScope (usually) works along with itemtype to specify that the HTML contained in a block is about a particular item.
+     */
+    protected _bItemScope: boolean = null;
+
+    /**
+     * Specifies the URL of the vocabulary that will be used to define itemprops (item properties) in the data structure.
+     */
+    protected _sItemType: string = null;
+
+    /**
+     * Helps define the language of an element
+     */
+    protected _sLang: string = null;
+
+    /**
+     * Assigns a slot in a shadow DOM shadow tree to an element:
+     */
+    protected _sSlot: string = null;
+
+    /**
+     * An enumerated attribute defines whether the element may be checked for spelling errors
+     */
+    protected _bSpellcheck: boolean = null;
+
+    /**
+     * An integer attribute indicating if the element can take input focus (is focusable), if it should participate to sequential keyboard navigation, and if so, at what position.
+     */
+    protected _nTabIndex: number = null;
+
+    /**
+     * Contains a text representing advisory information related to the element it belongs to.
+     */
+    protected _sTitle: string = null;
+
+    /**
+     * An enumerated attribute that is used to specify whether an element's attribute values and the values of its Text node children are to be translated when the page is localized
+     */
+    protected _eTranslate: enumTranslate = null;
 
     //
     //  E V E N T S
     //
 
-
     /**
-     * Component on blur event
+     * On abort event source
+     * https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onabort
+     */
+    public onAbort: any = null;
+    /**
+     *
+     */
+    public onAutoComplete: any = null;
+    /**
+     *
+     */
+    public onAutoCompleteError: any = null;
+    /**
+     *
      */
     public onBlur: any = null;
-
     /**
-     * Component on click event
+     *
      */
-    public onClick: any = null;
-
+    public onCancel: any = null;
     /**
-     * Component on change event
+     *
+     */
+    public onCanPlay: any = null;
+    /**
+     *
+     */
+    public onCanPlayThrough: any = null;
+    /**
+     *
      */
     public onChange: any = null;
+    /**
+     *
+     */
+    public onClick: any = null;
+    /**
+     *
+     */
+    public onClose: any = null;
+    /**
+     *
+     */
+    public onContextMenu: any = null;
+    /**
+     *
+     */
+    public onCueChange: any = null;
+    /**
+     *
+     */
+    public onDblClick: any = null;
+    /**
+     *
+     */
+    public onDrag: any = null;
+    /**
+     *
+     */
+    public onDragEnd: any = null;
+    /**
+     *
+     */
+    public onDragEnter: any = null;
+    /**
+     *
+     */
+    public onDragExit: any = null;
+    /**
+     *
+     */
+    public onDragLeave: any = null;
+    /**
+     *
+     */
+    public onDragOver: any = null;
+    /**
+     *
+     */
+    public onDragStart: any = null;
+    /**
+     *
+     */
+    public onDrop: any = null;
+    /**
+     *
+     */
+    public onDurationChange: any = null;
+    /**
+     *
+     */
+    public onEmptied: any = null;
+    /**
+     *
+     */
+    public onEnded: any = null;
+    /**
+     *
+     */
+    public onError: any = null;
+    /**
+     *
+     */
+    public onFocus: any = null;
+    /**
+     *
+     */
+    public onInput: any = null;
+    /**
+     *
+     */
+    public onInvalid: any = null;
+    /**
+     *
+     */
+    public onKeyDown: any = null;
+    /**
+     *
+     */
+    public onKeyPress: any = null;
+    /**
+     *
+     */
+    public onKeyUp: any = null;
+    /**
+     *
+     */
+    public onLoad: any = null;
+    /**
+     *
+     */
+    public onLoadedData: any = null;
+    /**
+     *
+     */
+    public onLoadedMetadata: any = null;
+    /**
+     *
+     */
+    public onLoadStart: any = null;
+    /**
+     *
+     */
+    public onMouseDown: any = null;
+    /**
+     *
+     */
+    public onMouseEnter: any = null;
+    /**
+     *
+     */
+    public onMouseLeave: any = null;
+    /**
+     *
+     */
+    public onMouseMove: any = null;
+    /**
+     *
+     */
+    public onMouseOut: any = null;
+    /**
+     *
+     */
+    public onMouseOver: any = null;
+    /**
+     *
+     */
+    public onMouseUp: any = null;
+    /**
+     *
+     */
+    public onMouseWheel: any = null;
+    /**
+     *
+     */
+    public onPause: any = null;
+    /**
+     *
+     */
+    public onPlay: any = null;
+    /**
+     *
+     */
+    public onPlaying: any = null;
+    /**
+     *
+     */
+    public onProgress: any = null;
+    /**
+     *
+     */
+    public onRateChange: any = null;
+    /**
+     *
+     */
+    public onReset: any = null;
+    /**
+     *
+     */
+    public onResize: any = null;
+    /**
+     *
+     */
+    public onScroll: any = null;
+    /**
+     *
+     */
+    public onSeeked: any = null;
+    /**
+     *
+     */
+    public onSeeking: any = null;
+    /**
+     *
+     */
+    public onSelect: any = null;
+    /**
+     *
+     */
+    public onShow: any = null;
+    /**
+     *
+     */
+    public onSort: any = null;
+    /**
+     *
+     */
+    public onStalled: any = null;
+    /**
+     *
+     */
+    public onSubmit: any = null;
+    /**
+     *
+     */
+    public onSuspend: any = null;
+    /**
+     *
+     */
+    public onTimeUpdate: any = null;
+    /**
+     *
+     */
+    public onToggle: any = null;
+    /**
+     *
+     */
+    public onVolumeChange: any = null;
+    /**
+     *
+     */
+    public onWaiting: any = null;
 
-    /**
-     * Component on select event
-     */
-    public onSelect:any = null;
-    /**
-     * Component on double click event
-     */
-    public onDblClick:any = null;
-
-    /**
-     * Component on focus event
-     */
-    public onFocus:any = null;
-
-    /**
-     * Component on focus in event
-     */
-    public onFocusIn:any = null;
-
-    /**
-     * Component on focus out event
-     */
-    public onFocusOut:any = null;
-
-    /**
-     * Component on hover event
-     */
-    public onHover:any = null;
-
-    /**
-     * Component on key down event
-     */
-    public onKeyDown:any = null;
-
-    /**
-     * Component on key press event
-     */
-    public onKeyPress:any = null;
-
-    /**
-     * Component on key up event
-     */
-    public onKeyUp:any = null;
-
-    /**
-     * Component on mouse down event
-     */
-    public onMouseDown:any = null;
-
-    /**
-     * Component on mouse enter event
-     */
-    public onMouseEnter:any = null;
-
-    /**
-     * Component on mouse leave event
-     */
-    public onMouseLeave:any = null;
-
-    /**
-     * Component on mouse move event
-     */
-    public onMouseMove:any = null;
-
-    /**
-     * Component on mouse out event
-     */
-    public onMouseOut:any = null;
-
-    /**
-     * Component on mouse up event
-     */
-    public onMouseUp:any = null;
-
-    /**
-     * Component on resize event
-     */
-    public onResize:any = null;
-
-    /**
-     * Component on scroll event
-     */
-    public onScroll:any = null;
-
-    /**
-     * Component on submit event
-     */
-    public onSubmit:any = null;
-
-    /**
-     * Component on unload event
-     */
-    public onUnload:any = null;
-
-    /**
-     * Component on load event
-     */
-    public onLoad:any = null;
 
     /**
      * Component constructor
-     * @param id Component unique ID
+     * @param sId Component unique ID
      */
-    constructor(id: string = null)
+    constructor(sId: string = null)
     {
 
         /**
          * If id is not passed, generate a random id for component
          */
-        if (id == null) {
-            id = Component.generateRandomId();
+        if (sId == null) {
+            sId = Component.generateRandomId();
         }
 
         /**
          * Indicates if the component has been initialized or not
          * @type {boolean}
          */
-        this.isInitialized = false;
+        this._bIsInitialized = false;
         /**
          * The containing html element for this component
          * @type {string}
          */
-        this.containerId = id;
+        this._sContainerId = sId;
         /**
          * ID of the component
          * @type {string}
          */
-        this.id = id;
+        this._sId = sId;
         /**
          * Name of the component
          * @type {string}
          */
-        this.name = id;
+        this._sName = sId;
 
 
         /**
          * Add component to page
          */
         // @ts-ignore
-        window.UX.Page.addItem(this);
+        if (window.UX.Page.addItem != undefined) {
+            // @ts-ignore
+            window.UX.Page.addItem(this);
+        }
 
     }
 
     /**
      *
-     * @param metaData
+     * @param oMetaData
      */
-    public checkIfFeatureIsSupported(metaData: any) : boolean
+    public checkIfFeatureIsSupported(oMetaData: any) : boolean
     {
 
         // @ts-ignore
-        if (metaData.libraries[window.UX.activeLibrary].supported) {
+        if (oMetaData.libraries[window.UX.activeLibrary].supported) {
             return true;
         } else {
 
             // @ts-ignore
-            if (window.UX.missingFeature == enumMissingFeature.ERROR) {
+            if (window.UX.missingFeature == enumMissingFeature.IGNORE) {
+                // Do nothing ignore the error
                 // @ts-ignore
-                throw 'Unsupported feature ' + metaData.name + ' when using library ' + window.UX.activeLibrary;
+            } else if (window.UX.missingFeature == enumMissingFeature.ERROR) {
+                // @ts-ignore
+                throw 'Unsupported feature ' + oMetaData.name + ' when using library ' + window.UX.activeLibrary;
                 // @ts-ignore
             } else if (window.UX.missingFeature == enumMissingFeature.WARNING) {
                 // @ts-ignore
-                window.UX.warn( 'Unsupported feature ' + metaData.name + ' when using library ' + window.UX.activeLibrary );
+                window.UX.warn( 'Unsupported feature ' + oMetaData.name + ' when using library ' + window.UX.activeLibrary );
                 // @ts-ignore
             } else if (window.UX.missingFeature == enumMissingFeature.PATCH) {
 
@@ -336,7 +579,7 @@ class Component {
     public init() : void
     {
 
-        if (this.isInitialized) {
+        if (this._bIsInitialized) {
             return;
         }
 
@@ -346,138 +589,32 @@ class Component {
         /**
          * Render HTML code and insert into page
          */
-        let el = $('#' + this.getId());
-        if ( el.length > 0 ) {
-            el.replaceWith(this.render());
-        } else {
-            // No dom element to replace, append to default container
-            // @ts-ignore
-            $(window.UX.defaultContainerId).append(this.render());
-        }
+        this.render();
 
         /**
          * Link event code
          */
+        for (let e in ComponentProperties.CommonEvents) {
+            let sAccessor: string = ComponentProperties.CommonEvents[e].accessor;
 
-        if (this.onClick != null) {
-            $('#' + this.id).on('click', this.onClick);
+            if (this[sAccessor] != null) {
+                $('#' + this._sId).on(e, this[sAccessor]);
+            }
+
         }
 
-        if (this.onDblClick != null) {
-            $('#' + this.id).on('dblclick', this.onDblClick);
-        }
-
-        if (this.onLoad != null) {
-            $('#' + this.id).on('load', this.onLoad);
-        }
-
-        if (this.onUnload != null) {
-            $('#' + this.id).on('unload', this.onUnload);
-        }
-
-        if (this.onSubmit != null) {
-            $('#' + this.id).on('submit', this.onSubmit);
-        }
-
-        if (this.onScroll != null) {
-            $('#' + this.id).on('scroll', this.onScroll);
-        }
-
-        if (this.onResize != null) {
-            $('#' + this.id).on('resize', this.onResize);
-        }
-
-        if (this.onMouseUp != null) {
-            $('#' + this.id).on('mouseup', this.onMouseUp);
-        }
-
-        if (this.onMouseOut != null) {
-            $('#' + this.id).on('mouseout', this.onMouseOut);
-        }
-
-        if (this.onMouseMove != null) {
-            $('#' + this.id).on('mousemove', this.onMouseMove);
-        }
-
-        if (this.onMouseLeave != null) {
-            $('#' + this.id).on('mouseleave', this.onMouseLeave);
-        }
-
-        if (this.onMouseEnter != null) {
-            $('#' + this.id).on('mouseenter', this.onMouseEnter);
-        }
-
-        if (this.onMouseDown != null) {
-            $('#' + this.id).on('mousedown', this.onMouseDown);
-        }
-
-        if (this.onKeyUp != null) {
-            $('#' + this.id).on('keyup', this.onKeyUp);
-        }
-
-        if (this.onKeyPress != null) {
-            $('#' + this.id).on('keypress', this.onKeyPress);
-        }
-
-        if (this.onKeyDown != null) {
-            $('#' + this.id).on('keydown', this.onKeyDown);
-        }
-
-        if (this.onHover != null) {
-            $('#' + this.id).on('hover', this.onHover);
-        }
-
-        if (this.onFocusOut != null) {
-            $('#' + this.id).on('focusout', this.onFocusOut);
-        }
-
-        if (this.onFocusIn != null) {
-            $('#' + this.id).on('focusin', this.onFocusIn);
-        }
-
-        if (this.onFocus != null) {
-            $('#' + this.id).on('focus', this.onFocus);
-        }
-
-        if (this.onChange != null) {
-            $('#' + this.id).on('change', this.onChange);
-        }
-
-        if (this.onBlur != null) {
-            $('#' + this.id).on('blur', this.onBlur);
-        }
-
-        if (this.onFocus != null) {
-            $('#' + this.id).on('focus', this.onFocus);
-        }
-
-        if (this.onFocusIn != null) {
-            $('#' + this.id).on('focusin', this.onFocusIn);
-        }
-
-        if (this.onFocusOut != null) {
-            $('#' + this.id).on('focusout', this.onFocusOut);
-        }
-
-        if (this.onSelect != null) {
-            $('#' + this.id).on('select', this.onSelect);
-        }
-
-        /**
-         * Call post component generated event code
-         */
         /**
          * Check if we have a decorator for this component
          */
         // @ts-ignore
-        if (window.UX.libraries[window.UX.activeLibrary][this.componentClassName + 'Decorator'] != undefined) {
+        if (window.UX.libraries[window.UX.activeLibrary][this._sComponentClassName + 'Decorator'] != undefined) {
             // @ts-ignore
-            let oDecorator = new window.UX.libraries[window.UX.activeLibrary][this.componentClassName + 'Decorator']();
+            let oDecorator = new window.UX.libraries[window.UX.activeLibrary][this._sComponentClassName + 'Decorator']();
             oDecorator.init(this);
         }
 
 
-        this.isInitialized = true;
+        this._bIsInitialized = true;
 
     }
 
@@ -486,33 +623,39 @@ class Component {
      * @param eventName
      * @param callback
      */
-    on (eventName:string, callback:any)
+    public on(sEventName: string, callback:any)
     {
 
-        if (!eventName) {
-            throw 'eventName is required';
+        if (!sEventName) {
+            throw 'Component::on => eventName is required';
         }
 
         if (!callback) {
-            throw 'callback is required';
+            throw 'Component::on => callback is required';
         }
 
-        // Upper case first character
-        eventName = eventName.charAt(0).toUpperCase() + eventName.slice(1);
 
-        this['on' + eventName] = callback;
+        if (Object.keys(this).indexOf(sEventName) != -1) {
+            this[sEventName] = callback;
+        } else {
+            console.log(this);
+            // @ts-ignore
+            window.UX.log('Component::on => Invalid event name ' + sEventName);
+            throw 'Component::on => Invalid event name ' + sEventName + ' ' + Object.getPrototypeOf(this).constructor.name.toString();
+        }
+
         return this;
 
     }
 
 
     /**
-     * Returns styles object
+     * Returns _aStyles object
      * @returns {object}
      */
     public getStyles() : any
     {
-        return this.styles;
+        return this._aStyles;
     }
 
     /**
@@ -526,7 +669,7 @@ class Component {
             if (aStyles[x] != '') {
                 let aTokens = aStyles[x].split(':');
                 if (aTokens[0] != '') {
-                    this.styles[aTokens[0]] = aTokens[1];
+                    this._aStyles[aTokens[0]] = aTokens[1];
                 }
             }
         }
@@ -546,9 +689,17 @@ class Component {
      * Alias for addStyle
      * @param sStyle
      */
-    public setStyle(sStyle: string) : Component
+    public setStyle(aStyle: any) : Component
     {
-        return this.addStyle(sStyle);
+        return this._aStyles = aStyle;
+    }
+
+    /**
+     *
+     */
+    public getStyle() : any
+    {
+        return this._aStyles;
     }
 
     /**
@@ -558,9 +709,9 @@ class Component {
     public getStyleList() : string
     {
         let sStyles = '';
-        for(let x in this.styles) {
-            if (this.styles.hasOwnProperty(x)) {
-                sStyles = sStyles + x + ':' + this.styles[x] + ';';
+        for(let x in this._aStyles) {
+            if (this._aStyles.hasOwnProperty(x)) {
+                sStyles = sStyles + x + ':' + this._aStyles[x] + ';';
             }
         }
         return sStyles;
@@ -572,16 +723,16 @@ class Component {
      */
     public getStore() : Store
     {
-        return this.store;
+        return this._oStore;
     }
 
     /**
-     * Sets data store for component
-     * @param store
+     * Sets data _oStore for component
+     * @param oStore
      */
-    public setStore(store : Store) : Component
+    public setStore(oStore : Store) : Component
     {
-        this.store = store;
+        this._oStore = oStore;
         return this;
     }
 
@@ -591,17 +742,17 @@ class Component {
      */
     public getEnabled() : boolean
     {
-        return this.isEnabled;
+        return this._bIsEnabled;
     }
 
     /**
      * Sets if component is enabled or not
-     * @param enabled
+     * @param bEnabled
      * @returns {Component}
      */
-    public setEnabled(enabled : boolean) : Component
+    public setEnabled(bEnabled : boolean) : Component
     {
-        this.isEnabled = enabled;
+        this._bIsEnabled = bEnabled;
         return this;
     }
 
@@ -621,56 +772,37 @@ class Component {
      */
     public getId() : string
     {
-        return this.id;
+        return this._sId;
     }
 
     /**
      * Sets component ID
-     * @param id
+     * @param sId
      */
-    public setId(id: string) : Component
+    public setId(sId: string) : Component
     {
-        this.id = id;
+        this._sId = sId;
         return this;
     }
 
-    /**
-     * Returns component label
-     * @returns {null}
-     */
-    public getLabel() : string
-    {
-        return this.label;
-    }
 
     /**
-     * Sets component label
-     * @param label
-     * @returns {Component}
-     */
-    public setLabel(label: string) : Component
-    {
-        this.label = label;
-        return this;
-    }
-
-    /**
-     * Returns component html template
+     * Returns component html _sTemplate
      * @returns {null}
      */
     public getTemplate() : string
     {
-        return this.template;
+        return this._sTemplate;
     }
 
     /**
-     * Sets component template
+     * Sets component _sTemplate
      * @param template
      * @returns {Component}
      */
     public setTemplate(template : string) : Component
     {
-        this.template = template;
+        this._sTemplate = template;
         return this;
     }
 
@@ -680,9 +812,9 @@ class Component {
      * @param mValue
      * @returns {Component}
      */
-    public setAttribute(sAttrName: string, mValue: string = null) : Component
+    public setAttribute(sAttrName: string, mValue: any = null) : Component
     {
-        this.attributes[sAttrName] = mValue;
+        this._aAttributes[sAttrName] = mValue;
         return this;
     }
 
@@ -692,63 +824,73 @@ class Component {
      * @param mValue
      * @returns {Component}
      */
-    public attr(sAttrName: string, mValue: string = null) : Component
+    public attr(sAttrName: string, mValue: any = null) : Component
     {
         return this.setAttribute(sAttrName,mValue);
     }
 
     /**
-     * Returns array of attributes
+     * Returns array of _aAttributes
      * @returns {*}
      */
     public getAttributes() : any
     {
-        return this.attributes;
+        return this._aAttributes;
     }
 
     /**
-     * Add a class to component, multiple classes must be separated by spaces
-     * @param {string} sClassName The CSS classes to add to the component
+     * Add a class to component, multiple _aClasses must be separated by spaces
+     * @param {string} sClassName The CSS _aClasses to add to the component
      */
     public addClass(sClassName: string) : Component
     {
         let aClasses = sClassName.split(' ');
         for(let x in aClasses) {
-            this.classes[aClasses[x]] = aClasses[x];
+            this._aClasses[aClasses[x]] = aClasses[x];
         }
         return this;
     }
 
     /**
-     * Returns array of classes
+     * Returns array of _aClasses
      * @returns {*}
      */
     public getClasses() : any
     {
-        return this.classes;
+        return this._aClasses;
     }
 
     /**
-     * Returns component value
+     *
+     * @param aClasses
+     */
+    public setClasses(aClasses: any) : Component
+    {
+        this._aClasses = aClasses;
+        return this;
+    }
+
+    /**
+     * Returns component _mValue
      * @returns {null|*}
      */
     public getValue() : any
     {
-        this.value = $('#' + this.getId()).val();
-        return this.value;
+        this._mValue = $('#' + this.getId()).val();
+        return this._mValue;
     }
 
     /**
-     * Sets component value
+     * Sets component _mValue
      * @param mValue
      * @returns {Component}
      */
     public setValue(mValue: any) : Component
     {
 
-        this.value = mValue;
+        this._mValue = mValue;
 
-        $('#' + this.getId()).val(this.value);
+        $('#' + this.getId()).val(this._mValue);
 
         return this;
     }
@@ -759,10 +901,10 @@ class Component {
      */
     public enable() : Component
     {
-        this.isEnabled = true;
+        this._bIsEnabled = true;
 
         // Reset enable for initialized component
-        if (this.isInitialized) {
+        if (this._bIsInitialized) {
             $('#' + this.getId()).prop('disabled', '');
         }
 
@@ -775,10 +917,10 @@ class Component {
      */
     public disable() : Component
     {
-        this.isEnabled = false;
+        this._bIsEnabled = false;
 
         // Reset enable for initialized component
-        if (this.isInitialized) {
+        if (this._bIsInitialized) {
             $('#' + this.getId()).prop('disabled', 'disabled');
         }
 
@@ -786,39 +928,39 @@ class Component {
     }
 
     /**
-     * Returns placeholder text
+     * Returns _sPlaceholder text
      * @returns {null}
      */
     public getPlaceholder() : string
     {
-        return this.placeholder;
+        return this._sPlaceholder;
     }
 
     /**
-     * Sets placeholder text
-     * @param placeholder
+     * Sets _sPlaceholder text
+     * @param sPlaceholder
      * @returns {Component}
      */
-    public setPlaceholder(placeholder: string) : Component
+    public setPlaceholder(sPlaceholder: string) : Component
     {
-        this.placeholder = placeholder;
+        this._sPlaceholder = sPlaceholder;
 
-        // Reset placeholder for initialized component
-        if (this.isInitialized) {
-            $('#' + this.getId()).attr('placeholder', placeholder);
+        // Reset _sPlaceholder for initialized component
+        if (this._bIsInitialized) {
+            $('#' + this.getId()).attr('_sPlaceholder', sPlaceholder);
         }
 
         return this;
     }
 
     /**
-     * Returns classes list as a string
+     * Returns _aClasses list as a string
      * @returns {string|string}
      */
     public getClassList() : string
     {
         let sClasses = '';
-        for(let x in this.classes) {
+        for(let x in this._aClasses) {
             if (sClasses != '') {
                 sClasses = sClasses + ' ';
             }
@@ -828,7 +970,7 @@ class Component {
     }
 
     /**
-     * Returns string of component attributes
+     * Returns string of component _aAttributes
      * @returns {string|string}
      */
     public getAttributeList() : string
@@ -836,15 +978,15 @@ class Component {
 
         let sAttributes = '';
 
-        for(let x in this.attributes) {
-            if (this.attributes.hasOwnProperty(x)) {
+        for(let x in this._aAttributes) {
+            if (this._aAttributes.hasOwnProperty(x)) {
                 if (sAttributes != '') {
                     sAttributes = sAttributes + ' ';
                 }
-                if (this.attributes[x] === null) {
+                if (this._aAttributes[x] === null) {
                     sAttributes = sAttributes + x;
                 } else {
-                    sAttributes = sAttributes + x + '="' + this.attributes[x] + '"';
+                    sAttributes = sAttributes + x + '="' + this._aAttributes[x] + '"';
                 }
             }
         }
@@ -856,76 +998,163 @@ class Component {
     /**
      * Render component and returns HTML string
      */
-    public render() : string
+    public render(map: any = null) : string
     {
+
+        let _className: string = Object.getPrototypeOf(this).constructor.name.toString();
 
         /**
          * Check if we have a decorator for this component
          */
         // @ts-ignore
-        if (window.UX.libraries[window.UX.activeLibrary][this.componentClassName + 'Decorator'] != undefined) {
+        if (window.UX.libraries[window.UX.activeLibrary][this._sComponentClassName + 'Decorator'] != undefined) {
             // @ts-ignore
-            let oDecorator = new window.UX.libraries[window.UX.activeLibrary][this.componentClassName + 'Decorator']();
+            let oDecorator = new window.UX.libraries[window.UX.activeLibrary][this._sComponentClassName + 'Decorator']();
             oDecorator.decorate(this);
             // @ts-ignore
-            window.UX.log('Found decorator for component ' + window.UX.activeLibrary + ' ' + this.componentClassName);
+            window.UX.log('Found decorator for component ' + window.UX.activeLibrary + ' ' + this._sComponentClassName);
         } else {
             // @ts-ignore
-            window.UX.log('No decorator for component ' + window.UX.activeLibrary + ' ' + this.componentClassName);
+            window.UX.log('No decorator for component ' + window.UX.activeLibrary + ' ' + this._sComponentClassName);
         }
 
         /**
          * Load template, set attributes, replace
          */
-        let sComponentHTML = this.template;
+        let sComponentHTML = this._sTemplate;
 
-        // ID
-        this.setAttribute('id',this.id);
+        /**
+         * For each property replace {propname} with value from accessor
+         * AND
+         * Apply render actions
+         */
 
-        // Name
-        this.setAttribute('name',this.name);
-
-        // Class
-        if (this.getClassList() != '') {
-            this.setAttribute('class', this.getClassList());
+        let allProperties: any = null;
+        if ((<any>ComponentProperties)[_className]) {
+            allProperties = {
+                ...ComponentProperties.Common,
+                ...(<any>ComponentProperties)[_className].properties
+            };
+        } else {
+            allProperties = {
+                ...ComponentProperties.Common,
+            };
         }
 
-        // Style
-        if (this.getStyleList() != '') {
-            this.setAttribute('style', this.getStyleList());
+
+
+        for(let sPropertyName in allProperties) {
+
+            let _prop = allProperties[sPropertyName];
+
+            /**
+             * Check if we have render actions
+             */
+            if (_prop.render) {
+
+                // For each render action
+                for(let nRenderIndex in _prop.render) {
+
+                    let _action = _prop.render[nRenderIndex];
+
+                    let _getAction = null;
+                    let _getValue  = null;
+
+                    if (_action.type == 'expression') {
+
+                        let sExpression: string  = _action.eval;
+
+                        let _params: any = sExpression.match(/{([^}]+)}/g);
+
+                        for(let nParamIndex in _params) {
+
+                            let _sParamValue = '';
+                            let _sParamName = _params[nParamIndex];
+
+                            _sParamName = _sParamName.replace('{','');
+                            _sParamName = _sParamName.replace('}','');
+
+                            if (allProperties[_sParamName].accessor) {
+                                _sParamValue = this['get' + allProperties[_sParamName].accessor]();
+                            }
+
+                            let _paramRegEx = new RegExp('\{' + _sParamName + '\}', 'g');
+                            sExpression = sExpression.replace(_paramRegEx, _sParamValue);
+
+                        }
+
+                        let _expressionValue: any = eval(sExpression);
+
+                        let _expressionRegEx = new RegExp('\{' + sPropertyName + '\}', 'g');
+                        sComponentHTML = sComponentHTML.replace(_expressionRegEx, _expressionValue);
+
+
+
+                    } else if (_action.type == 'attribute') {
+
+                        /**
+                         * Create an attribute action
+                         */
+                        let sAttributeName = '';
+
+                        if (_action.attributeName) {
+                            sAttributeName = _action.attributeName;
+                        } else {
+                            sAttributeName = sPropertyName;
+                        }
+
+                        if (_action.attributeValue) {
+                            _getAction = _action.attributeValue;
+                        } else {
+                            _getAction = 'get' + _prop.accessor;
+                        }
+                        _getValue  =  this[_getAction]();
+                        if (_getValue) {
+                            this.setAttribute(sAttributeName, _getValue);
+                        }
+                    }
+
+                }
+            } else {
+                // @ts-ignore
+                window.UX.log('No render actions for ' + sPropertyName);
+            } // END OF RENDER ACTIONS
+
+
+            /**
+             * Replace property name by value if not already replaced by render action
+             */
+            let _get = 'get' + allProperties[sPropertyName].accessor;
+
+            let oRegExp = new RegExp('\{' + sPropertyName + '\}', 'g');
+
+            let _value = this[_get]();
+            if (_value == null) {
+                _value = '';
+            }
+
+            sComponentHTML = sComponentHTML.replace(oRegExp, _value);
+
+
+
         }
+
+
 
         // Placeholder
-        if (this.placeholder != null && this.placeholder != '') {
-            this.setAttribute('placeholder', this.placeholder);
+        if (this._sPlaceholder != null && this._sPlaceholder != '') {
+            this.setAttribute('placeholder', this._sPlaceholder);
         }
 
-        // Access key attribute
-        if (this.getAccessKey()) {
-            this.setAttribute('accesskey', this.getAccessKey());
-        }
 
-        // Autocapitalize
-        if (this.getAutoCapitalize()) {
-            this.setAttribute('autocapitalize', this.getAutoCapitalize());
-        }
-
-        // data-* attributes
-        for(let x in this.dataAttributes) {
-            if (this.dataAttributes.hasOwnProperty(x)) {
-                this.setAttribute('data-' + x, this.dataAttributes[x]);
+        // data-* _aAttributes
+        for(let x in this._aDataAttributes) {
+            if (this._aDataAttributes.hasOwnProperty(x)) {
+                this.setAttribute('data-' + x, this._aDataAttributes[x]);
             }
         }
 
-        // Content editable
-        if (this.getContentEditable()) {
-            this.setAttribute('contenteditable', 'true');
-        }
 
-        // Dir
-        if (this.getDir()) {
-            this.setAttribute('dir', this.getDir());
-        }
 
         /**
          * Build attribute code
@@ -936,7 +1165,17 @@ class Component {
         sComponentHTML = sComponentHTML.replace(/{attributes}/g, sAttributes);
 
         /**
-         * For each property of component , replace key in template
+         * If map of replacement is supplied replace all in _sTemplate
+         */
+        if (map) {
+            for(let x in map) {
+                let oRegExp = new RegExp('\{' + x + '\}', 'g');
+                sComponentHTML = sComponentHTML.replace(oRegExp, map[x]);
+            }
+        }
+
+        /**
+         * For each property of component , replace key in _sTemplate
          */
         let keys = Object.keys(this);
         for(let x in keys) {
@@ -949,6 +1188,14 @@ class Component {
         }
 
 
+        let el = $('#' + this.getId());
+        if ( el.length > 0 ) {
+            el.replaceWith(sComponentHTML);
+        } else {
+            // No dom element to replace, append to default container
+            // @ts-ignore
+            $(window.UX.defaultContainerId).append(sComponentHTML);
+        }
 
 
         return sComponentHTML;
@@ -957,10 +1204,10 @@ class Component {
     /**
      * Add CSS and JS code required to patch this component
      */
-    public static patchComponent(metaData: any) : void
+    public static patchComponent(oMetaData: any) : void
     {
         // @ts-ignore
-        window.UX.log('    * No patch for component ' + metaData.name)
+        window.UX.log('    * No patch for component ' + oMetaData.name)
     }
 
     /**
@@ -968,16 +1215,16 @@ class Component {
      */
     public getAccessKey() : string
     {
-        return this.accessKey;
+        return this._sAccessKey;
     }
 
     /**
      * Provides a hint for generating a keyboard shortcut for the current element. This attribute consists of a space-separated list of characters.
-     * @param accessKey
+     * @param sAccessKey
      */
-    public setAccessKey(accessKey: string) : Component
+    public setAccessKey(sAccessKey: string) : Component
     {
-        this.accessKey = accessKey;
+        this._sAccessKey = sAccessKey;
         return this;
     }
 
@@ -986,42 +1233,42 @@ class Component {
      */
     public getAutoCapitalize() : enumAutoCapitalize
     {
-        return this.autoCapitalize;
+        return this._eAutoCapitalize;
     }
 
     /**
      * Controls whether and how text input is automatically capitalized as it is entered/edited by the user.
-     * @param autoCapitalize
+     * @param eAutoCapitalize
      */
-    public setAutoCapitalize(autoCapitalize: enumAutoCapitalize) : Component
+    public setAutoCapitalize(eAutoCapitalize: enumAutoCapitalize) : Component
     {
-        this.autoCapitalize = autoCapitalize;
+        this._eAutoCapitalize = eAutoCapitalize;
         return this;
     }
 
     /**
      * Returns a data-* attribute
-     * @param name
+     * @param sName
      */
-    public getDataAttribute(name: string) : any
+    public getDataAttribute(sName: string) : any
     {
-        return this.dataAttributes[name];
+        return this._aDataAttributes[sName];
     }
 
     /**
      * Sets a data-* attribute
-     * @param name
-     * @param value
+     * @param sName
+     * @param mValue
      */
-    public setDataAttribute(name: string, value: any) : Component
+    public setDataAttribute(sName: string, mValue: any) : Component
     {
-        // Check if name starts with data-
-        if (name.toLowerCase().startsWith('data-')) {
+        // Check if _sName starts with data-
+        if (sName.toLowerCase().startsWith('data-')) {
             // remove data- if supplied
-            name = name.substr(5);
+            sName = sName.substr(5);
         }
 
-        this.dataAttributes[name] = value;
+        this._aDataAttributes[sName] = mValue;
         return this;
     }
 
@@ -1030,16 +1277,16 @@ class Component {
      */
     public getContentEditable() : boolean
     {
-        return this.contentEditable;
+        return this._bContentEditable;
     }
 
     /**
      * An enumerated attribute indicating if the element should be editable by the user
-     * @param contentEditable
+     * @param bContentEditable
      */
-    public setContentEditable(contentEditable: boolean) : Component
+    public setContentEditable(bContentEditable: boolean) : Component
     {
-        this.contentEditable = contentEditable;
+        this._bContentEditable = bContentEditable;
         return this;
     }
 
@@ -1048,18 +1295,330 @@ class Component {
      */
     public getDir() : enumDir
     {
-        return this.dir;
+        return this._eDir;
     }
 
     /**
      *
-     * @param dir
+     * @param eDir
      */
-    public setDir(dir: enumDir) : Component
+    public setDir(eDir: enumDir) : Component
     {
-        this.dir = dir;
+        this._eDir = eDir;
         return this;
     }
+
+    /**
+     *
+     */
+    public getContextMenu() : string
+    {
+        return this._sContextMenu;
+    }
+
+    /**
+     *
+     * @param sContextMenu
+     */
+    public setContextMenu(sContextMenu: string) : Component
+    {
+        this._sContextMenu = sContextMenu;
+        return this;
+    }
+
+    /**
+     *
+     */
+    public getDraggable() : boolean
+    {
+        return this._bDraggable;
+    }
+
+    /**
+     *
+     * @param bDraggable
+     */
+    public setDraggable(bDraggable: boolean) : Component
+    {
+        this._bDraggable = bDraggable;
+        return this;
+    }
+
+    /**
+     *
+     */
+    public getInputMode() : enumInputMode
+    {
+        return this._eInputMode;
+    }
+
+    public setInputMode(eInputMode: enumInputMode) : Component
+    {
+        this._eInputMode = eInputMode;
+        return this;
+    }
+
+
+    /**
+     *
+     */
+    public getIs() : string
+    {
+        return this._sIs;
+    }
+
+    /**
+     *
+     * @param sIs
+     */
+    public setIs(sIs: string) : Component
+    {
+        this._sIs = sIs;
+        return this;
+    }
+
+    /**
+     *
+     */
+    public getItemId() : string
+    {
+        return this._sItemId;
+    }
+
+    /**
+     *
+     * @param sItemId
+     */
+    public setItemId(sItemId: string) : Component
+    {
+        this._sItemId = sItemId;
+        return this;
+    }
+
+    /**
+     *
+     */
+    public getItemProp() : string
+    {
+        return this._sItemProp;
+    }
+
+    /**
+     *
+     * @param sItemProp
+     */
+    public setItemProp(sItemProp: string) : Component
+    {
+        this._sItemProp = sItemProp;
+        return this;
+    }
+
+    /**
+     *
+     */
+    public getItemRef() : string
+    {
+        return this._sItemRef;
+    }
+
+    /**
+     *
+     * @param sItemRef
+     */
+    public setItemRef(sItemRef: string) : Component
+    {
+        this._sItemRef = sItemRef;
+        return this;
+    }
+
+    /**
+     *
+     */
+    public getItemScope() : boolean
+    {
+        return this._bItemScope;
+    }
+
+    /**
+     *
+     * @param sItemScope
+     */
+    public setItemScope(sItemScope: boolean) : Component
+    {
+        this._bItemScope = sItemScope;
+        return this;
+    }
+
+    /**
+     *
+     */
+    public getItemType() : string
+    {
+        return this._sItemType;
+    }
+
+    /**
+     *
+     * @param sItemType
+     */
+    public setItemType(sItemType: string) : Component
+    {
+        this._sItemType = sItemType;
+        return this;
+    }
+
+    /**
+     *
+     */
+    public getLang() : string
+    {
+        return this._sLang;
+    }
+
+    /**
+     *
+     * @param sLang
+     */
+    public setLang(sLang: string) : Component
+    {
+        this._sLang = sLang;
+        return this;
+    }
+
+    /**
+     *
+     */
+    public getSlot() : string
+    {
+        return this._sSlot;
+    }
+
+    /**
+     *
+     * @param sSlot
+     */
+    public setSlot(sSlot: string) : Component
+    {
+        this._sSlot = sSlot;
+        return this;
+    }
+
+    /**
+     *
+     */
+    public getSpellcheck() : boolean
+    {
+        return this._bSpellcheck;
+    }
+
+    /**
+     *
+     * @param bSpellcheck
+     */
+    public setSpellcheck(bSpellcheck: boolean) : Component
+    {
+        this._bSpellcheck = bSpellcheck;
+        return this;
+    }
+
+    /**
+     *
+     */
+    public getTabIndex() : number | null
+    {
+        return this._nTabIndex;
+    }
+
+    /**
+     *
+     * @param nTabIndex
+     */
+    public setTabIndex(nTabIndex: number) : Component
+    {
+        this._nTabIndex = nTabIndex;
+        return this;
+    }
+
+    /**
+     *
+     */
+    public getTitle() : string
+    {
+        return this._sTitle;
+    }
+
+    /**
+     *
+     * @param sTitle
+     */
+    public setTitle(sTitle: string) : Component
+    {
+        this._sTitle = sTitle;
+        return this;
+    }
+
+    /**
+     *
+     */
+    public getTranslate() : enumTranslate
+    {
+        return this._eTranslate;
+    }
+
+    /**
+     *
+     * @param eTranslate
+     */
+    public setTranslate(eTranslate: enumTranslate) : Component
+    {
+        this._eTranslate = eTranslate;
+        return this;
+    }
+
+    /**
+     *
+     */
+    public getName() : string
+    {
+        return this._sName;
+    }
+
+    /**
+     *
+     * @param sName
+     */
+    public setName(sName: string) : Component
+    {
+        this._sName = sName;
+        return this;
+    }
+
+    /**
+     * Trigger an event
+     * @param sEventName
+     */
+    public trigger(sEventName: string) : any
+    {
+
+        if (!sEventName) {
+            throw 'eventName is required';
+        }
+
+
+        if (this[sEventName]) {
+            // @ts-ignore
+            window.UX.log('Component::trigger => Trigger event ' + sEventName + ' ' + Object.getPrototypeOf(this).constructor.name.toString());
+            return this[sEventName]();
+        } else {
+            // @ts-ignore
+            window.UX.log('Component::trigger => Invalid event name ' + sEventName);
+            throw 'Component::trigger => Invalid event name ' + sEventName;
+        }
+
+        return false;
+
+    }
+
 
 }
 

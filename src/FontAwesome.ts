@@ -1,5 +1,5 @@
 /**
- * FontAwesome 5 icon classes
+ * FontAwesome 5 _sIcon _aClasses
  */
 export enum FontAwesome {
     

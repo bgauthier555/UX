@@ -19,8 +19,11 @@ export { Page };
 import { Patch } from "./Patch";
 export { Patch };
 
-import { Component, enumDir, enumAutoCapitalize } from './Component';
-export { Component, enumDir, enumAutoCapitalize };
+import { ComponentProperties } from "./ComponentProperties";
+export { ComponentProperties };
+
+import { Component, enumDir, enumAutoCapitalize, enumTranslate, enumInputMode } from './Component';
+export { Component, enumDir, enumAutoCapitalize, enumTranslate, enumInputMode };
 
 import { ComponentContainer } from './ComponentContainer';
 export { ComponentContainer };
@@ -31,11 +34,35 @@ export { Input, enumInputType };
 import { Hidden } from "./components/Hidden";
 export { Hidden };
 
-import { Alert, enumAlertType } from './components/Alert';
-export { Alert, enumAlertType };
+import { Abbr } from "./components/Abbr";
+export { Abbr };
+
+import { Address } from "./components/Address";
+export { Address };
+
+import { Alert, enumAlertStyle } from './components/Alert';
+export { Alert, enumAlertStyle };
+
+import { Area } from "./components/Area";
+export { Area };
+
+import { Article } from "./components/Article";
+export { Article };
+
+import { ASide } from "./components/ASide";
+export { ASide };
+
+import { Audio } from "./components/Audio";
+export { Audio };
 
 import { Anchor } from './components/Anchor';
 export { Anchor };
+
+import { B } from "./components/B";
+export { B };
+
+import { BDI } from "./components/BDI";
+export { BDI };
 
 import { Button, enumButtonSize, enumButtonStyle, enumButtonType} from './components/Button';
 export { Button, enumButtonStyle, enumButtonType, enumButtonSize};
@@ -117,10 +144,13 @@ import { TextArea } from './components/TextArea';
 export { TextArea };
 
 /**
- * Bootstrap classes
+ * Bootstrap _aClasses
  */
 import { Bootstrap4_AlertDecorator } from "./libraries/bootstrap4/components/AlertDecorator";
 export { Bootstrap4_AlertDecorator };
+
+import { Bootstrap4_ContainerDecorator} from "./libraries/bootstrap4/components/ContainerDecorator";
+export { Bootstrap4_ContainerDecorator};
 
 import { Bootstrap4_ColumnDecorator } from "./libraries/bootstrap4/components/ColumnDecorator";
 export { Bootstrap4_ColumnDecorator };
@@ -138,7 +168,7 @@ import { Bootstrap4_ButtonDecorator } from "./libraries/bootstrap4/components/Bu
 export { Bootstrap4_ButtonDecorator };
 
 /**
- * Semantic classes
+ * Semantic _aClasses
  */
 import { Semantic24_AlertDecorator } from "./libraries/semantic2.4/components/AlertDecorator";
 export { Semantic24_AlertDecorator };

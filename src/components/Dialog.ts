@@ -14,7 +14,7 @@ class Dialog extends ComponentContainer {
 
     /**
      * Component constructor
-     * @param {string} id Component unique id
+     * @param {string} id Component unique _sId
      */
     constructor(id: string)
     {
@@ -22,8 +22,8 @@ class Dialog extends ComponentContainer {
         super(id);
 
         // noinspection HtmlUnknownAttribute
-        this.template = '<div {attributes}>{child_items}</div>';
-        this.componentClassName = 'Dialog';
+        this._sTemplate = '<div {attributes}>{child_items}</div>';
+        this._sComponentClassName = 'Dialog';
 
     }
 
@@ -38,7 +38,7 @@ class Dialog extends ComponentContainer {
         /**
          * Static
          * Component meta data information
-         * category is one of layout | content | component
+         * category _sIs one of layout | content | component
          * @type {object}
          */
         return {

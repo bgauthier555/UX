@@ -1,6 +1,8 @@
 /**
  * Form encoding
  */
+import {FontAwesome} from "../FontAwesome";
+
 export enum enumFormEncoding {
 
     /**
@@ -53,7 +55,7 @@ class Form extends ComponentContainer {
 
     /**
      * Component constructor
-     * @param {string} id Component unique id
+     * @param {string} id Component unique _sId
      */
     constructor(id: string)
     {
@@ -61,8 +63,8 @@ class Form extends ComponentContainer {
         super(id);
 
         // noinspection HtmlUnknownAttribute
-        this.template = '<form {attributes}>{child_items}</form>';
-        this.componentClassName = 'Form';
+        this._sTemplate = '<form {attributes}>{child_items}</form>';
+        this._sComponentClassName = 'Form';
 
     }
 
@@ -77,13 +79,15 @@ class Form extends ComponentContainer {
         /**
          * Static
          * Component meta data information
-         * category is one of layout | content | component
+         * category _sIs one of layout | content | component
          * @type {object}
          */
         return {
             name : 'Form',
             description : 'HTML Form element',
             category : 'content',
+            icon: FontAwesome.FA_FILE_INVOICE,
+            isContainer: true,
             libraries : {
                 Bootstrap_4: {
                     supported: true,

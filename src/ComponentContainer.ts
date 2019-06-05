@@ -8,7 +8,7 @@
 import {Component} from "./Component";
 
 
-class ComponentContainer extends Component {
+abstract class ComponentContainer extends Component {
 
     /**
      * Component sub items
@@ -28,23 +28,23 @@ class ComponentContainer extends Component {
     /**
      * Render container components and returns HTML string
      */
-    public render() : string
+    public render(map: any = null) : string
     {
 
         let sChildItems = '';
 
-        if (this.getLabel()) {
-            sChildItems = sChildItems + this.getLabel();
-        }
 
         for(let x in this.items) {
             if (this.items.hasOwnProperty(x)) {
-                sChildItems = sChildItems + this.items[x].render();
+                sChildItems = sChildItems + this.items[x].render(map);
             }
         }
 
-        let sHtml = super.render();
-        sHtml = sHtml.replace(/{child_items}/g, sChildItems);
+
+        let sHtml = super.render({
+            child_items : sChildItems
+        });
+
 
         return sHtml;
     }
@@ -67,11 +67,11 @@ class ComponentContainer extends Component {
     public addItem(item: Component | ComponentContainer) : Component | ComponentContainer
     {
 
-        // Set item parent to this container item
-        item.parent = this;
+        // Set item _oParent to this container item
+        item._oParent = this;
         this.items[this.items.length] = item;
 
-        // Remove from main component item list, since this component is a child component
+        // Remove from main component item list, since this component _sIs a child component
         // @ts-ignore
         window.UX.Page.removeItem(item.getId());
 

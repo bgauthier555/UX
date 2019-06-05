@@ -1,4 +1,5 @@
 import { Component } from '../Component';
+import {FontAwesome} from "../FontAwesome";
 /**
  * Input control
  *
@@ -19,8 +20,8 @@ class Hr extends Component {
         super(id);
 
         // noinspection HtmlUnknownAttribute
-        this.template = '<hr {attributes}/>';
-        this.componentClassName = 'Hr';
+        this._sTemplate = '<hr {attributes}/>';
+        this._sComponentClassName = 'Hr';
 
 
     }
@@ -35,13 +36,15 @@ class Hr extends Component {
         /**
          * Static
          * Component meta data information
-         * category is one of layout | content | component
+         * category _sIs one of layout | content | component
          * @type {object}
          */
         return {
             name : 'Hr',
             description : 'HTML Horizontal ruler',
             category : 'content',
+            icon: FontAwesome.FA_LIST,
+            isContainer: false,
             libraries : {
                 Bootstrap_4: {
                     supported: true,

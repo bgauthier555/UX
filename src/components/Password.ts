@@ -1,4 +1,5 @@
-import { Input } from './Input';
+import {enumInputType, Input} from './Input';
+import {FontAwesome} from "../FontAwesome";
 
 /**
  * Password control
@@ -17,7 +18,7 @@ class Password extends Input {
     constructor(id: string)
     {
         super(id);
-        this.type = 'password';
+        this.setType(enumInputType.password);
     }
 
     /**
@@ -30,13 +31,15 @@ class Password extends Input {
         /**
          * Static
          * Component meta data information
-         * category is one of layout | content | component
+         * category _sIs one of layout | content | component
          * @type {object}
          */
         return {
             name : 'Password',
             description : '',
             category : 'component',
+            icon : FontAwesome.FA_UNLOCK,
+            isContainer: false,
             libraries : {
                 Bootstrap_4: {
                     supported: true,

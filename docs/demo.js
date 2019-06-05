@@ -78,7 +78,7 @@ function renderClassDocumentation(category, container) {
                         height = 265;
                     }
 
-                    s = s + '<p class="codepen" data-height="' + metaData.codepen[cp].height + '" data-theme-id="0" data-default-tab="js,result" data-user="' + metaData.codepen[cp].user + '" data-slug-hash="' + metaData.codepen[cp].slug + '" style="padding-bottom:50px;height: ' + metaData.codepen[cp].height + 'px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="' + metaData.codepen[cp].title + '">\n' +
+                    s = s + '<p class="codepen" data-height="' + metaData.codepen[cp].height + '" data-theme-_sId="0" data-default-tab="js,result" data-user="' + metaData.codepen[cp].user + '" data-slug-hash="' + metaData.codepen[cp].slug + '" style="padding-bottom:50px;height: ' + metaData.codepen[cp].height + 'px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-_sTitle="' + metaData.codepen[cp]._sTitle + '">\n' +
                         '  <span>See the Pen <a href="https://codepen.io/' + metaData.codepen[cp].user + '/pen/' + metaData.codepen[cp].slug + '/">\n' +
                         '  Alert component example</a> by Benoit Gauthier (<a href="https://codepen.io/' + metaData.codepen[cp].user + '">@' + metaData.codepen[cp].user + '</a>)\n' +
                         '  on <a href="https://codepen.io">CodePen</a>.</span>\n' +

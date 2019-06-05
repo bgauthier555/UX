@@ -1,4 +1,5 @@
-import { Input } from './Input';
+import {enumInputType, Input} from './Input';
+import {FontAwesome} from "../FontAwesome";
 
 /**
  * Password control
@@ -13,7 +14,7 @@ class Radio extends Input {
     constructor(id: string)
     {
         super(id);
-        this.type = 'radio';
+        this._eType = enumInputType.radio;
     }
 
     /**
@@ -26,13 +27,15 @@ class Radio extends Input {
         /**
          * Static
          * Component meta data information
-         * category is one of layout | content | component
+         * category _sIs one of layout | content | component
          * @type {object}
          */
         return {
             name : 'Radio',
             description : 'HTML Radio button component',
             category : 'component',
+            icon: FontAwesome.FA_CHECK_CIRCLE,
+            isContainer: false,
             libraries : {
                 Bootstrap_4: {
                     supported: true,

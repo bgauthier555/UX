@@ -1,9 +1,7 @@
 import { Component } from '../Component';
+import { FontAwesome } from "../FontAwesome";
+import { enumInputType } from "../UX";
 
-export enum enumInputType {
-    text = 'text',
-    hidden = 'hidden'
-}
 
 /**
  * Input control
@@ -15,6 +13,10 @@ export enum enumInputType {
  */
 class Input extends Component {
 
+    protected _eType: enumInputType = null;
+
+    protected _sLabel: string = null;
+
     /**
      *
      * @param id
@@ -25,9 +27,9 @@ class Input extends Component {
         super(id);
 
         // noinspection HtmlUnknownAttribute
-        this.template = '<input {attributes}/>';
-        this.type = 'text';
-        this.componentClassName = 'Input';
+        this._sTemplate = '<input {attributes}/>';
+        this._eType = enumInputType.text;
+        this._sComponentClassName = 'Input';
 
 
     }
@@ -42,13 +44,15 @@ class Input extends Component {
         /**
          * Static
          * Component meta data information
-         * category is one of layout | content | component
+         * category _sIs one of layout | content | component
          * @type {object}
          */
         return {
             name : 'Input',
             description : 'Input field',
             category : 'component',
+            icon : FontAwesome.FA_EDIT,
+            isContainer: false,
             libraries : {
                 Bootstrap_4: {
                     supported: true,
@@ -75,12 +79,12 @@ class Input extends Component {
 
     /**
      *
-     * @param type
+     * @param eType
      * @returns {Input}
      */
-    public setType(type: string) : Input
+    public setType(eType: enumInputType) : Input
     {
-        this.type = type;
+        this._eType = eType;
         return this;
     }
 
@@ -88,9 +92,9 @@ class Input extends Component {
      *
      * @returns {string}
      */
-    public getType() : string
+    public getType() : enumInputType
     {
-        return this.type ;
+        return this._eType ;
     }
 
     /**
@@ -103,8 +107,27 @@ class Input extends Component {
         return super.render();
     }
 
+    /**
+     * Get component label
+     */
+    public getLabel(): string
+    {
+        return this._sLabel;
+    }
+
+    /**
+     * Set component label
+     * @param sLabel
+     */
+    public setLabel(sLabel: string) : Component
+    {
+        this._sLabel = sLabel;
+        return this;
+    }
+
+
 
 }
 
 
-export { Input };
+export { Input, enumInputType };

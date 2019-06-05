@@ -1,5 +1,6 @@
-import { Component } from '../Component';
-import {Input} from "./Input";
+import {enumInputType, Input} from "./Input";
+import {FontAwesome} from "../FontAwesome";
+
 /**
  * Input control
  *
@@ -20,8 +21,8 @@ class Hidden extends Input {
         super(id);
 
         // noinspection HtmlUnknownAttribute
-        this.setType('hidden');
-        this.componentClassName = 'Hidden';
+        this.setType(enumInputType.hidden);
+        this._sComponentClassName = 'Hidden';
 
 
     }
@@ -36,13 +37,15 @@ class Hidden extends Input {
         /**
          * Static
          * Component meta data information
-         * category is one of layout | content | component
+         * category _sIs one of layout | content | component
          * @type {object}
          */
         return {
             name : 'Hidden',
             description : 'HTML hidden input type',
             category : 'content',
+            icon : FontAwesome.FA_USER_SECRET,
+            isContainer: false,
             libraries : {
                 Bootstrap_4: {
                     supported: true,

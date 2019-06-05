@@ -1,5 +1,5 @@
 import { ComponentContainer } from '../ComponentContainer';
-import {Column} from "../index";
+import {Column, FontAwesome} from "../index";
 
 /**
  * Row component
@@ -15,7 +15,7 @@ class Row extends ComponentContainer {
 
     /**
      * Component constructor
-     * @param {string} id Component unique id
+     * @param {string} id Component unique _sId
      */
     constructor(id: string)
     {
@@ -23,8 +23,8 @@ class Row extends ComponentContainer {
         super(id);
 
         // noinspection HtmlUnknownAttribute
-        this.template = '<div {attributes}>{child_items}</div>';
-        this.componentClassName = 'Row';
+        this._sTemplate = '<div {attributes}>{child_items}</div>';
+        this._sComponentClassName = 'Row';
 
     }
 
@@ -38,13 +38,15 @@ class Row extends ComponentContainer {
         /**
          * Static
          * Component meta data information
-         * category is one of layout | content | component
+         * category _sIs one of layout | content | component
          * @type {object}
          */
         return {
             name : 'Row',
             description : 'Rows are wrappers for columns.',
             category : 'layout',
+            icon: FontAwesome.FA_LIST,
+            isContainer: true,
             libraries : {
                 Bootstrap_4: {
                     supported: true,

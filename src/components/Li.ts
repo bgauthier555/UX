@@ -1,4 +1,5 @@
 import { ComponentContainer } from '../ComponentContainer';
+import {FontAwesome} from "../FontAwesome";
 /**
  * Li component
  *
@@ -13,7 +14,7 @@ class Li extends ComponentContainer {
 
     /**
      * Component constructor
-     * @param {string} id Component unique id
+     * @param {string} id Component unique _sId
      */
     constructor(id: string)
     {
@@ -21,8 +22,8 @@ class Li extends ComponentContainer {
         super(id);
 
         // noinspection HtmlUnknownAttribute
-        this.template = '<li {attributes}>{child_items}</li>';
-        this.componentClassName = 'Li';
+        this._sTemplate = '<li {attributes}>{child_items}</li>';
+        this._sComponentClassName = 'Li';
 
     }
 
@@ -36,13 +37,15 @@ class Li extends ComponentContainer {
         /**
          * Static
          * Component meta data information
-         * category is one of layout | content | component
+         * category _sIs one of layout | content | component
          * @type {object}
          */
         return {
             name : 'Li',
             description : 'HTML list item',
             category : 'content',
+            icon: FontAwesome.FA_LIST_ALT,
+            isContainer: true,
             libraries : {
                 Bootstrap_4: {
                     supported: true,

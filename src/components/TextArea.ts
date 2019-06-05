@@ -1,4 +1,5 @@
 import { Component } from '../Component';
+import {FontAwesome} from "../FontAwesome";
 
 /**
  * TextArea control
@@ -20,10 +21,10 @@ class TextArea extends Component {
         super(id);
 
         // noinspection HtmlUnknownAttribute
-        this.template = '<textarea {attributes}>\n' +
+        this._sTemplate = '<textarea {attributes}>\n' +
             '{value}' +
             '</textarea>';
-        this.componentClassName = 'TextArea';
+        this._sComponentClassName = 'TextArea';
 
 
     }
@@ -38,13 +39,15 @@ class TextArea extends Component {
         /**
          * Static
          * Component meta data information
-         * category is one of layout | content | component
+         * category _sIs one of layout | content | component
          * @type {object}
          */
         return {
             name : 'TextArea',
             description : '',
             category : 'component',
+            icon : FontAwesome.FA_EDIT,
+            isContainer: false,
             libraries : {
                 Bootstrap_4: {
                     supported: true,

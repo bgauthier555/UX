@@ -14,7 +14,7 @@ class Option extends ComponentContainer {
 
     /**
      * Component constructor
-     * @param {string} id Component unique id
+     * @param {string} id Component unique _sId
      */
     constructor(id: string)
     {
@@ -22,8 +22,8 @@ class Option extends ComponentContainer {
         super(id);
 
         // noinspection HtmlUnknownAttribute
-        this.template = '<option {attributes}>{child_items}</option>';
-        this.componentClassName = 'Option';
+        this._sTemplate = '<option {attributes}>{child_items}</option>';
+        this._sComponentClassName = 'Option';
 
     }
 
@@ -37,7 +37,7 @@ class Option extends ComponentContainer {
         /**
          * Static
          * Component meta data information
-         * category is one of layout | content | component
+         * category _sIs one of layout | content | component
          * @type {object}
          */
         return {

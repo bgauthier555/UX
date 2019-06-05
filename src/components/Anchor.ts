@@ -1,4 +1,7 @@
-import { ComponentContainer } from '../ComponentContainer';
+import {ComponentContainer} from '../ComponentContainer';
+import {FontAwesome} from "../FontAwesome";
+import {enumComponentCategory, enumLinkType, enumRefererPolicy} from "../UX";
+import {Component} from "../Component";
 
 /**
  * Anchor component
@@ -9,20 +12,50 @@ import { ComponentContainer } from '../ComponentContainer';
  * @class
  * @inheritdoc
  * @public
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a
  */
 class Anchor extends ComponentContainer {
 
     /**
-     * Component constructor
-     * @param {string} id Component unique id
+     * This attribute instructs browsers to download a URL instead of navigating to it,
+     * If the attribute has a value, it is used as the pre-filled file name in the Save prompt
      */
-    constructor(id: string)
+    protected _sDownload: string = null;
+
+    /**
+     * This attribute indicates the human language of the linked resource. It is purely advisory,
+     * with no built-in functionality. Allowed values are determined by BCP47.
+     */
+    protected _sHrefLang: string = null;
+
+    /**
+     * Contains a space-separated list of URLs to which, when the hyperlink is followed,
+     * POST requests with the body PING will be sent by the browser
+     */
+    protected _sPing: string = null;
+
+    /**
+     * Indicates which referrer to send when fetching the URL:
+     */
+    protected _eReferrerPolicy: enumRefererPolicy = null;
+
+    /**
+     * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a
+     * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types
+     */
+    protected _eRel: enumLinkType = null;
+
+    /**
+     * Component constructor
+     * @param {string} sId Component unique _sId
+     */
+    constructor(sId: string)
     {
-        super(id);
+        super(sId);
 
         // noinspection HtmlUnknownAttribute
-        this.template = '<a {attributes}>{child_items}</a>';
-        this.componentClassName = 'Anchor';
+        this._sTemplate = '<a {attributes}>{child_items}</a>';
+        this._sComponentClassName = 'Anchor';
 
     }
 
@@ -36,13 +69,16 @@ class Anchor extends ComponentContainer {
         /**
          * Static
          * Component meta data information
-         * category is one of layout | content | component
+         * category _sIs one of layout | content | component
          * @type {object}
          */
         return {
             name : 'Anchor',
             description : 'HTML anchor element',
-            category : 'content',
+            category : enumComponentCategory.content,
+            icon : FontAwesome.FA_ANCHOR,
+            isContainer: true,
+            help: 'https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a',
             libraries : {
                 Bootstrap_4: {
                     supported: true,
@@ -53,7 +89,6 @@ class Anchor extends ComponentContainer {
                     comments : '',
                 }
             },
-            example : '',
             codepen : [
                 {
                     user : 'bgauthier555',
@@ -65,6 +100,40 @@ class Anchor extends ComponentContainer {
         };
 
 
+    }
+
+    /**
+     *
+     * @param map
+     */
+    public render(map: any = null): string
+    {
+        // download
+        if (this.getDownload()) {
+            this.setAttribute('download', this.getDownload());
+        }
+
+        // hreflang
+        if (this.getHrefLang()) {
+            this.setAttribute('hreflang', this.getHrefLang());
+        }
+
+        // ping
+        if (this.getPing()) {
+            this.setAttribute('ping', this.getPing());
+        }
+
+        // referrerpolicy
+        if (this.getReferrerPolicy()) {
+            this.setAttribute('referrerpolicy', this.getReferrerPolicy().toString());
+        }
+
+        // rel
+        if (this.getRel()) {
+            this.setAttribute('rel', this.getRel().toString());
+        }
+
+        return super.render(map);
     }
 
     /**
@@ -89,6 +158,95 @@ class Anchor extends ComponentContainer {
         return this;
     }
 
+    /**
+     * This attribute instructs browsers to download a URL instead of navigating to it
+     */
+    public getDownload() : string
+    {
+        return this._sDownload;
+    }
+
+    /**
+     * This attribute instructs browsers to download a URL instead of navigating to it
+     * @param sDownload
+     */
+    public setDownload(sDownload: string) : Component
+    {
+        this._sDownload = sDownload;
+        return this;
+    }
+
+    /**
+     *
+     */
+    public getHrefLang(): string
+    {
+        return this._sHrefLang;
+    }
+
+    /**
+     *
+     * @param sHrefLang
+     */
+    public setHrefLang(sHrefLang: string): Component
+    {
+        this._sHrefLang = sHrefLang;
+        return this;
+    }
+
+    /**
+     *
+     */
+    public getPing() : string
+    {
+        return this._sPing;
+    }
+
+    /**
+     *
+     * @param sPing
+     */
+    public setPing(sPing: string) : Component
+    {
+        this._sPing = sPing;
+        return this;
+    }
+
+    /**
+     *
+     */
+    public getReferrerPolicy() : enumRefererPolicy
+    {
+        return this._eReferrerPolicy;
+    }
+
+    /**
+     *
+     * @param eReferrerPolicy
+     */
+    public setReferrerPolicy(eReferrerPolicy: enumRefererPolicy) : Component
+    {
+        this._eReferrerPolicy = eReferrerPolicy;
+        return this;
+    }
+
+    /**
+     *
+     */
+    public getRel() : enumLinkType
+    {
+        return this._eRel;
+    }
+
+    /**
+     *
+     * @param eRel
+     */
+    public setRef(eRel: enumLinkType) : Component
+    {
+        this._eRel = eRel;
+        return this;
+    }
 
 }
 

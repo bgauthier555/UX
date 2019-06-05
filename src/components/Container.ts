@@ -1,6 +1,7 @@
 import { ComponentContainer } from '../ComponentContainer';
 import {Row} from "./Row";
 import {Component} from "../Component";
+import {FontAwesome} from "../FontAwesome";
 
 /**
  * container component
@@ -15,13 +16,13 @@ import {Component} from "../Component";
 class Container extends ComponentContainer {
 
     /**
-     * If container is fluid or not
+     * If container _sIs fluid or not
      */
     protected isFluid: boolean = false;
 
     /**
      * Component constructor
-     * @param {string} id Component unique id
+     * @param {string} id Component unique _sId
      */
     constructor(id: string)
     {
@@ -30,8 +31,8 @@ class Container extends ComponentContainer {
         super.checkIfFeatureIsSupported(Container.getMetaData());
 
         // noinspection HtmlUnknownAttribute
-        this.template = '<div {attributes}>{child_items}</div>';
-        this.componentClassName = 'Container';
+        this._sTemplate = '<div {attributes}>{child_items}</div>';
+        this._sComponentClassName = 'Container';
 
     }
 
@@ -45,13 +46,15 @@ class Container extends ComponentContainer {
         /**
          * Static
          * Component meta data information
-         * category is one of layout | content | component
+         * category _sIs one of layout | content | component
          * @type {object}
          */
         return {
             name : 'Container',
             description : 'Containers are the most basic layout element and are required when using our default grid system. Choose from a responsive, fixed-width container.',
             category : 'layout',
+            icon : FontAwesome.FA_SQUARE_O,
+            isContainer: true,
             libraries : {
                 Bootstrap_4: {
                     supported: true,
@@ -77,7 +80,7 @@ class Container extends ComponentContainer {
     }
 
     /**
-     * Returns if container is fluid dor not
+     * Returns if container _sIs fluid dor not
      * @returns {boolean}
      */
     public getIsFluid() : boolean
@@ -86,7 +89,7 @@ class Container extends ComponentContainer {
     }
 
     /**
-     * Sets if container is fluid or not
+     * Sets if container _sIs fluid or not
      * @param isFluid
      * @returns {Container}
      */

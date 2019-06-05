@@ -1,4 +1,5 @@
 import { ComponentContainer } from '../ComponentContainer';
+import {FontAwesome} from "../FontAwesome";
 
 /**
  * Paragraph component
@@ -14,7 +15,7 @@ class Paragraph extends ComponentContainer {
 
     /**
      * Component constructor
-     * @param {string} id Component unique id
+     * @param {string} id Component unique _sId
      */
     constructor(id: string)
     {
@@ -22,8 +23,8 @@ class Paragraph extends ComponentContainer {
         super(id);
 
         // noinspection HtmlUnknownAttribute
-        this.template = '<p {attributes}>{child_items}</p>';
-        this.componentClassName = 'Paragraph';
+        this._sTemplate = '<p {attributes}>{child_items}</p>';
+        this._sComponentClassName = 'Paragraph';
 
     }
 
@@ -37,13 +38,15 @@ class Paragraph extends ComponentContainer {
         /**
          * Static
          * Component meta data information
-         * category is one of layout | content | component
+         * category _sIs one of layout | content | component
          * @type {object}
          */
         return {
             name : 'Paragraph',
             description : '',
             category : 'content',
+            icon : FontAwesome.FA_PARAGRAPH,
+            isContainer: true,
             libraries : {
                 Bootstrap_4: {
                     supported: true,

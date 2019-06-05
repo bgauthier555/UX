@@ -1,4 +1,5 @@
 import { ComponentContainer } from '../ComponentContainer';
+import {FontAwesome} from "../FontAwesome";
 
 /**
  * Column component
@@ -19,15 +20,17 @@ class Column extends ComponentContainer {
 
     /**
      * Component constructor
-     * @param {string} id Component unique id
+     * @param {string} id Component unique _sId
      */
     constructor(id: string) {
 
         super(id);
 
+        this.addClass('ux-column');
+
         // noinspection HtmlUnknownAttribute
-        this.template = '<div {attributes}>{child_items}</div>';
-        this.componentClassName = 'Column';
+        this._sTemplate = '<div {attributes}>{child_items}</div>';
+        this._sComponentClassName = 'Column';
 
     }
 
@@ -41,13 +44,15 @@ class Column extends ComponentContainer {
         /**
          * Static
          * Component meta data information
-         * category is one of layout | content | component
+         * category _sIs one of layout | content | component
          * @type {object}
          */
         return {
             name : 'Column',
-            description : 'Column classes indicate the number of columns you’d like to use out of the possible 12 per row.',
+            description : 'Column _aClasses indicate the number of columns you’d like to use out of the possible 12 per row.',
             category : 'layout',
+            icon : FontAwesome.FA_COLUMNS,
+            isContainer: true,
             libraries : {
                 Bootstrap_4: {
                     supported: true,

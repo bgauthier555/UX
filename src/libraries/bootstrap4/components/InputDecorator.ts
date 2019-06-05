@@ -27,7 +27,7 @@ class Bootstrap4_InputDecorator extends Decorator {
         /**
          * Static
          * Component meta data information
-         * category is one of layout | content | component
+         * category _sIs one of layout | content | component
          * @type {object}
          */
         return {
@@ -60,7 +60,7 @@ class Bootstrap4_InputDecorator extends Decorator {
         component.addClass('form-control');
 
         component.template = '<div class="form-group">\n' +
-            '    <label for="{id}">{label}</label>\n' +
+            '    <_sLabel for="{_sId}">{_sLabel}</_sLabel>\n' +
             '    <input {attributes}>\n' +
             '  </div>';
 

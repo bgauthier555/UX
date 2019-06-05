@@ -1,4 +1,5 @@
 import { ComponentContainer } from '../ComponentContainer';
+import {FontAwesome} from "../FontAwesome";
 
 /**
  * Heading component
@@ -16,7 +17,7 @@ class Heading extends ComponentContainer {
 
     /**
      * Component constructor
-     * @param {string} id Component unique id
+     * @param {string} id Component unique _sId
      */
     constructor(id: string)
     {
@@ -25,8 +26,8 @@ class Heading extends ComponentContainer {
 
 
         // noinspection HtmlUnknownAttribute
-        this.template = '<h{level} {attributes}>{child_items}</h{level}>';
-        this.componentClassName = 'Heading';
+        this._sTemplate = '<h{level} {attributes}>{child_items}</h{level}>';
+        this._sComponentClassName = 'Heading';
 
     }
 
@@ -40,13 +41,15 @@ class Heading extends ComponentContainer {
         /**
          * Static
          * Component meta data information
-         * category is one of layout | content | component
+         * category _sIs one of layout | content | component
          * @type {object}
          */
         return {
             name : 'Heading',
             description : 'Heading element h1 to h6',
             category : 'content',
+            icon : FontAwesome.FA_HEADING,
+            isContainer: false,
             libraries : {
                 Bootstrap_4: {
                     supported: true,

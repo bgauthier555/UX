@@ -1,4 +1,5 @@
-import { Input } from './Input';
+import {enumInputType, Input} from './Input';
+import {FontAwesome} from "../FontAwesome";
 
 /**
  * Checkbox component
@@ -14,14 +15,14 @@ class Checkbox extends Input {
 
     /**
      * Component constructor
-     * @param {string} id Component unique id
+     * @param {string} id Component unique _sId
      */
     constructor(id: string) {
 
         super(id);
 
-        this.type = 'checkbox';
-        this.componentClassName = 'Checkbox';
+        this.setType(enumInputType.checkbox);
+        this._sComponentClassName = 'Checkbox';
 
     }
 
@@ -35,13 +36,15 @@ class Checkbox extends Input {
         /**
          * Static
          * Component meta data information
-         * category is one of layout | content | component
+         * category _sIs one of layout | content | component
          * @type {object}
          */
         return {
             name : 'Checkbox',
             description : '',
             category : 'component',
+            icon : FontAwesome.FA_CHECK,
+            isContainer: false,
             libraries : {
                 Bootstrap_4: {
                     supported: true,

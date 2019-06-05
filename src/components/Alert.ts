@@ -1,47 +1,52 @@
 import { Component } from '../Component';
+import {ComponentContainer} from "../ComponentContainer";
+import {FontAwesome} from "../FontAwesome";
 
-export enum enumAlertType {
+/**
+ * List of alert styles
+ */
+export enum enumAlertStyle {
 
     /**
      * Primary alert type, bootstrap 4
      * @type {string}
      */
-    ALERT_PRIMARY = "alert-primary",
+    PRIMARY = "alert-primary",
     /**
      * Secondary alert type, bootstrap 4
      * @type {string}
      */
-    ALERT_SECONDARY = "alert-secondary",
+    SECONDARY = "alert-secondary",
     /**
      * Success alert type, bootstrap 4
      * @type {string}
      */
-    ALERT_SUCCESS = "alert-success",
+    SUCCESS = "alert-success",
     /**
      * Danger alert type, bootstrap 4
      * @type {string}
      */
-    ALERT_DANGER = "alert-danger",
+    DANGER = "alert-danger",
     /**
      * Warning alert type, bootstrap 4
      * @type {string}
      */
-    ALERT_WARNING = "alert-warning",
+    WARNING = "alert-warning",
     /**
      * Info alert type, bootstrap 4
      * @type {string}
      */
-    ALERT_INFO = "alert-info",
+    INFO = "alert-info",
     /**
      * Light alert type, bootstrap 4
      * @type {string}
      */
-    ALERT_LIGHT = "alert-light",
+    LIGHT = "alert-light",
     /**
      * Dark alert type, bootstrap 4
      * @type {string}
      */
-    ALERT_DARK = "alert-dark"
+    DARK = "alert-dark"
 
 
 }
@@ -52,20 +57,30 @@ export enum enumAlertType {
  * Alert component
  * Displays an alert message to user
  *
- * @version     0.1
  * @copyright Benoit Gauthier <bgauthier555@gmail.com>
  * @author Benoit Gauthier <bgauthier555@gmail.com>
  * @licence MIT
  * @class
  * @inheritdoc
  * @public
+ * @see https://getbootstrap.com/docs/4.0/components/alerts/
  */
-class Alert extends Component {
+class Alert extends ComponentContainer {
+
+    /**
+     * Alert icon
+     */
+    protected _sIcon: string = null;
+
+    /**
+     * Text to display in the alert
+     */
+    protected _sText: string = null;
 
     /**
      * Title of the alert
      */
-    protected title: string = null;
+    protected _sAlertTitle: string = null;
 
     /**
      * If we can dismiss the alert message
@@ -75,7 +90,24 @@ class Alert extends Component {
     /**
      * Type of alert
      */
-    protected alertType: enumAlertType = enumAlertType.ALERT_PRIMARY;
+    protected _eAlertStyle: enumAlertStyle = enumAlertStyle.PRIMARY;
+
+    /**-
+     * EVENTS
+     */
+
+    /**
+     * This event fires immediately when the close instance method is called.
+     */
+    public onAlertClose: any = null;
+
+    /**
+     * This event is fired when the alert has been closed (will wait for CSS transitions to complete).
+     */
+    public onAlertClosed: any = null;
+
+
+
 
     /**
      * Alert component constructor
@@ -86,8 +118,8 @@ class Alert extends Component {
         super(id);
 
         // noinspection HtmlUnknownAttribute
-        this.template = '<div {attributes}>{icon}{title}{label}</div>';
-        this.componentClassName = 'Alert';
+        this._sTemplate = '<div {attributes}>{icon}{alertTitle}{text}</div>';
+        this._sComponentClassName = 'Alert';
 
     }
 
@@ -101,13 +133,15 @@ class Alert extends Component {
         /**
          * Static
          * Component meta data information
-         * category is one of layout | content | component
+         * category _sIs one of layout | content | component
          * @type {object}
          */
         return {
             name : 'Alert',
             description : 'Provide contextual feedback messages for typical user actions with the handful of available and flexible alert messages.',
             category : 'component',
+            icon : FontAwesome.FA_EXCLAMATION_CIRCLE,
+            isContainer: true,
             libraries : {
                 Bootstrap_4: {
                     supported: true,
@@ -133,6 +167,42 @@ class Alert extends Component {
     }
 
     /**
+     *
+     */
+    public getText() : string
+    {
+        return this._sText;
+    }
+
+    /**
+     *
+     * @param sText
+     */
+    public setText(sText: string) : Component
+    {
+        this._sText = sText;
+        return this;
+    }
+
+    /**
+     *
+     */
+    public getIcon(): string
+    {
+        return this._sIcon;
+    }
+
+    /**
+     *
+     * @param sIcon
+     */
+    public setIcon(sIcon: string) : Component
+    {
+        this._sIcon = sIcon;
+        return this;
+    }
+
+    /**
      * Returns if we can dismiss the alert component
      * @returns {boolean}
      */
@@ -153,22 +223,22 @@ class Alert extends Component {
     }
 
     /**
-     * Returns alert title
+     * Returns alert _sTitle
      * @returns {string} The title of the alert component
      */
-    public getTitle() : string
+    public getAlertTitle() : string
     {
-        return this.title;
+        return this._sTitle;
     }
 
     /**
-     * Sets alert title, if title is not null, the title will b displayed within the alert component
-     * @param {string} title The title of the alert component
+     * Sets alert _sTitle, if _sTitle _sIs not _sOnProgress, the _sTitle will b displayed within the alert component
+     * @param {string} title The _sTitle of the alert component
      * @returns {Alert}
      */
-    public setTitle(title: string) : Alert
+    public setAlertTitle(title: string) : Alert
     {
-        this.title = title;
+        this._sAlertTitle = title;
         return this;
     }
 
@@ -176,9 +246,9 @@ class Alert extends Component {
      * Returns alert type (warning, success, ...) for alert component
      * @returns {string}
      */
-    public getAlertType() : enumAlertType
+    public getAlertStyle() : enumAlertStyle
     {
-        return this.alertType;
+        return this._eAlertStyle;
     }
 
     /**
@@ -186,9 +256,9 @@ class Alert extends Component {
      * @param alertType
      * @returns {Alert}
      */
-    public setAlertType(alertType: enumAlertType)
+    public setAlertStyle(alertType: enumAlertStyle)
     {
-        this.alertType = alertType;
+        this._eAlertStyle = alertType;
         return this;
     }
 
@@ -200,23 +270,6 @@ class Alert extends Component {
         $('#' + this.getId()).hide();
     }
 
-    /**
-     * This event fires immediately when the close instance method is called.
-     * @param callback
-     */
-    public onAlertClose(callback: any) {
-        // Unsupported in HTML
-        return this;
-    }
-
-    /**
-     * This event is fired when the alert has been closed (will wait for CSS transitions to complete).
-     * @param callback
-     */
-    public onAlertClosed(callback: any) {
-        // Unsupported in HTML
-        return this;
-    }
 
 }
 

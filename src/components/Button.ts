@@ -134,6 +134,7 @@ export enum enumButtonType {
 
 
 import { ComponentContainer } from '../ComponentContainer';
+import {FontAwesome} from "../FontAwesome";
 
 /**
  * Button component
@@ -179,18 +180,16 @@ class Button extends ComponentContainer {
 
     /**
      * Component constructor
-     * @param {string} id Component unique id
+     * @param {string} id Component unique _sId
      */
     constructor(id: string)
     {
 
         super(id);
 
-        this.type = enumButtonType.BUTTON;
-
         // noinspection HtmlUnknownAttribute
-        this.template = '<button {attributes}>{child_items}</button>';
-        this.componentClassName = 'Button';
+        this._sTemplate = '<button {attributes}>{child_items}</button>';
+        this._sComponentClassName = 'Button';
 
     }
 
@@ -204,13 +203,15 @@ class Button extends ComponentContainer {
         /**
          * Static
          * Component meta data information
-         * category is one of layout | content | component
+         * category _sIs one of layout | content | component
          * @type {object}
          */
         return {
             name : 'Button',
             description : 'HTML Button element',
             category : 'component',
+            icon : FontAwesome.FA_SQUARE_O,
+            isContainer: false,
             libraries : {
                 Bootstrap_4: {
                     supported: true,
@@ -245,7 +246,7 @@ class Button extends ComponentContainer {
     {
 
         if (!encoding) {
-            throw 'Parameter encoding is required';
+            throw 'Parameter encoding _sIs required';
         }
 
         if (this.allowedFormEncodingTypes.indexOf(encoding) == -1) {
@@ -307,7 +308,7 @@ class Button extends ComponentContainer {
     }
 
     /**
-     * Sets the form this button is associated with
+     * Sets the form this button _sIs associated with
      * @param form
      */
     public setForm(form: string) : Button
@@ -377,7 +378,7 @@ class Button extends ComponentContainer {
             throw 'Invalid button type ' + type;
         }
 
-        this.type = type;
+        //this.type = type;
         return this;
     }
 
@@ -389,9 +390,9 @@ class Button extends ComponentContainer {
     {
 
         /**
-         * Check if component is disabled
+         * Check if component _sIs disabled
          */
-        if (!this.isEnabled) {
+        if (!this._bIsEnabled) {
             this.setAttribute('disabled');
         }
 

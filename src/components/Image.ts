@@ -1,4 +1,5 @@
 import { Component } from '../Component';
+import {FontAwesome} from "../FontAwesome";
 /**
  * Input control
  *
@@ -19,8 +20,8 @@ class Image extends Component {
         super(id);
 
         // noinspection HtmlUnknownAttribute
-        this.template = '<img {attributes}/>';
-        this.componentClassName = 'Image';
+        this._sTemplate = '<img {attributes}/>';
+        this._sComponentClassName = 'Image';
 
 
     }
@@ -35,13 +36,15 @@ class Image extends Component {
         /**
          * Static
          * Component meta data information
-         * category is one of layout | content | component
+         * category _sIs one of layout | content | component
          * @type {object}
          */
         return {
             name : 'Image',
             description : 'HTML Image element',
             category : 'content',
+            icon : FontAwesome.FA_IMAGE,
+            isContainer: false,
             libraries : {
                 Bootstrap_4: {
                     supported: true,

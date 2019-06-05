@@ -10,7 +10,7 @@ import {Component} from "./index";
 class Page {
 
     /**
-     * Default container id
+     * Default container _sId
      */
     protected defaultContainerId: string = 'body';
 

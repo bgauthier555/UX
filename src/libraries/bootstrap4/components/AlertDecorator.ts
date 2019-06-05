@@ -27,7 +27,7 @@ class Bootstrap4_AlertDecorator extends Decorator {
         /**
          * Static
          * Component meta data information
-         * category is one of layout | content | component
+         * category _sIs one of layout | content | component
          * @type {object}
          */
         return {
@@ -63,27 +63,27 @@ class Bootstrap4_AlertDecorator extends Decorator {
     {
 
         component.addClass('alert');
-        component.addClass(component.alertType);
+        component.addClass(component.getAlertStyle());
         component.setAttribute('role', 'alert');
 
         let sTitle = '';
         if (component.getTitle()) {
-            sTitle = '<h4 class="alert-heading">{icon}{title}</h4>';
+            sTitle = '<h4 class="alert-heading">{_sIcon}{_sTitle}</h4>';
         }
 
         if (component.getIsDismissible()) {
             component.addClass('alert-dismissible');
-            component.template = '<div {attributes}>{icon}{title}{label}' +
-                ' <button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
+            component.setTemplate('<div {attributes}>{_sIcon}{_sTitle}{_sLabel}' +
+                ' <button type="button" class="close" data-dismiss="alert" aria-_sLabel="Close">\n' +
                 '    <span aria-hidden="true">&times;</span>\n' +
                 ' </button>' +
-                '</div>';
+                '</div>');
         }
 
         /**
-         * Replace title tag with title html if we have a title, if not will be removed from template
+         * Replace _sTitle tag with _sTitle html if we have a _sTitle, if not will be removed from _sTemplate
          */
-        component.template = component.template.replace(/{title}/g, sTitle);
+        component.setTemplate(component.getTemplate().replace(/{title}/g, sTitle));
 
         /**
          * Override close method of alert
@@ -94,7 +94,7 @@ class Bootstrap4_AlertDecorator extends Decorator {
         };
 
         /**
-         * This event fires immediately when the close instance method is called.
+         * This event fires immediately when the close instance method _sIs called.
          * @param callback
          */
         component.onAlertClose = function(callback: any) {
@@ -104,7 +104,7 @@ class Bootstrap4_AlertDecorator extends Decorator {
         };
 
         /**
-         * This event is fired when the alert has been closed (will wait for CSS transitions to complete).
+         * This event _sIs fired when the alert has been closed (will wait for CSS transitions to complete).
          * @param callback
          */
         component.onAlertClosed = function(callback: any) {
