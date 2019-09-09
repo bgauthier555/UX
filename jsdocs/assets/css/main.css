@@ -155,7 +155,7 @@ textarea { overflow: auto; /* 1 */ vertical-align: top; }
 /** Remove most spacing between table cells. */
 table { border-collapse: collapse; border-spacing: 0; }
 
-/* Visual Studio-like style based on original C# coloring by Jason Diamond <jason@diamond.name> */
+/* Visual Studio-like style based on original C# coloring by Jason Diamond <jason@diamond._sName> */
 .hljs { display: inline-block; padding: 0.5em; background: white; color: black; }
 
 .hljs-comment, .hljs-annotation, .hljs-template_comment, .diff .hljs-header, .hljs-chunk, .apache .hljs-cbracket { color: #008000; }

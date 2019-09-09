@@ -1619,6 +1619,14 @@ abstract class Component {
 
     }
 
+    /**
+     * Return parent container
+     */
+    public getParent() : Component | null
+    {
+        return this._oParent;
+    }
+
 
 }
 

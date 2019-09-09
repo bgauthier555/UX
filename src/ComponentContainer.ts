@@ -19,8 +19,8 @@ abstract class ComponentContainer extends Component {
      *
      * @param id
      */
-    constructor(id: string) {
-        super(id);
+    constructor(sId: string) {
+        super(sId);
 
         this.items = [];
     }
@@ -84,7 +84,7 @@ abstract class ComponentContainer extends Component {
      * @param id
      * @returns {Component}
      */
-    public addLi(id: string) : Component
+    public addLi(id: string = null) : Component
     {
         // @ts-ignore
         return this.addItem(new window.UX.Li(id));
@@ -95,7 +95,7 @@ abstract class ComponentContainer extends Component {
      * @param id
      * @returns {Component}
      */
-    public addOl(id: string) : Component
+    public addOl(id: string = null) : Component
     {
         // @ts-ignore
         return this.addItem(new window.UX.Ol(id));
@@ -106,7 +106,7 @@ abstract class ComponentContainer extends Component {
      * @param id
      * @returns {Component}
      */
-    public addUl(id: string) : Component
+    public addUl(id: string = null) : Component
     {
         // @ts-ignore
         return this.addItem(new window.UX.Ul(id));
@@ -117,7 +117,7 @@ abstract class ComponentContainer extends Component {
      * @param id
      * @returns {Component}
      */
-    public addDiv(id: string) : Component
+    public addDiv(id: string = null) : Component
     {
         // @ts-ignore
         return this.addItem(new window.UX.Div(id));
@@ -128,7 +128,7 @@ abstract class ComponentContainer extends Component {
      * @param id
      * @returns {Component}
      */
-    public addAnchor(id: string) : Component
+    public addAnchor(id: string = null) : Component
     {
         // @ts-ignore
         return this.addItem(new window.UX.Anchor(id));
@@ -139,7 +139,7 @@ abstract class ComponentContainer extends Component {
      * @param id
      * @returns {Component}
      */
-    public addAlert(id: string) : Component
+    public addAlert(id: string = null) : Component
     {
         // @ts-ignore
         return this.addItem(new window.UX.Alert(id));
@@ -150,7 +150,7 @@ abstract class ComponentContainer extends Component {
      * @param id
      * @returns {Component}
      */
-    public addButton(id: string) : Component
+    public addButton(id: string = null) : Component
     {
         // @ts-ignore
         return this.addItem(new window.UX.Button(id));
@@ -161,7 +161,7 @@ abstract class ComponentContainer extends Component {
      * @param id
      * @returns {Component}
      */
-    public addCheckbox(id: string) : Component
+    public addCheckbox(id: string = null) : Component
     {
         // @ts-ignore
         return this.addItem(new window.UX.Checkbox(id));
@@ -172,7 +172,7 @@ abstract class ComponentContainer extends Component {
      * @param id
      * @returns {Component}
      */
-    public addHeading(id: string) : Component
+    public addHeading(id: string = null) : Component
     {
         // @ts-ignore
         return this.addItem(new window.UX.Heading(id));
@@ -183,7 +183,7 @@ abstract class ComponentContainer extends Component {
      * @param id
      * @returns {Component}
      */
-    public addInput(id: string) : Component
+    public addInput(id: string = null) : Component
     {
         // @ts-ignore
         return this.addItem(new window.UX.Input(id));
@@ -194,7 +194,7 @@ abstract class ComponentContainer extends Component {
      * @param id
      * @returns {Component}
      */
-    public addParagraph(id: string) : Component
+    public addParagraph(id: string = null) : Component
     {
         // @ts-ignore
         return this.addItem(new window.UX.Paragraph(id));
@@ -205,7 +205,7 @@ abstract class ComponentContainer extends Component {
      * @param id
      * @returns {Component}
      */
-    public addPassword(id: string) : Component
+    public addPassword(id: string = null) : Component
     {
         // @ts-ignore
         return this.addItem(new window.UX.Password(id));
@@ -216,7 +216,7 @@ abstract class ComponentContainer extends Component {
      * @param id
      * @returns {Component}
      */
-    public addPre(id: string) : Component
+    public addPre(id: string = null) : Component
     {
         // @ts-ignore
         return this.addItem(new window.UX.Pre(id));
@@ -227,7 +227,7 @@ abstract class ComponentContainer extends Component {
      * @param id
      * @returns {Component}
      */
-    public addSelect(id: string) : Component
+    public addSelect(id: string = null) : Component
     {
         // @ts-ignore
         return this.addItem(new window.UX.Select(id));
@@ -238,12 +238,74 @@ abstract class ComponentContainer extends Component {
      * @param id
      * @returns {Component}
      */
-    public addTextArea(id: string) : Component
+    public addTextArea(id: string = null) : Component
     {
         // @ts-ignore
         return this.addItem(new window.UX.TextArea(id));
     }
 
+
+    /**
+     * Adds head item to component
+     * @param id
+     * @returns {Component}
+     */
+    public addHead(sId: string = null) : Component
+    {
+        // @ts-ignore
+        return this.addItem(new window.UX.Head(sId));
+    }
+
+    /**
+     * Adds title item to component
+     * @param id
+     * @returns {Component}
+     */
+    public addTitle(sId: string = null) : Component
+    {
+        // @ts-ignore
+        return this.addItem(new window.UX.Title(sId));
+    }
+
+    /**
+     * Adds body item to component
+     * @param id
+     * @returns {Component}
+     */
+    public addBody(sId: string = null) : Component
+    {
+        // @ts-ignore
+        return this.addItem(new window.UX.Body(sId));
+    }
+
+    /**
+     * Adds row item to component
+     * @param id
+     * @returns {Component}
+     */
+    public addRow(sId: string = null) : Component
+    {
+        // @ts-ignore
+        return this.addItem(new window.UX.Row(sId));
+    }
+
+
+    public findItem(sId: string) : Component | null
+    {
+
+        for(let x in this.items) {
+            if (this.items[x].getId() == sId) {
+                return this.items[x];
+            } else {
+                let item = this.items[x].findItem(sId);
+                if (item != null) {
+                    return item;
+                }
+            }
+        }
+
+        return null;
+    }
 
 
 

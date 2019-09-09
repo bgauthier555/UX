@@ -64,14 +64,44 @@ export { B };
 import { BDI } from "./components/BDI";
 export { BDI };
 
+import { BDO } from "./components/BDO";
+export { BDO };
+
+import { BlockQuote } from "./components/BlockQuote";
+export { BlockQuote };
+
+import { Body } from "./components/Body";
+export { Body };
+
 import { Button, enumButtonSize, enumButtonStyle, enumButtonType} from './components/Button';
 export { Button, enumButtonStyle, enumButtonType, enumButtonSize};
+
+import { Br } from './components/Br';
+export { Br };
+
+import { Canvas } from './components/Canvas';
+export { Canvas };
+
+import { Caption } from "./components/Caption";
+export { Caption };
 
 import { Container } from './components/Container';
 export { Container };
 
 import { Checkbox } from './components/Checkbox';
 export { Checkbox };
+
+import { Cite } from "./components/Cite";
+export { Cite };
+
+import { Code } from "./components/Code";
+export { Code };
+
+import { Col } from "./components/Col";
+export { Col };
+
+import { ColGroup } from "./components/ColGroup";
+export { ColGroup };
 
 import { Column } from './components/Column';
 export { Column };
@@ -95,8 +125,14 @@ export { Form,
 import { Heading } from './components/Heading';
 export { Heading };
 
+import { Head } from "./components/Head";
+export { Head };
+
 import { Hr } from "./components/Hr";
 export { Hr };
+
+import { Html } from "./components/Html";
+export { Html };
 
 import { Icon } from "./components/Icon";
 export { Icon };
@@ -142,6 +178,9 @@ export { Store };
 
 import { TextArea } from './components/TextArea';
 export { TextArea };
+
+import { Title } from "./components/Title";
+export { Title };
 
 /**
  * Bootstrap _aClasses

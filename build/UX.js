@@ -1012,7 +1012,7 @@ var Component = /** @class */ (function () {
          */
         var allProperties = null;
         if (_index__WEBPACK_IMPORTED_MODULE_0__["ComponentProperties"][_className]) {
-            allProperties = __assign({}, _index__WEBPACK_IMPORTED_MODULE_0__["ComponentProperties"].Common, _index__WEBPACK_IMPORTED_MODULE_0__["ComponentProperties"][_className].properties);
+            allProperties = __assign(__assign({}, _index__WEBPACK_IMPORTED_MODULE_0__["ComponentProperties"].Common), _index__WEBPACK_IMPORTED_MODULE_0__["ComponentProperties"][_className].properties);
         }
         else {
             allProperties = __assign({}, _index__WEBPACK_IMPORTED_MODULE_0__["ComponentProperties"].Common);
@@ -1458,6 +1458,12 @@ var Component = /** @class */ (function () {
         }
         return false;
     };
+    /**
+     * Return parent container
+     */
+    Component.prototype.getParent = function () {
+        return this._oParent;
+    };
     return Component;
 }());
 
@@ -1503,8 +1509,8 @@ var ComponentContainer = /** @class */ (function (_super) {
      *
      * @param id
      */
-    function ComponentContainer(id) {
-        var _this = _super.call(this, id) || this;
+    function ComponentContainer(sId) {
+        var _this = _super.call(this, sId) || this;
         /**
          * Component sub items
          */
@@ -1544,7 +1550,7 @@ var ComponentContainer = /** @class */ (function (_super) {
         // Set item _oParent to this container item
         item._oParent = this;
         this.items[this.items.length] = item;
-        // Remove from main component item list, since this component _sIs a child component
+        // Remove from main component item list, since this component is a child component
         // @ts-ignore
         window.UX.Page.removeItem(item.getId());
         return item;
@@ -1555,6 +1561,7 @@ var ComponentContainer = /** @class */ (function (_super) {
      * @returns {Component}
      */
     ComponentContainer.prototype.addLi = function (id) {
+        if (id === void 0) { id = null; }
         // @ts-ignore
         return this.addItem(new window.UX.Li(id));
     };
@@ -1564,6 +1571,7 @@ var ComponentContainer = /** @class */ (function (_super) {
      * @returns {Component}
      */
     ComponentContainer.prototype.addOl = function (id) {
+        if (id === void 0) { id = null; }
         // @ts-ignore
         return this.addItem(new window.UX.Ol(id));
     };
@@ -1573,6 +1581,7 @@ var ComponentContainer = /** @class */ (function (_super) {
      * @returns {Component}
      */
     ComponentContainer.prototype.addUl = function (id) {
+        if (id === void 0) { id = null; }
         // @ts-ignore
         return this.addItem(new window.UX.Ul(id));
     };
@@ -1582,6 +1591,7 @@ var ComponentContainer = /** @class */ (function (_super) {
      * @returns {Component}
      */
     ComponentContainer.prototype.addDiv = function (id) {
+        if (id === void 0) { id = null; }
         // @ts-ignore
         return this.addItem(new window.UX.Div(id));
     };
@@ -1591,6 +1601,7 @@ var ComponentContainer = /** @class */ (function (_super) {
      * @returns {Component}
      */
     ComponentContainer.prototype.addAnchor = function (id) {
+        if (id === void 0) { id = null; }
         // @ts-ignore
         return this.addItem(new window.UX.Anchor(id));
     };
@@ -1600,6 +1611,7 @@ var ComponentContainer = /** @class */ (function (_super) {
      * @returns {Component}
      */
     ComponentContainer.prototype.addAlert = function (id) {
+        if (id === void 0) { id = null; }
         // @ts-ignore
         return this.addItem(new window.UX.Alert(id));
     };
@@ -1609,6 +1621,7 @@ var ComponentContainer = /** @class */ (function (_super) {
      * @returns {Component}
      */
     ComponentContainer.prototype.addButton = function (id) {
+        if (id === void 0) { id = null; }
         // @ts-ignore
         return this.addItem(new window.UX.Button(id));
     };
@@ -1618,6 +1631,7 @@ var ComponentContainer = /** @class */ (function (_super) {
      * @returns {Component}
      */
     ComponentContainer.prototype.addCheckbox = function (id) {
+        if (id === void 0) { id = null; }
         // @ts-ignore
         return this.addItem(new window.UX.Checkbox(id));
     };
@@ -1627,6 +1641,7 @@ var ComponentContainer = /** @class */ (function (_super) {
      * @returns {Component}
      */
     ComponentContainer.prototype.addHeading = function (id) {
+        if (id === void 0) { id = null; }
         // @ts-ignore
         return this.addItem(new window.UX.Heading(id));
     };
@@ -1636,6 +1651,7 @@ var ComponentContainer = /** @class */ (function (_super) {
      * @returns {Component}
      */
     ComponentContainer.prototype.addInput = function (id) {
+        if (id === void 0) { id = null; }
         // @ts-ignore
         return this.addItem(new window.UX.Input(id));
     };
@@ -1645,6 +1661,7 @@ var ComponentContainer = /** @class */ (function (_super) {
      * @returns {Component}
      */
     ComponentContainer.prototype.addParagraph = function (id) {
+        if (id === void 0) { id = null; }
         // @ts-ignore
         return this.addItem(new window.UX.Paragraph(id));
     };
@@ -1654,6 +1671,7 @@ var ComponentContainer = /** @class */ (function (_super) {
      * @returns {Component}
      */
     ComponentContainer.prototype.addPassword = function (id) {
+        if (id === void 0) { id = null; }
         // @ts-ignore
         return this.addItem(new window.UX.Password(id));
     };
@@ -1663,6 +1681,7 @@ var ComponentContainer = /** @class */ (function (_super) {
      * @returns {Component}
      */
     ComponentContainer.prototype.addPre = function (id) {
+        if (id === void 0) { id = null; }
         // @ts-ignore
         return this.addItem(new window.UX.Pre(id));
     };
@@ -1672,6 +1691,7 @@ var ComponentContainer = /** @class */ (function (_super) {
      * @returns {Component}
      */
     ComponentContainer.prototype.addSelect = function (id) {
+        if (id === void 0) { id = null; }
         // @ts-ignore
         return this.addItem(new window.UX.Select(id));
     };
@@ -1681,8 +1701,63 @@ var ComponentContainer = /** @class */ (function (_super) {
      * @returns {Component}
      */
     ComponentContainer.prototype.addTextArea = function (id) {
+        if (id === void 0) { id = null; }
         // @ts-ignore
         return this.addItem(new window.UX.TextArea(id));
+    };
+    /**
+     * Adds head item to component
+     * @param id
+     * @returns {Component}
+     */
+    ComponentContainer.prototype.addHead = function (sId) {
+        if (sId === void 0) { sId = null; }
+        // @ts-ignore
+        return this.addItem(new window.UX.Head(sId));
+    };
+    /**
+     * Adds title item to component
+     * @param id
+     * @returns {Component}
+     */
+    ComponentContainer.prototype.addTitle = function (sId) {
+        if (sId === void 0) { sId = null; }
+        // @ts-ignore
+        return this.addItem(new window.UX.Title(sId));
+    };
+    /**
+     * Adds body item to component
+     * @param id
+     * @returns {Component}
+     */
+    ComponentContainer.prototype.addBody = function (sId) {
+        if (sId === void 0) { sId = null; }
+        // @ts-ignore
+        return this.addItem(new window.UX.Body(sId));
+    };
+    /**
+     * Adds row item to component
+     * @param id
+     * @returns {Component}
+     */
+    ComponentContainer.prototype.addRow = function (sId) {
+        if (sId === void 0) { sId = null; }
+        // @ts-ignore
+        return this.addItem(new window.UX.Row(sId));
+    };
+    ComponentContainer.prototype.findItem = function (sId) {
+        for (var x in this.items) {
+            if (this.items[x].getId() == sId) {
+                return this.items[x];
+            }
+            else {
+                var item = this.items[x].findItem(sId);
+                if (item != null) {
+                    return item;
+                }
+            }
+        }
+        return null;
     };
     return ComponentContainer;
 }(_Component__WEBPACK_IMPORTED_MODULE_0__["Component"]));
@@ -3401,13 +3476,16 @@ var Page = /** @class */ (function () {
      */
     function Page() {
         /**
-         * Default container _sId
+         * Default container id
          */
         this.defaultContainerId = 'body';
         /**
          * List of UX items in web page
          */
         this.items = {};
+        /**
+         * If page is initialized or not
+         */
         this.isInitialized = false;
     }
     /**
@@ -3724,8 +3802,8 @@ var ASide = /** @class */ (function (_super) {
      * Component constructor
      * @param {string} id Component unique
      */
-    function ASide(id) {
-        var _this = _super.call(this, id) || this;
+    function ASide(sId) {
+        var _this = _super.call(this, sId) || this;
         _this.addClass('ux-aside');
         // noinspection HtmlUnknownAttribute
         _this._sTemplate = '<aside {attributes}>{child_items}</aside>';
@@ -3811,10 +3889,10 @@ var Abbr = /** @class */ (function (_super) {
     __extends(Abbr, _super);
     /**
      * Component constructor
-     * @param {string} id Component unique _sId
+     * @param {string} id Component unique id
      */
-    function Abbr(id) {
-        var _this = _super.call(this, id) || this;
+    function Abbr(sId) {
+        var _this = _super.call(this, sId) || this;
         _this.addClass('ux-abbr');
         // noinspection HtmlUnknownAttribute
         _this._sTemplate = '<abbr {attributes}>{child_items}</abbr>';
@@ -3900,10 +3978,10 @@ var Address = /** @class */ (function (_super) {
     __extends(Address, _super);
     /**
      * Component constructor
-     * @param {string} id Component unique _sId
+     * @param {string} id Component unique id
      */
-    function Address(id) {
-        var _this = _super.call(this, id) || this;
+    function Address(sId) {
+        var _this = _super.call(this, sId) || this;
         _this.addClass('ux-address');
         // noinspection HtmlUnknownAttribute
         _this._sTemplate = '<address {attributes}>{child_items}</address>';
@@ -4039,8 +4117,8 @@ var Alert = /** @class */ (function (_super) {
      * Alert component constructor
      * @param {string} id Unique ID for component
      */
-    function Alert(id) {
-        var _this = _super.call(this, id) || this;
+    function Alert(sId) {
+        var _this = _super.call(this, sId) || this;
         /**
          * Alert icon
          */
@@ -4072,6 +4150,7 @@ var Alert = /** @class */ (function (_super) {
          * This event is fired when the alert has been closed (will wait for CSS transitions to complete).
          */
         _this.onAlertClosed = null;
+        _this.addClass('ux-alert');
         // noinspection HtmlUnknownAttribute
         _this._sTemplate = '<div {attributes}>{icon}{alertTitle}{text}</div>';
         _this._sComponentClassName = 'Alert';
@@ -4085,7 +4164,7 @@ var Alert = /** @class */ (function (_super) {
         /**
          * Static
          * Component meta data information
-         * category _sIs one of layout | content | component
+         * category is one of layout | content | component
          * @type {object}
          */
         return {
@@ -4167,7 +4246,7 @@ var Alert = /** @class */ (function (_super) {
         return this._sTitle;
     };
     /**
-     * Sets alert _sTitle, if _sTitle _sIs not _sOnProgress, the _sTitle will b displayed within the alert component
+     * Sets alert _sTitle, if _sTitle is not _sOnProgress, the _sTitle will b displayed within the alert component
      * @param {string} title The _sTitle of the alert component
      * @returns {Alert}
      */
@@ -4248,7 +4327,7 @@ var Anchor = /** @class */ (function (_super) {
     __extends(Anchor, _super);
     /**
      * Component constructor
-     * @param {string} sId Component unique _sId
+     * @param {string} sId Component unique id
      */
     function Anchor(sId) {
         var _this = _super.call(this, sId) || this;
@@ -4276,6 +4355,7 @@ var Anchor = /** @class */ (function (_super) {
          * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types
          */
         _this._eRel = null;
+        _this.addClass('ux-anchor');
         // noinspection HtmlUnknownAttribute
         _this._sTemplate = '<a {attributes}>{child_items}</a>';
         _this._sComponentClassName = 'Anchor';
@@ -4289,7 +4369,7 @@ var Anchor = /** @class */ (function (_super) {
         /**
          * Static
          * Component meta data information
-         * category _sIs one of layout | content | component
+         * category is one of layout | content | component
          * @type {object}
          */
         return {
@@ -4484,10 +4564,10 @@ var Area = /** @class */ (function (_super) {
     __extends(Area, _super);
     /**
      * Component constructor
-     * @param {string} id Component unique _sId
+     * @param {string} id Component unique id
      */
-    function Area(id) {
-        var _this = _super.call(this, id) || this;
+    function Area(sId) {
+        var _this = _super.call(this, sId) || this;
         _this.addClass('ux-area');
         // noinspection HtmlUnknownAttribute
         _this._sTemplate = '<area {attributes} />';
@@ -4573,10 +4653,10 @@ var Article = /** @class */ (function (_super) {
     __extends(Article, _super);
     /**
      * Component constructor
-     * @param {string} id Component unique _sId
+     * @param {string} id Component unique id
      */
-    function Article(id) {
-        var _this = _super.call(this, id) || this;
+    function Article(sId) {
+        var _this = _super.call(this, sId) || this;
         _this.addClass('ux-article');
         // noinspection HtmlUnknownAttribute
         _this._sTemplate = '<article {attributes}>{child_items}</article>';
@@ -4662,10 +4742,10 @@ var Audio = /** @class */ (function (_super) {
     __extends(Audio, _super);
     /**
      * Component constructor
-     * @param {string} id Component unique _sId
+     * @param {string} id Component unique id
      */
-    function Audio(id) {
-        var _this = _super.call(this, id) || this;
+    function Audio(sId) {
+        var _this = _super.call(this, sId) || this;
         _this.addClass('ux-audio');
         // noinspection HtmlUnknownAttribute
         _this._sTemplate = '<audio {attributes}>{child_items}</audio>';
@@ -4751,10 +4831,10 @@ var B = /** @class */ (function (_super) {
     __extends(B, _super);
     /**
      * Component constructor
-     * @param {string} id Component unique _sId
+     * @param {string} id Component unique id
      */
-    function B(id) {
-        var _this = _super.call(this, id) || this;
+    function B(sId) {
+        var _this = _super.call(this, sId) || this;
         _this.addClass('ux-b');
         // noinspection HtmlUnknownAttribute
         _this._sTemplate = '<b {attributes}>{child_items}</b>';
@@ -4840,10 +4920,10 @@ var BDI = /** @class */ (function (_super) {
     __extends(BDI, _super);
     /**
      * Component constructor
-     * @param {string} id Component unique _sId
+     * @param {string} id Component unique id
      */
-    function BDI(id) {
-        var _this = _super.call(this, id) || this;
+    function BDI(sId) {
+        var _this = _super.call(this, sId) || this;
         _this.addClass('ux-bdi');
         // noinspection HtmlUnknownAttribute
         _this._sTemplate = '<bdi {attributes}>{child_items}</bdi>';
@@ -4882,6 +4962,362 @@ var BDI = /** @class */ (function (_super) {
     };
     return BDI;
 }(_ComponentContainer__WEBPACK_IMPORTED_MODULE_0__["ComponentContainer"]));
+
+
+
+/***/ }),
+
+/***/ "./src/components/BDO.ts":
+/*!*******************************!*\
+  !*** ./src/components/BDO.ts ***!
+  \*******************************/
+/*! exports provided: BDO */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BDO", function() { return BDO; });
+/* harmony import */ var _ComponentContainer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ComponentContainer */ "./src/ComponentContainer.ts");
+/* harmony import */ var _FontAwesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../FontAwesome */ "./src/FontAwesome.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+/**
+ * Abbr component
+ *
+ * @copyright Benoit Gauthier <bgauthier555@gmail.com>
+ * @author Benoit Gauthier <bgauthier555@gmail.com>
+ * @licence MIT
+ * @class
+ * @inheritdoc
+ * @public
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/bdo
+ */
+var BDO = /** @class */ (function (_super) {
+    __extends(BDO, _super);
+    /**
+     * Component constructor
+     * @param {string} id Component unique id
+     */
+    function BDO(sId) {
+        var _this = _super.call(this, sId) || this;
+        _this.addClass('ux-bdo');
+        // noinspection HtmlUnknownAttribute
+        _this._sTemplate = '<bdo {attributes}>{child_items}</bdo>';
+        _this._sComponentClassName = 'BDO';
+        return _this;
+    }
+    /**
+     * Returns component meta data
+     * @returns {object}
+     */
+    BDO.getMetaData = function () {
+        /**
+         * Static
+         * Component meta data information
+         * category _sIs one of layout | content | component
+         * @type {object}
+         */
+        return {
+            name: 'BDO',
+            description: 'HTML Bdo element',
+            category: 'content',
+            icon: _FontAwesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesome"].FA_SQUARE_O,
+            isContainer: true,
+            libraries: {
+                Bootstrap_4: {
+                    supported: true,
+                    comments: '',
+                },
+                Html5: {
+                    supported: true,
+                    comments: '',
+                }
+            },
+            codepen: [],
+        };
+    };
+    return BDO;
+}(_ComponentContainer__WEBPACK_IMPORTED_MODULE_0__["ComponentContainer"]));
+
+
+
+/***/ }),
+
+/***/ "./src/components/BlockQuote.ts":
+/*!**************************************!*\
+  !*** ./src/components/BlockQuote.ts ***!
+  \**************************************/
+/*! exports provided: BlockQuote */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BlockQuote", function() { return BlockQuote; });
+/* harmony import */ var _ComponentContainer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ComponentContainer */ "./src/ComponentContainer.ts");
+/* harmony import */ var _FontAwesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../FontAwesome */ "./src/FontAwesome.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+/**
+ * Blockquote component
+ *
+ * @copyright Benoit Gauthier <bgauthier555@gmail.com>
+ * @author Benoit Gauthier <bgauthier555@gmail.com>
+ * @licence MIT
+ * @class
+ * @inheritdoc
+ * @public
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote
+ */
+var BlockQuote = /** @class */ (function (_super) {
+    __extends(BlockQuote, _super);
+    /**
+     * Component constructor
+     * @param {string} id Component unique id
+     */
+    function BlockQuote(sId) {
+        var _this = _super.call(this, sId) || this;
+        _this.addClass('ux-blockquote');
+        // noinspection HtmlUnknownAttribute
+        _this._sTemplate = '<blockquote {attributes}>{child_items}</blockquote>';
+        _this._sComponentClassName = 'BlockQuote';
+        return _this;
+    }
+    /**
+     * Returns component meta data
+     * @returns {object}
+     */
+    BlockQuote.getMetaData = function () {
+        /**
+         * Static
+         * Component meta data information
+         * category _sIs one of layout | content | component
+         * @type {object}
+         */
+        return {
+            name: 'BlockQuote',
+            description: 'HTML Blockquote element',
+            category: 'content',
+            icon: _FontAwesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesome"].FA_SQUARE_O,
+            isContainer: true,
+            libraries: {
+                Bootstrap_4: {
+                    supported: true,
+                    comments: '',
+                },
+                Html5: {
+                    supported: true,
+                    comments: '',
+                }
+            },
+            codepen: [],
+        };
+    };
+    return BlockQuote;
+}(_ComponentContainer__WEBPACK_IMPORTED_MODULE_0__["ComponentContainer"]));
+
+
+
+/***/ }),
+
+/***/ "./src/components/Body.ts":
+/*!********************************!*\
+  !*** ./src/components/Body.ts ***!
+  \********************************/
+/*! exports provided: Body */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Body", function() { return Body; });
+/* harmony import */ var _ComponentContainer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ComponentContainer */ "./src/ComponentContainer.ts");
+/* harmony import */ var _FontAwesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../FontAwesome */ "./src/FontAwesome.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+/**
+ * Body component
+ *
+ * @copyright Benoit Gauthier <bgauthier555@gmail.com>
+ * @author Benoit Gauthier <bgauthier555@gmail.com>
+ * @licence MIT
+ * @class
+ * @inheritdoc
+ * @public
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/body
+ */
+var Body = /** @class */ (function (_super) {
+    __extends(Body, _super);
+    /**
+     * Component constructor
+     * @param {string} id Component unique id
+     */
+    function Body(sId) {
+        var _this = _super.call(this, sId) || this;
+        _this.addClass('ux-body');
+        // noinspection HtmlUnknownAttribute
+        _this._sTemplate = '<body {attributes}>{child_items}</body>';
+        _this._sComponentClassName = 'Body';
+        return _this;
+    }
+    /**
+     * Returns component meta data
+     * @returns {object}
+     */
+    Body.getMetaData = function () {
+        /**
+         * Static
+         * Component meta data information
+         * category _sIs one of layout | content | component
+         * @type {object}
+         */
+        return {
+            name: 'Body',
+            description: 'HTML Body element',
+            category: 'content',
+            icon: _FontAwesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesome"].FA_SQUARE_O,
+            isContainer: true,
+            libraries: {
+                Bootstrap_4: {
+                    supported: true,
+                    comments: '',
+                },
+                Html5: {
+                    supported: true,
+                    comments: '',
+                }
+            },
+            codepen: [],
+        };
+    };
+    return Body;
+}(_ComponentContainer__WEBPACK_IMPORTED_MODULE_0__["ComponentContainer"]));
+
+
+
+/***/ }),
+
+/***/ "./src/components/Br.ts":
+/*!******************************!*\
+  !*** ./src/components/Br.ts ***!
+  \******************************/
+/*! exports provided: Br */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Br", function() { return Br; });
+/* harmony import */ var _FontAwesome__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../FontAwesome */ "./src/FontAwesome.ts");
+/* harmony import */ var _Component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Component */ "./src/Component.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+/**
+ * Body component
+ *
+ * @copyright Benoit Gauthier <bgauthier555@gmail.com>
+ * @author Benoit Gauthier <bgauthier555@gmail.com>
+ * @licence MIT
+ * @class
+ * @inheritdoc
+ * @public
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/body
+ */
+var Br = /** @class */ (function (_super) {
+    __extends(Br, _super);
+    /**
+     * Component constructor
+     * @param {string} id Component unique id
+     */
+    function Br(sId) {
+        var _this = _super.call(this, sId) || this;
+        _this.addClass('ux-br');
+        // noinspection HtmlUnknownAttribute
+        _this._sTemplate = '<br {attributes}/>';
+        _this._sComponentClassName = 'Br';
+        return _this;
+    }
+    /**
+     * Returns component meta data
+     * @returns {object}
+     */
+    Br.getMetaData = function () {
+        /**
+         * Static
+         * Component meta data information
+         * category _sIs one of layout | content | component
+         * @type {object}
+         */
+        return {
+            name: 'Br',
+            description: 'HTML Line break element',
+            category: 'content',
+            icon: _FontAwesome__WEBPACK_IMPORTED_MODULE_0__["FontAwesome"].FA_SQUARE_O,
+            isContainer: true,
+            libraries: {
+                Bootstrap_4: {
+                    supported: true,
+                    comments: '',
+                },
+                Html5: {
+                    supported: true,
+                    comments: '',
+                }
+            },
+            codepen: [],
+        };
+    };
+    return Br;
+}(_Component__WEBPACK_IMPORTED_MODULE_1__["Component"]));
 
 
 
@@ -5055,10 +5491,10 @@ var Button = /** @class */ (function (_super) {
     __extends(Button, _super);
     /**
      * Component constructor
-     * @param {string} id Component unique _sId
+     * @param {string} id Component unique id
      */
-    function Button(id) {
-        var _this = _super.call(this, id) || this;
+    function Button(sId) {
+        var _this = _super.call(this, sId) || this;
         /**
          *
          */
@@ -5083,6 +5519,7 @@ var Button = /** @class */ (function (_super) {
          *
          */
         _this.buttonSize = null;
+        _this.addClass('ux-button');
         // noinspection HtmlUnknownAttribute
         _this._sTemplate = '<button {attributes}>{child_items}</button>';
         _this._sComponentClassName = 'Button';
@@ -5096,7 +5533,7 @@ var Button = /** @class */ (function (_super) {
         /**
          * Static
          * Component meta data information
-         * category _sIs one of layout | content | component
+         * category is one of layout | content | component
          * @type {object}
          */
         return {
@@ -5132,7 +5569,7 @@ var Button = /** @class */ (function (_super) {
      */
     Button.prototype.setFormEncodingType = function (encoding) {
         if (!encoding) {
-            throw 'Parameter encoding _sIs required';
+            throw 'Parameter encoding is required';
         }
         if (this.allowedFormEncodingTypes.indexOf(encoding) == -1) {
             throw 'Invalid form encoding type ' + encoding + ' allowed encoding are : ' + this.allowedFormEncodingTypes.join(', ');
@@ -5179,7 +5616,7 @@ var Button = /** @class */ (function (_super) {
         return this.form;
     };
     /**
-     * Sets the form this button _sIs associated with
+     * Sets the form this button is associated with
      * @param form
      */
     Button.prototype.setForm = function (form) {
@@ -5244,7 +5681,7 @@ var Button = /** @class */ (function (_super) {
      */
     Button.prototype.render = function () {
         /**
-         * Check if component _sIs disabled
+         * Check if component is disabled
          */
         if (!this._bIsEnabled) {
             this.setAttribute('disabled');
@@ -5280,6 +5717,184 @@ var Button = /** @class */ (function (_super) {
         return _super.prototype.render.call(this);
     };
     return Button;
+}(_ComponentContainer__WEBPACK_IMPORTED_MODULE_0__["ComponentContainer"]));
+
+
+
+/***/ }),
+
+/***/ "./src/components/Canvas.ts":
+/*!**********************************!*\
+  !*** ./src/components/Canvas.ts ***!
+  \**********************************/
+/*! exports provided: Canvas */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Canvas", function() { return Canvas; });
+/* harmony import */ var _ComponentContainer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ComponentContainer */ "./src/ComponentContainer.ts");
+/* harmony import */ var _FontAwesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../FontAwesome */ "./src/FontAwesome.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+/**
+ * Body component
+ *
+ * @copyright Benoit Gauthier <bgauthier555@gmail.com>
+ * @author Benoit Gauthier <bgauthier555@gmail.com>
+ * @licence MIT
+ * @class
+ * @inheritdoc
+ * @public
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/body
+ */
+var Canvas = /** @class */ (function (_super) {
+    __extends(Canvas, _super);
+    /**
+     * Component constructor
+     * @param {string} id Component unique id
+     */
+    function Canvas(sId) {
+        var _this = _super.call(this, sId) || this;
+        _this.addClass('ux-canvas');
+        // noinspection HtmlUnknownAttribute
+        _this._sTemplate = '<canvas {attributes}>{child_items}</canvas>';
+        _this._sComponentClassName = 'Canvas';
+        return _this;
+    }
+    /**
+     * Returns component meta data
+     * @returns {object}
+     */
+    Canvas.getMetaData = function () {
+        /**
+         * Static
+         * Component meta data information
+         * category _sIs one of layout | content | component
+         * @type {object}
+         */
+        return {
+            name: 'Canvas',
+            description: 'HTML Graphics Canvas element',
+            category: 'content',
+            icon: _FontAwesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesome"].FA_SQUARE_O,
+            isContainer: true,
+            libraries: {
+                Bootstrap_4: {
+                    supported: true,
+                    comments: '',
+                },
+                Html5: {
+                    supported: true,
+                    comments: '',
+                }
+            },
+            codepen: [],
+        };
+    };
+    return Canvas;
+}(_ComponentContainer__WEBPACK_IMPORTED_MODULE_0__["ComponentContainer"]));
+
+
+
+/***/ }),
+
+/***/ "./src/components/Caption.ts":
+/*!***********************************!*\
+  !*** ./src/components/Caption.ts ***!
+  \***********************************/
+/*! exports provided: Caption */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Caption", function() { return Caption; });
+/* harmony import */ var _ComponentContainer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ComponentContainer */ "./src/ComponentContainer.ts");
+/* harmony import */ var _FontAwesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../FontAwesome */ "./src/FontAwesome.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+/**
+ * Body component
+ *
+ * @copyright Benoit Gauthier <bgauthier555@gmail.com>
+ * @author Benoit Gauthier <bgauthier555@gmail.com>
+ * @licence MIT
+ * @class
+ * @inheritdoc
+ * @public
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/body
+ */
+var Caption = /** @class */ (function (_super) {
+    __extends(Caption, _super);
+    /**
+     * Component constructor
+     * @param {string} id Component unique id
+     */
+    function Caption(sId) {
+        var _this = _super.call(this, sId) || this;
+        _this.addClass('ux-caption');
+        // noinspection HtmlUnknownAttribute
+        _this._sTemplate = '<caption {attributes}>{child_items}</caption>';
+        _this._sComponentClassName = 'Caption';
+        return _this;
+    }
+    /**
+     * Returns component meta data
+     * @returns {object}
+     */
+    Caption.getMetaData = function () {
+        /**
+         * Static
+         * Component meta data information
+         * category _sIs one of layout | content | component
+         * @type {object}
+         */
+        return {
+            name: 'Caption',
+            description: 'HTML Table Caption element',
+            category: 'content',
+            icon: _FontAwesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesome"].FA_SQUARE_O,
+            isContainer: true,
+            libraries: {
+                Bootstrap_4: {
+                    supported: true,
+                    comments: '',
+                },
+                Html5: {
+                    supported: true,
+                    comments: '',
+                }
+            },
+            codepen: [],
+        };
+    };
+    return Caption;
 }(_ComponentContainer__WEBPACK_IMPORTED_MODULE_0__["ComponentContainer"]));
 
 
@@ -5327,10 +5942,10 @@ var Checkbox = /** @class */ (function (_super) {
     __extends(Checkbox, _super);
     /**
      * Component constructor
-     * @param {string} id Component unique _sId
+     * @param {string} id Component unique id
      */
-    function Checkbox(id) {
-        var _this = _super.call(this, id) || this;
+    function Checkbox(sId) {
+        var _this = _super.call(this, sId) || this;
         _this.setType(_Input__WEBPACK_IMPORTED_MODULE_0__["enumInputType"].checkbox);
         _this._sComponentClassName = 'Checkbox';
         return _this;
@@ -5343,7 +5958,7 @@ var Checkbox = /** @class */ (function (_super) {
         /**
          * Static
          * Component meta data information
-         * category _sIs one of layout | content | component
+         * category is one of layout | content | component
          * @type {object}
          */
         return {
@@ -5367,6 +5982,362 @@ var Checkbox = /** @class */ (function (_super) {
     };
     return Checkbox;
 }(_Input__WEBPACK_IMPORTED_MODULE_0__["Input"]));
+
+
+
+/***/ }),
+
+/***/ "./src/components/Cite.ts":
+/*!********************************!*\
+  !*** ./src/components/Cite.ts ***!
+  \********************************/
+/*! exports provided: Cite */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Cite", function() { return Cite; });
+/* harmony import */ var _ComponentContainer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ComponentContainer */ "./src/ComponentContainer.ts");
+/* harmony import */ var _FontAwesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../FontAwesome */ "./src/FontAwesome.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+/**
+ * Body component
+ *
+ * @copyright Benoit Gauthier <bgauthier555@gmail.com>
+ * @author Benoit Gauthier <bgauthier555@gmail.com>
+ * @licence MIT
+ * @class
+ * @inheritdoc
+ * @public
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/body
+ */
+var Cite = /** @class */ (function (_super) {
+    __extends(Cite, _super);
+    /**
+     * Component constructor
+     * @param {string} id Component unique id
+     */
+    function Cite(sId) {
+        var _this = _super.call(this, sId) || this;
+        _this.addClass('ux-cite');
+        // noinspection HtmlUnknownAttribute
+        _this._sTemplate = '<cite {attributes}>{child_items}</cite>';
+        _this._sComponentClassName = 'Cite';
+        return _this;
+    }
+    /**
+     * Returns component meta data
+     * @returns {object}
+     */
+    Cite.getMetaData = function () {
+        /**
+         * Static
+         * Component meta data information
+         * category _sIs one of layout | content | component
+         * @type {object}
+         */
+        return {
+            name: 'Cite',
+            description: 'HTML Citation element',
+            category: 'content',
+            icon: _FontAwesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesome"].FA_SQUARE_O,
+            isContainer: true,
+            libraries: {
+                Bootstrap_4: {
+                    supported: true,
+                    comments: '',
+                },
+                Html5: {
+                    supported: true,
+                    comments: '',
+                }
+            },
+            codepen: [],
+        };
+    };
+    return Cite;
+}(_ComponentContainer__WEBPACK_IMPORTED_MODULE_0__["ComponentContainer"]));
+
+
+
+/***/ }),
+
+/***/ "./src/components/Code.ts":
+/*!********************************!*\
+  !*** ./src/components/Code.ts ***!
+  \********************************/
+/*! exports provided: Code */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Code", function() { return Code; });
+/* harmony import */ var _ComponentContainer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ComponentContainer */ "./src/ComponentContainer.ts");
+/* harmony import */ var _FontAwesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../FontAwesome */ "./src/FontAwesome.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+/**
+ * Body component
+ *
+ * @copyright Benoit Gauthier <bgauthier555@gmail.com>
+ * @author Benoit Gauthier <bgauthier555@gmail.com>
+ * @licence MIT
+ * @class
+ * @inheritdoc
+ * @public
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/code
+ */
+var Code = /** @class */ (function (_super) {
+    __extends(Code, _super);
+    /**
+     * Component constructor
+     * @param {string} id Component unique id
+     */
+    function Code(sId) {
+        var _this = _super.call(this, sId) || this;
+        _this.addClass('ux-code');
+        // noinspection HtmlUnknownAttribute
+        _this._sTemplate = '<code {attributes}>{child_items}</code>';
+        _this._sComponentClassName = 'Code';
+        return _this;
+    }
+    /**
+     * Returns component meta data
+     * @returns {object}
+     */
+    Code.getMetaData = function () {
+        /**
+         * Static
+         * Component meta data information
+         * category _sIs one of layout | content | component
+         * @type {object}
+         */
+        return {
+            name: 'Code',
+            description: 'HTML Inline Code element',
+            category: 'content',
+            icon: _FontAwesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesome"].FA_SQUARE_O,
+            isContainer: true,
+            libraries: {
+                Bootstrap_4: {
+                    supported: true,
+                    comments: '',
+                },
+                Html5: {
+                    supported: true,
+                    comments: '',
+                }
+            },
+            codepen: [],
+        };
+    };
+    return Code;
+}(_ComponentContainer__WEBPACK_IMPORTED_MODULE_0__["ComponentContainer"]));
+
+
+
+/***/ }),
+
+/***/ "./src/components/Col.ts":
+/*!*******************************!*\
+  !*** ./src/components/Col.ts ***!
+  \*******************************/
+/*! exports provided: Col */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Col", function() { return Col; });
+/* harmony import */ var _FontAwesome__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../FontAwesome */ "./src/FontAwesome.ts");
+/* harmony import */ var _Component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Component */ "./src/Component.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+/**
+ * Body component
+ *
+ * @copyright Benoit Gauthier <bgauthier555@gmail.com>
+ * @author Benoit Gauthier <bgauthier555@gmail.com>
+ * @licence MIT
+ * @class
+ * @inheritdoc
+ * @public
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/col
+ */
+var Col = /** @class */ (function (_super) {
+    __extends(Col, _super);
+    /**
+     * Component constructor
+     * @param {string} id Component unique id
+     */
+    function Col(sId) {
+        var _this = _super.call(this, sId) || this;
+        _this.addClass('ux-col');
+        // noinspection HtmlUnknownAttribute
+        _this._sTemplate = '<col {attributes}>';
+        _this._sComponentClassName = 'Col';
+        return _this;
+    }
+    /**
+     * Returns component meta data
+     * @returns {object}
+     */
+    Col.getMetaData = function () {
+        /**
+         * Static
+         * Component meta data information
+         * category _sIs one of layout | content | component
+         * @type {object}
+         */
+        return {
+            name: 'Col',
+            description: 'HTML Table column element',
+            category: 'content',
+            icon: _FontAwesome__WEBPACK_IMPORTED_MODULE_0__["FontAwesome"].FA_SQUARE_O,
+            isContainer: true,
+            libraries: {
+                Bootstrap_4: {
+                    supported: true,
+                    comments: '',
+                },
+                Html5: {
+                    supported: true,
+                    comments: '',
+                }
+            },
+            codepen: [],
+        };
+    };
+    return Col;
+}(_Component__WEBPACK_IMPORTED_MODULE_1__["Component"]));
+
+
+
+/***/ }),
+
+/***/ "./src/components/ColGroup.ts":
+/*!************************************!*\
+  !*** ./src/components/ColGroup.ts ***!
+  \************************************/
+/*! exports provided: ColGroup */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ColGroup", function() { return ColGroup; });
+/* harmony import */ var _ComponentContainer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ComponentContainer */ "./src/ComponentContainer.ts");
+/* harmony import */ var _FontAwesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../FontAwesome */ "./src/FontAwesome.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+/**
+ * Body component
+ *
+ * @copyright Benoit Gauthier <bgauthier555@gmail.com>
+ * @author Benoit Gauthier <bgauthier555@gmail.com>
+ * @licence MIT
+ * @class
+ * @inheritdoc
+ * @public
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/body
+ */
+var ColGroup = /** @class */ (function (_super) {
+    __extends(ColGroup, _super);
+    /**
+     * Component constructor
+     * @param {string} id Component unique id
+     */
+    function ColGroup(sId) {
+        var _this = _super.call(this, sId) || this;
+        _this.addClass('ux-colgroup');
+        // noinspection HtmlUnknownAttribute
+        _this._sTemplate = '<colgroup {attributes}>{child_items}</colgroup>';
+        _this._sComponentClassName = 'ColGroup';
+        return _this;
+    }
+    /**
+     * Returns component meta data
+     * @returns {object}
+     */
+    ColGroup.getMetaData = function () {
+        /**
+         * Static
+         * Component meta data information
+         * category _sIs one of layout | content | component
+         * @type {object}
+         */
+        return {
+            name: 'ColGroup',
+            description: 'HTML Table column group element',
+            category: 'content',
+            icon: _FontAwesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesome"].FA_SQUARE_O,
+            isContainer: true,
+            libraries: {
+                Bootstrap_4: {
+                    supported: true,
+                    comments: '',
+                },
+                Html5: {
+                    supported: true,
+                    comments: '',
+                }
+            },
+            codepen: [],
+        };
+    };
+    return ColGroup;
+}(_ComponentContainer__WEBPACK_IMPORTED_MODULE_0__["ComponentContainer"]));
 
 
 
@@ -5413,10 +6384,10 @@ var Column = /** @class */ (function (_super) {
     __extends(Column, _super);
     /**
      * Component constructor
-     * @param {string} id Component unique _sId
+     * @param {string} id Component unique id
      */
-    function Column(id) {
-        var _this = _super.call(this, id) || this;
+    function Column(sId) {
+        var _this = _super.call(this, sId) || this;
         /**
          *
          */
@@ -5435,7 +6406,7 @@ var Column = /** @class */ (function (_super) {
         /**
          * Static
          * Component meta data information
-         * category _sIs one of layout | content | component
+         * category is one of layout | content | component
          * @type {object}
          */
         return {
@@ -5523,12 +6494,12 @@ var Container = /** @class */ (function (_super) {
     __extends(Container, _super);
     /**
      * Component constructor
-     * @param {string} id Component unique _sId
+     * @param {string} id Component unique id
      */
-    function Container(id) {
-        var _this = _super.call(this, id) || this;
+    function Container(sId) {
+        var _this = _super.call(this, sId) || this;
         /**
-         * If container _sIs fluid or not
+         * If container is fluid or not
          */
         _this.isFluid = false;
         _super.prototype.checkIfFeatureIsSupported.call(_this, Container.getMetaData());
@@ -5545,7 +6516,7 @@ var Container = /** @class */ (function (_super) {
         /**
          * Static
          * Component meta data information
-         * category _sIs one of layout | content | component
+         * category is one of layout | content | component
          * @type {object}
          */
         return {
@@ -5576,14 +6547,14 @@ var Container = /** @class */ (function (_super) {
         };
     };
     /**
-     * Returns if container _sIs fluid dor not
+     * Returns if container is fluid dor not
      * @returns {boolean}
      */
     Container.prototype.getIsFluid = function () {
         return this.isFluid;
     };
     /**
-     * Sets if container _sIs fluid or not
+     * Sets if container is fluid or not
      * @param isFluid
      * @returns {Container}
      */
@@ -5647,10 +6618,10 @@ var DateInput = /** @class */ (function (_super) {
     __extends(DateInput, _super);
     /**
      * Component constructor
-     * @param {string} id Component unique _sId
+     * @param {string} id Component unique id
      */
-    function DateInput(id) {
-        var _this = _super.call(this, id) || this;
+    function DateInput(sId) {
+        var _this = _super.call(this, sId) || this;
         // noinspection HtmlUnknownAttribute
         _this._sTemplate = '<div {attributes}></div>';
         _this._sComponentClassName = 'DateInput';
@@ -5664,7 +6635,7 @@ var DateInput = /** @class */ (function (_super) {
         /**
          * Static
          * Component meta data information
-         * category _sIs one of layout | content | component
+         * category is one of layout | content | component
          * @type {object}
          */
         return {
@@ -5740,10 +6711,10 @@ var Dialog = /** @class */ (function (_super) {
     __extends(Dialog, _super);
     /**
      * Component constructor
-     * @param {string} id Component unique _sId
+     * @param {string} id Component unique id
      */
-    function Dialog(id) {
-        var _this = _super.call(this, id) || this;
+    function Dialog(sId) {
+        var _this = _super.call(this, sId) || this;
         // noinspection HtmlUnknownAttribute
         _this._sTemplate = '<div {attributes}>{child_items}</div>';
         _this._sComponentClassName = 'Dialog';
@@ -5757,7 +6728,7 @@ var Dialog = /** @class */ (function (_super) {
         /**
          * Static
          * Component meta data information
-         * category _sIs one of layout | content | component
+         * category is one of layout | content | component
          * @type {object}
          */
         return {
@@ -5833,10 +6804,10 @@ var Div = /** @class */ (function (_super) {
     __extends(Div, _super);
     /**
      * Component constructor
-     * @param {string} id Component unique _sId
+     * @param {string} id Component unique id
      */
-    function Div(id) {
-        var _this = _super.call(this, id) || this;
+    function Div(sId) {
+        var _this = _super.call(this, sId) || this;
         _this.addClass('ux-div');
         // noinspection HtmlUnknownAttribute
         _this._sTemplate = '<div {attributes}>{child_items}</div>';
@@ -5851,7 +6822,7 @@ var Div = /** @class */ (function (_super) {
         /**
          * Static
          * Component meta data information
-         * category _sIs one of layout | content | component
+         * category is one of layout | content | component
          * @type {object}
          */
         return {
@@ -5968,10 +6939,10 @@ var Form = /** @class */ (function (_super) {
     __extends(Form, _super);
     /**
      * Component constructor
-     * @param {string} id Component unique _sId
+     * @param {string} id Component unique id
      */
-    function Form(id) {
-        var _this = _super.call(this, id) || this;
+    function Form(sId) {
+        var _this = _super.call(this, sId) || this;
         // noinspection HtmlUnknownAttribute
         _this._sTemplate = '<form {attributes}>{child_items}</form>';
         _this._sComponentClassName = 'Form';
@@ -5985,7 +6956,7 @@ var Form = /** @class */ (function (_super) {
         /**
          * Static
          * Component meta data information
-         * category _sIs one of layout | content | component
+         * category is one of layout | content | component
          * @type {object}
          */
         return {
@@ -6017,6 +6988,95 @@ var Form = /** @class */ (function (_super) {
     };
     return Form;
 }(_ComponentContainer__WEBPACK_IMPORTED_MODULE_1__["ComponentContainer"]));
+
+
+
+/***/ }),
+
+/***/ "./src/components/Head.ts":
+/*!********************************!*\
+  !*** ./src/components/Head.ts ***!
+  \********************************/
+/*! exports provided: Head */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Head", function() { return Head; });
+/* harmony import */ var _ComponentContainer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ComponentContainer */ "./src/ComponentContainer.ts");
+/* harmony import */ var _FontAwesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../FontAwesome */ "./src/FontAwesome.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+/**
+ * Head component
+ *
+ * @copyright Benoit Gauthier <bgauthier555@gmail.com>
+ * @author Benoit Gauthier <bgauthier555@gmail.com>
+ * @licence MIT
+ * @class
+ * @inheritdoc
+ * @public
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/head
+ */
+var Head = /** @class */ (function (_super) {
+    __extends(Head, _super);
+    /**
+     * Component constructor
+     * @param {string} id Component unique id
+     */
+    function Head(sId) {
+        var _this = _super.call(this, sId) || this;
+        _this.addClass('ux-head');
+        // noinspection HtmlUnknownAttribute
+        _this._sTemplate = '<head {attributes}>{child_items}</head>';
+        _this._sComponentClassName = 'Head';
+        return _this;
+    }
+    /**
+     * Returns component meta data
+     * @returns {object}
+     */
+    Head.getMetaData = function () {
+        /**
+         * Static
+         * Component meta data information
+         * category _sIs one of layout | content | component
+         * @type {object}
+         */
+        return {
+            name: 'Head',
+            description: 'HTML Head element',
+            category: 'content',
+            icon: _FontAwesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesome"].FA_SQUARE_O,
+            isContainer: true,
+            libraries: {
+                Bootstrap_4: {
+                    supported: true,
+                    comments: '',
+                },
+                Html5: {
+                    supported: true,
+                    comments: '',
+                }
+            },
+            codepen: [],
+        };
+    };
+    return Head;
+}(_ComponentContainer__WEBPACK_IMPORTED_MODULE_0__["ComponentContainer"]));
 
 
 
@@ -6063,10 +7123,10 @@ var Heading = /** @class */ (function (_super) {
     __extends(Heading, _super);
     /**
      * Component constructor
-     * @param {string} id Component unique _sId
+     * @param {string} id Component unique id
      */
-    function Heading(id) {
-        var _this = _super.call(this, id) || this;
+    function Heading(sId) {
+        var _this = _super.call(this, sId) || this;
         _this.level = 1;
         // noinspection HtmlUnknownAttribute
         _this._sTemplate = '<h{level} {attributes}>{child_items}</h{level}>';
@@ -6081,7 +7141,7 @@ var Heading = /** @class */ (function (_super) {
         /**
          * Static
          * Component meta data information
-         * category _sIs one of layout | content | component
+         * category is one of layout | content | component
          * @type {object}
          */
         return {
@@ -6175,8 +7235,8 @@ var Hidden = /** @class */ (function (_super) {
      *
      * @param id
      */
-    function Hidden(id) {
-        var _this = _super.call(this, id) || this;
+    function Hidden(sId) {
+        var _this = _super.call(this, sId) || this;
         // noinspection HtmlUnknownAttribute
         _this.setType(_Input__WEBPACK_IMPORTED_MODULE_0__["enumInputType"].hidden);
         _this._sComponentClassName = 'Hidden';
@@ -6260,8 +7320,8 @@ var Hr = /** @class */ (function (_super) {
      *
      * @param id
      */
-    function Hr(id) {
-        var _this = _super.call(this, id) || this;
+    function Hr(sId) {
+        var _this = _super.call(this, sId) || this;
         // noinspection HtmlUnknownAttribute
         _this._sTemplate = '<hr {attributes}/>';
         _this._sComponentClassName = 'Hr';
@@ -6275,7 +7335,7 @@ var Hr = /** @class */ (function (_super) {
         /**
          * Static
          * Component meta data information
-         * category _sIs one of layout | content | component
+         * category is one of layout | content | component
          * @type {object}
          */
         return {
@@ -6299,6 +7359,95 @@ var Hr = /** @class */ (function (_super) {
     };
     return Hr;
 }(_Component__WEBPACK_IMPORTED_MODULE_0__["Component"]));
+
+
+
+/***/ }),
+
+/***/ "./src/components/Html.ts":
+/*!********************************!*\
+  !*** ./src/components/Html.ts ***!
+  \********************************/
+/*! exports provided: Html */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Html", function() { return Html; });
+/* harmony import */ var _ComponentContainer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ComponentContainer */ "./src/ComponentContainer.ts");
+/* harmony import */ var _FontAwesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../FontAwesome */ "./src/FontAwesome.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+/**
+ * Html component
+ *
+ * @copyright Benoit Gauthier <bgauthier555@gmail.com>
+ * @author Benoit Gauthier <bgauthier555@gmail.com>
+ * @licence MIT
+ * @class
+ * @inheritdoc
+ * @public
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/html
+ */
+var Html = /** @class */ (function (_super) {
+    __extends(Html, _super);
+    /**
+     * Component constructor
+     * @param {string} id Component unique id
+     */
+    function Html(sId) {
+        var _this = _super.call(this, sId) || this;
+        _this.addClass('ux-html');
+        // noinspection HtmlUnknownAttribute
+        _this._sTemplate = '<html {attributes}>{child_items}</html>';
+        _this._sComponentClassName = 'Html';
+        return _this;
+    }
+    /**
+     * Returns component meta data
+     * @returns {object}
+     */
+    Html.getMetaData = function () {
+        /**
+         * Static
+         * Component meta data information
+         * category _sIs one of layout | content | component
+         * @type {object}
+         */
+        return {
+            name: 'Html',
+            description: 'HTML element',
+            category: 'content',
+            icon: _FontAwesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesome"].FA_SQUARE_O,
+            isContainer: true,
+            libraries: {
+                Bootstrap_4: {
+                    supported: true,
+                    comments: '',
+                },
+                Html5: {
+                    supported: true,
+                    comments: '',
+                }
+            },
+            codepen: [],
+        };
+    };
+    return Html;
+}(_ComponentContainer__WEBPACK_IMPORTED_MODULE_0__["ComponentContainer"]));
 
 
 
@@ -6345,8 +7494,8 @@ var Icon = /** @class */ (function (_super) {
      *
      * @param id
      */
-    function Icon(id) {
-        var _this = _super.call(this, id) || this;
+    function Icon(sId) {
+        var _this = _super.call(this, sId) || this;
         // noinspection HtmlUnknownAttribute
         _this._sTemplate = '<i {attributes}></i>';
         _this._sComponentClassName = 'Icon';
@@ -6360,7 +7509,7 @@ var Icon = /** @class */ (function (_super) {
         /**
          * Static
          * Component meta data information
-         * category _sIs one of layout | content | component
+         * category is one of layout | content | component
          * @type {object}
          */
         return {
@@ -6460,8 +7609,8 @@ var Image = /** @class */ (function (_super) {
      *
      * @param id
      */
-    function Image(id) {
-        var _this = _super.call(this, id) || this;
+    function Image(sId) {
+        var _this = _super.call(this, sId) || this;
         // noinspection HtmlUnknownAttribute
         _this._sTemplate = '<img {attributes}/>';
         _this._sComponentClassName = 'Image';
@@ -6475,7 +7624,7 @@ var Image = /** @class */ (function (_super) {
         /**
          * Static
          * Component meta data information
-         * category _sIs one of layout | content | component
+         * category is one of layout | content | component
          * @type {object}
          */
         return {
@@ -6557,8 +7706,8 @@ var Input = /** @class */ (function (_super) {
      *
      * @param id
      */
-    function Input(id) {
-        var _this = _super.call(this, id) || this;
+    function Input(sId) {
+        var _this = _super.call(this, sId) || this;
         _this._eType = null;
         _this._sLabel = null;
         // noinspection HtmlUnknownAttribute
@@ -6575,7 +7724,7 @@ var Input = /** @class */ (function (_super) {
         /**
          * Static
          * Component meta data information
-         * category _sIs one of layout | content | component
+         * category is one of layout | content | component
          * @type {object}
          */
         return {
@@ -6691,12 +7840,12 @@ var Label = /** @class */ (function (_super) {
     __extends(Label, _super);
     /**
      * Component constructor
-     * @param {string} id Component unique _sId
+     * @param {string} id Component unique id
      */
-    function Label(id) {
-        var _this = _super.call(this, id) || this;
+    function Label(sId) {
+        var _this = _super.call(this, sId) || this;
         // noinspection HtmlUnknownAttribute
-        _this._sTemplate = '<_sLabel {attributes}>{child_items}</_sLabel>';
+        _this._sTemplate = '<label {attributes}>{child_items}</label>';
         _this._sComponentClassName = 'Label';
         return _this;
     }
@@ -6708,7 +7857,7 @@ var Label = /** @class */ (function (_super) {
         /**
          * Static
          * Component meta data information
-         * category _sIs one of layout | content | component
+         * category is one of layout | content | component
          * @type {object}
          */
         return {
@@ -6786,10 +7935,10 @@ var Li = /** @class */ (function (_super) {
     __extends(Li, _super);
     /**
      * Component constructor
-     * @param {string} id Component unique _sId
+     * @param {string} id Component unique id
      */
-    function Li(id) {
-        var _this = _super.call(this, id) || this;
+    function Li(sId) {
+        var _this = _super.call(this, sId) || this;
         // noinspection HtmlUnknownAttribute
         _this._sTemplate = '<li {attributes}>{child_items}</li>';
         _this._sComponentClassName = 'Li';
@@ -6803,7 +7952,7 @@ var Li = /** @class */ (function (_super) {
         /**
          * Static
          * Component meta data information
-         * category _sIs one of layout | content | component
+         * category is one of layout | content | component
          * @type {object}
          */
         return {
@@ -6873,10 +8022,10 @@ var Ol = /** @class */ (function (_super) {
     __extends(Ol, _super);
     /**
      * Component constructor
-     * @param {string} id Component unique _sId
+     * @param {string} id Component unique id
      */
-    function Ol(id) {
-        var _this = _super.call(this, id) || this;
+    function Ol(sId) {
+        var _this = _super.call(this, sId) || this;
         // noinspection HtmlUnknownAttribute
         _this._sTemplate = '<ol {attributes}>{child_items}</ol>';
         _this._sComponentClassName = 'Ol';
@@ -6890,7 +8039,7 @@ var Ol = /** @class */ (function (_super) {
         /**
          * Static
          * Component meta data information
-         * category _sIs one of layout | content | component
+         * category is one of layout | content | component
          * @type {object}
          */
         return {
@@ -6966,10 +8115,10 @@ var Option = /** @class */ (function (_super) {
     __extends(Option, _super);
     /**
      * Component constructor
-     * @param {string} id Component unique _sId
+     * @param {string} id Component unique id
      */
-    function Option(id) {
-        var _this = _super.call(this, id) || this;
+    function Option(sId) {
+        var _this = _super.call(this, sId) || this;
         // noinspection HtmlUnknownAttribute
         _this._sTemplate = '<option {attributes}>{child_items}</option>';
         _this._sComponentClassName = 'Option';
@@ -6983,7 +8132,7 @@ var Option = /** @class */ (function (_super) {
         /**
          * Static
          * Component meta data information
-         * category _sIs one of layout | content | component
+         * category is one of layout | content | component
          * @type {object}
          */
         return {
@@ -7059,10 +8208,10 @@ var Paragraph = /** @class */ (function (_super) {
     __extends(Paragraph, _super);
     /**
      * Component constructor
-     * @param {string} id Component unique _sId
+     * @param {string} id Component unique id
      */
-    function Paragraph(id) {
-        var _this = _super.call(this, id) || this;
+    function Paragraph(sId) {
+        var _this = _super.call(this, sId) || this;
         // noinspection HtmlUnknownAttribute
         _this._sTemplate = '<p {attributes}>{child_items}</p>';
         _this._sComponentClassName = 'Paragraph';
@@ -7076,7 +8225,7 @@ var Paragraph = /** @class */ (function (_super) {
         /**
          * Static
          * Component meta data information
-         * category _sIs one of layout | content | component
+         * category is one of layout | content | component
          * @type {object}
          */
         return {
@@ -7154,8 +8303,8 @@ var Password = /** @class */ (function (_super) {
      *
      * @param id
      */
-    function Password(id) {
-        var _this = _super.call(this, id) || this;
+    function Password(sId) {
+        var _this = _super.call(this, sId) || this;
         _this.setType(_Input__WEBPACK_IMPORTED_MODULE_0__["enumInputType"].password);
         return _this;
     }
@@ -7167,7 +8316,7 @@ var Password = /** @class */ (function (_super) {
         /**
          * Static
          * Component meta data information
-         * category _sIs one of layout | content | component
+         * category is one of layout | content | component
          * @type {object}
          */
         return {
@@ -7237,10 +8386,10 @@ var Pre = /** @class */ (function (_super) {
     __extends(Pre, _super);
     /**
      * Component constructor
-     * @param {string} id Component unique _sId
+     * @param {string} id Component unique id
      */
-    function Pre(id) {
-        var _this = _super.call(this, id) || this;
+    function Pre(sId) {
+        var _this = _super.call(this, sId) || this;
         // noinspection HtmlUnknownAttribute
         _this._sTemplate = '<pre {attributes}>{child_items}</pre>';
         _this._sComponentClassName = 'Pre';
@@ -7254,7 +8403,7 @@ var Pre = /** @class */ (function (_super) {
         /**
          * Static
          * Component meta data information
-         * category _sIs one of layout | content | component
+         * category is one of layout | content | component
          * @type {object}
          */
         return {
@@ -7320,8 +8469,8 @@ var __extends = (undefined && undefined.__extends) || (function () {
  */
 var Radio = /** @class */ (function (_super) {
     __extends(Radio, _super);
-    function Radio(id) {
-        var _this = _super.call(this, id) || this;
+    function Radio(sId) {
+        var _this = _super.call(this, sId) || this;
         _this._eType = _Input__WEBPACK_IMPORTED_MODULE_0__["enumInputType"].radio;
         return _this;
     }
@@ -7333,7 +8482,7 @@ var Radio = /** @class */ (function (_super) {
         /**
          * Static
          * Component meta data information
-         * category _sIs one of layout | content | component
+         * category is one of layout | content | component
          * @type {object}
          */
         return {
@@ -7404,10 +8553,10 @@ var Row = /** @class */ (function (_super) {
     __extends(Row, _super);
     /**
      * Component constructor
-     * @param {string} id Component unique _sId
+     * @param {string} id Component unique id
      */
-    function Row(id) {
-        var _this = _super.call(this, id) || this;
+    function Row(sId) {
+        var _this = _super.call(this, sId) || this;
         // noinspection HtmlUnknownAttribute
         _this._sTemplate = '<div {attributes}>{child_items}</div>';
         _this._sComponentClassName = 'Row';
@@ -7421,7 +8570,7 @@ var Row = /** @class */ (function (_super) {
         /**
          * Static
          * Component meta data information
-         * category _sIs one of layout | content | component
+         * category is one of layout | content | component
          * @type {object}
          */
         return {
@@ -7502,8 +8651,8 @@ var Select = /** @class */ (function (_super) {
      *
      * @param id
      */
-    function Select(id) {
-        var _this = _super.call(this, id) || this;
+    function Select(sId) {
+        var _this = _super.call(this, sId) || this;
         _this._oStore = new _Store__WEBPACK_IMPORTED_MODULE_1__["Store"]();
         // noinspection HtmlUnknownAttribute
         _this._sTemplate = '<select {attributes}>\n' +
@@ -7520,7 +8669,7 @@ var Select = /** @class */ (function (_super) {
         /**
          * Static
          * Component meta data information
-         * category _sIs one of layout | content | component
+         * category is one of layout | content | component
          * @type {object}
          */
         return {
@@ -7590,7 +8739,7 @@ var Store = /** @class */ (function () {
         /**
          * Static
          * Component meta data information
-         * category _sIs one of layout | content | component
+         * category is one of layout | content | component
          * @type {object}
          */
         return {
@@ -7663,8 +8812,8 @@ var TextArea = /** @class */ (function (_super) {
      *
      * @param id
      */
-    function TextArea(id) {
-        var _this = _super.call(this, id) || this;
+    function TextArea(sId) {
+        var _this = _super.call(this, sId) || this;
         // noinspection HtmlUnknownAttribute
         _this._sTemplate = '<textarea {attributes}>\n' +
             '{value}' +
@@ -7680,7 +8829,7 @@ var TextArea = /** @class */ (function (_super) {
         /**
          * Static
          * Component meta data information
-         * category _sIs one of layout | content | component
+         * category is one of layout | content | component
          * @type {object}
          */
         return {
@@ -7704,6 +8853,95 @@ var TextArea = /** @class */ (function (_super) {
     };
     return TextArea;
 }(_Component__WEBPACK_IMPORTED_MODULE_0__["Component"]));
+
+
+
+/***/ }),
+
+/***/ "./src/components/Title.ts":
+/*!*********************************!*\
+  !*** ./src/components/Title.ts ***!
+  \*********************************/
+/*! exports provided: Title */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Title", function() { return Title; });
+/* harmony import */ var _ComponentContainer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ComponentContainer */ "./src/ComponentContainer.ts");
+/* harmony import */ var _FontAwesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../FontAwesome */ "./src/FontAwesome.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+/**
+ * Title component
+ *
+ * @copyright Benoit Gauthier <bgauthier555@gmail.com>
+ * @author Benoit Gauthier <bgauthier555@gmail.com>
+ * @licence MIT
+ * @class
+ * @inheritdoc
+ * @public
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/title
+ */
+var Title = /** @class */ (function (_super) {
+    __extends(Title, _super);
+    /**
+     * Component constructor
+     * @param {string} id Component unique id
+     */
+    function Title(sId) {
+        var _this = _super.call(this, sId) || this;
+        _this.addClass('ux-title');
+        // noinspection HtmlUnknownAttribute
+        _this._sTemplate = '<title {attributes}>{child_items}</title>';
+        _this._sComponentClassName = 'Title';
+        return _this;
+    }
+    /**
+     * Returns component meta data
+     * @returns {object}
+     */
+    Title.getMetaData = function () {
+        /**
+         * Static
+         * Component meta data information
+         * category _sIs one of layout | content | component
+         * @type {object}
+         */
+        return {
+            name: 'Title',
+            description: 'HTML Title element',
+            category: 'content',
+            icon: _FontAwesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesome"].FA_SQUARE_O,
+            isContainer: true,
+            libraries: {
+                Bootstrap_4: {
+                    supported: true,
+                    comments: '',
+                },
+                Html5: {
+                    supported: true,
+                    comments: '',
+                }
+            },
+            codepen: [],
+        };
+    };
+    return Title;
+}(_ComponentContainer__WEBPACK_IMPORTED_MODULE_0__["ComponentContainer"]));
 
 
 
@@ -7750,10 +8988,10 @@ var Ul = /** @class */ (function (_super) {
     __extends(Ul, _super);
     /**
      * Component constructor
-     * @param {string} id Component unique _sId
+     * @param {string} id Component unique id
      */
-    function Ul(id) {
-        var _this = _super.call(this, id) || this;
+    function Ul(sId) {
+        var _this = _super.call(this, sId) || this;
         // noinspection HtmlUnknownAttribute
         _this._sTemplate = '<ul {attributes}>{child_items}</ul>';
         _this._sComponentClassName = 'Ul';
@@ -7767,7 +9005,7 @@ var Ul = /** @class */ (function (_super) {
         /**
          * Static
          * Component meta data information
-         * category _sIs one of layout | content | component
+         * category is one of layout | content | component
          * @type {object}
          */
         return {
@@ -7809,7 +9047,7 @@ var Ul = /** @class */ (function (_super) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.initialize = exports.Semantic24_TextAreaDecorator = exports.Semantic24_InputDecorator = exports.Semantic24_AlertDecorator = exports.Bootstrap4_ButtonDecorator = exports.Bootstrap4_TextAreaDecorator = exports.Bootstrap4_RowDecorator = exports.Bootstrap4_InputDecorator = exports.Bootstrap4_ColumnDecorator = exports.Bootstrap4_ContainerDecorator = exports.Bootstrap4_AlertDecorator = exports.TextArea = exports.Store = exports.Select = exports.Row = exports.Radio = exports.Pre = exports.Password = exports.Paragraph = exports.Li = exports.Ul = exports.Ol = exports.Option = exports.Label = exports.Image = exports.Icon = exports.Hr = exports.Heading = exports.enumFormMethod = exports.enumFormEncoding = exports.Form = exports.Div = exports.Dialog = exports.DateInput = exports.Column = exports.Checkbox = exports.Container = exports.enumButtonSize = exports.enumButtonType = exports.enumButtonStyle = exports.Button = exports.BDI = exports.B = exports.Anchor = exports.Audio = exports.ASide = exports.Article = exports.Area = exports.enumAlertStyle = exports.Alert = exports.Address = exports.Abbr = exports.Hidden = exports.enumInputType = exports.Input = exports.ComponentContainer = exports.enumInputMode = exports.enumTranslate = exports.enumAutoCapitalize = exports.enumDir = exports.Component = exports.ComponentProperties = exports.Patch = exports.Page = exports.Decorator = exports.FontAwesome = exports.enumLibrary = exports.enumMissingFeature = undefined;
+exports.initialize = exports.Semantic24_TextAreaDecorator = exports.Semantic24_InputDecorator = exports.Semantic24_AlertDecorator = exports.Bootstrap4_ButtonDecorator = exports.Bootstrap4_TextAreaDecorator = exports.Bootstrap4_RowDecorator = exports.Bootstrap4_InputDecorator = exports.Bootstrap4_ColumnDecorator = exports.Bootstrap4_ContainerDecorator = exports.Bootstrap4_AlertDecorator = exports.Title = exports.TextArea = exports.Store = exports.Select = exports.Row = exports.Radio = exports.Pre = exports.Password = exports.Paragraph = exports.Li = exports.Ul = exports.Ol = exports.Option = exports.Label = exports.Image = exports.Icon = exports.Html = exports.Hr = exports.Head = exports.Heading = exports.enumFormMethod = exports.enumFormEncoding = exports.Form = exports.Div = exports.Dialog = exports.DateInput = exports.Column = exports.ColGroup = exports.Col = exports.Code = exports.Cite = exports.Checkbox = exports.Container = exports.Caption = exports.Canvas = exports.Br = exports.enumButtonSize = exports.enumButtonType = exports.enumButtonStyle = exports.Button = exports.Body = exports.BlockQuote = exports.BDO = exports.BDI = exports.B = exports.Anchor = exports.Audio = exports.ASide = exports.Article = exports.Area = exports.enumAlertStyle = exports.Alert = exports.Address = exports.Abbr = exports.Hidden = exports.enumInputType = exports.Input = exports.ComponentContainer = exports.enumInputMode = exports.enumTranslate = exports.enumAutoCapitalize = exports.enumDir = exports.Component = exports.ComponentProperties = exports.Patch = exports.Page = exports.Decorator = exports.FontAwesome = exports.enumLibrary = exports.enumMissingFeature = undefined;
 
 var _UX = __webpack_require__(/*! ./UX */ "./src/UX.ts");
 
@@ -7851,11 +9089,31 @@ var _B = __webpack_require__(/*! ./components/B */ "./src/components/B.ts");
 
 var _BDI = __webpack_require__(/*! ./components/BDI */ "./src/components/BDI.ts");
 
+var _BDO = __webpack_require__(/*! ./components/BDO */ "./src/components/BDO.ts");
+
+var _BlockQuote = __webpack_require__(/*! ./components/BlockQuote */ "./src/components/BlockQuote.ts");
+
+var _Body = __webpack_require__(/*! ./components/Body */ "./src/components/Body.ts");
+
 var _Button = __webpack_require__(/*! ./components/Button */ "./src/components/Button.ts");
+
+var _Br = __webpack_require__(/*! ./components/Br */ "./src/components/Br.ts");
+
+var _Canvas = __webpack_require__(/*! ./components/Canvas */ "./src/components/Canvas.ts");
+
+var _Caption = __webpack_require__(/*! ./components/Caption */ "./src/components/Caption.ts");
 
 var _Container = __webpack_require__(/*! ./components/Container */ "./src/components/Container.ts");
 
 var _Checkbox = __webpack_require__(/*! ./components/Checkbox */ "./src/components/Checkbox.ts");
+
+var _Cite = __webpack_require__(/*! ./components/Cite */ "./src/components/Cite.ts");
+
+var _Code = __webpack_require__(/*! ./components/Code */ "./src/components/Code.ts");
+
+var _Col = __webpack_require__(/*! ./components/Col */ "./src/components/Col.ts");
+
+var _ColGroup = __webpack_require__(/*! ./components/ColGroup */ "./src/components/ColGroup.ts");
 
 var _Column = __webpack_require__(/*! ./components/Column */ "./src/components/Column.ts");
 
@@ -7869,7 +9127,11 @@ var _Form = __webpack_require__(/*! ./components/Form */ "./src/components/Form.
 
 var _Heading = __webpack_require__(/*! ./components/Heading */ "./src/components/Heading.ts");
 
+var _Head = __webpack_require__(/*! ./components/Head */ "./src/components/Head.ts");
+
 var _Hr = __webpack_require__(/*! ./components/Hr */ "./src/components/Hr.ts");
+
+var _Html = __webpack_require__(/*! ./components/Html */ "./src/components/Html.ts");
 
 var _Icon = __webpack_require__(/*! ./components/Icon */ "./src/components/Icon.ts");
 
@@ -7900,6 +9162,8 @@ var _Select = __webpack_require__(/*! ./components/Select */ "./src/components/S
 var _Store = __webpack_require__(/*! ./components/Store */ "./src/components/Store.ts");
 
 var _TextArea = __webpack_require__(/*! ./components/TextArea */ "./src/components/TextArea.ts");
+
+var _Title = __webpack_require__(/*! ./components/Title */ "./src/components/Title.ts");
 
 var _AlertDecorator = __webpack_require__(/*! ./libraries/bootstrap4/components/AlertDecorator */ "./src/libraries/bootstrap4/components/AlertDecorator.ts");
 
@@ -7956,12 +9220,22 @@ exports.Audio = _Audio.Audio;
 exports.Anchor = _Anchor.Anchor;
 exports.B = _B.B;
 exports.BDI = _BDI.BDI;
+exports.BDO = _BDO.BDO;
+exports.BlockQuote = _BlockQuote.BlockQuote;
+exports.Body = _Body.Body;
 exports.Button = _Button.Button;
 exports.enumButtonStyle = _Button.enumButtonStyle;
 exports.enumButtonType = _Button.enumButtonType;
 exports.enumButtonSize = _Button.enumButtonSize;
+exports.Br = _Br.Br;
+exports.Canvas = _Canvas.Canvas;
+exports.Caption = _Caption.Caption;
 exports.Container = _Container.Container;
 exports.Checkbox = _Checkbox.Checkbox;
+exports.Cite = _Cite.Cite;
+exports.Code = _Code.Code;
+exports.Col = _Col.Col;
+exports.ColGroup = _ColGroup.ColGroup;
 exports.Column = _Column.Column;
 exports.DateInput = _DateInput.DateInput;
 exports.Dialog = _Dialog.Dialog;
@@ -7970,7 +9244,9 @@ exports.Form = _Form.Form;
 exports.enumFormEncoding = _Form.enumFormEncoding;
 exports.enumFormMethod = _Form.enumFormMethod;
 exports.Heading = _Heading.Heading;
+exports.Head = _Head.Head;
 exports.Hr = _Hr.Hr;
+exports.Html = _Html.Html;
 exports.Icon = _Icon.Icon;
 exports.Image = _Image.Image;
 exports.Label = _Label.Label;
@@ -7986,6 +9262,7 @@ exports.Row = _Row.Row;
 exports.Select = _Select.Select;
 exports.Store = _Store.Store;
 exports.TextArea = _TextArea.TextArea;
+exports.Title = _Title.Title;
 
 /**
  * Bootstrap _aClasses
@@ -8057,7 +9334,7 @@ var Bootstrap4_AlertDecorator = /** @class */ (function (_super) {
         /**
          * Static
          * Component meta data information
-         * category _sIs one of layout | content | component
+         * category is one of layout | content | component
          * @type {object}
          */
         return {
@@ -8096,8 +9373,8 @@ var Bootstrap4_AlertDecorator = /** @class */ (function (_super) {
         }
         if (component.getIsDismissible()) {
             component.addClass('alert-dismissible');
-            component.setTemplate('<div {attributes}>{_sIcon}{_sTitle}{_sLabel}' +
-                ' <button type="button" class="close" data-dismiss="alert" aria-_sLabel="Close">\n' +
+            component.setTemplate('<div {attributes}>{icon}{title}{label}' +
+                ' <button type="button" class="close" data-dismiss="alert" aria-label="Close">\n' +
                 '    <span aria-hidden="true">&times;</span>\n' +
                 ' </button>' +
                 '</div>');
@@ -8114,7 +9391,7 @@ var Bootstrap4_AlertDecorator = /** @class */ (function (_super) {
             $('#' + this.getId()).alert('close');
         };
         /**
-         * This event fires immediately when the close instance method _sIs called.
+         * This event fires immediately when the close instance method is called.
          * @param callback
          */
         component.onAlertClose = function (callback) {
@@ -8122,7 +9399,7 @@ var Bootstrap4_AlertDecorator = /** @class */ (function (_super) {
             return this;
         };
         /**
-         * This event _sIs fired when the alert has been closed (will wait for CSS transitions to complete).
+         * This event is fired when the alert has been closed (will wait for CSS transitions to complete).
          * @param callback
          */
         component.onAlertClosed = function (callback) {
@@ -8191,7 +9468,7 @@ var Bootstrap4_ButtonDecorator = /** @class */ (function (_super) {
         /**
          * Static
          * Component meta data information
-         * category _sIs one of layout | content | component
+         * category is one of layout | content | component
          * @type {object}
          */
         return {
@@ -8282,7 +9559,7 @@ var Bootstrap4_ColumnDecorator = /** @class */ (function (_super) {
         /**
          * Static
          * Component meta data information
-         * category _sIs one of layout | content | component
+         * category is one of layout | content | component
          * @type {object}
          */
         return {
@@ -8466,7 +9743,7 @@ var Bootstrap4_InputDecorator = /** @class */ (function (_super) {
         /**
          * Static
          * Component meta data information
-         * category _sIs one of layout | content | component
+         * category is one of layout | content | component
          * @type {object}
          */
         return {
@@ -8492,7 +9769,7 @@ var Bootstrap4_InputDecorator = /** @class */ (function (_super) {
         window.UX.log('Decorating ' + component.getId());
         component.addClass('form-control');
         component.template = '<div class="form-group">\n' +
-            '    <_sLabel for="{_sId}">{_sLabel}</_sLabel>\n' +
+            '    <label for="{id}">{label}</label>\n' +
             '    <input {attributes}>\n' +
             '  </div>';
         return component;
@@ -8557,7 +9834,7 @@ var Bootstrap4_RowDecorator = /** @class */ (function (_super) {
         /**
          * Static
          * Component meta data information
-         * category _sIs one of layout | content | component
+         * category is one of layout | content | component
          * @type {object}
          */
         return {
@@ -8642,7 +9919,7 @@ var Bootstrap4_TextAreaDecorator = /** @class */ (function (_super) {
         /**
          * Static
          * Component meta data information
-         * category _sIs one of layout | content | component
+         * category is one of layout | content | component
          * @type {object}
          */
         return {
@@ -8670,7 +9947,7 @@ var Bootstrap4_TextAreaDecorator = /** @class */ (function (_super) {
     Bootstrap4_TextAreaDecorator.prototype.decorate = function (component) {
         component.addClass('form-control');
         component.template = '<div class="form-group">\n' +
-            '    <_sLabel for="{_sId}">{_sLabel}</_sLabel>\n' +
+            '    <label for="{id}">{label}</label>\n' +
             '    <textarea {attributes}>{value}</textarea>\n' +
             '  </div>';
         return component;
@@ -8744,7 +10021,7 @@ var Semantic24_AlertDecorator = /** @class */ (function (_super) {
         /**
          * Static
          * Component meta data information
-         * category _sIs one of layout | content | component
+         * category is one of layout | content | component
          * @type {object}
          */
         return {
@@ -8777,17 +10054,17 @@ var Semantic24_AlertDecorator = /** @class */ (function (_super) {
         component.addClass('message');
         var sTitle = '';
         if (component.getTitle()) {
-            sTitle = '<div class="header">{_sIcon}{_sTitle}</div>';
+            sTitle = '<div class="header">{icon}{title}</div>';
         }
         component.template = '<div {attributes}>\n' +
-            '  {_sTitle}\n' +
-            '  <p>{_sLabel}</p>\n' +
+            '  {title}\n' +
+            '  <p>{label}</p>\n' +
             '</div>';
         if (component.getIsDismissible()) {
             component.template = '<div {attributes}>\n' +
-                '  <i class="close _sIcon"></i>\n' +
-                '  {_sTitle}\n' +
-                '  <p>{_sLabel}</p>\n' +
+                '  <i class="close icon"></i>\n' +
+                '  {title}\n' +
+                '  <p>{label}</p>\n' +
                 '</div>';
         }
         /**
@@ -8869,7 +10146,7 @@ var Semantic24_InputDecorator = /** @class */ (function (_super) {
         /**
          * Static
          * Component meta data information
-         * category _sIs one of layout | content | component
+         * category is one of layout | content | component
          * @type {object}
          */
         return {
@@ -8892,7 +10169,7 @@ var Semantic24_InputDecorator = /** @class */ (function (_super) {
     };
     Semantic24_InputDecorator.prototype.decorate = function (component) {
         component.template = '<div class="ui form field">\n' +
-            '  <_sLabel>{_sLabel}</_sLabel>\n' +
+            '  <label>{label}</label>\n' +
             '  <input {attributes}>\n' +
             '</div>';
         return component;
@@ -8960,7 +10237,7 @@ var Semantic24_TextAreaDecorator = /** @class */ (function (_super) {
         /**
          * Static
          * Component meta data information
-         * category _sIs one of layout | content | component
+         * category is one of layout | content | component
          * @type {object}
          */
         return {
@@ -8987,7 +10264,7 @@ var Semantic24_TextAreaDecorator = /** @class */ (function (_super) {
      */
     Semantic24_TextAreaDecorator.prototype.decorate = function (component) {
         component.template = '<div class="ui form field">\n' +
-            '  <_sLabel>{_sLabel}</_sLabel>\n' +
+            '  <label>{label}</label>\n' +
             '  <textarea {attributes}>{value}</textarea>\n' +
             '</div>';
         return component;

@@ -13,9 +13,9 @@ class Select extends Component {
      *
      * @param id
      */
-    constructor(id: string)
+    constructor(sId: string)
     {
-        super(id);
+        super(sId);
 
         this._oStore = new Store();
 

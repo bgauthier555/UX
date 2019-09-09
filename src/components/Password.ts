@@ -15,9 +15,9 @@ class Password extends Input {
      *
      * @param id
      */
-    constructor(id: string)
+    constructor(sId: string)
     {
-        super(id);
+        super(sId);
         this.setType(enumInputType.password);
     }
 

@@ -17,10 +17,10 @@ class Label extends ComponentContainer {
      * Component constructor
      * @param {string} id Component unique id
      */
-    constructor(id: string)
+    constructor(sId: string)
     {
 
-        super(id);
+        super(sId);
 
         // noinspection HtmlUnknownAttribute
         this._sTemplate = '<label {attributes}>{child_items}</label>';

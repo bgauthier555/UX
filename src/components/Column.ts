@@ -22,9 +22,9 @@ class Column extends ComponentContainer {
      * Component constructor
      * @param {string} id Component unique id
      */
-    constructor(id: string) {
+    constructor(sId: string) {
 
-        super(id);
+        super(sId);
 
         this.addClass('ux-column');
 

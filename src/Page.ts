@@ -18,6 +18,10 @@ class Page {
      * List of UX items in web page
      */
     protected items: any = {};
+
+    /**
+     * If page is initialized or not
+     */
     protected isInitialized: boolean = false;
 
     /**

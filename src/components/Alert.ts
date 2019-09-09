@@ -113,9 +113,11 @@ class Alert extends ComponentContainer {
      * Alert component constructor
      * @param {string} id Unique ID for component
      */
-    constructor(id: string) {
+    constructor(sId: string) {
 
-        super(id);
+        super(sId);
+
+        this.addClass('ux-alert');
 
         // noinspection HtmlUnknownAttribute
         this._sTemplate = '<div {attributes}>{icon}{alertTitle}{text}</div>';

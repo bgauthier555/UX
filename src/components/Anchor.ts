@@ -53,6 +53,8 @@ class Anchor extends ComponentContainer {
     {
         super(sId);
 
+        this.addClass('ux-anchor');
+
         // noinspection HtmlUnknownAttribute
         this._sTemplate = '<a {attributes}>{child_items}</a>';
         this._sComponentClassName = 'Anchor';

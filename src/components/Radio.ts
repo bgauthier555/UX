@@ -11,9 +11,9 @@ import {FontAwesome} from "../FontAwesome";
  */
 class Radio extends Input {
 
-    constructor(id: string)
+    constructor(sId: string)
     {
-        super(id);
+        super(sId);
         this._eType = enumInputType.radio;
     }
 

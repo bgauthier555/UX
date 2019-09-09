@@ -65,7 +65,7 @@
 
 
         let a = new window.UX.Alert('zone');
-        a.setAlertStyle(UX.enumAlertStyle.ALERT_WARNING);
+        a.setAlertStyle(UX.enumAlertStyle.WARNING);
         a.setText('Hello world');
         a.setIcon(UX.FontAwesome.FA_CALENDAR);
 
@@ -74,6 +74,20 @@
         });
 
         a.trigger('onAlertClose');
+
+
+        let page = new UX.Html();
+        page.addHead().addTitle();
+        //.setText('The page title');
+
+        let body = page.addBody();
+        body.addRow()
+            .addColumn('col1', 6).getParent()
+            .addColumn('col2', 6);
+
+
+
+        console.log(page.render());
 
 
         UX.Page.init();

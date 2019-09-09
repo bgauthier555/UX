@@ -17,9 +17,9 @@ class Checkbox extends Input {
      * Component constructor
      * @param {string} id Component unique id
      */
-    constructor(id: string) {
+    constructor(sId: string) {
 
-        super(id);
+        super(sId);
 
         this.setType(enumInputType.checkbox);
         this._sComponentClassName = 'Checkbox';

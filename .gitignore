@@ -27,3 +27,4 @@ $RECYCLE.BIN/
 .php_cs.cache
 /.git/*
 
+src/components/*.map

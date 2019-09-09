@@ -16,10 +16,10 @@ class Li extends ComponentContainer {
      * Component constructor
      * @param {string} id Component unique id
      */
-    constructor(id: string)
+    constructor(sId: string)
     {
 
-        super(id);
+        super(sId);
 
         // noinspection HtmlUnknownAttribute
         this._sTemplate = '<li {attributes}>{child_items}</li>';

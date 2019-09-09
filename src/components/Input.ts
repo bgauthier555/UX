@@ -21,10 +21,10 @@ class Input extends Component {
      *
      * @param id
      */
-    constructor(id: string)
+    constructor(sId: string)
     {
 
-        super(id);
+        super(sId);
 
         // noinspection HtmlUnknownAttribute
         this._sTemplate = '<input {attributes}/>';
