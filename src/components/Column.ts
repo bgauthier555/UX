@@ -16,7 +16,7 @@ class Column extends ComponentContainer {
     /**
      *
      */
-    protected size: string = '12';
+    protected size: string | number = '12';
 
     /**
      * Component constructor
@@ -73,7 +73,7 @@ class Column extends ComponentContainer {
      *
      * @returns {null}
      */
-    public getSize() : string
+    public getSize() : string | number
     {
         return this.size;
     }
@@ -83,7 +83,7 @@ class Column extends ComponentContainer {
      * @param size
      * @returns {Column}
      */
-    public setSize(size: string) : Column
+    public setSize(size: string | number) : Column
     {
         this.size = size;
         return this;

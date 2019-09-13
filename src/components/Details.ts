@@ -2,7 +2,7 @@ import { ComponentContainer } from '../ComponentContainer';
 import {FontAwesome} from "../FontAwesome";
 
 /**
- * Body component
+ * Details component
  *
  * @copyright Benoit Gauthier <bgauthier555@gmail.com>
  * @author Benoit Gauthier <bgauthier555@gmail.com>
@@ -10,7 +10,7 @@ import {FontAwesome} from "../FontAwesome";
  * @class
  * @inheritdoc
  * @public
- * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/body
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details
  */
 class Details extends ComponentContainer {
 

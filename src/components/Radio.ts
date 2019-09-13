@@ -2,7 +2,7 @@ import {enumInputType, Input} from './Input';
 import {FontAwesome} from "../FontAwesome";
 
 /**
- * Password control
+ * Radio control
  *
  * @copyright Benoit Gauthier <bgauthier555@gmail.com>
  * @author Benoit Gauthier <bgauthier555@gmail.com>

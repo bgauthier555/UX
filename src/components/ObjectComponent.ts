@@ -2,7 +2,7 @@ import { ComponentContainer } from '../ComponentContainer';
 import {FontAwesome} from "../FontAwesome";
 
 /**
- * Table Body component
+ * Object component
  *
  * @copyright Benoit Gauthier <bgauthier555@gmail.com>
  * @author Benoit Gauthier <bgauthier555@gmail.com>
@@ -10,9 +10,9 @@ import {FontAwesome} from "../FontAwesome";
  * @class
  * @inheritdoc
  * @public
- * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tbody
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/object
  */
-class TBody extends ComponentContainer {
+class ObjectComponent extends ComponentContainer {
 
     /**
      * Component constructor
@@ -23,11 +23,11 @@ class TBody extends ComponentContainer {
 
         super(sId);
 
-        this.addClass('ux-tbody');
+        this.addClass('ux-object');
 
         // noinspection HtmlUnknownAttribute
-        this._sTemplate = '<tbody {attributes}>{child_items}</tbody>';
-        this._sComponentClassName = 'TBody';
+        this._sTemplate = '<object {attributes}>{child_items}</object>';
+        this._sComponentClassName = 'ObjectComponent';
 
     }
 
@@ -45,8 +45,8 @@ class TBody extends ComponentContainer {
          * @type {object}
          */
         return {
-            name : 'TBody',
-            description : 'HTML Table body element',
+            name : 'ObjectComponent',
+            description : 'HTML Object element',
             category : 'content',
             icon : FontAwesome.FA_SQUARE_O,
             isContainer: true,
@@ -70,4 +70,4 @@ class TBody extends ComponentContainer {
 
 }
 
-export { TBody }
+export { ObjectComponent }

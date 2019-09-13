@@ -1,7 +1,7 @@
 import { ComponentContainer } from '../ComponentContainer';
 
 /**
- * container component
+ * Dialog component
  *
  * @copyright Benoit Gauthier <bgauthier555@gmail.com>
  * @author Benoit Gauthier <bgauthier555@gmail.com>

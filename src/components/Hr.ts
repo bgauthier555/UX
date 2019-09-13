@@ -1,7 +1,7 @@
 import { Component } from '../Component';
 import {FontAwesome} from "../FontAwesome";
 /**
- * Input control
+ * Hr control
  *
  * @copyright Benoit Gauthier <bgauthier555@gmail.com>
  * @author Benoit Gauthier <bgauthier555@gmail.com>
@@ -42,7 +42,7 @@ class Hr extends Component {
         return {
             name : 'Hr',
             description : 'HTML Horizontal ruler',
-            category : 'content',
+            category : 'component',
             icon: FontAwesome.FA_LIST,
             isContainer: false,
             libraries : {

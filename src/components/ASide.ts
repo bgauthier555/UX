@@ -10,7 +10,7 @@ import {FontAwesome} from "../FontAwesome";
  * @class
  * @inheritdoc
  * @public
- * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/article
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/aside
  */
 class ASide extends ComponentContainer {
 

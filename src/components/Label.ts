@@ -2,7 +2,7 @@ import { ComponentContainer } from '../ComponentContainer';
 import {FontAwesome} from "../FontAwesome";
 
 /**
- * Div component
+ * Label component
  *
  * @copyright Benoit Gauthier <bgauthier555@gmail.com>
  * @author Benoit Gauthier <bgauthier555@gmail.com>

@@ -2,7 +2,7 @@ import {FontAwesome} from "../FontAwesome";
 import {Component} from "../Component";
 
 /**
- * Body component
+ * Col component
  *
  * @copyright Benoit Gauthier <bgauthier555@gmail.com>
  * @author Benoit Gauthier <bgauthier555@gmail.com>

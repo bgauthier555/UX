@@ -3794,7 +3794,7 @@ var __extends = (undefined && undefined.__extends) || (function () {
  * @class
  * @inheritdoc
  * @public
- * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/article
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/aside
  */
 var ASide = /** @class */ (function (_super) {
     __extends(ASide, _super);
@@ -4995,7 +4995,7 @@ var __extends = (undefined && undefined.__extends) || (function () {
 
 
 /**
- * Abbr component
+ * BDO component
  *
  * @copyright Benoit Gauthier <bgauthier555@gmail.com>
  * @author Benoit Gauthier <bgauthier555@gmail.com>
@@ -5262,7 +5262,7 @@ var __extends = (undefined && undefined.__extends) || (function () {
 
 
 /**
- * Body component
+ * Br component
  *
  * @copyright Benoit Gauthier <bgauthier555@gmail.com>
  * @author Benoit Gauthier <bgauthier555@gmail.com>
@@ -5270,7 +5270,7 @@ var __extends = (undefined && undefined.__extends) || (function () {
  * @class
  * @inheritdoc
  * @public
- * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/body
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/br
  */
 var Br = /** @class */ (function (_super) {
     __extends(Br, _super);
@@ -5300,7 +5300,7 @@ var Br = /** @class */ (function (_super) {
         return {
             name: 'Br',
             description: 'HTML Line break element',
-            category: 'content',
+            category: 'component',
             icon: _FontAwesome__WEBPACK_IMPORTED_MODULE_0__["FontAwesome"].FA_SQUARE_O,
             isContainer: true,
             libraries: {
@@ -5751,7 +5751,7 @@ var __extends = (undefined && undefined.__extends) || (function () {
 
 
 /**
- * Body component
+ * Canvas component
  *
  * @copyright Benoit Gauthier <bgauthier555@gmail.com>
  * @author Benoit Gauthier <bgauthier555@gmail.com>
@@ -5759,7 +5759,7 @@ var __extends = (undefined && undefined.__extends) || (function () {
  * @class
  * @inheritdoc
  * @public
- * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/body
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas
  */
 var Canvas = /** @class */ (function (_super) {
     __extends(Canvas, _super);
@@ -5840,7 +5840,7 @@ var __extends = (undefined && undefined.__extends) || (function () {
 
 
 /**
- * Body component
+ * Caption component
  *
  * @copyright Benoit Gauthier <bgauthier555@gmail.com>
  * @author Benoit Gauthier <bgauthier555@gmail.com>
@@ -5848,7 +5848,7 @@ var __extends = (undefined && undefined.__extends) || (function () {
  * @class
  * @inheritdoc
  * @public
- * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/body
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/caption
  */
 var Caption = /** @class */ (function (_super) {
     __extends(Caption, _super);
@@ -6015,7 +6015,7 @@ var __extends = (undefined && undefined.__extends) || (function () {
 
 
 /**
- * Body component
+ * Cite component
  *
  * @copyright Benoit Gauthier <bgauthier555@gmail.com>
  * @author Benoit Gauthier <bgauthier555@gmail.com>
@@ -6023,7 +6023,7 @@ var __extends = (undefined && undefined.__extends) || (function () {
  * @class
  * @inheritdoc
  * @public
- * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/body
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/cite
  */
 var Cite = /** @class */ (function (_super) {
     __extends(Cite, _super);
@@ -6104,7 +6104,7 @@ var __extends = (undefined && undefined.__extends) || (function () {
 
 
 /**
- * Body component
+ * Code component
  *
  * @copyright Benoit Gauthier <bgauthier555@gmail.com>
  * @author Benoit Gauthier <bgauthier555@gmail.com>
@@ -6193,7 +6193,7 @@ var __extends = (undefined && undefined.__extends) || (function () {
 
 
 /**
- * Body component
+ * Col component
  *
  * @copyright Benoit Gauthier <bgauthier555@gmail.com>
  * @author Benoit Gauthier <bgauthier555@gmail.com>
@@ -6282,7 +6282,7 @@ var __extends = (undefined && undefined.__extends) || (function () {
 
 
 /**
- * Body component
+ * ColGroup component
  *
  * @copyright Benoit Gauthier <bgauthier555@gmail.com>
  * @author Benoit Gauthier <bgauthier555@gmail.com>
@@ -6290,7 +6290,7 @@ var __extends = (undefined && undefined.__extends) || (function () {
  * @class
  * @inheritdoc
  * @public
- * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/body
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/colgroup
  */
 var ColGroup = /** @class */ (function (_super) {
     __extends(ColGroup, _super);
@@ -6577,6 +6577,184 @@ var Container = /** @class */ (function (_super) {
 
 /***/ }),
 
+/***/ "./src/components/Data.ts":
+/*!********************************!*\
+  !*** ./src/components/Data.ts ***!
+  \********************************/
+/*! exports provided: Data */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Data", function() { return Data; });
+/* harmony import */ var _ComponentContainer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ComponentContainer */ "./src/ComponentContainer.ts");
+/* harmony import */ var _FontAwesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../FontAwesome */ "./src/FontAwesome.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+/**
+ * Data component
+ *
+ * @copyright Benoit Gauthier <bgauthier555@gmail.com>
+ * @author Benoit Gauthier <bgauthier555@gmail.com>
+ * @licence MIT
+ * @class
+ * @inheritdoc
+ * @public
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/data
+ */
+var Data = /** @class */ (function (_super) {
+    __extends(Data, _super);
+    /**
+     * Component constructor
+     * @param {string} id Component unique id
+     */
+    function Data(sId) {
+        var _this = _super.call(this, sId) || this;
+        _this.addClass('ux-data');
+        // noinspection HtmlUnknownAttribute
+        _this._sTemplate = '<data {attributes}>{child_items}</data>';
+        _this._sComponentClassName = 'Data';
+        return _this;
+    }
+    /**
+     * Returns component meta data
+     * @returns {object}
+     */
+    Data.getMetaData = function () {
+        /**
+         * Static
+         * Component meta data information
+         * category _sIs one of layout | content | component
+         * @type {object}
+         */
+        return {
+            name: 'Data',
+            description: 'HTML data element',
+            category: 'content',
+            icon: _FontAwesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesome"].FA_SQUARE_O,
+            isContainer: true,
+            libraries: {
+                Bootstrap_4: {
+                    supported: true,
+                    comments: '',
+                },
+                Html5: {
+                    supported: true,
+                    comments: '',
+                }
+            },
+            codepen: [],
+        };
+    };
+    return Data;
+}(_ComponentContainer__WEBPACK_IMPORTED_MODULE_0__["ComponentContainer"]));
+
+
+
+/***/ }),
+
+/***/ "./src/components/DataList.ts":
+/*!************************************!*\
+  !*** ./src/components/DataList.ts ***!
+  \************************************/
+/*! exports provided: DataList */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DataList", function() { return DataList; });
+/* harmony import */ var _ComponentContainer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ComponentContainer */ "./src/ComponentContainer.ts");
+/* harmony import */ var _FontAwesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../FontAwesome */ "./src/FontAwesome.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+/**
+ * DataList component
+ *
+ * @copyright Benoit Gauthier <bgauthier555@gmail.com>
+ * @author Benoit Gauthier <bgauthier555@gmail.com>
+ * @licence MIT
+ * @class
+ * @inheritdoc
+ * @public
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist
+ */
+var DataList = /** @class */ (function (_super) {
+    __extends(DataList, _super);
+    /**
+     * Component constructor
+     * @param {string} id Component unique id
+     */
+    function DataList(sId) {
+        var _this = _super.call(this, sId) || this;
+        _this.addClass('ux-datalist');
+        // noinspection HtmlUnknownAttribute
+        _this._sTemplate = '<datalist {attributes}>{child_items}</datalist>';
+        _this._sComponentClassName = 'DataList';
+        return _this;
+    }
+    /**
+     * Returns component meta data
+     * @returns {object}
+     */
+    DataList.getMetaData = function () {
+        /**
+         * Static
+         * Component meta data information
+         * category _sIs one of layout | content | component
+         * @type {object}
+         */
+        return {
+            name: 'DataList',
+            description: 'HTML data list element',
+            category: 'content',
+            icon: _FontAwesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesome"].FA_SQUARE_O,
+            isContainer: true,
+            libraries: {
+                Bootstrap_4: {
+                    supported: true,
+                    comments: '',
+                },
+                Html5: {
+                    supported: true,
+                    comments: '',
+                }
+            },
+            codepen: [],
+        };
+    };
+    return DataList;
+}(_ComponentContainer__WEBPACK_IMPORTED_MODULE_0__["ComponentContainer"]));
+
+
+
+/***/ }),
+
 /***/ "./src/components/DateInput.ts":
 /*!*************************************!*\
   !*** ./src/components/DateInput.ts ***!
@@ -6605,7 +6783,7 @@ var __extends = (undefined && undefined.__extends) || (function () {
 
 
 /**
- * Anchor component
+ * DateInput component
  *
  * @copyright Benoit Gauthier <bgauthier555@gmail.com>
  * @author Benoit Gauthier <bgauthier555@gmail.com>
@@ -6672,6 +6850,362 @@ var DateInput = /** @class */ (function (_super) {
 
 /***/ }),
 
+/***/ "./src/components/Dd.ts":
+/*!******************************!*\
+  !*** ./src/components/Dd.ts ***!
+  \******************************/
+/*! exports provided: Dd */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Dd", function() { return Dd; });
+/* harmony import */ var _ComponentContainer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ComponentContainer */ "./src/ComponentContainer.ts");
+/* harmony import */ var _FontAwesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../FontAwesome */ "./src/FontAwesome.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+/**
+ * Dd component
+ *
+ * @copyright Benoit Gauthier <bgauthier555@gmail.com>
+ * @author Benoit Gauthier <bgauthier555@gmail.com>
+ * @licence MIT
+ * @class
+ * @inheritdoc
+ * @public
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dd
+ */
+var Dd = /** @class */ (function (_super) {
+    __extends(Dd, _super);
+    /**
+     * Component constructor
+     * @param {string} id Component unique id
+     */
+    function Dd(sId) {
+        var _this = _super.call(this, sId) || this;
+        _this.addClass('ux-dd');
+        // noinspection HtmlUnknownAttribute
+        _this._sTemplate = '<dd {attributes}>{child_items}</dd>';
+        _this._sComponentClassName = 'Dd';
+        return _this;
+    }
+    /**
+     * Returns component meta data
+     * @returns {object}
+     */
+    Dd.getMetaData = function () {
+        /**
+         * Static
+         * Component meta data information
+         * category _sIs one of layout | content | component
+         * @type {object}
+         */
+        return {
+            name: 'Dd',
+            description: 'HTML Description details element',
+            category: 'content',
+            icon: _FontAwesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesome"].FA_SQUARE_O,
+            isContainer: true,
+            libraries: {
+                Bootstrap_4: {
+                    supported: true,
+                    comments: '',
+                },
+                Html5: {
+                    supported: true,
+                    comments: '',
+                }
+            },
+            codepen: [],
+        };
+    };
+    return Dd;
+}(_ComponentContainer__WEBPACK_IMPORTED_MODULE_0__["ComponentContainer"]));
+
+
+
+/***/ }),
+
+/***/ "./src/components/Del.ts":
+/*!*******************************!*\
+  !*** ./src/components/Del.ts ***!
+  \*******************************/
+/*! exports provided: Del */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Del", function() { return Del; });
+/* harmony import */ var _ComponentContainer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ComponentContainer */ "./src/ComponentContainer.ts");
+/* harmony import */ var _FontAwesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../FontAwesome */ "./src/FontAwesome.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+/**
+ * Del component
+ *
+ * @copyright Benoit Gauthier <bgauthier555@gmail.com>
+ * @author Benoit Gauthier <bgauthier555@gmail.com>
+ * @licence MIT
+ * @class
+ * @inheritdoc
+ * @public
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/del
+ */
+var Del = /** @class */ (function (_super) {
+    __extends(Del, _super);
+    /**
+     * Component constructor
+     * @param {string} id Component unique id
+     */
+    function Del(sId) {
+        var _this = _super.call(this, sId) || this;
+        _this.addClass('ux-del');
+        // noinspection HtmlUnknownAttribute
+        _this._sTemplate = '<del {attributes}>{child_items}</del>';
+        _this._sComponentClassName = 'Del';
+        return _this;
+    }
+    /**
+     * Returns component meta data
+     * @returns {object}
+     */
+    Del.getMetaData = function () {
+        /**
+         * Static
+         * Component meta data information
+         * category _sIs one of layout | content | component
+         * @type {object}
+         */
+        return {
+            name: 'Del',
+            description: 'HTML Deleted Text element',
+            category: 'content',
+            icon: _FontAwesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesome"].FA_SQUARE_O,
+            isContainer: true,
+            libraries: {
+                Bootstrap_4: {
+                    supported: true,
+                    comments: '',
+                },
+                Html5: {
+                    supported: true,
+                    comments: '',
+                }
+            },
+            codepen: [],
+        };
+    };
+    return Del;
+}(_ComponentContainer__WEBPACK_IMPORTED_MODULE_0__["ComponentContainer"]));
+
+
+
+/***/ }),
+
+/***/ "./src/components/Details.ts":
+/*!***********************************!*\
+  !*** ./src/components/Details.ts ***!
+  \***********************************/
+/*! exports provided: Details */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Details", function() { return Details; });
+/* harmony import */ var _ComponentContainer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ComponentContainer */ "./src/ComponentContainer.ts");
+/* harmony import */ var _FontAwesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../FontAwesome */ "./src/FontAwesome.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+/**
+ * Details component
+ *
+ * @copyright Benoit Gauthier <bgauthier555@gmail.com>
+ * @author Benoit Gauthier <bgauthier555@gmail.com>
+ * @licence MIT
+ * @class
+ * @inheritdoc
+ * @public
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details
+ */
+var Details = /** @class */ (function (_super) {
+    __extends(Details, _super);
+    /**
+     * Component constructor
+     * @param {string} id Component unique id
+     */
+    function Details(sId) {
+        var _this = _super.call(this, sId) || this;
+        _this.addClass('ux-details');
+        // noinspection HtmlUnknownAttribute
+        _this._sTemplate = '<details {attributes}>{child_items}</details>';
+        _this._sComponentClassName = 'Details';
+        return _this;
+    }
+    /**
+     * Returns component meta data
+     * @returns {object}
+     */
+    Details.getMetaData = function () {
+        /**
+         * Static
+         * Component meta data information
+         * category _sIs one of layout | content | component
+         * @type {object}
+         */
+        return {
+            name: 'Details',
+            description: 'HTML Details disclosure element',
+            category: 'content',
+            icon: _FontAwesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesome"].FA_SQUARE_O,
+            isContainer: true,
+            libraries: {
+                Bootstrap_4: {
+                    supported: true,
+                    comments: '',
+                },
+                Html5: {
+                    supported: true,
+                    comments: '',
+                }
+            },
+            codepen: [],
+        };
+    };
+    return Details;
+}(_ComponentContainer__WEBPACK_IMPORTED_MODULE_0__["ComponentContainer"]));
+
+
+
+/***/ }),
+
+/***/ "./src/components/Dfn.ts":
+/*!*******************************!*\
+  !*** ./src/components/Dfn.ts ***!
+  \*******************************/
+/*! exports provided: Dfn */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Dfn", function() { return Dfn; });
+/* harmony import */ var _ComponentContainer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ComponentContainer */ "./src/ComponentContainer.ts");
+/* harmony import */ var _FontAwesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../FontAwesome */ "./src/FontAwesome.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+/**
+ * Dfn component
+ *
+ * @copyright Benoit Gauthier <bgauthier555@gmail.com>
+ * @author Benoit Gauthier <bgauthier555@gmail.com>
+ * @licence MIT
+ * @class
+ * @inheritdoc
+ * @public
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dfn
+ */
+var Dfn = /** @class */ (function (_super) {
+    __extends(Dfn, _super);
+    /**
+     * Component constructor
+     * @param {string} id Component unique id
+     */
+    function Dfn(sId) {
+        var _this = _super.call(this, sId) || this;
+        _this.addClass('ux-dfn');
+        // noinspection HtmlUnknownAttribute
+        _this._sTemplate = '<dfn {attributes}>{child_items}</dfn>';
+        _this._sComponentClassName = 'Dfn';
+        return _this;
+    }
+    /**
+     * Returns component meta data
+     * @returns {object}
+     */
+    Dfn.getMetaData = function () {
+        /**
+         * Static
+         * Component meta data information
+         * category _sIs one of layout | content | component
+         * @type {object}
+         */
+        return {
+            name: 'Dfn',
+            description: 'HTML Definition element',
+            category: 'content',
+            icon: _FontAwesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesome"].FA_SQUARE_O,
+            isContainer: true,
+            libraries: {
+                Bootstrap_4: {
+                    supported: true,
+                    comments: '',
+                },
+                Html5: {
+                    supported: true,
+                    comments: '',
+                }
+            },
+            codepen: [],
+        };
+    };
+    return Dfn;
+}(_ComponentContainer__WEBPACK_IMPORTED_MODULE_0__["ComponentContainer"]));
+
+
+
+/***/ }),
+
 /***/ "./src/components/Dialog.ts":
 /*!**********************************!*\
   !*** ./src/components/Dialog.ts ***!
@@ -6698,7 +7232,7 @@ var __extends = (undefined && undefined.__extends) || (function () {
 })();
 
 /**
- * container component
+ * Dialog component
  *
  * @copyright Benoit Gauthier <bgauthier555@gmail.com>
  * @author Benoit Gauthier <bgauthier555@gmail.com>
@@ -6859,6 +7393,718 @@ var Div = /** @class */ (function (_super) {
 
 /***/ }),
 
+/***/ "./src/components/Dl.ts":
+/*!******************************!*\
+  !*** ./src/components/Dl.ts ***!
+  \******************************/
+/*! exports provided: Dl */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Dl", function() { return Dl; });
+/* harmony import */ var _ComponentContainer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ComponentContainer */ "./src/ComponentContainer.ts");
+/* harmony import */ var _FontAwesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../FontAwesome */ "./src/FontAwesome.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+/**
+ * Dl component
+ *
+ * @copyright Benoit Gauthier <bgauthier555@gmail.com>
+ * @author Benoit Gauthier <bgauthier555@gmail.com>
+ * @licence MIT
+ * @class
+ * @inheritdoc
+ * @public
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl
+ */
+var Dl = /** @class */ (function (_super) {
+    __extends(Dl, _super);
+    /**
+     * Component constructor
+     * @param {string} id Component unique id
+     */
+    function Dl(sId) {
+        var _this = _super.call(this, sId) || this;
+        _this.addClass('ux-dl');
+        // noinspection HtmlUnknownAttribute
+        _this._sTemplate = '<dl {attributes}>{child_items}</dl>';
+        _this._sComponentClassName = 'Dl';
+        return _this;
+    }
+    /**
+     * Returns component meta data
+     * @returns {object}
+     */
+    Dl.getMetaData = function () {
+        /**
+         * Static
+         * Component meta data information
+         * category _sIs one of layout | content | component
+         * @type {object}
+         */
+        return {
+            name: 'Dl',
+            description: 'HTML Description list element',
+            category: 'content',
+            icon: _FontAwesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesome"].FA_SQUARE_O,
+            isContainer: true,
+            libraries: {
+                Bootstrap_4: {
+                    supported: true,
+                    comments: '',
+                },
+                Html5: {
+                    supported: true,
+                    comments: '',
+                }
+            },
+            codepen: [],
+        };
+    };
+    return Dl;
+}(_ComponentContainer__WEBPACK_IMPORTED_MODULE_0__["ComponentContainer"]));
+
+
+
+/***/ }),
+
+/***/ "./src/components/Dt.ts":
+/*!******************************!*\
+  !*** ./src/components/Dt.ts ***!
+  \******************************/
+/*! exports provided: Dt */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Dt", function() { return Dt; });
+/* harmony import */ var _ComponentContainer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ComponentContainer */ "./src/ComponentContainer.ts");
+/* harmony import */ var _FontAwesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../FontAwesome */ "./src/FontAwesome.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+/**
+ * Dt component
+ *
+ * @copyright Benoit Gauthier <bgauthier555@gmail.com>
+ * @author Benoit Gauthier <bgauthier555@gmail.com>
+ * @licence MIT
+ * @class
+ * @inheritdoc
+ * @public
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dt
+ */
+var Dt = /** @class */ (function (_super) {
+    __extends(Dt, _super);
+    /**
+     * Component constructor
+     * @param {string} id Component unique id
+     */
+    function Dt(sId) {
+        var _this = _super.call(this, sId) || this;
+        _this.addClass('ux-dt');
+        // noinspection HtmlUnknownAttribute
+        _this._sTemplate = '<dt {attributes}>{child_items}</dt>';
+        _this._sComponentClassName = 'Dt';
+        return _this;
+    }
+    /**
+     * Returns component meta data
+     * @returns {object}
+     */
+    Dt.getMetaData = function () {
+        /**
+         * Static
+         * Component meta data information
+         * category _sIs one of layout | content | component
+         * @type {object}
+         */
+        return {
+            name: 'Dt',
+            description: 'HTML Description term element',
+            category: 'content',
+            icon: _FontAwesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesome"].FA_SQUARE_O,
+            isContainer: true,
+            libraries: {
+                Bootstrap_4: {
+                    supported: true,
+                    comments: '',
+                },
+                Html5: {
+                    supported: true,
+                    comments: '',
+                }
+            },
+            codepen: [],
+        };
+    };
+    return Dt;
+}(_ComponentContainer__WEBPACK_IMPORTED_MODULE_0__["ComponentContainer"]));
+
+
+
+/***/ }),
+
+/***/ "./src/components/Em.ts":
+/*!******************************!*\
+  !*** ./src/components/Em.ts ***!
+  \******************************/
+/*! exports provided: Em */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Em", function() { return Em; });
+/* harmony import */ var _ComponentContainer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ComponentContainer */ "./src/ComponentContainer.ts");
+/* harmony import */ var _FontAwesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../FontAwesome */ "./src/FontAwesome.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+/**
+ * Em component
+ *
+ * @copyright Benoit Gauthier <bgauthier555@gmail.com>
+ * @author Benoit Gauthier <bgauthier555@gmail.com>
+ * @licence MIT
+ * @class
+ * @inheritdoc
+ * @public
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/em
+ */
+var Em = /** @class */ (function (_super) {
+    __extends(Em, _super);
+    /**
+     * Component constructor
+     * @param {string} id Component unique id
+     */
+    function Em(sId) {
+        var _this = _super.call(this, sId) || this;
+        _this.addClass('ux-em');
+        // noinspection HtmlUnknownAttribute
+        _this._sTemplate = '<em {attributes}>{child_items}</em>';
+        _this._sComponentClassName = 'Em';
+        return _this;
+    }
+    /**
+     * Returns component meta data
+     * @returns {object}
+     */
+    Em.getMetaData = function () {
+        /**
+         * Static
+         * Component meta data information
+         * category _sIs one of layout | content | component
+         * @type {object}
+         */
+        return {
+            name: 'Em',
+            description: 'HTML Emphasis element',
+            category: 'content',
+            icon: _FontAwesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesome"].FA_SQUARE_O,
+            isContainer: true,
+            libraries: {
+                Bootstrap_4: {
+                    supported: true,
+                    comments: '',
+                },
+                Html5: {
+                    supported: true,
+                    comments: '',
+                }
+            },
+            codepen: [],
+        };
+    };
+    return Em;
+}(_ComponentContainer__WEBPACK_IMPORTED_MODULE_0__["ComponentContainer"]));
+
+
+
+/***/ }),
+
+/***/ "./src/components/Embed.ts":
+/*!*********************************!*\
+  !*** ./src/components/Embed.ts ***!
+  \*********************************/
+/*! exports provided: Embed */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Embed", function() { return Embed; });
+/* harmony import */ var _ComponentContainer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ComponentContainer */ "./src/ComponentContainer.ts");
+/* harmony import */ var _FontAwesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../FontAwesome */ "./src/FontAwesome.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+/**
+ * Embed component
+ *
+ * @copyright Benoit Gauthier <bgauthier555@gmail.com>
+ * @author Benoit Gauthier <bgauthier555@gmail.com>
+ * @licence MIT
+ * @class
+ * @inheritdoc
+ * @public
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/embed
+ */
+var Embed = /** @class */ (function (_super) {
+    __extends(Embed, _super);
+    /**
+     * Component constructor
+     * @param {string} id Component unique id
+     */
+    function Embed(sId) {
+        var _this = _super.call(this, sId) || this;
+        _this.addClass('ux-embed');
+        // noinspection HtmlUnknownAttribute
+        _this._sTemplate = '<embed {attributes}/>';
+        _this._sComponentClassName = 'Embed';
+        return _this;
+    }
+    /**
+     * Returns component meta data
+     * @returns {object}
+     */
+    Embed.getMetaData = function () {
+        /**
+         * Static
+         * Component meta data information
+         * category _sIs one of layout | content | component
+         * @type {object}
+         */
+        return {
+            name: 'Embed',
+            description: 'HTML Embed External Content element',
+            category: 'content',
+            icon: _FontAwesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesome"].FA_SQUARE_O,
+            isContainer: true,
+            libraries: {
+                Bootstrap_4: {
+                    supported: true,
+                    comments: '',
+                },
+                Html5: {
+                    supported: true,
+                    comments: '',
+                }
+            },
+            codepen: [],
+        };
+    };
+    return Embed;
+}(_ComponentContainer__WEBPACK_IMPORTED_MODULE_0__["ComponentContainer"]));
+
+
+
+/***/ }),
+
+/***/ "./src/components/FieldSet.ts":
+/*!************************************!*\
+  !*** ./src/components/FieldSet.ts ***!
+  \************************************/
+/*! exports provided: FieldSet */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FieldSet", function() { return FieldSet; });
+/* harmony import */ var _ComponentContainer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ComponentContainer */ "./src/ComponentContainer.ts");
+/* harmony import */ var _FontAwesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../FontAwesome */ "./src/FontAwesome.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+/**
+ * FieldSet component
+ *
+ * @copyright Benoit Gauthier <bgauthier555@gmail.com>
+ * @author Benoit Gauthier <bgauthier555@gmail.com>
+ * @licence MIT
+ * @class
+ * @inheritdoc
+ * @public
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/fieldset
+ */
+var FieldSet = /** @class */ (function (_super) {
+    __extends(FieldSet, _super);
+    /**
+     * Component constructor
+     * @param {string} id Component unique id
+     */
+    function FieldSet(sId) {
+        var _this = _super.call(this, sId) || this;
+        _this.addClass('ux-fieldset');
+        // noinspection HtmlUnknownAttribute
+        _this._sTemplate = '<fieldset {attributes}>{child_items}</fieldset>';
+        _this._sComponentClassName = 'FieldSet';
+        return _this;
+    }
+    /**
+     * Returns component meta data
+     * @returns {object}
+     */
+    FieldSet.getMetaData = function () {
+        /**
+         * Static
+         * Component meta data information
+         * category _sIs one of layout | content | component
+         * @type {object}
+         */
+        return {
+            name: 'FieldSet',
+            description: 'HTML Field set element',
+            category: 'content',
+            icon: _FontAwesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesome"].FA_SQUARE_O,
+            isContainer: true,
+            libraries: {
+                Bootstrap_4: {
+                    supported: true,
+                    comments: '',
+                },
+                Html5: {
+                    supported: true,
+                    comments: '',
+                }
+            },
+            codepen: [],
+        };
+    };
+    return FieldSet;
+}(_ComponentContainer__WEBPACK_IMPORTED_MODULE_0__["ComponentContainer"]));
+
+
+
+/***/ }),
+
+/***/ "./src/components/FigCaption.ts":
+/*!**************************************!*\
+  !*** ./src/components/FigCaption.ts ***!
+  \**************************************/
+/*! exports provided: FigCaption */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FigCaption", function() { return FigCaption; });
+/* harmony import */ var _ComponentContainer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ComponentContainer */ "./src/ComponentContainer.ts");
+/* harmony import */ var _FontAwesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../FontAwesome */ "./src/FontAwesome.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+/**
+ * FigCaption component
+ *
+ * @copyright Benoit Gauthier <bgauthier555@gmail.com>
+ * @author Benoit Gauthier <bgauthier555@gmail.com>
+ * @licence MIT
+ * @class
+ * @inheritdoc
+ * @public
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figcaption
+ */
+var FigCaption = /** @class */ (function (_super) {
+    __extends(FigCaption, _super);
+    /**
+     * Component constructor
+     * @param {string} id Component unique id
+     */
+    function FigCaption(sId) {
+        var _this = _super.call(this, sId) || this;
+        _this.addClass('ux-figcaption');
+        // noinspection HtmlUnknownAttribute
+        _this._sTemplate = '<figcaption {attributes}>{child_items}</figcaption>';
+        _this._sComponentClassName = 'FigCaption';
+        return _this;
+    }
+    /**
+     * Returns component meta data
+     * @returns {object}
+     */
+    FigCaption.getMetaData = function () {
+        /**
+         * Static
+         * Component meta data information
+         * category _sIs one of layout | content | component
+         * @type {object}
+         */
+        return {
+            name: 'FigCaption',
+            description: 'HTML Figure caption element',
+            category: 'content',
+            icon: _FontAwesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesome"].FA_SQUARE_O,
+            isContainer: true,
+            libraries: {
+                Bootstrap_4: {
+                    supported: true,
+                    comments: '',
+                },
+                Html5: {
+                    supported: true,
+                    comments: '',
+                }
+            },
+            codepen: [],
+        };
+    };
+    return FigCaption;
+}(_ComponentContainer__WEBPACK_IMPORTED_MODULE_0__["ComponentContainer"]));
+
+
+
+/***/ }),
+
+/***/ "./src/components/Figure.ts":
+/*!**********************************!*\
+  !*** ./src/components/Figure.ts ***!
+  \**********************************/
+/*! exports provided: Figure */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Figure", function() { return Figure; });
+/* harmony import */ var _ComponentContainer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ComponentContainer */ "./src/ComponentContainer.ts");
+/* harmony import */ var _FontAwesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../FontAwesome */ "./src/FontAwesome.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+/**
+ * Figure component
+ *
+ * @copyright Benoit Gauthier <bgauthier555@gmail.com>
+ * @author Benoit Gauthier <bgauthier555@gmail.com>
+ * @licence MIT
+ * @class
+ * @inheritdoc
+ * @public
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure
+ */
+var Figure = /** @class */ (function (_super) {
+    __extends(Figure, _super);
+    /**
+     * Component constructor
+     * @param {string} id Component unique id
+     */
+    function Figure(sId) {
+        var _this = _super.call(this, sId) || this;
+        _this.addClass('ux-figure');
+        // noinspection HtmlUnknownAttribute
+        _this._sTemplate = '<figcaption {attributes}>{child_items}</figcaption>';
+        _this._sComponentClassName = 'Figure';
+        return _this;
+    }
+    /**
+     * Returns component meta data
+     * @returns {object}
+     */
+    Figure.getMetaData = function () {
+        /**
+         * Static
+         * Component meta data information
+         * category _sIs one of layout | content | component
+         * @type {object}
+         */
+        return {
+            name: 'Figure',
+            description: 'HTML Figure element',
+            category: 'content',
+            icon: _FontAwesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesome"].FA_SQUARE_O,
+            isContainer: true,
+            libraries: {
+                Bootstrap_4: {
+                    supported: true,
+                    comments: '',
+                },
+                Html5: {
+                    supported: true,
+                    comments: '',
+                }
+            },
+            codepen: [],
+        };
+    };
+    return Figure;
+}(_ComponentContainer__WEBPACK_IMPORTED_MODULE_0__["ComponentContainer"]));
+
+
+
+/***/ }),
+
+/***/ "./src/components/Footer.ts":
+/*!**********************************!*\
+  !*** ./src/components/Footer.ts ***!
+  \**********************************/
+/*! exports provided: Footer */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Footer", function() { return Footer; });
+/* harmony import */ var _ComponentContainer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ComponentContainer */ "./src/ComponentContainer.ts");
+/* harmony import */ var _FontAwesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../FontAwesome */ "./src/FontAwesome.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+/**
+ * Footer component
+ *
+ * @copyright Benoit Gauthier <bgauthier555@gmail.com>
+ * @author Benoit Gauthier <bgauthier555@gmail.com>
+ * @licence MIT
+ * @class
+ * @inheritdoc
+ * @public
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/footer
+ */
+var Footer = /** @class */ (function (_super) {
+    __extends(Footer, _super);
+    /**
+     * Component constructor
+     * @param {string} id Component unique id
+     */
+    function Footer(sId) {
+        var _this = _super.call(this, sId) || this;
+        _this.addClass('ux-footer');
+        // noinspection HtmlUnknownAttribute
+        _this._sTemplate = '<footer {attributes}>{child_items}</footer>';
+        _this._sComponentClassName = 'Footer';
+        return _this;
+    }
+    /**
+     * Returns component meta data
+     * @returns {object}
+     */
+    Footer.getMetaData = function () {
+        /**
+         * Static
+         * Component meta data information
+         * category _sIs one of layout | content | component
+         * @type {object}
+         */
+        return {
+            name: 'Footer',
+            description: 'HTML Footer element',
+            category: 'content',
+            icon: _FontAwesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesome"].FA_SQUARE_O,
+            isContainer: true,
+            libraries: {
+                Bootstrap_4: {
+                    supported: true,
+                    comments: '',
+                },
+                Html5: {
+                    supported: true,
+                    comments: '',
+                }
+            },
+            codepen: [],
+        };
+    };
+    return Footer;
+}(_ComponentContainer__WEBPACK_IMPORTED_MODULE_0__["ComponentContainer"]));
+
+
+
+/***/ }),
+
 /***/ "./src/components/Form.ts":
 /*!********************************!*\
   !*** ./src/components/Form.ts ***!
@@ -6926,7 +8172,7 @@ var enumFormMethod;
 })(enumFormMethod || (enumFormMethod = {}));
 
 /**
- * container component
+ * Form component
  *
  * @copyright Benoit Gauthier <bgauthier555@gmail.com>
  * @author Benoit Gauthier <bgauthier555@gmail.com>
@@ -7082,6 +8328,95 @@ var Head = /** @class */ (function (_super) {
 
 /***/ }),
 
+/***/ "./src/components/Header.ts":
+/*!**********************************!*\
+  !*** ./src/components/Header.ts ***!
+  \**********************************/
+/*! exports provided: Header */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Header", function() { return Header; });
+/* harmony import */ var _ComponentContainer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ComponentContainer */ "./src/ComponentContainer.ts");
+/* harmony import */ var _FontAwesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../FontAwesome */ "./src/FontAwesome.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+/**
+ * Header component
+ *
+ * @copyright Benoit Gauthier <bgauthier555@gmail.com>
+ * @author Benoit Gauthier <bgauthier555@gmail.com>
+ * @licence MIT
+ * @class
+ * @inheritdoc
+ * @public
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/header
+ */
+var Header = /** @class */ (function (_super) {
+    __extends(Header, _super);
+    /**
+     * Component constructor
+     * @param {string} id Component unique id
+     */
+    function Header(sId) {
+        var _this = _super.call(this, sId) || this;
+        _this.addClass('ux-header');
+        // noinspection HtmlUnknownAttribute
+        _this._sTemplate = '<header {attributes}>{child_items}</header>';
+        _this._sComponentClassName = 'Header';
+        return _this;
+    }
+    /**
+     * Returns component meta data
+     * @returns {object}
+     */
+    Header.getMetaData = function () {
+        /**
+         * Static
+         * Component meta data information
+         * category _sIs one of layout | content | component
+         * @type {object}
+         */
+        return {
+            name: 'Header',
+            description: 'HTML Header element',
+            category: 'content',
+            icon: _FontAwesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesome"].FA_SQUARE_O,
+            isContainer: true,
+            libraries: {
+                Bootstrap_4: {
+                    supported: true,
+                    comments: '',
+                },
+                Html5: {
+                    supported: true,
+                    comments: '',
+                }
+            },
+            codepen: [],
+        };
+    };
+    return Header;
+}(_ComponentContainer__WEBPACK_IMPORTED_MODULE_0__["ComponentContainer"]));
+
+
+
+/***/ }),
+
 /***/ "./src/components/Heading.ts":
 /*!***********************************!*\
   !*** ./src/components/Heading.ts ***!
@@ -7222,7 +8557,7 @@ var __extends = (undefined && undefined.__extends) || (function () {
 
 
 /**
- * Input control
+ * Hidden Input control
  *
  * @copyright Benoit Gauthier <bgauthier555@gmail.com>
  * @author Benoit Gauthier <bgauthier555@gmail.com>
@@ -7307,7 +8642,7 @@ var __extends = (undefined && undefined.__extends) || (function () {
 
 
 /**
- * Input control
+ * Hr control
  *
  * @copyright Benoit Gauthier <bgauthier555@gmail.com>
  * @author Benoit Gauthier <bgauthier555@gmail.com>
@@ -7341,7 +8676,7 @@ var Hr = /** @class */ (function (_super) {
         return {
             name: 'Hr',
             description: 'HTML Horizontal ruler',
-            category: 'content',
+            category: 'component',
             icon: _FontAwesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesome"].FA_LIST,
             isContainer: false,
             libraries: {
@@ -7453,6 +8788,184 @@ var Html = /** @class */ (function (_super) {
 
 /***/ }),
 
+/***/ "./src/components/I.ts":
+/*!*****************************!*\
+  !*** ./src/components/I.ts ***!
+  \*****************************/
+/*! exports provided: I */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "I", function() { return I; });
+/* harmony import */ var _ComponentContainer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ComponentContainer */ "./src/ComponentContainer.ts");
+/* harmony import */ var _FontAwesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../FontAwesome */ "./src/FontAwesome.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+/**
+ * I component
+ *
+ * @copyright Benoit Gauthier <bgauthier555@gmail.com>
+ * @author Benoit Gauthier <bgauthier555@gmail.com>
+ * @licence MIT
+ * @class
+ * @inheritdoc
+ * @public
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/i
+ */
+var I = /** @class */ (function (_super) {
+    __extends(I, _super);
+    /**
+     * Component constructor
+     * @param {string} id Component unique id
+     */
+    function I(sId) {
+        var _this = _super.call(this, sId) || this;
+        _this.addClass('ux-i');
+        // noinspection HtmlUnknownAttribute
+        _this._sTemplate = '<i {attributes}>{child_items}</i>';
+        _this._sComponentClassName = 'I';
+        return _this;
+    }
+    /**
+     * Returns component meta data
+     * @returns {object}
+     */
+    I.getMetaData = function () {
+        /**
+         * Static
+         * Component meta data information
+         * category _sIs one of layout | content | component
+         * @type {object}
+         */
+        return {
+            name: 'I',
+            description: 'HTML I element',
+            category: 'content',
+            icon: _FontAwesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesome"].FA_SQUARE_O,
+            isContainer: true,
+            libraries: {
+                Bootstrap_4: {
+                    supported: true,
+                    comments: '',
+                },
+                Html5: {
+                    supported: true,
+                    comments: '',
+                }
+            },
+            codepen: [],
+        };
+    };
+    return I;
+}(_ComponentContainer__WEBPACK_IMPORTED_MODULE_0__["ComponentContainer"]));
+
+
+
+/***/ }),
+
+/***/ "./src/components/IFrame.ts":
+/*!**********************************!*\
+  !*** ./src/components/IFrame.ts ***!
+  \**********************************/
+/*! exports provided: IFrame */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "IFrame", function() { return IFrame; });
+/* harmony import */ var _ComponentContainer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ComponentContainer */ "./src/ComponentContainer.ts");
+/* harmony import */ var _FontAwesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../FontAwesome */ "./src/FontAwesome.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+/**
+ * IFrame component
+ *
+ * @copyright Benoit Gauthier <bgauthier555@gmail.com>
+ * @author Benoit Gauthier <bgauthier555@gmail.com>
+ * @licence MIT
+ * @class
+ * @inheritdoc
+ * @public
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe
+ */
+var IFrame = /** @class */ (function (_super) {
+    __extends(IFrame, _super);
+    /**
+     * Component constructor
+     * @param {string} id Component unique id
+     */
+    function IFrame(sId) {
+        var _this = _super.call(this, sId) || this;
+        _this.addClass('ux-iframe');
+        // noinspection HtmlUnknownAttribute
+        _this._sTemplate = '<iframe {attributes}></iframe>';
+        _this._sComponentClassName = 'IFrame';
+        return _this;
+    }
+    /**
+     * Returns component meta data
+     * @returns {object}
+     */
+    IFrame.getMetaData = function () {
+        /**
+         * Static
+         * Component meta data information
+         * category _sIs one of layout | content | component
+         * @type {object}
+         */
+        return {
+            name: 'IFrame',
+            description: 'HTML IFrame element',
+            category: 'content',
+            icon: _FontAwesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesome"].FA_SQUARE_O,
+            isContainer: true,
+            libraries: {
+                Bootstrap_4: {
+                    supported: true,
+                    comments: '',
+                },
+                Html5: {
+                    supported: true,
+                    comments: '',
+                }
+            },
+            codepen: [],
+        };
+    };
+    return IFrame;
+}(_ComponentContainer__WEBPACK_IMPORTED_MODULE_0__["ComponentContainer"]));
+
+
+
+/***/ }),
+
 /***/ "./src/components/Icon.ts":
 /*!********************************!*\
   !*** ./src/components/Icon.ts ***!
@@ -7481,7 +8994,7 @@ var __extends = (undefined && undefined.__extends) || (function () {
 
 
 /**
- * Input control
+ * Icon control
  *
  * @copyright Benoit Gauthier <bgauthier555@gmail.com>
  * @author Benoit Gauthier <bgauthier555@gmail.com>
@@ -7596,7 +9109,7 @@ var __extends = (undefined && undefined.__extends) || (function () {
 
 
 /**
- * Input control
+ * Image control
  *
  * @copyright Benoit Gauthier <bgauthier555@gmail.com>
  * @author Benoit Gauthier <bgauthier555@gmail.com>
@@ -7799,6 +9312,184 @@ var Input = /** @class */ (function (_super) {
 
 /***/ }),
 
+/***/ "./src/components/Ins.ts":
+/*!*******************************!*\
+  !*** ./src/components/Ins.ts ***!
+  \*******************************/
+/*! exports provided: Ins */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Ins", function() { return Ins; });
+/* harmony import */ var _ComponentContainer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ComponentContainer */ "./src/ComponentContainer.ts");
+/* harmony import */ var _FontAwesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../FontAwesome */ "./src/FontAwesome.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+/**
+ * Ins component
+ *
+ * @copyright Benoit Gauthier <bgauthier555@gmail.com>
+ * @author Benoit Gauthier <bgauthier555@gmail.com>
+ * @licence MIT
+ * @class
+ * @inheritdoc
+ * @public
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ins
+ */
+var Ins = /** @class */ (function (_super) {
+    __extends(Ins, _super);
+    /**
+     * Component constructor
+     * @param {string} id Component unique id
+     */
+    function Ins(sId) {
+        var _this = _super.call(this, sId) || this;
+        _this.addClass('ux-ins');
+        // noinspection HtmlUnknownAttribute
+        _this._sTemplate = '<ins {attributes}>{child_items}</ins>';
+        _this._sComponentClassName = 'Ins';
+        return _this;
+    }
+    /**
+     * Returns component meta data
+     * @returns {object}
+     */
+    Ins.getMetaData = function () {
+        /**
+         * Static
+         * Component meta data information
+         * category _sIs one of layout | content | component
+         * @type {object}
+         */
+        return {
+            name: 'Ins',
+            description: 'HTML Ins element',
+            category: 'content',
+            icon: _FontAwesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesome"].FA_SQUARE_O,
+            isContainer: true,
+            libraries: {
+                Bootstrap_4: {
+                    supported: true,
+                    comments: '',
+                },
+                Html5: {
+                    supported: true,
+                    comments: '',
+                }
+            },
+            codepen: [],
+        };
+    };
+    return Ins;
+}(_ComponentContainer__WEBPACK_IMPORTED_MODULE_0__["ComponentContainer"]));
+
+
+
+/***/ }),
+
+/***/ "./src/components/Kbd.ts":
+/*!*******************************!*\
+  !*** ./src/components/Kbd.ts ***!
+  \*******************************/
+/*! exports provided: Kbd */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Kbd", function() { return Kbd; });
+/* harmony import */ var _ComponentContainer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ComponentContainer */ "./src/ComponentContainer.ts");
+/* harmony import */ var _FontAwesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../FontAwesome */ "./src/FontAwesome.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+/**
+ * Kbd component
+ *
+ * @copyright Benoit Gauthier <bgauthier555@gmail.com>
+ * @author Benoit Gauthier <bgauthier555@gmail.com>
+ * @licence MIT
+ * @class
+ * @inheritdoc
+ * @public
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/kbd
+ */
+var Kbd = /** @class */ (function (_super) {
+    __extends(Kbd, _super);
+    /**
+     * Component constructor
+     * @param {string} id Component unique id
+     */
+    function Kbd(sId) {
+        var _this = _super.call(this, sId) || this;
+        _this.addClass('ux-kbd');
+        // noinspection HtmlUnknownAttribute
+        _this._sTemplate = '<kbd {attributes}>{child_items}</kbd>';
+        _this._sComponentClassName = 'Kbd';
+        return _this;
+    }
+    /**
+     * Returns component meta data
+     * @returns {object}
+     */
+    Kbd.getMetaData = function () {
+        /**
+         * Static
+         * Component meta data information
+         * category _sIs one of layout | content | component
+         * @type {object}
+         */
+        return {
+            name: 'Kbd',
+            description: 'HTML Keyboard Input element',
+            category: 'content',
+            icon: _FontAwesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesome"].FA_SQUARE_O,
+            isContainer: true,
+            libraries: {
+                Bootstrap_4: {
+                    supported: true,
+                    comments: '',
+                },
+                Html5: {
+                    supported: true,
+                    comments: '',
+                }
+            },
+            codepen: [],
+        };
+    };
+    return Kbd;
+}(_ComponentContainer__WEBPACK_IMPORTED_MODULE_0__["ComponentContainer"]));
+
+
+
+/***/ }),
+
 /***/ "./src/components/Label.ts":
 /*!*********************************!*\
   !*** ./src/components/Label.ts ***!
@@ -7827,7 +9518,7 @@ var __extends = (undefined && undefined.__extends) || (function () {
 
 
 /**
- * Div component
+ * Label component
  *
  * @copyright Benoit Gauthier <bgauthier555@gmail.com>
  * @author Benoit Gauthier <bgauthier555@gmail.com>
@@ -7888,6 +9579,95 @@ var Label = /** @class */ (function (_super) {
         };
     };
     return Label;
+}(_ComponentContainer__WEBPACK_IMPORTED_MODULE_0__["ComponentContainer"]));
+
+
+
+/***/ }),
+
+/***/ "./src/components/Legend.ts":
+/*!**********************************!*\
+  !*** ./src/components/Legend.ts ***!
+  \**********************************/
+/*! exports provided: Legend */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Legend", function() { return Legend; });
+/* harmony import */ var _ComponentContainer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ComponentContainer */ "./src/ComponentContainer.ts");
+/* harmony import */ var _FontAwesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../FontAwesome */ "./src/FontAwesome.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+/**
+ * Legend component
+ *
+ * @copyright Benoit Gauthier <bgauthier555@gmail.com>
+ * @author Benoit Gauthier <bgauthier555@gmail.com>
+ * @licence MIT
+ * @class
+ * @inheritdoc
+ * @public
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/legend
+ */
+var Legend = /** @class */ (function (_super) {
+    __extends(Legend, _super);
+    /**
+     * Component constructor
+     * @param {string} id Component unique id
+     */
+    function Legend(sId) {
+        var _this = _super.call(this, sId) || this;
+        _this.addClass('ux-legend');
+        // noinspection HtmlUnknownAttribute
+        _this._sTemplate = '<legend {attributes}>{child_items}</legend>';
+        _this._sComponentClassName = 'Legend';
+        return _this;
+    }
+    /**
+     * Returns component meta data
+     * @returns {object}
+     */
+    Legend.getMetaData = function () {
+        /**
+         * Static
+         * Component meta data information
+         * category _sIs one of layout | content | component
+         * @type {object}
+         */
+        return {
+            name: 'Legend',
+            description: 'HTML Legend element',
+            category: 'content',
+            icon: _FontAwesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesome"].FA_SQUARE_O,
+            isContainer: true,
+            libraries: {
+                Bootstrap_4: {
+                    supported: true,
+                    comments: '',
+                },
+                Html5: {
+                    supported: true,
+                    comments: '',
+                }
+            },
+            codepen: [],
+        };
+    };
+    return Legend;
 }(_ComponentContainer__WEBPACK_IMPORTED_MODULE_0__["ComponentContainer"]));
 
 
@@ -7975,6 +9755,896 @@ var Li = /** @class */ (function (_super) {
         };
     };
     return Li;
+}(_ComponentContainer__WEBPACK_IMPORTED_MODULE_0__["ComponentContainer"]));
+
+
+
+/***/ }),
+
+/***/ "./src/components/Link.ts":
+/*!********************************!*\
+  !*** ./src/components/Link.ts ***!
+  \********************************/
+/*! exports provided: Link */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Link", function() { return Link; });
+/* harmony import */ var _ComponentContainer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ComponentContainer */ "./src/ComponentContainer.ts");
+/* harmony import */ var _FontAwesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../FontAwesome */ "./src/FontAwesome.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+/**
+ * Link component
+ *
+ * @copyright Benoit Gauthier <bgauthier555@gmail.com>
+ * @author Benoit Gauthier <bgauthier555@gmail.com>
+ * @licence MIT
+ * @class
+ * @inheritdoc
+ * @public
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link
+ */
+var Link = /** @class */ (function (_super) {
+    __extends(Link, _super);
+    /**
+     * Component constructor
+     * @param {string} id Component unique id
+     */
+    function Link(sId) {
+        var _this = _super.call(this, sId) || this;
+        _this.addClass('ux-link');
+        // noinspection HtmlUnknownAttribute
+        _this._sTemplate = '<link {attributes}>';
+        _this._sComponentClassName = 'Link';
+        return _this;
+    }
+    /**
+     * Returns component meta data
+     * @returns {object}
+     */
+    Link.getMetaData = function () {
+        /**
+         * Static
+         * Component meta data information
+         * category _sIs one of layout | content | component
+         * @type {object}
+         */
+        return {
+            name: 'Link',
+            description: 'HTML Link element',
+            category: 'content',
+            icon: _FontAwesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesome"].FA_SQUARE_O,
+            isContainer: true,
+            libraries: {
+                Bootstrap_4: {
+                    supported: true,
+                    comments: '',
+                },
+                Html5: {
+                    supported: true,
+                    comments: '',
+                }
+            },
+            codepen: [],
+        };
+    };
+    return Link;
+}(_ComponentContainer__WEBPACK_IMPORTED_MODULE_0__["ComponentContainer"]));
+
+
+
+/***/ }),
+
+/***/ "./src/components/Main.ts":
+/*!********************************!*\
+  !*** ./src/components/Main.ts ***!
+  \********************************/
+/*! exports provided: Main */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Main", function() { return Main; });
+/* harmony import */ var _ComponentContainer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ComponentContainer */ "./src/ComponentContainer.ts");
+/* harmony import */ var _FontAwesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../FontAwesome */ "./src/FontAwesome.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+/**
+ * Main component
+ *
+ * @copyright Benoit Gauthier <bgauthier555@gmail.com>
+ * @author Benoit Gauthier <bgauthier555@gmail.com>
+ * @licence MIT
+ * @class
+ * @inheritdoc
+ * @public
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/main
+ */
+var Main = /** @class */ (function (_super) {
+    __extends(Main, _super);
+    /**
+     * Component constructor
+     * @param {string} id Component unique id
+     */
+    function Main(sId) {
+        var _this = _super.call(this, sId) || this;
+        _this.addClass('ux-main');
+        // noinspection HtmlUnknownAttribute
+        _this._sTemplate = '<main {attributes}>{child_items}</main>';
+        _this._sComponentClassName = 'Main';
+        return _this;
+    }
+    /**
+     * Returns component meta data
+     * @returns {object}
+     */
+    Main.getMetaData = function () {
+        /**
+         * Static
+         * Component meta data information
+         * category _sIs one of layout | content | component
+         * @type {object}
+         */
+        return {
+            name: 'Main',
+            description: 'HTML Main element',
+            category: 'content',
+            icon: _FontAwesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesome"].FA_SQUARE_O,
+            isContainer: true,
+            libraries: {
+                Bootstrap_4: {
+                    supported: true,
+                    comments: '',
+                },
+                Html5: {
+                    supported: true,
+                    comments: '',
+                }
+            },
+            codepen: [],
+        };
+    };
+    return Main;
+}(_ComponentContainer__WEBPACK_IMPORTED_MODULE_0__["ComponentContainer"]));
+
+
+
+/***/ }),
+
+/***/ "./src/components/Map.ts":
+/*!*******************************!*\
+  !*** ./src/components/Map.ts ***!
+  \*******************************/
+/*! exports provided: Map */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Map", function() { return Map; });
+/* harmony import */ var _ComponentContainer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ComponentContainer */ "./src/ComponentContainer.ts");
+/* harmony import */ var _FontAwesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../FontAwesome */ "./src/FontAwesome.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+/**
+ * Map component
+ *
+ * @copyright Benoit Gauthier <bgauthier555@gmail.com>
+ * @author Benoit Gauthier <bgauthier555@gmail.com>
+ * @licence MIT
+ * @class
+ * @inheritdoc
+ * @public
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/map
+ */
+var Map = /** @class */ (function (_super) {
+    __extends(Map, _super);
+    /**
+     * Component constructor
+     * @param {string} id Component unique id
+     */
+    function Map(sId) {
+        var _this = _super.call(this, sId) || this;
+        _this.addClass('ux-map');
+        // noinspection HtmlUnknownAttribute
+        _this._sTemplate = '<map {attributes}>{child_items}</map>';
+        _this._sComponentClassName = 'Footer';
+        return _this;
+    }
+    /**
+     * Returns component meta data
+     * @returns {object}
+     */
+    Map.getMetaData = function () {
+        /**
+         * Static
+         * Component meta data information
+         * category _sIs one of layout | content | component
+         * @type {object}
+         */
+        return {
+            name: 'Map',
+            description: 'HTML Map element',
+            category: 'content',
+            icon: _FontAwesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesome"].FA_SQUARE_O,
+            isContainer: true,
+            libraries: {
+                Bootstrap_4: {
+                    supported: true,
+                    comments: '',
+                },
+                Html5: {
+                    supported: true,
+                    comments: '',
+                }
+            },
+            codepen: [],
+        };
+    };
+    return Map;
+}(_ComponentContainer__WEBPACK_IMPORTED_MODULE_0__["ComponentContainer"]));
+
+
+
+/***/ }),
+
+/***/ "./src/components/Mark.ts":
+/*!********************************!*\
+  !*** ./src/components/Mark.ts ***!
+  \********************************/
+/*! exports provided: Mark */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Mark", function() { return Mark; });
+/* harmony import */ var _ComponentContainer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ComponentContainer */ "./src/ComponentContainer.ts");
+/* harmony import */ var _FontAwesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../FontAwesome */ "./src/FontAwesome.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+/**
+ * Mark component
+ *
+ * @copyright Benoit Gauthier <bgauthier555@gmail.com>
+ * @author Benoit Gauthier <bgauthier555@gmail.com>
+ * @licence MIT
+ * @class
+ * @inheritdoc
+ * @public
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/mark
+ */
+var Mark = /** @class */ (function (_super) {
+    __extends(Mark, _super);
+    /**
+     * Component constructor
+     * @param {string} id Component unique id
+     */
+    function Mark(sId) {
+        var _this = _super.call(this, sId) || this;
+        _this.addClass('ux-mark');
+        // noinspection HtmlUnknownAttribute
+        _this._sTemplate = '<mark {attributes}>{child_items}</mark>';
+        _this._sComponentClassName = 'Mark';
+        return _this;
+    }
+    /**
+     * Returns component meta data
+     * @returns {object}
+     */
+    Mark.getMetaData = function () {
+        /**
+         * Static
+         * Component meta data information
+         * category _sIs one of layout | content | component
+         * @type {object}
+         */
+        return {
+            name: 'Mark',
+            description: 'HTML Mark element',
+            category: 'content',
+            icon: _FontAwesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesome"].FA_SQUARE_O,
+            isContainer: true,
+            libraries: {
+                Bootstrap_4: {
+                    supported: true,
+                    comments: '',
+                },
+                Html5: {
+                    supported: true,
+                    comments: '',
+                }
+            },
+            codepen: [],
+        };
+    };
+    return Mark;
+}(_ComponentContainer__WEBPACK_IMPORTED_MODULE_0__["ComponentContainer"]));
+
+
+
+/***/ }),
+
+/***/ "./src/components/Menu.ts":
+/*!********************************!*\
+  !*** ./src/components/Menu.ts ***!
+  \********************************/
+/*! exports provided: Menu */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Menu", function() { return Menu; });
+/* harmony import */ var _ComponentContainer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ComponentContainer */ "./src/ComponentContainer.ts");
+/* harmony import */ var _FontAwesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../FontAwesome */ "./src/FontAwesome.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+/**
+ * Menu component
+ *
+ * @copyright Benoit Gauthier <bgauthier555@gmail.com>
+ * @author Benoit Gauthier <bgauthier555@gmail.com>
+ * @licence MIT
+ * @class
+ * @inheritdoc
+ * @public
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/menu
+ */
+var Menu = /** @class */ (function (_super) {
+    __extends(Menu, _super);
+    /**
+     * Component constructor
+     * @param {string} id Component unique id
+     */
+    function Menu(sId) {
+        var _this = _super.call(this, sId) || this;
+        _this.addClass('ux-menu');
+        // noinspection HtmlUnknownAttribute
+        _this._sTemplate = '<menu {attributes}>{child_items}</menu>';
+        _this._sComponentClassName = 'Menu';
+        return _this;
+    }
+    /**
+     * Returns component meta data
+     * @returns {object}
+     */
+    Menu.getMetaData = function () {
+        /**
+         * Static
+         * Component meta data information
+         * category _sIs one of layout | content | component
+         * @type {object}
+         */
+        return {
+            name: 'Menu',
+            description: 'HTML Menu element',
+            category: 'content',
+            icon: _FontAwesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesome"].FA_SQUARE_O,
+            isContainer: true,
+            libraries: {
+                Bootstrap_4: {
+                    supported: true,
+                    comments: '',
+                },
+                Html5: {
+                    supported: true,
+                    comments: '',
+                }
+            },
+            codepen: [],
+        };
+    };
+    return Menu;
+}(_ComponentContainer__WEBPACK_IMPORTED_MODULE_0__["ComponentContainer"]));
+
+
+
+/***/ }),
+
+/***/ "./src/components/Meta.ts":
+/*!********************************!*\
+  !*** ./src/components/Meta.ts ***!
+  \********************************/
+/*! exports provided: Meta */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Meta", function() { return Meta; });
+/* harmony import */ var _ComponentContainer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ComponentContainer */ "./src/ComponentContainer.ts");
+/* harmony import */ var _FontAwesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../FontAwesome */ "./src/FontAwesome.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+/**
+ * Meta component
+ *
+ * @copyright Benoit Gauthier <bgauthier555@gmail.com>
+ * @author Benoit Gauthier <bgauthier555@gmail.com>
+ * @licence MIT
+ * @class
+ * @inheritdoc
+ * @public
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta
+ */
+var Meta = /** @class */ (function (_super) {
+    __extends(Meta, _super);
+    /**
+     * Component constructor
+     * @param {string} id Component unique id
+     */
+    function Meta(sId) {
+        var _this = _super.call(this, sId) || this;
+        _this.addClass('ux-meta');
+        // noinspection HtmlUnknownAttribute
+        _this._sTemplate = '<meta {attributes}>';
+        _this._sComponentClassName = 'Meta';
+        return _this;
+    }
+    /**
+     * Returns component meta data
+     * @returns {object}
+     */
+    Meta.getMetaData = function () {
+        /**
+         * Static
+         * Component meta data information
+         * category _sIs one of layout | content | component
+         * @type {object}
+         */
+        return {
+            name: 'Meta',
+            description: 'HTML Meta element',
+            category: 'content',
+            icon: _FontAwesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesome"].FA_SQUARE_O,
+            isContainer: true,
+            libraries: {
+                Bootstrap_4: {
+                    supported: true,
+                    comments: '',
+                },
+                Html5: {
+                    supported: true,
+                    comments: '',
+                }
+            },
+            codepen: [],
+        };
+    };
+    return Meta;
+}(_ComponentContainer__WEBPACK_IMPORTED_MODULE_0__["ComponentContainer"]));
+
+
+
+/***/ }),
+
+/***/ "./src/components/Meter.ts":
+/*!*********************************!*\
+  !*** ./src/components/Meter.ts ***!
+  \*********************************/
+/*! exports provided: Meter */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Meter", function() { return Meter; });
+/* harmony import */ var _ComponentContainer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ComponentContainer */ "./src/ComponentContainer.ts");
+/* harmony import */ var _FontAwesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../FontAwesome */ "./src/FontAwesome.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+/**
+ * Meter component
+ *
+ * @copyright Benoit Gauthier <bgauthier555@gmail.com>
+ * @author Benoit Gauthier <bgauthier555@gmail.com>
+ * @licence MIT
+ * @class
+ * @inheritdoc
+ * @public
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meter
+ */
+var Meter = /** @class */ (function (_super) {
+    __extends(Meter, _super);
+    /**
+     * Component constructor
+     * @param {string} id Component unique id
+     */
+    function Meter(sId) {
+        var _this = _super.call(this, sId) || this;
+        _this.addClass('ux-meter');
+        // noinspection HtmlUnknownAttribute
+        _this._sTemplate = '<meter {attributes}>{child_items}</meter>';
+        _this._sComponentClassName = 'Meter';
+        return _this;
+    }
+    /**
+     * Returns component meta data
+     * @returns {object}
+     */
+    Meter.getMetaData = function () {
+        /**
+         * Static
+         * Component meta data information
+         * category _sIs one of layout | content | component
+         * @type {object}
+         */
+        return {
+            name: 'Meter',
+            description: 'HTML Meter element',
+            category: 'content',
+            icon: _FontAwesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesome"].FA_SQUARE_O,
+            isContainer: true,
+            libraries: {
+                Bootstrap_4: {
+                    supported: true,
+                    comments: '',
+                },
+                Html5: {
+                    supported: true,
+                    comments: '',
+                }
+            },
+            codepen: [],
+        };
+    };
+    return Meter;
+}(_ComponentContainer__WEBPACK_IMPORTED_MODULE_0__["ComponentContainer"]));
+
+
+
+/***/ }),
+
+/***/ "./src/components/Nav.ts":
+/*!*******************************!*\
+  !*** ./src/components/Nav.ts ***!
+  \*******************************/
+/*! exports provided: Nav */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Nav", function() { return Nav; });
+/* harmony import */ var _ComponentContainer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ComponentContainer */ "./src/ComponentContainer.ts");
+/* harmony import */ var _FontAwesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../FontAwesome */ "./src/FontAwesome.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+/**
+ * Nav component
+ *
+ * @copyright Benoit Gauthier <bgauthier555@gmail.com>
+ * @author Benoit Gauthier <bgauthier555@gmail.com>
+ * @licence MIT
+ * @class
+ * @inheritdoc
+ * @public
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/nav
+ */
+var Nav = /** @class */ (function (_super) {
+    __extends(Nav, _super);
+    /**
+     * Component constructor
+     * @param {string} id Component unique id
+     */
+    function Nav(sId) {
+        var _this = _super.call(this, sId) || this;
+        _this.addClass('ux-nav');
+        // noinspection HtmlUnknownAttribute
+        _this._sTemplate = '<nav {attributes}>{child_items}</nav>';
+        _this._sComponentClassName = 'Nav';
+        return _this;
+    }
+    /**
+     * Returns component meta data
+     * @returns {object}
+     */
+    Nav.getMetaData = function () {
+        /**
+         * Static
+         * Component meta data information
+         * category _sIs one of layout | content | component
+         * @type {object}
+         */
+        return {
+            name: 'Nav',
+            description: 'HTML Nav element',
+            category: 'content',
+            icon: _FontAwesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesome"].FA_SQUARE_O,
+            isContainer: true,
+            libraries: {
+                Bootstrap_4: {
+                    supported: true,
+                    comments: '',
+                },
+                Html5: {
+                    supported: true,
+                    comments: '',
+                }
+            },
+            codepen: [],
+        };
+    };
+    return Nav;
+}(_ComponentContainer__WEBPACK_IMPORTED_MODULE_0__["ComponentContainer"]));
+
+
+
+/***/ }),
+
+/***/ "./src/components/NoScript.ts":
+/*!************************************!*\
+  !*** ./src/components/NoScript.ts ***!
+  \************************************/
+/*! exports provided: NoScript */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NoScript", function() { return NoScript; });
+/* harmony import */ var _ComponentContainer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ComponentContainer */ "./src/ComponentContainer.ts");
+/* harmony import */ var _FontAwesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../FontAwesome */ "./src/FontAwesome.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+/**
+ * NoScript component
+ *
+ * @copyright Benoit Gauthier <bgauthier555@gmail.com>
+ * @author Benoit Gauthier <bgauthier555@gmail.com>
+ * @licence MIT
+ * @class
+ * @inheritdoc
+ * @public
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/noscript
+ */
+var NoScript = /** @class */ (function (_super) {
+    __extends(NoScript, _super);
+    /**
+     * Component constructor
+     * @param {string} id Component unique id
+     */
+    function NoScript(sId) {
+        var _this = _super.call(this, sId) || this;
+        _this.addClass('ux-noscript');
+        // noinspection HtmlUnknownAttribute
+        _this._sTemplate = '<noscript {attributes}>{child_items}</noscript>';
+        _this._sComponentClassName = 'NoScript';
+        return _this;
+    }
+    /**
+     * Returns component meta data
+     * @returns {object}
+     */
+    NoScript.getMetaData = function () {
+        /**
+         * Static
+         * Component meta data information
+         * category _sIs one of layout | content | component
+         * @type {object}
+         */
+        return {
+            name: 'NoScript',
+            description: 'HTML NoScript element',
+            category: 'content',
+            icon: _FontAwesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesome"].FA_SQUARE_O,
+            isContainer: true,
+            libraries: {
+                Bootstrap_4: {
+                    supported: true,
+                    comments: '',
+                },
+                Html5: {
+                    supported: true,
+                    comments: '',
+                }
+            },
+            codepen: [],
+        };
+    };
+    return NoScript;
+}(_ComponentContainer__WEBPACK_IMPORTED_MODULE_0__["ComponentContainer"]));
+
+
+
+/***/ }),
+
+/***/ "./src/components/ObjectComponent.ts":
+/*!*******************************************!*\
+  !*** ./src/components/ObjectComponent.ts ***!
+  \*******************************************/
+/*! exports provided: ObjectComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ObjectComponent", function() { return ObjectComponent; });
+/* harmony import */ var _ComponentContainer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ComponentContainer */ "./src/ComponentContainer.ts");
+/* harmony import */ var _FontAwesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../FontAwesome */ "./src/FontAwesome.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+/**
+ * Object component
+ *
+ * @copyright Benoit Gauthier <bgauthier555@gmail.com>
+ * @author Benoit Gauthier <bgauthier555@gmail.com>
+ * @licence MIT
+ * @class
+ * @inheritdoc
+ * @public
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/object
+ */
+var ObjectComponent = /** @class */ (function (_super) {
+    __extends(ObjectComponent, _super);
+    /**
+     * Component constructor
+     * @param {string} id Component unique id
+     */
+    function ObjectComponent(sId) {
+        var _this = _super.call(this, sId) || this;
+        _this.addClass('ux-object');
+        // noinspection HtmlUnknownAttribute
+        _this._sTemplate = '<object {attributes}>{child_items}</object>';
+        _this._sComponentClassName = 'ObjectComponent';
+        return _this;
+    }
+    /**
+     * Returns component meta data
+     * @returns {object}
+     */
+    ObjectComponent.getMetaData = function () {
+        /**
+         * Static
+         * Component meta data information
+         * category _sIs one of layout | content | component
+         * @type {object}
+         */
+        return {
+            name: 'ObjectComponent',
+            description: 'HTML Object element',
+            category: 'content',
+            icon: _FontAwesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesome"].FA_SQUARE_O,
+            isContainer: true,
+            libraries: {
+                Bootstrap_4: {
+                    supported: true,
+                    comments: '',
+                },
+                Html5: {
+                    supported: true,
+                    comments: '',
+                }
+            },
+            codepen: [],
+        };
+    };
+    return ObjectComponent;
 }(_ComponentContainer__WEBPACK_IMPORTED_MODULE_0__["ComponentContainer"]));
 
 
@@ -8076,6 +10746,95 @@ var Ol = /** @class */ (function (_super) {
 
 /***/ }),
 
+/***/ "./src/components/OptGroup.ts":
+/*!************************************!*\
+  !*** ./src/components/OptGroup.ts ***!
+  \************************************/
+/*! exports provided: OptGroup */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OptGroup", function() { return OptGroup; });
+/* harmony import */ var _ComponentContainer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ComponentContainer */ "./src/ComponentContainer.ts");
+/* harmony import */ var _FontAwesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../FontAwesome */ "./src/FontAwesome.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+/**
+ * OptGroup component
+ *
+ * @copyright Benoit Gauthier <bgauthier555@gmail.com>
+ * @author Benoit Gauthier <bgauthier555@gmail.com>
+ * @licence MIT
+ * @class
+ * @inheritdoc
+ * @public
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/optgroup
+ */
+var OptGroup = /** @class */ (function (_super) {
+    __extends(OptGroup, _super);
+    /**
+     * Component constructor
+     * @param {string} id Component unique id
+     */
+    function OptGroup(sId) {
+        var _this = _super.call(this, sId) || this;
+        _this.addClass('ux-optgroup');
+        // noinspection HtmlUnknownAttribute
+        _this._sTemplate = '<optgroup {attributes}>{child_items}</optgroup>';
+        _this._sComponentClassName = 'OptGroup';
+        return _this;
+    }
+    /**
+     * Returns component meta data
+     * @returns {object}
+     */
+    OptGroup.getMetaData = function () {
+        /**
+         * Static
+         * Component meta data information
+         * category _sIs one of layout | content | component
+         * @type {object}
+         */
+        return {
+            name: 'OptGroup',
+            description: 'HTML OptGroup element',
+            category: 'content',
+            icon: _FontAwesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesome"].FA_SQUARE_O,
+            isContainer: true,
+            libraries: {
+                Bootstrap_4: {
+                    supported: true,
+                    comments: '',
+                },
+                Html5: {
+                    supported: true,
+                    comments: '',
+                }
+            },
+            codepen: [],
+        };
+    };
+    return OptGroup;
+}(_ComponentContainer__WEBPACK_IMPORTED_MODULE_0__["ComponentContainer"]));
+
+
+
+/***/ }),
+
 /***/ "./src/components/Option.ts":
 /*!**********************************!*\
   !*** ./src/components/Option.ts ***!
@@ -8102,7 +10861,7 @@ var __extends = (undefined && undefined.__extends) || (function () {
 })();
 
 /**
- * Div component
+ * Option component
  *
  * @copyright Benoit Gauthier <bgauthier555@gmail.com>
  * @author Benoit Gauthier <bgauthier555@gmail.com>
@@ -8161,6 +10920,95 @@ var Option = /** @class */ (function (_super) {
         };
     };
     return Option;
+}(_ComponentContainer__WEBPACK_IMPORTED_MODULE_0__["ComponentContainer"]));
+
+
+
+/***/ }),
+
+/***/ "./src/components/Output.ts":
+/*!**********************************!*\
+  !*** ./src/components/Output.ts ***!
+  \**********************************/
+/*! exports provided: Output */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Output", function() { return Output; });
+/* harmony import */ var _ComponentContainer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ComponentContainer */ "./src/ComponentContainer.ts");
+/* harmony import */ var _FontAwesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../FontAwesome */ "./src/FontAwesome.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+/**
+ * Output component
+ *
+ * @copyright Benoit Gauthier <bgauthier555@gmail.com>
+ * @author Benoit Gauthier <bgauthier555@gmail.com>
+ * @licence MIT
+ * @class
+ * @inheritdoc
+ * @public
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/output
+ */
+var Output = /** @class */ (function (_super) {
+    __extends(Output, _super);
+    /**
+     * Component constructor
+     * @param {string} id Component unique id
+     */
+    function Output(sId) {
+        var _this = _super.call(this, sId) || this;
+        _this.addClass('ux-output');
+        // noinspection HtmlUnknownAttribute
+        _this._sTemplate = '<output {attributes}>{child_items}</output>';
+        _this._sComponentClassName = 'Output';
+        return _this;
+    }
+    /**
+     * Returns component meta data
+     * @returns {object}
+     */
+    Output.getMetaData = function () {
+        /**
+         * Static
+         * Component meta data information
+         * category _sIs one of layout | content | component
+         * @type {object}
+         */
+        return {
+            name: 'Output',
+            description: 'HTML Output element',
+            category: 'content',
+            icon: _FontAwesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesome"].FA_SQUARE_O,
+            isContainer: true,
+            libraries: {
+                Bootstrap_4: {
+                    supported: true,
+                    comments: '',
+                },
+                Html5: {
+                    supported: true,
+                    comments: '',
+                }
+            },
+            codepen: [],
+        };
+    };
+    return Output;
 }(_ComponentContainer__WEBPACK_IMPORTED_MODULE_0__["ComponentContainer"]));
 
 
@@ -8262,6 +11110,95 @@ var Paragraph = /** @class */ (function (_super) {
 
 /***/ }),
 
+/***/ "./src/components/Param.ts":
+/*!*********************************!*\
+  !*** ./src/components/Param.ts ***!
+  \*********************************/
+/*! exports provided: Param */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Param", function() { return Param; });
+/* harmony import */ var _ComponentContainer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ComponentContainer */ "./src/ComponentContainer.ts");
+/* harmony import */ var _FontAwesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../FontAwesome */ "./src/FontAwesome.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+/**
+ * Param component
+ *
+ * @copyright Benoit Gauthier <bgauthier555@gmail.com>
+ * @author Benoit Gauthier <bgauthier555@gmail.com>
+ * @licence MIT
+ * @class
+ * @inheritdoc
+ * @public
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/param
+ */
+var Param = /** @class */ (function (_super) {
+    __extends(Param, _super);
+    /**
+     * Component constructor
+     * @param {string} id Component unique id
+     */
+    function Param(sId) {
+        var _this = _super.call(this, sId) || this;
+        _this.addClass('ux-param');
+        // noinspection HtmlUnknownAttribute
+        _this._sTemplate = '<param {attributes}>';
+        _this._sComponentClassName = 'Param';
+        return _this;
+    }
+    /**
+     * Returns component meta data
+     * @returns {object}
+     */
+    Param.getMetaData = function () {
+        /**
+         * Static
+         * Component meta data information
+         * category _sIs one of layout | content | component
+         * @type {object}
+         */
+        return {
+            name: 'Param',
+            description: 'HTML Param element',
+            category: 'content',
+            icon: _FontAwesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesome"].FA_SQUARE_O,
+            isContainer: true,
+            libraries: {
+                Bootstrap_4: {
+                    supported: true,
+                    comments: '',
+                },
+                Html5: {
+                    supported: true,
+                    comments: '',
+                }
+            },
+            codepen: [],
+        };
+    };
+    return Param;
+}(_ComponentContainer__WEBPACK_IMPORTED_MODULE_0__["ComponentContainer"]));
+
+
+
+/***/ }),
+
 /***/ "./src/components/Password.ts":
 /*!************************************!*\
   !*** ./src/components/Password.ts ***!
@@ -8340,6 +11277,95 @@ var Password = /** @class */ (function (_super) {
     };
     return Password;
 }(_Input__WEBPACK_IMPORTED_MODULE_0__["Input"]));
+
+
+
+/***/ }),
+
+/***/ "./src/components/Picture.ts":
+/*!***********************************!*\
+  !*** ./src/components/Picture.ts ***!
+  \***********************************/
+/*! exports provided: Picture */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Picture", function() { return Picture; });
+/* harmony import */ var _ComponentContainer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ComponentContainer */ "./src/ComponentContainer.ts");
+/* harmony import */ var _FontAwesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../FontAwesome */ "./src/FontAwesome.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+/**
+ * Picture component
+ *
+ * @copyright Benoit Gauthier <bgauthier555@gmail.com>
+ * @author Benoit Gauthier <bgauthier555@gmail.com>
+ * @licence MIT
+ * @class
+ * @inheritdoc
+ * @public
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/picture
+ */
+var Picture = /** @class */ (function (_super) {
+    __extends(Picture, _super);
+    /**
+     * Component constructor
+     * @param {string} id Component unique id
+     */
+    function Picture(sId) {
+        var _this = _super.call(this, sId) || this;
+        _this.addClass('ux-picture');
+        // noinspection HtmlUnknownAttribute
+        _this._sTemplate = '<picture {attributes}>{child_items}</picture>';
+        _this._sComponentClassName = 'Picture';
+        return _this;
+    }
+    /**
+     * Returns component meta data
+     * @returns {object}
+     */
+    Picture.getMetaData = function () {
+        /**
+         * Static
+         * Component meta data information
+         * category _sIs one of layout | content | component
+         * @type {object}
+         */
+        return {
+            name: 'Picture',
+            description: 'HTML Picture element',
+            category: 'content',
+            icon: _FontAwesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesome"].FA_SQUARE_O,
+            isContainer: true,
+            libraries: {
+                Bootstrap_4: {
+                    supported: true,
+                    comments: '',
+                },
+                Html5: {
+                    supported: true,
+                    comments: '',
+                }
+            },
+            codepen: [],
+        };
+    };
+    return Picture;
+}(_ComponentContainer__WEBPACK_IMPORTED_MODULE_0__["ComponentContainer"]));
 
 
 
@@ -8432,6 +11458,184 @@ var Pre = /** @class */ (function (_super) {
 
 /***/ }),
 
+/***/ "./src/components/Progress.ts":
+/*!************************************!*\
+  !*** ./src/components/Progress.ts ***!
+  \************************************/
+/*! exports provided: Progress */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Progress", function() { return Progress; });
+/* harmony import */ var _ComponentContainer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ComponentContainer */ "./src/ComponentContainer.ts");
+/* harmony import */ var _FontAwesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../FontAwesome */ "./src/FontAwesome.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+/**
+ * Progress component
+ *
+ * @copyright Benoit Gauthier <bgauthier555@gmail.com>
+ * @author Benoit Gauthier <bgauthier555@gmail.com>
+ * @licence MIT
+ * @class
+ * @inheritdoc
+ * @public
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/progress
+ */
+var Progress = /** @class */ (function (_super) {
+    __extends(Progress, _super);
+    /**
+     * Component constructor
+     * @param {string} id Component unique id
+     */
+    function Progress(sId) {
+        var _this = _super.call(this, sId) || this;
+        _this.addClass('ux-progress');
+        // noinspection HtmlUnknownAttribute
+        _this._sTemplate = '<progress {attributes}>{child_items}</progress>';
+        _this._sComponentClassName = 'Progress';
+        return _this;
+    }
+    /**
+     * Returns component meta data
+     * @returns {object}
+     */
+    Progress.getMetaData = function () {
+        /**
+         * Static
+         * Component meta data information
+         * category _sIs one of layout | content | component
+         * @type {object}
+         */
+        return {
+            name: 'Progress',
+            description: 'HTML Progress element',
+            category: 'content',
+            icon: _FontAwesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesome"].FA_SQUARE_O,
+            isContainer: true,
+            libraries: {
+                Bootstrap_4: {
+                    supported: true,
+                    comments: '',
+                },
+                Html5: {
+                    supported: true,
+                    comments: '',
+                }
+            },
+            codepen: [],
+        };
+    };
+    return Progress;
+}(_ComponentContainer__WEBPACK_IMPORTED_MODULE_0__["ComponentContainer"]));
+
+
+
+/***/ }),
+
+/***/ "./src/components/Q.ts":
+/*!*****************************!*\
+  !*** ./src/components/Q.ts ***!
+  \*****************************/
+/*! exports provided: Q */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Q", function() { return Q; });
+/* harmony import */ var _ComponentContainer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ComponentContainer */ "./src/ComponentContainer.ts");
+/* harmony import */ var _FontAwesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../FontAwesome */ "./src/FontAwesome.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+/**
+ * Q component
+ *
+ * @copyright Benoit Gauthier <bgauthier555@gmail.com>
+ * @author Benoit Gauthier <bgauthier555@gmail.com>
+ * @licence MIT
+ * @class
+ * @inheritdoc
+ * @public
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/q
+ */
+var Q = /** @class */ (function (_super) {
+    __extends(Q, _super);
+    /**
+     * Component constructor
+     * @param {string} id Component unique id
+     */
+    function Q(sId) {
+        var _this = _super.call(this, sId) || this;
+        _this.addClass('ux-q');
+        // noinspection HtmlUnknownAttribute
+        _this._sTemplate = '<q {attributes}>{child_items}</q>';
+        _this._sComponentClassName = 'Q';
+        return _this;
+    }
+    /**
+     * Returns component meta data
+     * @returns {object}
+     */
+    Q.getMetaData = function () {
+        /**
+         * Static
+         * Component meta data information
+         * category _sIs one of layout | content | component
+         * @type {object}
+         */
+        return {
+            name: 'Q',
+            description: 'HTML Quotation element',
+            category: 'content',
+            icon: _FontAwesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesome"].FA_SQUARE_O,
+            isContainer: true,
+            libraries: {
+                Bootstrap_4: {
+                    supported: true,
+                    comments: '',
+                },
+                Html5: {
+                    supported: true,
+                    comments: '',
+                }
+            },
+            codepen: [],
+        };
+    };
+    return Q;
+}(_ComponentContainer__WEBPACK_IMPORTED_MODULE_0__["ComponentContainer"]));
+
+
+
+/***/ }),
+
 /***/ "./src/components/Radio.ts":
 /*!*********************************!*\
   !*** ./src/components/Radio.ts ***!
@@ -8460,7 +11664,7 @@ var __extends = (undefined && undefined.__extends) || (function () {
 
 
 /**
- * Password control
+ * Radio control
  *
  * @copyright Benoit Gauthier <bgauthier555@gmail.com>
  * @author Benoit Gauthier <bgauthier555@gmail.com>
@@ -8506,6 +11710,95 @@ var Radio = /** @class */ (function (_super) {
     };
     return Radio;
 }(_Input__WEBPACK_IMPORTED_MODULE_0__["Input"]));
+
+
+
+/***/ }),
+
+/***/ "./src/components/Rb.ts":
+/*!******************************!*\
+  !*** ./src/components/Rb.ts ***!
+  \******************************/
+/*! exports provided: Rb */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Rb", function() { return Rb; });
+/* harmony import */ var _ComponentContainer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ComponentContainer */ "./src/ComponentContainer.ts");
+/* harmony import */ var _FontAwesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../FontAwesome */ "./src/FontAwesome.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+/**
+ * Rb component
+ *
+ * @copyright Benoit Gauthier <bgauthier555@gmail.com>
+ * @author Benoit Gauthier <bgauthier555@gmail.com>
+ * @licence MIT
+ * @class
+ * @inheritdoc
+ * @public
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rb
+ */
+var Rb = /** @class */ (function (_super) {
+    __extends(Rb, _super);
+    /**
+     * Component constructor
+     * @param {string} id Component unique id
+     */
+    function Rb(sId) {
+        var _this = _super.call(this, sId) || this;
+        _this.addClass('ux-rb');
+        // noinspection HtmlUnknownAttribute
+        _this._sTemplate = '<rb {attributes}>{child_items}</rb>';
+        _this._sComponentClassName = 'Rb';
+        return _this;
+    }
+    /**
+     * Returns component meta data
+     * @returns {object}
+     */
+    Rb.getMetaData = function () {
+        /**
+         * Static
+         * Component meta data information
+         * category _sIs one of layout | content | component
+         * @type {object}
+         */
+        return {
+            name: 'Rb',
+            description: 'HTML Ruby Base element',
+            category: 'content',
+            icon: _FontAwesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesome"].FA_SQUARE_O,
+            isContainer: true,
+            libraries: {
+                Bootstrap_4: {
+                    supported: true,
+                    comments: '',
+                },
+                Html5: {
+                    supported: true,
+                    comments: '',
+                }
+            },
+            codepen: [],
+        };
+    };
+    return Rb;
+}(_ComponentContainer__WEBPACK_IMPORTED_MODULE_0__["ComponentContainer"]));
 
 
 
@@ -8611,6 +11904,629 @@ var Row = /** @class */ (function (_super) {
 
 /***/ }),
 
+/***/ "./src/components/Rt.ts":
+/*!******************************!*\
+  !*** ./src/components/Rt.ts ***!
+  \******************************/
+/*! exports provided: Rt */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Rt", function() { return Rt; });
+/* harmony import */ var _ComponentContainer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ComponentContainer */ "./src/ComponentContainer.ts");
+/* harmony import */ var _FontAwesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../FontAwesome */ "./src/FontAwesome.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+/**
+ * Rt component
+ *
+ * @copyright Benoit Gauthier <bgauthier555@gmail.com>
+ * @author Benoit Gauthier <bgauthier555@gmail.com>
+ * @licence MIT
+ * @class
+ * @inheritdoc
+ * @public
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rt
+ */
+var Rt = /** @class */ (function (_super) {
+    __extends(Rt, _super);
+    /**
+     * Component constructor
+     * @param {string} id Component unique id
+     */
+    function Rt(sId) {
+        var _this = _super.call(this, sId) || this;
+        _this.addClass('ux-rt');
+        // noinspection HtmlUnknownAttribute
+        _this._sTemplate = '<rt {attributes}>{child_items}</rt>';
+        _this._sComponentClassName = 'Rt';
+        return _this;
+    }
+    /**
+     * Returns component meta data
+     * @returns {object}
+     */
+    Rt.getMetaData = function () {
+        /**
+         * Static
+         * Component meta data information
+         * category _sIs one of layout | content | component
+         * @type {object}
+         */
+        return {
+            name: 'Rt',
+            description: 'HTML Ruby text element',
+            category: 'content',
+            icon: _FontAwesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesome"].FA_SQUARE_O,
+            isContainer: true,
+            libraries: {
+                Bootstrap_4: {
+                    supported: true,
+                    comments: '',
+                },
+                Html5: {
+                    supported: true,
+                    comments: '',
+                }
+            },
+            codepen: [],
+        };
+    };
+    return Rt;
+}(_ComponentContainer__WEBPACK_IMPORTED_MODULE_0__["ComponentContainer"]));
+
+
+
+/***/ }),
+
+/***/ "./src/components/Rtc.ts":
+/*!*******************************!*\
+  !*** ./src/components/Rtc.ts ***!
+  \*******************************/
+/*! exports provided: Rtc */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Rtc", function() { return Rtc; });
+/* harmony import */ var _ComponentContainer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ComponentContainer */ "./src/ComponentContainer.ts");
+/* harmony import */ var _FontAwesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../FontAwesome */ "./src/FontAwesome.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+/**
+ * Rtc component
+ *
+ * @copyright Benoit Gauthier <bgauthier555@gmail.com>
+ * @author Benoit Gauthier <bgauthier555@gmail.com>
+ * @licence MIT
+ * @class
+ * @inheritdoc
+ * @public
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/rtc
+ */
+var Rtc = /** @class */ (function (_super) {
+    __extends(Rtc, _super);
+    /**
+     * Component constructor
+     * @param {string} id Component unique id
+     */
+    function Rtc(sId) {
+        var _this = _super.call(this, sId) || this;
+        _this.addClass('ux-rtc');
+        // noinspection HtmlUnknownAttribute
+        _this._sTemplate = '<rtc {attributes}>{child_items}</rtc>';
+        _this._sComponentClassName = 'Rtc';
+        return _this;
+    }
+    /**
+     * Returns component meta data
+     * @returns {object}
+     */
+    Rtc.getMetaData = function () {
+        /**
+         * Static
+         * Component meta data information
+         * category _sIs one of layout | content | component
+         * @type {object}
+         */
+        return {
+            name: 'Rtc',
+            description: 'HTML Ruby text container element',
+            category: 'content',
+            icon: _FontAwesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesome"].FA_SQUARE_O,
+            isContainer: true,
+            libraries: {
+                Bootstrap_4: {
+                    supported: true,
+                    comments: '',
+                },
+                Html5: {
+                    supported: true,
+                    comments: '',
+                }
+            },
+            codepen: [],
+        };
+    };
+    return Rtc;
+}(_ComponentContainer__WEBPACK_IMPORTED_MODULE_0__["ComponentContainer"]));
+
+
+
+/***/ }),
+
+/***/ "./src/components/Ruby.ts":
+/*!********************************!*\
+  !*** ./src/components/Ruby.ts ***!
+  \********************************/
+/*! exports provided: Ruby */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Ruby", function() { return Ruby; });
+/* harmony import */ var _ComponentContainer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ComponentContainer */ "./src/ComponentContainer.ts");
+/* harmony import */ var _FontAwesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../FontAwesome */ "./src/FontAwesome.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+/**
+ * Ruby component
+ *
+ * @copyright Benoit Gauthier <bgauthier555@gmail.com>
+ * @author Benoit Gauthier <bgauthier555@gmail.com>
+ * @licence MIT
+ * @class
+ * @inheritdoc
+ * @public
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ruby
+ */
+var Ruby = /** @class */ (function (_super) {
+    __extends(Ruby, _super);
+    /**
+     * Component constructor
+     * @param {string} id Component unique id
+     */
+    function Ruby(sId) {
+        var _this = _super.call(this, sId) || this;
+        _this.addClass('ux-ruby');
+        // noinspection HtmlUnknownAttribute
+        _this._sTemplate = '<ruby {attributes}>{child_items}</ruby>';
+        _this._sComponentClassName = 'Ruby';
+        return _this;
+    }
+    /**
+     * Returns component meta data
+     * @returns {object}
+     */
+    Ruby.getMetaData = function () {
+        /**
+         * Static
+         * Component meta data information
+         * category _sIs one of layout | content | component
+         * @type {object}
+         */
+        return {
+            name: 'Ruby',
+            description: 'HTML Ruby annotation element',
+            category: 'content',
+            icon: _FontAwesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesome"].FA_SQUARE_O,
+            isContainer: true,
+            libraries: {
+                Bootstrap_4: {
+                    supported: true,
+                    comments: '',
+                },
+                Html5: {
+                    supported: true,
+                    comments: '',
+                }
+            },
+            codepen: [],
+        };
+    };
+    return Ruby;
+}(_ComponentContainer__WEBPACK_IMPORTED_MODULE_0__["ComponentContainer"]));
+
+
+
+/***/ }),
+
+/***/ "./src/components/S.ts":
+/*!*****************************!*\
+  !*** ./src/components/S.ts ***!
+  \*****************************/
+/*! exports provided: S */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "S", function() { return S; });
+/* harmony import */ var _ComponentContainer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ComponentContainer */ "./src/ComponentContainer.ts");
+/* harmony import */ var _FontAwesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../FontAwesome */ "./src/FontAwesome.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+/**
+ * S component
+ *
+ * @copyright Benoit Gauthier <bgauthier555@gmail.com>
+ * @author Benoit Gauthier <bgauthier555@gmail.com>
+ * @licence MIT
+ * @class
+ * @inheritdoc
+ * @public
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/s
+ */
+var S = /** @class */ (function (_super) {
+    __extends(S, _super);
+    /**
+     * Component constructor
+     * @param {string} id Component unique id
+     */
+    function S(sId) {
+        var _this = _super.call(this, sId) || this;
+        _this.addClass('ux-s');
+        // noinspection HtmlUnknownAttribute
+        _this._sTemplate = '<s {attributes}>{child_items}</s>';
+        _this._sComponentClassName = 'S';
+        return _this;
+    }
+    /**
+     * Returns component meta data
+     * @returns {object}
+     */
+    S.getMetaData = function () {
+        /**
+         * Static
+         * Component meta data information
+         * category _sIs one of layout | content | component
+         * @type {object}
+         */
+        return {
+            name: 'S',
+            description: 'HTML Strikethrough element',
+            category: 'content',
+            icon: _FontAwesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesome"].FA_SQUARE_O,
+            isContainer: true,
+            libraries: {
+                Bootstrap_4: {
+                    supported: true,
+                    comments: '',
+                },
+                Html5: {
+                    supported: true,
+                    comments: '',
+                }
+            },
+            codepen: [],
+        };
+    };
+    return S;
+}(_ComponentContainer__WEBPACK_IMPORTED_MODULE_0__["ComponentContainer"]));
+
+
+
+/***/ }),
+
+/***/ "./src/components/Samp.ts":
+/*!********************************!*\
+  !*** ./src/components/Samp.ts ***!
+  \********************************/
+/*! exports provided: Samp */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Samp", function() { return Samp; });
+/* harmony import */ var _ComponentContainer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ComponentContainer */ "./src/ComponentContainer.ts");
+/* harmony import */ var _FontAwesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../FontAwesome */ "./src/FontAwesome.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+/**
+ * Samp component
+ *
+ * @copyright Benoit Gauthier <bgauthier555@gmail.com>
+ * @author Benoit Gauthier <bgauthier555@gmail.com>
+ * @licence MIT
+ * @class
+ * @inheritdoc
+ * @public
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/samp
+ */
+var Samp = /** @class */ (function (_super) {
+    __extends(Samp, _super);
+    /**
+     * Component constructor
+     * @param {string} id Component unique id
+     */
+    function Samp(sId) {
+        var _this = _super.call(this, sId) || this;
+        _this.addClass('ux-samp');
+        // noinspection HtmlUnknownAttribute
+        _this._sTemplate = '<samp {attributes}>{child_items}</samp>';
+        _this._sComponentClassName = 'Samp';
+        return _this;
+    }
+    /**
+     * Returns component meta data
+     * @returns {object}
+     */
+    Samp.getMetaData = function () {
+        /**
+         * Static
+         * Component meta data information
+         * category _sIs one of layout | content | component
+         * @type {object}
+         */
+        return {
+            name: 'Samp',
+            description: 'HTML Sample element',
+            category: 'content',
+            icon: _FontAwesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesome"].FA_SQUARE_O,
+            isContainer: true,
+            libraries: {
+                Bootstrap_4: {
+                    supported: true,
+                    comments: '',
+                },
+                Html5: {
+                    supported: true,
+                    comments: '',
+                }
+            },
+            codepen: [],
+        };
+    };
+    return Samp;
+}(_ComponentContainer__WEBPACK_IMPORTED_MODULE_0__["ComponentContainer"]));
+
+
+
+/***/ }),
+
+/***/ "./src/components/Script.ts":
+/*!**********************************!*\
+  !*** ./src/components/Script.ts ***!
+  \**********************************/
+/*! exports provided: Script */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Script", function() { return Script; });
+/* harmony import */ var _ComponentContainer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ComponentContainer */ "./src/ComponentContainer.ts");
+/* harmony import */ var _FontAwesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../FontAwesome */ "./src/FontAwesome.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+/**
+ * Script component
+ *
+ * @copyright Benoit Gauthier <bgauthier555@gmail.com>
+ * @author Benoit Gauthier <bgauthier555@gmail.com>
+ * @licence MIT
+ * @class
+ * @inheritdoc
+ * @public
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script
+ */
+var Script = /** @class */ (function (_super) {
+    __extends(Script, _super);
+    /**
+     * Component constructor
+     * @param {string} id Component unique id
+     */
+    function Script(sId) {
+        var _this = _super.call(this, sId) || this;
+        _this.addClass('ux-script');
+        // noinspection HtmlUnknownAttribute
+        _this._sTemplate = '<script {attributes}>{child_items}</script>';
+        _this._sComponentClassName = 'Samp';
+        return _this;
+    }
+    /**
+     * Returns component meta data
+     * @returns {object}
+     */
+    Script.getMetaData = function () {
+        /**
+         * Static
+         * Component meta data information
+         * category _sIs one of layout | content | component
+         * @type {object}
+         */
+        return {
+            name: 'Script',
+            description: 'HTML Script element',
+            category: 'content',
+            icon: _FontAwesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesome"].FA_SQUARE_O,
+            isContainer: true,
+            libraries: {
+                Bootstrap_4: {
+                    supported: true,
+                    comments: '',
+                },
+                Html5: {
+                    supported: true,
+                    comments: '',
+                }
+            },
+            codepen: [],
+        };
+    };
+    return Script;
+}(_ComponentContainer__WEBPACK_IMPORTED_MODULE_0__["ComponentContainer"]));
+
+
+
+/***/ }),
+
+/***/ "./src/components/Section.ts":
+/*!***********************************!*\
+  !*** ./src/components/Section.ts ***!
+  \***********************************/
+/*! exports provided: Section */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Section", function() { return Section; });
+/* harmony import */ var _ComponentContainer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ComponentContainer */ "./src/ComponentContainer.ts");
+/* harmony import */ var _FontAwesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../FontAwesome */ "./src/FontAwesome.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+/**
+ * Section component
+ *
+ * @copyright Benoit Gauthier <bgauthier555@gmail.com>
+ * @author Benoit Gauthier <bgauthier555@gmail.com>
+ * @licence MIT
+ * @class
+ * @inheritdoc
+ * @public
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/section
+ */
+var Section = /** @class */ (function (_super) {
+    __extends(Section, _super);
+    /**
+     * Component constructor
+     * @param {string} id Component unique id
+     */
+    function Section(sId) {
+        var _this = _super.call(this, sId) || this;
+        _this.addClass('ux-section');
+        // noinspection HtmlUnknownAttribute
+        _this._sTemplate = '<section {attributes}>{child_items}</section>';
+        _this._sComponentClassName = 'Section';
+        return _this;
+    }
+    /**
+     * Returns component meta data
+     * @returns {object}
+     */
+    Section.getMetaData = function () {
+        /**
+         * Static
+         * Component meta data information
+         * category _sIs one of layout | content | component
+         * @type {object}
+         */
+        return {
+            name: 'Section',
+            description: 'HTML Section element',
+            category: 'content',
+            icon: _FontAwesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesome"].FA_SQUARE_O,
+            isContainer: true,
+            libraries: {
+                Bootstrap_4: {
+                    supported: true,
+                    comments: '',
+                },
+                Html5: {
+                    supported: true,
+                    comments: '',
+                }
+            },
+            codepen: [],
+        };
+    };
+    return Section;
+}(_ComponentContainer__WEBPACK_IMPORTED_MODULE_0__["ComponentContainer"]));
+
+
+
+/***/ }),
+
 /***/ "./src/components/Select.ts":
 /*!**********************************!*\
   !*** ./src/components/Select.ts ***!
@@ -8704,6 +12620,362 @@ var Select = /** @class */ (function (_super) {
 
 /***/ }),
 
+/***/ "./src/components/Slot.ts":
+/*!********************************!*\
+  !*** ./src/components/Slot.ts ***!
+  \********************************/
+/*! exports provided: Slot */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Slot", function() { return Slot; });
+/* harmony import */ var _ComponentContainer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ComponentContainer */ "./src/ComponentContainer.ts");
+/* harmony import */ var _FontAwesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../FontAwesome */ "./src/FontAwesome.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+/**
+ * Slot component
+ *
+ * @copyright Benoit Gauthier <bgauthier555@gmail.com>
+ * @author Benoit Gauthier <bgauthier555@gmail.com>
+ * @licence MIT
+ * @class
+ * @inheritdoc
+ * @public
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/slot
+ */
+var Slot = /** @class */ (function (_super) {
+    __extends(Slot, _super);
+    /**
+     * Component constructor
+     * @param {string} id Component unique id
+     */
+    function Slot(sId) {
+        var _this = _super.call(this, sId) || this;
+        _this.addClass('ux-slot');
+        // noinspection HtmlUnknownAttribute
+        _this._sTemplate = '<slot {attributes}>{child_items}</slot>';
+        _this._sComponentClassName = 'Slot';
+        return _this;
+    }
+    /**
+     * Returns component meta data
+     * @returns {object}
+     */
+    Slot.getMetaData = function () {
+        /**
+         * Static
+         * Component meta data information
+         * category _sIs one of layout | content | component
+         * @type {object}
+         */
+        return {
+            name: 'Slot',
+            description: 'HTML Slot element',
+            category: 'content',
+            icon: _FontAwesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesome"].FA_SQUARE_O,
+            isContainer: true,
+            libraries: {
+                Bootstrap_4: {
+                    supported: true,
+                    comments: '',
+                },
+                Html5: {
+                    supported: true,
+                    comments: '',
+                }
+            },
+            codepen: [],
+        };
+    };
+    return Slot;
+}(_ComponentContainer__WEBPACK_IMPORTED_MODULE_0__["ComponentContainer"]));
+
+
+
+/***/ }),
+
+/***/ "./src/components/Small.ts":
+/*!*********************************!*\
+  !*** ./src/components/Small.ts ***!
+  \*********************************/
+/*! exports provided: Small */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Small", function() { return Small; });
+/* harmony import */ var _ComponentContainer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ComponentContainer */ "./src/ComponentContainer.ts");
+/* harmony import */ var _FontAwesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../FontAwesome */ "./src/FontAwesome.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+/**
+ * Small component
+ *
+ * @copyright Benoit Gauthier <bgauthier555@gmail.com>
+ * @author Benoit Gauthier <bgauthier555@gmail.com>
+ * @licence MIT
+ * @class
+ * @inheritdoc
+ * @public
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/small
+ */
+var Small = /** @class */ (function (_super) {
+    __extends(Small, _super);
+    /**
+     * Component constructor
+     * @param {string} id Component unique id
+     */
+    function Small(sId) {
+        var _this = _super.call(this, sId) || this;
+        _this.addClass('ux-small');
+        // noinspection HtmlUnknownAttribute
+        _this._sTemplate = '<small {attributes}>{child_items}</small>';
+        _this._sComponentClassName = 'Small';
+        return _this;
+    }
+    /**
+     * Returns component meta data
+     * @returns {object}
+     */
+    Small.getMetaData = function () {
+        /**
+         * Static
+         * Component meta data information
+         * category _sIs one of layout | content | component
+         * @type {object}
+         */
+        return {
+            name: 'Small',
+            description: 'HTML Small element',
+            category: 'content',
+            icon: _FontAwesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesome"].FA_SQUARE_O,
+            isContainer: true,
+            libraries: {
+                Bootstrap_4: {
+                    supported: true,
+                    comments: '',
+                },
+                Html5: {
+                    supported: true,
+                    comments: '',
+                }
+            },
+            codepen: [],
+        };
+    };
+    return Small;
+}(_ComponentContainer__WEBPACK_IMPORTED_MODULE_0__["ComponentContainer"]));
+
+
+
+/***/ }),
+
+/***/ "./src/components/Source.ts":
+/*!**********************************!*\
+  !*** ./src/components/Source.ts ***!
+  \**********************************/
+/*! exports provided: Source */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Source", function() { return Source; });
+/* harmony import */ var _ComponentContainer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ComponentContainer */ "./src/ComponentContainer.ts");
+/* harmony import */ var _FontAwesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../FontAwesome */ "./src/FontAwesome.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+/**
+ * Source component
+ *
+ * @copyright Benoit Gauthier <bgauthier555@gmail.com>
+ * @author Benoit Gauthier <bgauthier555@gmail.com>
+ * @licence MIT
+ * @class
+ * @inheritdoc
+ * @public
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/source
+ */
+var Source = /** @class */ (function (_super) {
+    __extends(Source, _super);
+    /**
+     * Component constructor
+     * @param {string} id Component unique id
+     */
+    function Source(sId) {
+        var _this = _super.call(this, sId) || this;
+        _this.addClass('ux-source');
+        // noinspection HtmlUnknownAttribute
+        _this._sTemplate = '<source {attributes}>';
+        _this._sComponentClassName = 'Source';
+        return _this;
+    }
+    /**
+     * Returns component meta data
+     * @returns {object}
+     */
+    Source.getMetaData = function () {
+        /**
+         * Static
+         * Component meta data information
+         * category _sIs one of layout | content | component
+         * @type {object}
+         */
+        return {
+            name: 'Source',
+            description: 'HTML Source element',
+            category: 'content',
+            icon: _FontAwesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesome"].FA_SQUARE_O,
+            isContainer: true,
+            libraries: {
+                Bootstrap_4: {
+                    supported: true,
+                    comments: '',
+                },
+                Html5: {
+                    supported: true,
+                    comments: '',
+                }
+            },
+            codepen: [],
+        };
+    };
+    return Source;
+}(_ComponentContainer__WEBPACK_IMPORTED_MODULE_0__["ComponentContainer"]));
+
+
+
+/***/ }),
+
+/***/ "./src/components/Span.ts":
+/*!********************************!*\
+  !*** ./src/components/Span.ts ***!
+  \********************************/
+/*! exports provided: Span */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Span", function() { return Span; });
+/* harmony import */ var _ComponentContainer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ComponentContainer */ "./src/ComponentContainer.ts");
+/* harmony import */ var _FontAwesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../FontAwesome */ "./src/FontAwesome.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+/**
+ * Span component
+ *
+ * @copyright Benoit Gauthier <bgauthier555@gmail.com>
+ * @author Benoit Gauthier <bgauthier555@gmail.com>
+ * @licence MIT
+ * @class
+ * @inheritdoc
+ * @public
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/span
+ */
+var Span = /** @class */ (function (_super) {
+    __extends(Span, _super);
+    /**
+     * Component constructor
+     * @param {string} id Component unique id
+     */
+    function Span(sId) {
+        var _this = _super.call(this, sId) || this;
+        _this.addClass('ux-span');
+        // noinspection HtmlUnknownAttribute
+        _this._sTemplate = '<span {attributes}>{child_items}</span>';
+        _this._sComponentClassName = 'Span';
+        return _this;
+    }
+    /**
+     * Returns component meta data
+     * @returns {object}
+     */
+    Span.getMetaData = function () {
+        /**
+         * Static
+         * Component meta data information
+         * category _sIs one of layout | content | component
+         * @type {object}
+         */
+        return {
+            name: 'Span',
+            description: 'HTML Span element',
+            category: 'content',
+            icon: _FontAwesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesome"].FA_SQUARE_O,
+            isContainer: true,
+            libraries: {
+                Bootstrap_4: {
+                    supported: true,
+                    comments: '',
+                },
+                Html5: {
+                    supported: true,
+                    comments: '',
+                }
+            },
+            codepen: [],
+        };
+    };
+    return Span;
+}(_ComponentContainer__WEBPACK_IMPORTED_MODULE_0__["ComponentContainer"]));
+
+
+
+/***/ }),
+
 /***/ "./src/components/Store.ts":
 /*!*********************************!*\
   !*** ./src/components/Store.ts ***!
@@ -8766,6 +13038,985 @@ var Store = /** @class */ (function () {
     Store.patchComponent = function (metaData) { };
     return Store;
 }());
+
+
+
+/***/ }),
+
+/***/ "./src/components/Strong.ts":
+/*!**********************************!*\
+  !*** ./src/components/Strong.ts ***!
+  \**********************************/
+/*! exports provided: Strong */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Strong", function() { return Strong; });
+/* harmony import */ var _ComponentContainer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ComponentContainer */ "./src/ComponentContainer.ts");
+/* harmony import */ var _FontAwesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../FontAwesome */ "./src/FontAwesome.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+/**
+ * Strong component
+ *
+ * @copyright Benoit Gauthier <bgauthier555@gmail.com>
+ * @author Benoit Gauthier <bgauthier555@gmail.com>
+ * @licence MIT
+ * @class
+ * @inheritdoc
+ * @public
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/strong
+ */
+var Strong = /** @class */ (function (_super) {
+    __extends(Strong, _super);
+    /**
+     * Component constructor
+     * @param {string} id Component unique id
+     */
+    function Strong(sId) {
+        var _this = _super.call(this, sId) || this;
+        _this.addClass('ux-strong');
+        // noinspection HtmlUnknownAttribute
+        _this._sTemplate = '<strong {attributes}>{child_items}</strong>';
+        _this._sComponentClassName = 'Strong';
+        return _this;
+    }
+    /**
+     * Returns component meta data
+     * @returns {object}
+     */
+    Strong.getMetaData = function () {
+        /**
+         * Static
+         * Component meta data information
+         * category _sIs one of layout | content | component
+         * @type {object}
+         */
+        return {
+            name: 'Strong',
+            description: 'HTML Strong element',
+            category: 'content',
+            icon: _FontAwesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesome"].FA_SQUARE_O,
+            isContainer: true,
+            libraries: {
+                Bootstrap_4: {
+                    supported: true,
+                    comments: '',
+                },
+                Html5: {
+                    supported: true,
+                    comments: '',
+                }
+            },
+            codepen: [],
+        };
+    };
+    return Strong;
+}(_ComponentContainer__WEBPACK_IMPORTED_MODULE_0__["ComponentContainer"]));
+
+
+
+/***/ }),
+
+/***/ "./src/components/Style.ts":
+/*!*********************************!*\
+  !*** ./src/components/Style.ts ***!
+  \*********************************/
+/*! exports provided: Style */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Style", function() { return Style; });
+/* harmony import */ var _ComponentContainer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ComponentContainer */ "./src/ComponentContainer.ts");
+/* harmony import */ var _FontAwesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../FontAwesome */ "./src/FontAwesome.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+/**
+ * Style component
+ *
+ * @copyright Benoit Gauthier <bgauthier555@gmail.com>
+ * @author Benoit Gauthier <bgauthier555@gmail.com>
+ * @licence MIT
+ * @class
+ * @inheritdoc
+ * @public
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style
+ */
+var Style = /** @class */ (function (_super) {
+    __extends(Style, _super);
+    /**
+     * Component constructor
+     * @param {string} id Component unique id
+     */
+    function Style(sId) {
+        var _this = _super.call(this, sId) || this;
+        _this.addClass('ux-style');
+        // noinspection HtmlUnknownAttribute
+        _this._sTemplate = '<style {attributes}>{child_items}</style>';
+        _this._sComponentClassName = 'Style';
+        return _this;
+    }
+    /**
+     * Returns component meta data
+     * @returns {object}
+     */
+    Style.getMetaData = function () {
+        /**
+         * Static
+         * Component meta data information
+         * category _sIs one of layout | content | component
+         * @type {object}
+         */
+        return {
+            name: 'Style',
+            description: 'HTML Style element',
+            category: 'content',
+            icon: _FontAwesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesome"].FA_SQUARE_O,
+            isContainer: true,
+            libraries: {
+                Bootstrap_4: {
+                    supported: true,
+                    comments: '',
+                },
+                Html5: {
+                    supported: true,
+                    comments: '',
+                }
+            },
+            codepen: [],
+        };
+    };
+    return Style;
+}(_ComponentContainer__WEBPACK_IMPORTED_MODULE_0__["ComponentContainer"]));
+
+
+
+/***/ }),
+
+/***/ "./src/components/Sub.ts":
+/*!*******************************!*\
+  !*** ./src/components/Sub.ts ***!
+  \*******************************/
+/*! exports provided: Sub */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Sub", function() { return Sub; });
+/* harmony import */ var _ComponentContainer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ComponentContainer */ "./src/ComponentContainer.ts");
+/* harmony import */ var _FontAwesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../FontAwesome */ "./src/FontAwesome.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+/**
+ * Sub component
+ *
+ * @copyright Benoit Gauthier <bgauthier555@gmail.com>
+ * @author Benoit Gauthier <bgauthier555@gmail.com>
+ * @licence MIT
+ * @class
+ * @inheritdoc
+ * @public
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/sub
+ */
+var Sub = /** @class */ (function (_super) {
+    __extends(Sub, _super);
+    /**
+     * Component constructor
+     * @param {string} id Component unique id
+     */
+    function Sub(sId) {
+        var _this = _super.call(this, sId) || this;
+        _this.addClass('ux-sub');
+        // noinspection HtmlUnknownAttribute
+        _this._sTemplate = '<sub {attributes}>{child_items}</sub>';
+        _this._sComponentClassName = 'Sub';
+        return _this;
+    }
+    /**
+     * Returns component meta data
+     * @returns {object}
+     */
+    Sub.getMetaData = function () {
+        /**
+         * Static
+         * Component meta data information
+         * category _sIs one of layout | content | component
+         * @type {object}
+         */
+        return {
+            name: 'Sub',
+            description: 'HTML Sub element',
+            category: 'content',
+            icon: _FontAwesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesome"].FA_SQUARE_O,
+            isContainer: true,
+            libraries: {
+                Bootstrap_4: {
+                    supported: true,
+                    comments: '',
+                },
+                Html5: {
+                    supported: true,
+                    comments: '',
+                }
+            },
+            codepen: [],
+        };
+    };
+    return Sub;
+}(_ComponentContainer__WEBPACK_IMPORTED_MODULE_0__["ComponentContainer"]));
+
+
+
+/***/ }),
+
+/***/ "./src/components/Summary.ts":
+/*!***********************************!*\
+  !*** ./src/components/Summary.ts ***!
+  \***********************************/
+/*! exports provided: Summary */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Summary", function() { return Summary; });
+/* harmony import */ var _ComponentContainer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ComponentContainer */ "./src/ComponentContainer.ts");
+/* harmony import */ var _FontAwesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../FontAwesome */ "./src/FontAwesome.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+/**
+ * Summary component
+ *
+ * @copyright Benoit Gauthier <bgauthier555@gmail.com>
+ * @author Benoit Gauthier <bgauthier555@gmail.com>
+ * @licence MIT
+ * @class
+ * @inheritdoc
+ * @public
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/summary
+ */
+var Summary = /** @class */ (function (_super) {
+    __extends(Summary, _super);
+    /**
+     * Component constructor
+     * @param {string} id Component unique id
+     */
+    function Summary(sId) {
+        var _this = _super.call(this, sId) || this;
+        _this.addClass('ux-summary');
+        // noinspection HtmlUnknownAttribute
+        _this._sTemplate = '<summary {attributes}>{child_items}</summary>';
+        _this._sComponentClassName = 'Summary';
+        return _this;
+    }
+    /**
+     * Returns component meta data
+     * @returns {object}
+     */
+    Summary.getMetaData = function () {
+        /**
+         * Static
+         * Component meta data information
+         * category _sIs one of layout | content | component
+         * @type {object}
+         */
+        return {
+            name: 'Summary',
+            description: 'HTML Disclosure Summary element',
+            category: 'content',
+            icon: _FontAwesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesome"].FA_SQUARE_O,
+            isContainer: true,
+            libraries: {
+                Bootstrap_4: {
+                    supported: true,
+                    comments: '',
+                },
+                Html5: {
+                    supported: true,
+                    comments: '',
+                }
+            },
+            codepen: [],
+        };
+    };
+    return Summary;
+}(_ComponentContainer__WEBPACK_IMPORTED_MODULE_0__["ComponentContainer"]));
+
+
+
+/***/ }),
+
+/***/ "./src/components/Sup.ts":
+/*!*******************************!*\
+  !*** ./src/components/Sup.ts ***!
+  \*******************************/
+/*! exports provided: Sup */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Sup", function() { return Sup; });
+/* harmony import */ var _ComponentContainer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ComponentContainer */ "./src/ComponentContainer.ts");
+/* harmony import */ var _FontAwesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../FontAwesome */ "./src/FontAwesome.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+/**
+ * Sup component
+ *
+ * @copyright Benoit Gauthier <bgauthier555@gmail.com>
+ * @author Benoit Gauthier <bgauthier555@gmail.com>
+ * @licence MIT
+ * @class
+ * @inheritdoc
+ * @public
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/sup
+ */
+var Sup = /** @class */ (function (_super) {
+    __extends(Sup, _super);
+    /**
+     * Component constructor
+     * @param {string} id Component unique id
+     */
+    function Sup(sId) {
+        var _this = _super.call(this, sId) || this;
+        _this.addClass('ux-sup');
+        // noinspection HtmlUnknownAttribute
+        _this._sTemplate = '<sup {attributes}>{child_items}</sup>';
+        _this._sComponentClassName = 'Sup';
+        return _this;
+    }
+    /**
+     * Returns component meta data
+     * @returns {object}
+     */
+    Sup.getMetaData = function () {
+        /**
+         * Static
+         * Component meta data information
+         * category _sIs one of layout | content | component
+         * @type {object}
+         */
+        return {
+            name: 'Sup',
+            description: 'HTML Superscript element',
+            category: 'content',
+            icon: _FontAwesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesome"].FA_SQUARE_O,
+            isContainer: true,
+            libraries: {
+                Bootstrap_4: {
+                    supported: true,
+                    comments: '',
+                },
+                Html5: {
+                    supported: true,
+                    comments: '',
+                }
+            },
+            codepen: [],
+        };
+    };
+    return Sup;
+}(_ComponentContainer__WEBPACK_IMPORTED_MODULE_0__["ComponentContainer"]));
+
+
+
+/***/ }),
+
+/***/ "./src/components/TBody.ts":
+/*!*********************************!*\
+  !*** ./src/components/TBody.ts ***!
+  \*********************************/
+/*! exports provided: TBody */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TBody", function() { return TBody; });
+/* harmony import */ var _ComponentContainer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ComponentContainer */ "./src/ComponentContainer.ts");
+/* harmony import */ var _FontAwesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../FontAwesome */ "./src/FontAwesome.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+/**
+ * Table Body component
+ *
+ * @copyright Benoit Gauthier <bgauthier555@gmail.com>
+ * @author Benoit Gauthier <bgauthier555@gmail.com>
+ * @licence MIT
+ * @class
+ * @inheritdoc
+ * @public
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tbody
+ */
+var TBody = /** @class */ (function (_super) {
+    __extends(TBody, _super);
+    /**
+     * Component constructor
+     * @param {string} id Component unique id
+     */
+    function TBody(sId) {
+        var _this = _super.call(this, sId) || this;
+        _this.addClass('ux-tbody');
+        // noinspection HtmlUnknownAttribute
+        _this._sTemplate = '<tbody {attributes}>{child_items}</tbody>';
+        _this._sComponentClassName = 'TBody';
+        return _this;
+    }
+    /**
+     * Returns component meta data
+     * @returns {object}
+     */
+    TBody.getMetaData = function () {
+        /**
+         * Static
+         * Component meta data information
+         * category _sIs one of layout | content | component
+         * @type {object}
+         */
+        return {
+            name: 'TBody',
+            description: 'HTML Table body element',
+            category: 'content',
+            icon: _FontAwesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesome"].FA_SQUARE_O,
+            isContainer: true,
+            libraries: {
+                Bootstrap_4: {
+                    supported: true,
+                    comments: '',
+                },
+                Html5: {
+                    supported: true,
+                    comments: '',
+                }
+            },
+            codepen: [],
+        };
+    };
+    return TBody;
+}(_ComponentContainer__WEBPACK_IMPORTED_MODULE_0__["ComponentContainer"]));
+
+
+
+/***/ }),
+
+/***/ "./src/components/TFoot.ts":
+/*!*********************************!*\
+  !*** ./src/components/TFoot.ts ***!
+  \*********************************/
+/*! exports provided: TFoot */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TFoot", function() { return TFoot; });
+/* harmony import */ var _ComponentContainer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ComponentContainer */ "./src/ComponentContainer.ts");
+/* harmony import */ var _FontAwesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../FontAwesome */ "./src/FontAwesome.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+/**
+ * Tfoot component
+ *
+ * @copyright Benoit Gauthier <bgauthier555@gmail.com>
+ * @author Benoit Gauthier <bgauthier555@gmail.com>
+ * @licence MIT
+ * @class
+ * @inheritdoc
+ * @public
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tfoot
+ */
+var TFoot = /** @class */ (function (_super) {
+    __extends(TFoot, _super);
+    /**
+     * Component constructor
+     * @param {string} id Component unique id
+     */
+    function TFoot(sId) {
+        var _this = _super.call(this, sId) || this;
+        _this.addClass('ux-tfoot');
+        // noinspection HtmlUnknownAttribute
+        _this._sTemplate = '<tfoot {attributes}>{child_items}</tfoot>';
+        _this._sComponentClassName = 'TFoot';
+        return _this;
+    }
+    /**
+     * Returns component meta data
+     * @returns {object}
+     */
+    TFoot.getMetaData = function () {
+        /**
+         * Static
+         * Component meta data information
+         * category _sIs one of layout | content | component
+         * @type {object}
+         */
+        return {
+            name: 'TFoot',
+            description: 'HTML Table TFoot element',
+            category: 'content',
+            icon: _FontAwesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesome"].FA_SQUARE_O,
+            isContainer: true,
+            libraries: {
+                Bootstrap_4: {
+                    supported: true,
+                    comments: '',
+                },
+                Html5: {
+                    supported: true,
+                    comments: '',
+                }
+            },
+            codepen: [],
+        };
+    };
+    return TFoot;
+}(_ComponentContainer__WEBPACK_IMPORTED_MODULE_0__["ComponentContainer"]));
+
+
+
+/***/ }),
+
+/***/ "./src/components/THead.ts":
+/*!*********************************!*\
+  !*** ./src/components/THead.ts ***!
+  \*********************************/
+/*! exports provided: THead */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "THead", function() { return THead; });
+/* harmony import */ var _ComponentContainer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ComponentContainer */ "./src/ComponentContainer.ts");
+/* harmony import */ var _FontAwesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../FontAwesome */ "./src/FontAwesome.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+/**
+ * THead component
+ *
+ * @copyright Benoit Gauthier <bgauthier555@gmail.com>
+ * @author Benoit Gauthier <bgauthier555@gmail.com>
+ * @licence MIT
+ * @class
+ * @inheritdoc
+ * @public
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/thead
+ */
+var THead = /** @class */ (function (_super) {
+    __extends(THead, _super);
+    /**
+     * Component constructor
+     * @param {string} id Component unique id
+     */
+    function THead(sId) {
+        var _this = _super.call(this, sId) || this;
+        _this.addClass('ux-thead');
+        // noinspection HtmlUnknownAttribute
+        _this._sTemplate = '<thead {attributes}>{child_items}</thead>';
+        _this._sComponentClassName = 'THead';
+        return _this;
+    }
+    /**
+     * Returns component meta data
+     * @returns {object}
+     */
+    THead.getMetaData = function () {
+        /**
+         * Static
+         * Component meta data information
+         * category _sIs one of layout | content | component
+         * @type {object}
+         */
+        return {
+            name: 'THead',
+            description: 'HTML Table THead element',
+            category: 'content',
+            icon: _FontAwesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesome"].FA_SQUARE_O,
+            isContainer: true,
+            libraries: {
+                Bootstrap_4: {
+                    supported: true,
+                    comments: '',
+                },
+                Html5: {
+                    supported: true,
+                    comments: '',
+                }
+            },
+            codepen: [],
+        };
+    };
+    return THead;
+}(_ComponentContainer__WEBPACK_IMPORTED_MODULE_0__["ComponentContainer"]));
+
+
+
+/***/ }),
+
+/***/ "./src/components/Table.ts":
+/*!*********************************!*\
+  !*** ./src/components/Table.ts ***!
+  \*********************************/
+/*! exports provided: Table */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Table", function() { return Table; });
+/* harmony import */ var _ComponentContainer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ComponentContainer */ "./src/ComponentContainer.ts");
+/* harmony import */ var _FontAwesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../FontAwesome */ "./src/FontAwesome.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+/**
+ * Table component
+ *
+ * @copyright Benoit Gauthier <bgauthier555@gmail.com>
+ * @author Benoit Gauthier <bgauthier555@gmail.com>
+ * @licence MIT
+ * @class
+ * @inheritdoc
+ * @public
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table
+ */
+var Table = /** @class */ (function (_super) {
+    __extends(Table, _super);
+    /**
+     * Component constructor
+     * @param {string} id Component unique id
+     */
+    function Table(sId) {
+        var _this = _super.call(this, sId) || this;
+        _this.addClass('ux-table');
+        // noinspection HtmlUnknownAttribute
+        _this._sTemplate = '<table {attributes}>{child_items}</table>';
+        _this._sComponentClassName = 'Table';
+        return _this;
+    }
+    /**
+     * Returns component meta data
+     * @returns {object}
+     */
+    Table.getMetaData = function () {
+        /**
+         * Static
+         * Component meta data information
+         * category _sIs one of layout | content | component
+         * @type {object}
+         */
+        return {
+            name: 'Table',
+            description: 'HTML Table element',
+            category: 'content',
+            icon: _FontAwesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesome"].FA_SQUARE_O,
+            isContainer: true,
+            libraries: {
+                Bootstrap_4: {
+                    supported: true,
+                    comments: '',
+                },
+                Html5: {
+                    supported: true,
+                    comments: '',
+                }
+            },
+            codepen: [],
+        };
+    };
+    return Table;
+}(_ComponentContainer__WEBPACK_IMPORTED_MODULE_0__["ComponentContainer"]));
+
+
+
+/***/ }),
+
+/***/ "./src/components/Td.ts":
+/*!******************************!*\
+  !*** ./src/components/Td.ts ***!
+  \******************************/
+/*! exports provided: Td */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Td", function() { return Td; });
+/* harmony import */ var _ComponentContainer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ComponentContainer */ "./src/ComponentContainer.ts");
+/* harmony import */ var _FontAwesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../FontAwesome */ "./src/FontAwesome.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+/**
+ * Td component
+ *
+ * @copyright Benoit Gauthier <bgauthier555@gmail.com>
+ * @author Benoit Gauthier <bgauthier555@gmail.com>
+ * @licence MIT
+ * @class
+ * @inheritdoc
+ * @public
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td
+ */
+var Td = /** @class */ (function (_super) {
+    __extends(Td, _super);
+    /**
+     * Component constructor
+     * @param {string} id Component unique id
+     */
+    function Td(sId) {
+        var _this = _super.call(this, sId) || this;
+        _this.addClass('ux-td');
+        // noinspection HtmlUnknownAttribute
+        _this._sTemplate = '<td {attributes}>{child_items}</td>';
+        _this._sComponentClassName = 'Td';
+        return _this;
+    }
+    /**
+     * Returns component meta data
+     * @returns {object}
+     */
+    Td.getMetaData = function () {
+        /**
+         * Static
+         * Component meta data information
+         * category _sIs one of layout | content | component
+         * @type {object}
+         */
+        return {
+            name: 'Td',
+            description: 'HTML Table cell element',
+            category: 'content',
+            icon: _FontAwesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesome"].FA_SQUARE_O,
+            isContainer: true,
+            libraries: {
+                Bootstrap_4: {
+                    supported: true,
+                    comments: '',
+                },
+                Html5: {
+                    supported: true,
+                    comments: '',
+                }
+            },
+            codepen: [],
+        };
+    };
+    return Td;
+}(_ComponentContainer__WEBPACK_IMPORTED_MODULE_0__["ComponentContainer"]));
+
+
+
+/***/ }),
+
+/***/ "./src/components/Template.ts":
+/*!************************************!*\
+  !*** ./src/components/Template.ts ***!
+  \************************************/
+/*! exports provided: Template */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Template", function() { return Template; });
+/* harmony import */ var _ComponentContainer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ComponentContainer */ "./src/ComponentContainer.ts");
+/* harmony import */ var _FontAwesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../FontAwesome */ "./src/FontAwesome.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+/**
+ * Template component
+ *
+ * @copyright Benoit Gauthier <bgauthier555@gmail.com>
+ * @author Benoit Gauthier <bgauthier555@gmail.com>
+ * @licence MIT
+ * @class
+ * @inheritdoc
+ * @public
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template
+ */
+var Template = /** @class */ (function (_super) {
+    __extends(Template, _super);
+    /**
+     * Component constructor
+     * @param {string} id Component unique id
+     */
+    function Template(sId) {
+        var _this = _super.call(this, sId) || this;
+        _this.addClass('ux-template');
+        // noinspection HtmlUnknownAttribute
+        _this._sTemplate = '<template {attributes}>{child_items}</template>';
+        _this._sComponentClassName = 'Template';
+        return _this;
+    }
+    /**
+     * Returns component meta data
+     * @returns {object}
+     */
+    Template.getMetaData = function () {
+        /**
+         * Static
+         * Component meta data information
+         * category _sIs one of layout | content | component
+         * @type {object}
+         */
+        return {
+            name: 'Template',
+            description: 'HTML Template element',
+            category: 'content',
+            icon: _FontAwesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesome"].FA_SQUARE_O,
+            isContainer: true,
+            libraries: {
+                Bootstrap_4: {
+                    supported: true,
+                    comments: '',
+                },
+                Html5: {
+                    supported: true,
+                    comments: '',
+                }
+            },
+            codepen: [],
+        };
+    };
+    return Template;
+}(_ComponentContainer__WEBPACK_IMPORTED_MODULE_0__["ComponentContainer"]));
 
 
 
@@ -8853,6 +14104,184 @@ var TextArea = /** @class */ (function (_super) {
     };
     return TextArea;
 }(_Component__WEBPACK_IMPORTED_MODULE_0__["Component"]));
+
+
+
+/***/ }),
+
+/***/ "./src/components/Th.ts":
+/*!******************************!*\
+  !*** ./src/components/Th.ts ***!
+  \******************************/
+/*! exports provided: Th */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Th", function() { return Th; });
+/* harmony import */ var _ComponentContainer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ComponentContainer */ "./src/ComponentContainer.ts");
+/* harmony import */ var _FontAwesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../FontAwesome */ "./src/FontAwesome.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+/**
+ * Th component
+ *
+ * @copyright Benoit Gauthier <bgauthier555@gmail.com>
+ * @author Benoit Gauthier <bgauthier555@gmail.com>
+ * @licence MIT
+ * @class
+ * @inheritdoc
+ * @public
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th
+ */
+var Th = /** @class */ (function (_super) {
+    __extends(Th, _super);
+    /**
+     * Component constructor
+     * @param {string} id Component unique id
+     */
+    function Th(sId) {
+        var _this = _super.call(this, sId) || this;
+        _this.addClass('ux-th');
+        // noinspection HtmlUnknownAttribute
+        _this._sTemplate = '<th {attributes}>{child_items}</th>';
+        _this._sComponentClassName = 'Th';
+        return _this;
+    }
+    /**
+     * Returns component meta data
+     * @returns {object}
+     */
+    Th.getMetaData = function () {
+        /**
+         * Static
+         * Component meta data information
+         * category _sIs one of layout | content | component
+         * @type {object}
+         */
+        return {
+            name: 'Th',
+            description: 'HTML Table header element',
+            category: 'content',
+            icon: _FontAwesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesome"].FA_SQUARE_O,
+            isContainer: true,
+            libraries: {
+                Bootstrap_4: {
+                    supported: true,
+                    comments: '',
+                },
+                Html5: {
+                    supported: true,
+                    comments: '',
+                }
+            },
+            codepen: [],
+        };
+    };
+    return Th;
+}(_ComponentContainer__WEBPACK_IMPORTED_MODULE_0__["ComponentContainer"]));
+
+
+
+/***/ }),
+
+/***/ "./src/components/Time.ts":
+/*!********************************!*\
+  !*** ./src/components/Time.ts ***!
+  \********************************/
+/*! exports provided: Time */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Time", function() { return Time; });
+/* harmony import */ var _ComponentContainer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ComponentContainer */ "./src/ComponentContainer.ts");
+/* harmony import */ var _FontAwesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../FontAwesome */ "./src/FontAwesome.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+/**
+ * Time component
+ *
+ * @copyright Benoit Gauthier <bgauthier555@gmail.com>
+ * @author Benoit Gauthier <bgauthier555@gmail.com>
+ * @licence MIT
+ * @class
+ * @inheritdoc
+ * @public
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/time
+ */
+var Time = /** @class */ (function (_super) {
+    __extends(Time, _super);
+    /**
+     * Component constructor
+     * @param {string} id Component unique id
+     */
+    function Time(sId) {
+        var _this = _super.call(this, sId) || this;
+        _this.addClass('ux-time');
+        // noinspection HtmlUnknownAttribute
+        _this._sTemplate = '<time {attributes}>{child_items}</time>';
+        _this._sComponentClassName = 'Time';
+        return _this;
+    }
+    /**
+     * Returns component meta data
+     * @returns {object}
+     */
+    Time.getMetaData = function () {
+        /**
+         * Static
+         * Component meta data information
+         * category _sIs one of layout | content | component
+         * @type {object}
+         */
+        return {
+            name: 'Time',
+            description: 'HTML Time element',
+            category: 'content',
+            icon: _FontAwesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesome"].FA_SQUARE_O,
+            isContainer: true,
+            libraries: {
+                Bootstrap_4: {
+                    supported: true,
+                    comments: '',
+                },
+                Html5: {
+                    supported: true,
+                    comments: '',
+                }
+            },
+            codepen: [],
+        };
+    };
+    return Time;
+}(_ComponentContainer__WEBPACK_IMPORTED_MODULE_0__["ComponentContainer"]));
 
 
 
@@ -8947,6 +14376,273 @@ var Title = /** @class */ (function (_super) {
 
 /***/ }),
 
+/***/ "./src/components/Tr.ts":
+/*!******************************!*\
+  !*** ./src/components/Tr.ts ***!
+  \******************************/
+/*! exports provided: Tr */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Tr", function() { return Tr; });
+/* harmony import */ var _ComponentContainer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ComponentContainer */ "./src/ComponentContainer.ts");
+/* harmony import */ var _FontAwesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../FontAwesome */ "./src/FontAwesome.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+/**
+ * Tr component
+ *
+ * @copyright Benoit Gauthier <bgauthier555@gmail.com>
+ * @author Benoit Gauthier <bgauthier555@gmail.com>
+ * @licence MIT
+ * @class
+ * @inheritdoc
+ * @public
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tr
+ */
+var Tr = /** @class */ (function (_super) {
+    __extends(Tr, _super);
+    /**
+     * Component constructor
+     * @param {string} id Component unique id
+     */
+    function Tr(sId) {
+        var _this = _super.call(this, sId) || this;
+        _this.addClass('ux-tr');
+        // noinspection HtmlUnknownAttribute
+        _this._sTemplate = '<tr {attributes}>{child_items}</tr>';
+        _this._sComponentClassName = 'Tr';
+        return _this;
+    }
+    /**
+     * Returns component meta data
+     * @returns {object}
+     */
+    Tr.getMetaData = function () {
+        /**
+         * Static
+         * Component meta data information
+         * category _sIs one of layout | content | component
+         * @type {object}
+         */
+        return {
+            name: 'Tr',
+            description: 'HTML Table row element',
+            category: 'content',
+            icon: _FontAwesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesome"].FA_SQUARE_O,
+            isContainer: true,
+            libraries: {
+                Bootstrap_4: {
+                    supported: true,
+                    comments: '',
+                },
+                Html5: {
+                    supported: true,
+                    comments: '',
+                }
+            },
+            codepen: [],
+        };
+    };
+    return Tr;
+}(_ComponentContainer__WEBPACK_IMPORTED_MODULE_0__["ComponentContainer"]));
+
+
+
+/***/ }),
+
+/***/ "./src/components/Track.ts":
+/*!*********************************!*\
+  !*** ./src/components/Track.ts ***!
+  \*********************************/
+/*! exports provided: Track */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Track", function() { return Track; });
+/* harmony import */ var _ComponentContainer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ComponentContainer */ "./src/ComponentContainer.ts");
+/* harmony import */ var _FontAwesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../FontAwesome */ "./src/FontAwesome.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+/**
+ * Track component
+ *
+ * @copyright Benoit Gauthier <bgauthier555@gmail.com>
+ * @author Benoit Gauthier <bgauthier555@gmail.com>
+ * @licence MIT
+ * @class
+ * @inheritdoc
+ * @public
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/track
+ */
+var Track = /** @class */ (function (_super) {
+    __extends(Track, _super);
+    /**
+     * Component constructor
+     * @param {string} id Component unique id
+     */
+    function Track(sId) {
+        var _this = _super.call(this, sId) || this;
+        _this.addClass('ux-track');
+        // noinspection HtmlUnknownAttribute
+        _this._sTemplate = '<track {attributes}/>';
+        _this._sComponentClassName = 'Track';
+        return _this;
+    }
+    /**
+     * Returns component meta data
+     * @returns {object}
+     */
+    Track.getMetaData = function () {
+        /**
+         * Static
+         * Component meta data information
+         * category _sIs one of layout | content | component
+         * @type {object}
+         */
+        return {
+            name: 'Track',
+            description: 'HTML Track element',
+            category: 'content',
+            icon: _FontAwesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesome"].FA_SQUARE_O,
+            isContainer: true,
+            libraries: {
+                Bootstrap_4: {
+                    supported: true,
+                    comments: '',
+                },
+                Html5: {
+                    supported: true,
+                    comments: '',
+                }
+            },
+            codepen: [],
+        };
+    };
+    return Track;
+}(_ComponentContainer__WEBPACK_IMPORTED_MODULE_0__["ComponentContainer"]));
+
+
+
+/***/ }),
+
+/***/ "./src/components/U.ts":
+/*!*****************************!*\
+  !*** ./src/components/U.ts ***!
+  \*****************************/
+/*! exports provided: U */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "U", function() { return U; });
+/* harmony import */ var _ComponentContainer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ComponentContainer */ "./src/ComponentContainer.ts");
+/* harmony import */ var _FontAwesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../FontAwesome */ "./src/FontAwesome.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+/**
+ * U component
+ *
+ * @copyright Benoit Gauthier <bgauthier555@gmail.com>
+ * @author Benoit Gauthier <bgauthier555@gmail.com>
+ * @licence MIT
+ * @class
+ * @inheritdoc
+ * @public
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/u
+ */
+var U = /** @class */ (function (_super) {
+    __extends(U, _super);
+    /**
+     * Component constructor
+     * @param {string} id Component unique id
+     */
+    function U(sId) {
+        var _this = _super.call(this, sId) || this;
+        _this.addClass('ux-u');
+        // noinspection HtmlUnknownAttribute
+        _this._sTemplate = '<u {attributes}>{child_items}</u>';
+        _this._sComponentClassName = 'U';
+        return _this;
+    }
+    /**
+     * Returns component meta data
+     * @returns {object}
+     */
+    U.getMetaData = function () {
+        /**
+         * Static
+         * Component meta data information
+         * category _sIs one of layout | content | component
+         * @type {object}
+         */
+        return {
+            name: 'U',
+            description: 'HTML Underline element',
+            category: 'content',
+            icon: _FontAwesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesome"].FA_SQUARE_O,
+            isContainer: true,
+            libraries: {
+                Bootstrap_4: {
+                    supported: true,
+                    comments: '',
+                },
+                Html5: {
+                    supported: true,
+                    comments: '',
+                }
+            },
+            codepen: [],
+        };
+    };
+    return U;
+}(_ComponentContainer__WEBPACK_IMPORTED_MODULE_0__["ComponentContainer"]));
+
+
+
+/***/ }),
+
 /***/ "./src/components/Ul.ts":
 /*!******************************!*\
   !*** ./src/components/Ul.ts ***!
@@ -8975,7 +14671,7 @@ var __extends = (undefined && undefined.__extends) || (function () {
 
 
 /**
- * Ol component
+ * Ul component
  *
  * @copyright Benoit Gauthier <bgauthier555@gmail.com>
  * @author Benoit Gauthier <bgauthier555@gmail.com>
@@ -9034,6 +14730,273 @@ var Ul = /** @class */ (function (_super) {
 
 /***/ }),
 
+/***/ "./src/components/Var.ts":
+/*!*******************************!*\
+  !*** ./src/components/Var.ts ***!
+  \*******************************/
+/*! exports provided: Var */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Var", function() { return Var; });
+/* harmony import */ var _ComponentContainer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ComponentContainer */ "./src/ComponentContainer.ts");
+/* harmony import */ var _FontAwesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../FontAwesome */ "./src/FontAwesome.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+/**
+ * Var component
+ *
+ * @copyright Benoit Gauthier <bgauthier555@gmail.com>
+ * @author Benoit Gauthier <bgauthier555@gmail.com>
+ * @licence MIT
+ * @class
+ * @inheritdoc
+ * @public
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/var
+ */
+var Var = /** @class */ (function (_super) {
+    __extends(Var, _super);
+    /**
+     * Component constructor
+     * @param {string} id Component unique id
+     */
+    function Var(sId) {
+        var _this = _super.call(this, sId) || this;
+        _this.addClass('ux-var');
+        // noinspection HtmlUnknownAttribute
+        _this._sTemplate = '<var {attributes}>{child_items}</var>';
+        _this._sComponentClassName = 'Var';
+        return _this;
+    }
+    /**
+     * Returns component meta data
+     * @returns {object}
+     */
+    Var.getMetaData = function () {
+        /**
+         * Static
+         * Component meta data information
+         * category _sIs one of layout | content | component
+         * @type {object}
+         */
+        return {
+            name: 'Var',
+            description: 'HTML Var element',
+            category: 'content',
+            icon: _FontAwesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesome"].FA_SQUARE_O,
+            isContainer: true,
+            libraries: {
+                Bootstrap_4: {
+                    supported: true,
+                    comments: '',
+                },
+                Html5: {
+                    supported: true,
+                    comments: '',
+                }
+            },
+            codepen: [],
+        };
+    };
+    return Var;
+}(_ComponentContainer__WEBPACK_IMPORTED_MODULE_0__["ComponentContainer"]));
+
+
+
+/***/ }),
+
+/***/ "./src/components/Video.ts":
+/*!*********************************!*\
+  !*** ./src/components/Video.ts ***!
+  \*********************************/
+/*! exports provided: Video */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Video", function() { return Video; });
+/* harmony import */ var _ComponentContainer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ComponentContainer */ "./src/ComponentContainer.ts");
+/* harmony import */ var _FontAwesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../FontAwesome */ "./src/FontAwesome.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+/**
+ * Video component
+ *
+ * @copyright Benoit Gauthier <bgauthier555@gmail.com>
+ * @author Benoit Gauthier <bgauthier555@gmail.com>
+ * @licence MIT
+ * @class
+ * @inheritdoc
+ * @public
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video
+ */
+var Video = /** @class */ (function (_super) {
+    __extends(Video, _super);
+    /**
+     * Component constructor
+     * @param {string} id Component unique id
+     */
+    function Video(sId) {
+        var _this = _super.call(this, sId) || this;
+        _this.addClass('ux-video');
+        // noinspection HtmlUnknownAttribute
+        _this._sTemplate = '<video {attributes}>{child_items}</video>';
+        _this._sComponentClassName = 'Video';
+        return _this;
+    }
+    /**
+     * Returns component meta data
+     * @returns {object}
+     */
+    Video.getMetaData = function () {
+        /**
+         * Static
+         * Component meta data information
+         * category _sIs one of layout | content | component
+         * @type {object}
+         */
+        return {
+            name: 'Video',
+            description: 'HTML Video element',
+            category: 'content',
+            icon: _FontAwesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesome"].FA_SQUARE_O,
+            isContainer: true,
+            libraries: {
+                Bootstrap_4: {
+                    supported: true,
+                    comments: '',
+                },
+                Html5: {
+                    supported: true,
+                    comments: '',
+                }
+            },
+            codepen: [],
+        };
+    };
+    return Video;
+}(_ComponentContainer__WEBPACK_IMPORTED_MODULE_0__["ComponentContainer"]));
+
+
+
+/***/ }),
+
+/***/ "./src/components/Wbr.ts":
+/*!*******************************!*\
+  !*** ./src/components/Wbr.ts ***!
+  \*******************************/
+/*! exports provided: Wbr */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Wbr", function() { return Wbr; });
+/* harmony import */ var _ComponentContainer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../ComponentContainer */ "./src/ComponentContainer.ts");
+/* harmony import */ var _FontAwesome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../FontAwesome */ "./src/FontAwesome.ts");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+
+/**
+ * Wbr component
+ *
+ * @copyright Benoit Gauthier <bgauthier555@gmail.com>
+ * @author Benoit Gauthier <bgauthier555@gmail.com>
+ * @licence MIT
+ * @class
+ * @inheritdoc
+ * @public
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/wbr
+ */
+var Wbr = /** @class */ (function (_super) {
+    __extends(Wbr, _super);
+    /**
+     * Component constructor
+     * @param {string} id Component unique id
+     */
+    function Wbr(sId) {
+        var _this = _super.call(this, sId) || this;
+        _this.addClass('ux-wbr');
+        // noinspection HtmlUnknownAttribute
+        _this._sTemplate = '<wbr {attributes}>';
+        _this._sComponentClassName = 'Wbr';
+        return _this;
+    }
+    /**
+     * Returns component meta data
+     * @returns {object}
+     */
+    Wbr.getMetaData = function () {
+        /**
+         * Static
+         * Component meta data information
+         * category _sIs one of layout | content | component
+         * @type {object}
+         */
+        return {
+            name: 'Wbr',
+            description: 'HTML Word break opportunity element',
+            category: 'content',
+            icon: _FontAwesome__WEBPACK_IMPORTED_MODULE_1__["FontAwesome"].FA_SQUARE_O,
+            isContainer: true,
+            libraries: {
+                Bootstrap_4: {
+                    supported: true,
+                    comments: '',
+                },
+                Html5: {
+                    supported: true,
+                    comments: '',
+                }
+            },
+            codepen: [],
+        };
+    };
+    return Wbr;
+}(_ComponentContainer__WEBPACK_IMPORTED_MODULE_0__["ComponentContainer"]));
+
+
+
+/***/ }),
+
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
@@ -9047,7 +15010,8 @@ var Ul = /** @class */ (function (_super) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.initialize = exports.Semantic24_TextAreaDecorator = exports.Semantic24_InputDecorator = exports.Semantic24_AlertDecorator = exports.Bootstrap4_ButtonDecorator = exports.Bootstrap4_TextAreaDecorator = exports.Bootstrap4_RowDecorator = exports.Bootstrap4_InputDecorator = exports.Bootstrap4_ColumnDecorator = exports.Bootstrap4_ContainerDecorator = exports.Bootstrap4_AlertDecorator = exports.Title = exports.TextArea = exports.Store = exports.Select = exports.Row = exports.Radio = exports.Pre = exports.Password = exports.Paragraph = exports.Li = exports.Ul = exports.Ol = exports.Option = exports.Label = exports.Image = exports.Icon = exports.Html = exports.Hr = exports.Head = exports.Heading = exports.enumFormMethod = exports.enumFormEncoding = exports.Form = exports.Div = exports.Dialog = exports.DateInput = exports.Column = exports.ColGroup = exports.Col = exports.Code = exports.Cite = exports.Checkbox = exports.Container = exports.Caption = exports.Canvas = exports.Br = exports.enumButtonSize = exports.enumButtonType = exports.enumButtonStyle = exports.Button = exports.Body = exports.BlockQuote = exports.BDO = exports.BDI = exports.B = exports.Anchor = exports.Audio = exports.ASide = exports.Article = exports.Area = exports.enumAlertStyle = exports.Alert = exports.Address = exports.Abbr = exports.Hidden = exports.enumInputType = exports.Input = exports.ComponentContainer = exports.enumInputMode = exports.enumTranslate = exports.enumAutoCapitalize = exports.enumDir = exports.Component = exports.ComponentProperties = exports.Patch = exports.Page = exports.Decorator = exports.FontAwesome = exports.enumLibrary = exports.enumMissingFeature = undefined;
+exports.initialize = exports.Semantic24_TextAreaDecorator = exports.Semantic24_InputDecorator = exports.Semantic24_AlertDecorator = exports.Bootstrap4_ButtonDecorator = exports.Bootstrap4_TextAreaDecorator = exports.Bootstrap4_RowDecorator = exports.Bootstrap4_InputDecorator = exports.Bootstrap4_ColumnDecorator = exports.Bootstrap4_ContainerDecorator = exports.Bootstrap4_AlertDecorator = exports.Wbr = exports.Video = exports.Var = exports.Ul = exports.U = exports.Track = exports.Tr = exports.Title = exports.Time = exports.THead = exports.Th = exports.TFoot = exports.TextArea = exports.Template = exports.Td = exports.TBody = exports.Table = exports.Sup = exports.Summary = exports.Sub = exports.Style = exports.Strong = exports.Store = exports.Span = exports.Source = exports.Small = exports.Slot = exports.Select = exports.Section = exports.Script = exports.Samp = exports.S = exports.Ruby = exports.Rtc = exports.Rt = exports.Row = exports.Rb = undefined;
+exports.Radio = exports.Q = exports.Progress = exports.Pre = exports.Picture = exports.Password = exports.Param = exports.Paragraph = exports.Output = exports.Option = exports.OptGroup = exports.Ol = exports.ObjectComponent = exports.NoScript = exports.Nav = exports.Meter = exports.Meta = exports.Menu = exports.Mark = exports.Map = exports.Main = exports.Link = exports.Li = exports.Legend = exports.Label = exports.Kbd = exports.Ins = exports.Image = exports.IFrame = exports.Icon = exports.I = exports.Html = exports.Hr = exports.Hidden = exports.Heading = exports.Header = exports.Head = exports.enumFormMethod = exports.enumFormEncoding = exports.Form = exports.Footer = exports.Figure = exports.FigCaption = exports.FieldSet = exports.Embed = exports.Em = exports.Dt = exports.Dl = exports.Div = exports.Dialog = exports.Dfn = exports.Details = exports.Del = exports.Dd = exports.DateInput = exports.DataList = exports.Data = exports.Container = exports.Column = exports.ColGroup = exports.Col = exports.Code = exports.Cite = exports.Checkbox = exports.Caption = exports.Canvas = exports.enumButtonSize = exports.enumButtonType = exports.enumButtonStyle = exports.Button = exports.Br = exports.Body = exports.BlockQuote = exports.BDO = exports.BDI = exports.B = exports.Audio = exports.ASide = exports.Article = exports.Area = exports.Anchor = exports.enumAlertStyle = exports.Alert = exports.Address = exports.Abbr = exports.enumInputType = exports.Input = exports.ComponentContainer = exports.enumInputMode = exports.enumTranslate = exports.enumAutoCapitalize = exports.enumDir = exports.Component = exports.ComponentProperties = exports.Patch = exports.Page = exports.Decorator = exports.FontAwesome = exports.enumLibrary = exports.enumMissingFeature = undefined;
 
 var _UX = __webpack_require__(/*! ./UX */ "./src/UX.ts");
 
@@ -9067,13 +15031,13 @@ var _ComponentContainer = __webpack_require__(/*! ./ComponentContainer */ "./src
 
 var _Input = __webpack_require__(/*! ./components/Input */ "./src/components/Input.ts");
 
-var _Hidden = __webpack_require__(/*! ./components/Hidden */ "./src/components/Hidden.ts");
-
 var _Abbr = __webpack_require__(/*! ./components/Abbr */ "./src/components/Abbr.ts");
 
 var _Address = __webpack_require__(/*! ./components/Address */ "./src/components/Address.ts");
 
 var _Alert = __webpack_require__(/*! ./components/Alert */ "./src/components/Alert.ts");
+
+var _Anchor = __webpack_require__(/*! ./components/Anchor */ "./src/components/Anchor.ts");
 
 var _Area = __webpack_require__(/*! ./components/Area */ "./src/components/Area.ts");
 
@@ -9082,8 +15046,6 @@ var _Article = __webpack_require__(/*! ./components/Article */ "./src/components
 var _ASide = __webpack_require__(/*! ./components/ASide */ "./src/components/ASide.ts");
 
 var _Audio = __webpack_require__(/*! ./components/Audio */ "./src/components/Audio.ts");
-
-var _Anchor = __webpack_require__(/*! ./components/Anchor */ "./src/components/Anchor.ts");
 
 var _B = __webpack_require__(/*! ./components/B */ "./src/components/B.ts");
 
@@ -9095,15 +15057,13 @@ var _BlockQuote = __webpack_require__(/*! ./components/BlockQuote */ "./src/comp
 
 var _Body = __webpack_require__(/*! ./components/Body */ "./src/components/Body.ts");
 
-var _Button = __webpack_require__(/*! ./components/Button */ "./src/components/Button.ts");
-
 var _Br = __webpack_require__(/*! ./components/Br */ "./src/components/Br.ts");
+
+var _Button = __webpack_require__(/*! ./components/Button */ "./src/components/Button.ts");
 
 var _Canvas = __webpack_require__(/*! ./components/Canvas */ "./src/components/Canvas.ts");
 
 var _Caption = __webpack_require__(/*! ./components/Caption */ "./src/components/Caption.ts");
-
-var _Container = __webpack_require__(/*! ./components/Container */ "./src/components/Container.ts");
 
 var _Checkbox = __webpack_require__(/*! ./components/Checkbox */ "./src/components/Checkbox.ts");
 
@@ -9117,53 +15077,191 @@ var _ColGroup = __webpack_require__(/*! ./components/ColGroup */ "./src/componen
 
 var _Column = __webpack_require__(/*! ./components/Column */ "./src/components/Column.ts");
 
+var _Container = __webpack_require__(/*! ./components/Container */ "./src/components/Container.ts");
+
+var _Data = __webpack_require__(/*! ./components/Data */ "./src/components/Data.ts");
+
+var _DataList = __webpack_require__(/*! ./components/DataList */ "./src/components/DataList.ts");
+
 var _DateInput = __webpack_require__(/*! ./components/DateInput */ "./src/components/DateInput.ts");
+
+var _Dd = __webpack_require__(/*! ./components/Dd */ "./src/components/Dd.ts");
+
+var _Del = __webpack_require__(/*! ./components/Del */ "./src/components/Del.ts");
+
+var _Details = __webpack_require__(/*! ./components/Details */ "./src/components/Details.ts");
+
+var _Dfn = __webpack_require__(/*! ./components/Dfn */ "./src/components/Dfn.ts");
 
 var _Dialog = __webpack_require__(/*! ./components/Dialog */ "./src/components/Dialog.ts");
 
 var _Div = __webpack_require__(/*! ./components/Div */ "./src/components/Div.ts");
 
+var _Dl = __webpack_require__(/*! ./components/Dl */ "./src/components/Dl.ts");
+
+var _Dt = __webpack_require__(/*! ./components/Dt */ "./src/components/Dt.ts");
+
+var _Em = __webpack_require__(/*! ./components/Em */ "./src/components/Em.ts");
+
+var _Embed = __webpack_require__(/*! ./components/Embed */ "./src/components/Embed.ts");
+
+var _FieldSet = __webpack_require__(/*! ./components/FieldSet */ "./src/components/FieldSet.ts");
+
+var _FigCaption = __webpack_require__(/*! ./components/FigCaption */ "./src/components/FigCaption.ts");
+
+var _Figure = __webpack_require__(/*! ./components/Figure */ "./src/components/Figure.ts");
+
+var _Footer = __webpack_require__(/*! ./components/Footer */ "./src/components/Footer.ts");
+
 var _Form = __webpack_require__(/*! ./components/Form */ "./src/components/Form.ts");
+
+var _Head = __webpack_require__(/*! ./components/Head */ "./src/components/Head.ts");
+
+var _Header = __webpack_require__(/*! ./components/Header */ "./src/components/Header.ts");
 
 var _Heading = __webpack_require__(/*! ./components/Heading */ "./src/components/Heading.ts");
 
-var _Head = __webpack_require__(/*! ./components/Head */ "./src/components/Head.ts");
+var _Hidden = __webpack_require__(/*! ./components/Hidden */ "./src/components/Hidden.ts");
 
 var _Hr = __webpack_require__(/*! ./components/Hr */ "./src/components/Hr.ts");
 
 var _Html = __webpack_require__(/*! ./components/Html */ "./src/components/Html.ts");
 
+var _I = __webpack_require__(/*! ./components/I */ "./src/components/I.ts");
+
 var _Icon = __webpack_require__(/*! ./components/Icon */ "./src/components/Icon.ts");
+
+var _IFrame = __webpack_require__(/*! ./components/IFrame */ "./src/components/IFrame.ts");
 
 var _Image = __webpack_require__(/*! ./components/Image */ "./src/components/Image.ts");
 
+var _Ins = __webpack_require__(/*! ./components/Ins */ "./src/components/Ins.ts");
+
+var _Kbd = __webpack_require__(/*! ./components/Kbd */ "./src/components/Kbd.ts");
+
 var _Label = __webpack_require__(/*! ./components/Label */ "./src/components/Label.ts");
 
-var _Option = __webpack_require__(/*! ./components/Option */ "./src/components/Option.ts");
-
-var _Ol = __webpack_require__(/*! ./components/Ol */ "./src/components/Ol.ts");
-
-var _Ul = __webpack_require__(/*! ./components/Ul */ "./src/components/Ul.ts");
+var _Legend = __webpack_require__(/*! ./components/Legend */ "./src/components/Legend.ts");
 
 var _Li = __webpack_require__(/*! ./components/Li */ "./src/components/Li.ts");
 
+var _Link = __webpack_require__(/*! ./components/Link */ "./src/components/Link.ts");
+
+var _Main = __webpack_require__(/*! ./components/Main */ "./src/components/Main.ts");
+
+var _Map = __webpack_require__(/*! ./components/Map */ "./src/components/Map.ts");
+
+var _Mark = __webpack_require__(/*! ./components/Mark */ "./src/components/Mark.ts");
+
+var _Menu = __webpack_require__(/*! ./components/Menu */ "./src/components/Menu.ts");
+
+var _Meta = __webpack_require__(/*! ./components/Meta */ "./src/components/Meta.ts");
+
+var _Meter = __webpack_require__(/*! ./components/Meter */ "./src/components/Meter.ts");
+
+var _Nav = __webpack_require__(/*! ./components/Nav */ "./src/components/Nav.ts");
+
+var _NoScript = __webpack_require__(/*! ./components/NoScript */ "./src/components/NoScript.ts");
+
+var _ObjectComponent = __webpack_require__(/*! ./components/ObjectComponent */ "./src/components/ObjectComponent.ts");
+
+var _Ol = __webpack_require__(/*! ./components/Ol */ "./src/components/Ol.ts");
+
+var _OptGroup = __webpack_require__(/*! ./components/OptGroup */ "./src/components/OptGroup.ts");
+
+var _Option = __webpack_require__(/*! ./components/Option */ "./src/components/Option.ts");
+
+var _Output = __webpack_require__(/*! ./components/Output */ "./src/components/Output.ts");
+
 var _Paragraph = __webpack_require__(/*! ./components/Paragraph */ "./src/components/Paragraph.ts");
+
+var _Param = __webpack_require__(/*! ./components/Param */ "./src/components/Param.ts");
 
 var _Password = __webpack_require__(/*! ./components/Password */ "./src/components/Password.ts");
 
+var _Picture = __webpack_require__(/*! ./components/Picture */ "./src/components/Picture.ts");
+
 var _Pre = __webpack_require__(/*! ./components/Pre */ "./src/components/Pre.ts");
+
+var _Progress = __webpack_require__(/*! ./components/Progress */ "./src/components/Progress.ts");
+
+var _Q = __webpack_require__(/*! ./components/Q */ "./src/components/Q.ts");
 
 var _Radio = __webpack_require__(/*! ./components/Radio */ "./src/components/Radio.ts");
 
+var _Rb = __webpack_require__(/*! ./components/Rb */ "./src/components/Rb.ts");
+
 var _Row = __webpack_require__(/*! ./components/Row */ "./src/components/Row.ts");
+
+var _Rt = __webpack_require__(/*! ./components/Rt */ "./src/components/Rt.ts");
+
+var _Rtc = __webpack_require__(/*! ./components/Rtc */ "./src/components/Rtc.ts");
+
+var _Ruby = __webpack_require__(/*! ./components/Ruby */ "./src/components/Ruby.ts");
+
+var _S = __webpack_require__(/*! ./components/S */ "./src/components/S.ts");
+
+var _Samp = __webpack_require__(/*! ./components/Samp */ "./src/components/Samp.ts");
+
+var _Script = __webpack_require__(/*! ./components/Script */ "./src/components/Script.ts");
+
+var _Section = __webpack_require__(/*! ./components/Section */ "./src/components/Section.ts");
 
 var _Select = __webpack_require__(/*! ./components/Select */ "./src/components/Select.ts");
 
+var _Slot = __webpack_require__(/*! ./components/Slot */ "./src/components/Slot.ts");
+
+var _Small = __webpack_require__(/*! ./components/Small */ "./src/components/Small.ts");
+
+var _Source = __webpack_require__(/*! ./components/Source */ "./src/components/Source.ts");
+
+var _Span = __webpack_require__(/*! ./components/Span */ "./src/components/Span.ts");
+
 var _Store = __webpack_require__(/*! ./components/Store */ "./src/components/Store.ts");
+
+var _Strong = __webpack_require__(/*! ./components/Strong */ "./src/components/Strong.ts");
+
+var _Style = __webpack_require__(/*! ./components/Style */ "./src/components/Style.ts");
+
+var _Sub = __webpack_require__(/*! ./components/Sub */ "./src/components/Sub.ts");
+
+var _Summary = __webpack_require__(/*! ./components/Summary */ "./src/components/Summary.ts");
+
+var _Sup = __webpack_require__(/*! ./components/Sup */ "./src/components/Sup.ts");
+
+var _Table = __webpack_require__(/*! ./components/Table */ "./src/components/Table.ts");
+
+var _TBody = __webpack_require__(/*! ./components/TBody */ "./src/components/TBody.ts");
+
+var _Td = __webpack_require__(/*! ./components/Td */ "./src/components/Td.ts");
+
+var _Template = __webpack_require__(/*! ./components/Template */ "./src/components/Template.ts");
 
 var _TextArea = __webpack_require__(/*! ./components/TextArea */ "./src/components/TextArea.ts");
 
+var _TFoot = __webpack_require__(/*! ./components/TFoot */ "./src/components/TFoot.ts");
+
+var _Th = __webpack_require__(/*! ./components/Th */ "./src/components/Th.ts");
+
+var _THead = __webpack_require__(/*! ./components/THead */ "./src/components/THead.ts");
+
+var _Time = __webpack_require__(/*! ./components/Time */ "./src/components/Time.ts");
+
 var _Title = __webpack_require__(/*! ./components/Title */ "./src/components/Title.ts");
+
+var _Tr = __webpack_require__(/*! ./components/Tr */ "./src/components/Tr.ts");
+
+var _Track = __webpack_require__(/*! ./components/Track */ "./src/components/Track.ts");
+
+var _U = __webpack_require__(/*! ./components/U */ "./src/components/U.ts");
+
+var _Ul = __webpack_require__(/*! ./components/Ul */ "./src/components/Ul.ts");
+
+var _Var = __webpack_require__(/*! ./components/Var */ "./src/components/Var.ts");
+
+var _Video = __webpack_require__(/*! ./components/Video */ "./src/components/Video.ts");
+
+var _Wbr = __webpack_require__(/*! ./components/Wbr */ "./src/components/Wbr.ts");
 
 var _AlertDecorator = __webpack_require__(/*! ./libraries/bootstrap4/components/AlertDecorator */ "./src/libraries/bootstrap4/components/AlertDecorator.ts");
 
@@ -9208,61 +15306,128 @@ exports.enumInputMode = _Component.enumInputMode;
 exports.ComponentContainer = _ComponentContainer.ComponentContainer;
 exports.Input = _Input.Input;
 exports.enumInputType = _Input.enumInputType;
-exports.Hidden = _Hidden.Hidden;
 exports.Abbr = _Abbr.Abbr;
 exports.Address = _Address.Address;
 exports.Alert = _Alert.Alert;
 exports.enumAlertStyle = _Alert.enumAlertStyle;
+exports.Anchor = _Anchor.Anchor;
 exports.Area = _Area.Area;
 exports.Article = _Article.Article;
 exports.ASide = _ASide.ASide;
 exports.Audio = _Audio.Audio;
-exports.Anchor = _Anchor.Anchor;
 exports.B = _B.B;
 exports.BDI = _BDI.BDI;
 exports.BDO = _BDO.BDO;
 exports.BlockQuote = _BlockQuote.BlockQuote;
 exports.Body = _Body.Body;
+exports.Br = _Br.Br;
 exports.Button = _Button.Button;
 exports.enumButtonStyle = _Button.enumButtonStyle;
 exports.enumButtonType = _Button.enumButtonType;
 exports.enumButtonSize = _Button.enumButtonSize;
-exports.Br = _Br.Br;
 exports.Canvas = _Canvas.Canvas;
 exports.Caption = _Caption.Caption;
-exports.Container = _Container.Container;
 exports.Checkbox = _Checkbox.Checkbox;
 exports.Cite = _Cite.Cite;
 exports.Code = _Code.Code;
 exports.Col = _Col.Col;
 exports.ColGroup = _ColGroup.ColGroup;
 exports.Column = _Column.Column;
+exports.Container = _Container.Container;
+exports.Data = _Data.Data;
+exports.DataList = _DataList.DataList;
 exports.DateInput = _DateInput.DateInput;
+exports.Dd = _Dd.Dd;
+exports.Del = _Del.Del;
+exports.Details = _Details.Details;
+exports.Dfn = _Dfn.Dfn;
 exports.Dialog = _Dialog.Dialog;
 exports.Div = _Div.Div;
+exports.Dl = _Dl.Dl;
+exports.Dt = _Dt.Dt;
+exports.Em = _Em.Em;
+exports.Embed = _Embed.Embed;
+exports.FieldSet = _FieldSet.FieldSet;
+exports.FigCaption = _FigCaption.FigCaption;
+exports.Figure = _Figure.Figure;
+exports.Footer = _Footer.Footer;
 exports.Form = _Form.Form;
 exports.enumFormEncoding = _Form.enumFormEncoding;
 exports.enumFormMethod = _Form.enumFormMethod;
-exports.Heading = _Heading.Heading;
 exports.Head = _Head.Head;
+exports.Header = _Header.Header;
+exports.Heading = _Heading.Heading;
+exports.Hidden = _Hidden.Hidden;
 exports.Hr = _Hr.Hr;
 exports.Html = _Html.Html;
+exports.I = _I.I;
 exports.Icon = _Icon.Icon;
+exports.IFrame = _IFrame.IFrame;
 exports.Image = _Image.Image;
+exports.Ins = _Ins.Ins;
+exports.Kbd = _Kbd.Kbd;
 exports.Label = _Label.Label;
-exports.Option = _Option.Option;
-exports.Ol = _Ol.Ol;
-exports.Ul = _Ul.Ul;
+exports.Legend = _Legend.Legend;
 exports.Li = _Li.Li;
+exports.Link = _Link.Link;
+exports.Main = _Main.Main;
+exports.Map = _Map.Map;
+exports.Mark = _Mark.Mark;
+exports.Menu = _Menu.Menu;
+exports.Meta = _Meta.Meta;
+exports.Meter = _Meter.Meter;
+exports.Nav = _Nav.Nav;
+exports.NoScript = _NoScript.NoScript;
+exports.ObjectComponent = _ObjectComponent.ObjectComponent;
+exports.Ol = _Ol.Ol;
+exports.OptGroup = _OptGroup.OptGroup;
+exports.Option = _Option.Option;
+exports.Output = _Output.Output;
 exports.Paragraph = _Paragraph.Paragraph;
+exports.Param = _Param.Param;
 exports.Password = _Password.Password;
+exports.Picture = _Picture.Picture;
 exports.Pre = _Pre.Pre;
+exports.Progress = _Progress.Progress;
+exports.Q = _Q.Q;
 exports.Radio = _Radio.Radio;
+exports.Rb = _Rb.Rb;
 exports.Row = _Row.Row;
+exports.Rt = _Rt.Rt;
+exports.Rtc = _Rtc.Rtc;
+exports.Ruby = _Ruby.Ruby;
+exports.S = _S.S;
+exports.Samp = _Samp.Samp;
+exports.Script = _Script.Script;
+exports.Section = _Section.Section;
 exports.Select = _Select.Select;
+exports.Slot = _Slot.Slot;
+exports.Small = _Small.Small;
+exports.Source = _Source.Source;
+exports.Span = _Span.Span;
 exports.Store = _Store.Store;
+exports.Strong = _Strong.Strong;
+exports.Style = _Style.Style;
+exports.Sub = _Sub.Sub;
+exports.Summary = _Summary.Summary;
+exports.Sup = _Sup.Sup;
+exports.Table = _Table.Table;
+exports.TBody = _TBody.TBody;
+exports.Td = _Td.Td;
+exports.Template = _Template.Template;
 exports.TextArea = _TextArea.TextArea;
+exports.TFoot = _TFoot.TFoot;
+exports.Th = _Th.Th;
+exports.THead = _THead.THead;
+exports.Time = _Time.Time;
 exports.Title = _Title.Title;
+exports.Tr = _Tr.Tr;
+exports.Track = _Track.Track;
+exports.U = _U.U;
+exports.Ul = _Ul.Ul;
+exports.Var = _Var.Var;
+exports.Video = _Video.Video;
+exports.Wbr = _Wbr.Wbr;
 
 /**
  * Bootstrap _aClasses

@@ -69,7 +69,7 @@ class Row extends ComponentContainer {
      * @param size
      * @returns {*}
      */
-    public addColumn(id: string, size: string) : Column
+    public addColumn(id: string, size: string | number) : Column
     {
         let oItem = new Column(id);
         oItem.setSize(size);

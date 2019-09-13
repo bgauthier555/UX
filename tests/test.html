@@ -43,7 +43,7 @@
 
             <div id="zone"></div>
 
-
+            <div id="progressZone"></div>
 
 
         </main>
@@ -69,11 +69,10 @@
         a.setText('Hello world');
         a.setIcon(UX.FontAwesome.FA_CALENDAR);
 
-        a.on('onAlertClose', function() {
-           alert('A');
-        });
 
-        a.trigger('onAlertClose');
+        let p = new window.UX.Progress('progressZone');
+        p.setAttribute('max', 100);
+        p.setAttribute('value', 66);
 
 
         let page = new UX.Html();

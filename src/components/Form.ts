@@ -42,7 +42,7 @@ export enum enumFormMethod {
 import { ComponentContainer } from '../ComponentContainer';
 
 /**
- * container component
+ * Form component
  *
  * @copyright Benoit Gauthier <bgauthier555@gmail.com>
  * @author Benoit Gauthier <bgauthier555@gmail.com>

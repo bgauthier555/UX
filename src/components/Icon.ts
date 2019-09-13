@@ -1,7 +1,7 @@
 import { Component } from '../Component';
 import {FontAwesome} from "../FontAwesome";
 /**
- * Input control
+ * Icon control
  *
  * @copyright Benoit Gauthier <bgauthier555@gmail.com>
  * @author Benoit Gauthier <bgauthier555@gmail.com>

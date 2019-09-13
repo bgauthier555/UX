@@ -1,7 +1,7 @@
 import { ComponentContainer } from '../ComponentContainer';
 
 /**
- * Div component
+ * Option component
  *
  * @copyright Benoit Gauthier <bgauthier555@gmail.com>
  * @author Benoit Gauthier <bgauthier555@gmail.com>

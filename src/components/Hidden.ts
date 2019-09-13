@@ -2,7 +2,7 @@ import {enumInputType, Input} from "./Input";
 import {FontAwesome} from "../FontAwesome";
 
 /**
- * Input control
+ * Hidden Input control
  *
  * @copyright Benoit Gauthier <bgauthier555@gmail.com>
  * @author Benoit Gauthier <bgauthier555@gmail.com>

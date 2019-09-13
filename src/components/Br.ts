@@ -3,7 +3,7 @@ import {FontAwesome} from "../FontAwesome";
 import {Component} from "../Component";
 
 /**
- * Body component
+ * Br component
  *
  * @copyright Benoit Gauthier <bgauthier555@gmail.com>
  * @author Benoit Gauthier <bgauthier555@gmail.com>
@@ -11,7 +11,7 @@ import {Component} from "../Component";
  * @class
  * @inheritdoc
  * @public
- * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/body
+ * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/br
  */
 class Br extends Component {
 
@@ -48,7 +48,7 @@ class Br extends Component {
         return {
             name : 'Br',
             description : 'HTML Line break element',
-            category : 'content',
+            category : 'component',
             icon : FontAwesome.FA_SQUARE_O,
             isContainer: true,
             libraries : {
